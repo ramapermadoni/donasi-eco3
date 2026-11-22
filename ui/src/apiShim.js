@@ -1,7 +1,10 @@
 // Adaptor W7: menerjemahkan panggilan REST lama (/api/...) ke method Frappe donasionline.api.* (/api/method/...).
 // Dipasang sekali di main.js bila VITE_REAL_API != '0'. Respons Frappe {message: X} dibuka menjadi X;
 // galat Frappe dipetakan ke {error: "..."} agar kode halaman lama tetap jalan.
-const M = '/api/method/donasionline.api.'
+// VITE_API_BASE kosong = satu domain dengan Frappe (mode gabung); berisi URL = UI terpisah (mode pisah).
+const BASE = (import.meta.env.VITE_API_BASE || '').replace(/\/$/, '')
+const M = BASE + '/api/method/donasionline.api.'
+const CRED = BASE ? 'include' : 'same-origin'
 // [HTTP, regex path, method, pemeta argumen (match, query, body) -> params]
 const R = [
   ['GET', /^\/api\/auth\/me$/, 'auth.me'],
@@ -84,11 +87,11 @@ async function shimmed(input, init = {}) {
   if (method === 'GET') {
     const qs = new URLSearchParams(params).toString()
     if (qs) target += '?' + qs
-    opts = { method: 'GET', headers, credentials: 'same-origin' }
+    opts = { method: 'GET', headers, credentials: CRED }
   } else {
     headers['Content-Type'] = 'application/json'
     if (csrf) headers['X-Frappe-CSRF-Token'] = csrf
-    opts = { method: 'POST', headers, body: JSON.stringify(params), credentials: 'same-origin', ...(init.keepalive === undefined ? {} : { keepalive: init.keepalive }) }
+    opts = { method: 'POST', headers, body: JSON.stringify(params), credentials: CRED, ...(init.keepalive === undefined ? {} : { keepalive: init.keepalive }) }
   }
   const res = await realFetch(target, opts)
   if (hit.fn === 'payment.qr_png') return res

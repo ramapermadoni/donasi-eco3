@@ -20,3 +20,6 @@ scheduler_events = {
 		"donasionline.api.recurring.purge_logs",
 	],
 }
+
+# Mode gabung: UI Vue (public/ui) dilayani Frappe. Dimatikan lewat Pengaturan Donasi.serve_ui.
+page_renderer = ["donasionline.ui.UiRenderer"]

@@ -4,6 +4,8 @@ import vue from '@vitejs/plugin-vue'
 // Dev: teruskan /api/* ke backend Frappe lokal (donasi-eco3, port 8082). TIDAK ke sedekah.id.
 export default defineConfig({
   plugins: [vue()],
+  // build:gabung -> hasil dilayani Frappe dari apps/donasionline/donasionline/public/ui (aset hash di /ui-assets/)
+  build: { assetsDir: 'ui-assets' },
   server: {
     host: '127.0.0.1',
     port: 5174,

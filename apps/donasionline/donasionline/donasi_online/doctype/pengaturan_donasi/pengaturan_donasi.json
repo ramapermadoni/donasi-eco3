@@ -11,7 +11,8 @@
   "posting_enabled",
   "h_zakat",
   "h_infak",
-  "cost_center_operasional"
+  "cost_center_operasional",
+  "serve_ui"
  ],
  "fields": [
   {
@@ -54,6 +55,13 @@
    "fieldtype": "Link",
    "label": "Cost Center Operasional Amil",
    "options": "Cost Center"
+  },
+  {
+   "fieldname": "serve_ui",
+   "fieldtype": "Check",
+   "label": "Layani UI donasi dari Frappe",
+   "default": "1",
+   "description": "Mode gabung: halaman donasi (UI Vue) dilayani dari domain ini. Matikan bila UI dipasang terpisah."
   }
  ],
  "permissions": [
