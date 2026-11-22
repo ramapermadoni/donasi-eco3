@@ -3,7 +3,7 @@ import json
 
 import frappe
 
-from donasionline.api._util import clean
+from donasionline.api._util import clean, feed_item
 
 SORTS = {"terbaru": "tanggal desc", "terlama": "tanggal asc", "a-z": "title asc", "z-a": "title desc"}
 
@@ -12,9 +12,8 @@ SORTS = {"terbaru": "tanggal desc", "terlama": "tanggal asc", "a-z": "title asc"
 def penyaluran_list(limit=5, offset=0, sort="terbaru", category=None, location=None, program=None):
 	flt = {k: v for k, v in {"category": category, "location": location, "program": program}.items() if v and v != "Semua"}
 	total = frappe.db.count("Penyaluran", flt)
-	rows = frappe.get_all("Penyaluran", flt, ["slug", "title", "subtitle", "tanggal as date", "category", "image_url as image", "location", "program", "description"], order_by=SORTS.get(sort, SORTS["terbaru"]), limit=min(int(limit), 50), start=int(offset))
-	for r in rows:
-		r["description"] = clean(r.get("description"))
+	rows = frappe.get_all("Penyaluran", flt, ["slug", "title", "subtitle", "tanggal", "category", "image_url", "location", "program", "description"], order_by=SORTS.get(sort, SORTS["terbaru"]), limit=min(int(limit), 50), start=int(offset))
+	rows = [feed_item({**r, "description": clean(r.get("description"))}) for r in rows]
 	return {"items": rows, "total": total, "hasMore": int(offset) + len(rows) < total}
 
 

@@ -1,7 +1,7 @@
 """/api/campaigns/*"""
 import frappe
 
-from donasionline.api._util import campaign_by_key, clean, mask_name, raised
+from donasionline.api._util import campaign_by_key, clean, feed_item, mask_name, raised
 
 FIELDS = ["name", "slug", "title", "nama_kampanye", "image_url", "target_amount", "category", "is_featured", "home_rank", "is_system"]
 
@@ -59,4 +59,4 @@ def updates(slug):
 	"""Kabar terbaru = Penyaluran yang diikat ke kampanye."""
 	name = campaign_by_key(slug)
 	rows = frappe.get_all("Penyaluran", {"kampanye": name}, ["slug", "title", "subtitle", "tanggal", "image_url"], order_by="tanggal desc", limit=50) if name else []
-	return {"items": rows}
+	return {"items": [feed_item(r) for r in rows]}

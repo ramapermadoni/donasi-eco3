@@ -93,3 +93,25 @@ def raised(campaign):
 		"select coalesce(sum(amount),0) from `tabDonation` where kampanye=%s and status='Paid'", campaign
 	)
 	return float(r[0][0])
+
+
+_BULAN = ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"]
+
+
+def date_label(d):
+	"""'10 Sep 2026' (bentuk date_label yang dipakai UI)."""
+	from frappe.utils import getdate
+
+	if not d:
+		return ""
+	d = getdate(d)
+	return f"{d.day} {_BULAN[d.month - 1]} {d.year}"
+
+
+def feed_item(r):
+	"""Bentuk item penyaluran untuk UI: id, slug, title, subtitle, date_label, image_url (+ field lain)."""
+	r = dict(r)
+	r["id"] = r.get("slug")
+	r["image_url"] = r.get("image_url") or r.get("image")
+	r["date_label"] = date_label(r.get("tanggal") or r.get("date"))
+	return r
