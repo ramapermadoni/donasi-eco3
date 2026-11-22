@@ -1,0 +1,62 @@
+{
+ "doctype": "DocType",
+ "name": "Wilayah",
+ "module": "Donasi Online",
+ "custom": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "wilayah_name",
+  "province"
+ ],
+ "fields": [
+  {
+   "fieldname": "wilayah_name",
+   "label": "Nama",
+   "fieldtype": "Data",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "province",
+   "label": "Provinsi",
+   "fieldtype": "Data",
+   "in_list_view": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "links": [],
+ "modified": "2026-11-22 12:00:00.000000",
+ "creation": "2026-11-22 12:00:00.000000",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Petugas Donasi",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Akuntan Donasi",
+   "read": 1,
+   "report": 1,
+   "export": 1
+  }
+ ],
+ "autoname": "format:WIL-{#####}",
+ "title_field": "wilayah_name"
+}

@@ -1,0 +1,64 @@
+{
+ "doctype": "DocType",
+ "name": "Pengaturan Gamifikasi",
+ "module": "Donasi Online",
+ "custom": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "enabled",
+  "claim_enabled",
+  "idr_per_point"
+ ],
+ "fields": [
+  {
+   "fieldname": "enabled",
+   "label": "Aktif",
+   "fieldtype": "Check"
+  },
+  {
+   "fieldname": "claim_enabled",
+   "label": "Klaim aktif",
+   "fieldtype": "Check"
+  },
+  {
+   "fieldname": "idr_per_point",
+   "label": "Rupiah per 1 poin",
+   "fieldtype": "Currency"
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "links": [],
+ "modified": "2026-11-22 12:00:00.000000",
+ "creation": "2026-11-22 12:00:00.000000",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 0,
+   "delete": 0,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Petugas Donasi",
+   "read": 1,
+   "write": 1,
+   "create": 0,
+   "delete": 0,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Akuntan Donasi",
+   "read": 1,
+   "report": 1,
+   "export": 1
+  }
+ ],
+ "issingle": 1
+}

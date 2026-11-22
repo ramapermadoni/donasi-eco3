@@ -1,0 +1,85 @@
+{
+ "total": "37.606",
+ "rows": [
+  {
+   "name": "A**",
+   "amount": "Rp2.000",
+   "method": "qris",
+   "logo": "https://sedekah.id/icons/bank/qris.png",
+   "when": "6 mnt lalu",
+   "campaign": "Jemput Keberkahan Dengan Sedekah"
+  },
+  {
+   "name": "A**",
+   "amount": "Rp200.000",
+   "method": "qris",
+   "logo": "https://sedekah.id/icons/bank/qris.png",
+   "when": "6 mnt lalu",
+   "campaign": "Kirim Bantuan Kemanusiaan untuk Rakyat Gaza"
+  },
+  {
+   "name": "H*** A***",
+   "amount": "Rp2.000",
+   "method": "qris",
+   "logo": "https://sedekah.id/icons/bank/qris.png",
+   "when": "6 mnt lalu",
+   "campaign": "Jemput Keberkahan Dengan Sedekah"
+  },
+  {
+   "name": "H*** A***",
+   "amount": "Rp22.000",
+   "method": "qris",
+   "logo": "https://sedekah.id/icons/bank/qris.png",
+   "when": "6 mnt lalu",
+   "campaign": "7 Kilometer untuk Air Bersih, Hadirkan Sumur Bor untuk Warga Desa Kedungbanteng"
+  },
+  {
+   "name": "Teman Sedekah",
+   "amount": "Rp10.000",
+   "method": "qris",
+   "logo": "https://sedekah.id/icons/bank/qris.png",
+   "when": "49 mnt lalu",
+   "campaign": "Jemput Keberkahan Dengan Sedekah"
+  },
+  {
+   "name": "Teman Sedekah",
+   "amount": "Rp2.000",
+   "method": "qris",
+   "logo": "https://sedekah.id/icons/bank/qris.png",
+   "when": "57 mnt lalu",
+   "campaign": "Jemput Keberkahan Dengan Sedekah"
+  },
+  {
+   "name": "Teman Sedekah",
+   "amount": "Rp18.000",
+   "method": "qris",
+   "logo": "https://sedekah.id/icons/bank/qris.png",
+   "when": "57 mnt lalu",
+   "campaign": "Bangun Dapur Indonesia di Gaza Palestina"
+  },
+  {
+   "name": "Teman Sedekah",
+   "amount": "Rp4.500",
+   "method": "qris",
+   "logo": "https://sedekah.id/icons/bank/qris.png",
+   "when": "1 jam lalu",
+   "campaign": "Jemput Keberkahan Dengan Sedekah"
+  },
+  {
+   "name": "Teman Sedekah",
+   "amount": "Rp2.000",
+   "method": "qris",
+   "logo": "https://sedekah.id/icons/bank/qris.png",
+   "when": "1 jam lalu",
+   "campaign": "Jemput Keberkahan Dengan Sedekah"
+  },
+  {
+   "name": "Teman Sedekah",
+   "amount": "Rp3.000",
+   "method": "qris",
+   "logo": "https://sedekah.id/icons/bank/qris.png",
+   "when": "1 jam lalu",
+   "campaign": "Kirim Bantuan Kemanusiaan untuk Rakyat Gaza"
+  }
+ ]
+}

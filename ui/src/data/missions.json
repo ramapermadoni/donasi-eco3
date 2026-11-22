@@ -1,0 +1,99 @@
+{
+ "missions": [
+  {
+   "id": "cmr7kiyce0007kmna8um3kaij",
+   "slug": "istighfar500x",
+   "type": "TAP_COUNTER",
+   "title": "Istighfar 500×",
+   "icon": null,
+   "instruction": null,
+   "meaning": "Aku memohon ampun kepada Allah",
+   "dzikirName": "Istighfar",
+   "arabicText": "أستغفر الله",
+   "latinText": "Astagfirullah",
+   "targetCount": 500,
+   "targetDurationSec": null,
+   "shareText": null,
+   "shareUrl": null,
+   "voucherAmount": 5000,
+   "minDurationSec": 120,
+   "maxDurationSec": 1200,
+   "campaignTitle": "Jemput Keberkahan Dengan Sedekah",
+   "poolAvailable": 710000
+  },
+  {
+   "id": "cmr90oz1w00qskm1cnoad623i",
+   "slug": "shalawat",
+   "type": "TAP_COUNTER",
+   "title": "Shalawat 100×",
+   "icon": "https://sedekah.id/api/media/media/2026/07/b749d506-d4cf-4673-a131-b6e72467d4fa.svg",
+   "instruction": null,
+   "meaning": "Ya Allah, berilah rahmat kepada Nabi Muhammad dan keluarga Nabi Muhammad sebagaimana Engkau telah memberikan rahmat kepada Nabi Ibrahim dan keluarga Nabi Ibrahim. Sesungguhnya Engkau Maha Terpuji lagi Maha Mulia.\"",
+   "dzikirName": "Shalawat",
+   "arabicText": "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ",
+   "latinText": "Allahumma sholli 'ala Muhammad wa 'ala aali Muhammad, kamaa shollaita 'ala Ibrahim wa 'ala aali Ibrahim, innaka hamiidum majiid.",
+   "targetCount": 100,
+   "targetDurationSec": null,
+   "shareText": null,
+   "shareUrl": null,
+   "voucherAmount": 5000,
+   "minDurationSec": 120,
+   "maxDurationSec": 600,
+   "campaignTitle": "Jemput Keberkahan Dengan Sedekah",
+   "poolAvailable": 500000
+  },
+  {
+   "id": "baik_draft_tahmid_100_20260714",
+   "slug": "tasbih100",
+   "type": "TAP_COUNTER",
+   "title": "Tasbih 100×",
+   "icon": "https://sedekah.id/api/media/media/2026/07/de76328b-b938-4f6d-9190-add4fb81e834.svg",
+   "instruction": null,
+   "meaning": "**سُبْحَانَ اللهِ**  \r\n*Maha Suci Allah.*\r\n\r\n**الْحَمْدُ لِلّٰهِ**  \r\n*Segala puji bagi Allah.*\r\n\r\n**اللهُ أَكْبَرُ**  \r\n*Allah Maha Besar.*",
+   "dzikirName": "Tasbih",
+   "arabicText": "سُبْحَانَ اللهِ، الْحَمْدُ لِلّٰهِ، اللهُ أَكْبَرُ",
+   "latinText": "Subḥānallāh, Alḥamdulillāh, Allāhu Akbar",
+   "targetCount": 100,
+   "targetDurationSec": null,
+   "shareText": null,
+   "shareUrl": null,
+   "voucherAmount": 5000,
+   "minDurationSec": 150,
+   "maxDurationSec": 1200,
+   "campaignTitle": "Jemput Keberkahan Dengan Sedekah",
+   "poolAvailable": 420000
+  }
+ ],
+ "sponsor": [
+  {
+   "id": "cmr7kiyce0007kmna8um3kaij",
+   "title": "Istighfar 500×",
+   "campaignId": "clt00testsedekah000001234",
+   "campaignTitle": "Jemput Keberkahan Dengan Sedekah",
+   "voucherAmount": 5000,
+   "icon": null,
+   "type": "TAP_COUNTER",
+   "poolAvailable": 710000
+  },
+  {
+   "id": "cmr90oz1w00qskm1cnoad623i",
+   "title": "Shalawat 100×",
+   "campaignId": "clt00testsedekah000001234",
+   "campaignTitle": "Jemput Keberkahan Dengan Sedekah",
+   "voucherAmount": 5000,
+   "icon": "https://sedekah.id/api/media/media/2026/07/b749d506-d4cf-4673-a131-b6e72467d4fa.svg",
+   "type": "TAP_COUNTER",
+   "poolAvailable": 500000
+  },
+  {
+   "id": "baik_draft_tahmid_100_20260714",
+   "title": "Tasbih 100×",
+   "campaignId": "clt00testsedekah000001234",
+   "campaignTitle": "Jemput Keberkahan Dengan Sedekah",
+   "voucherAmount": 5000,
+   "icon": "https://sedekah.id/api/media/media/2026/07/de76328b-b938-4f6d-9190-add4fb81e834.svg",
+   "type": "TAP_COUNTER",
+   "poolAvailable": 420000
+  }
+ ]
+}

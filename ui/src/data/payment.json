@@ -1,0 +1,82 @@
+[
+ {
+  "code": "bri_va",
+  "name": "Transfer BRI",
+  "type": "virtual_account",
+  "feeFlat": 4000,
+  "feePercent": 0,
+  "minAmount": 25000,
+  "maxAmount": 999999999,
+  "iconUrl": null
+ },
+ {
+  "code": "other_va",
+  "name": "Transfer Mandiri",
+  "type": "virtual_account",
+  "feeFlat": 4000,
+  "feePercent": 0,
+  "minAmount": 10000,
+  "maxAmount": 999999999,
+  "iconUrl": null
+ },
+ {
+  "code": "bsi_va",
+  "name": "Transfer BSI",
+  "type": "virtual_account",
+  "feeFlat": 4000,
+  "feePercent": 0,
+  "minAmount": 25000,
+  "maxAmount": 999999999,
+  "iconUrl": null
+ },
+ {
+  "code": "bni_va",
+  "name": "Transfer BNI",
+  "type": "virtual_account",
+  "feeFlat": 4000,
+  "feePercent": 0,
+  "minAmount": 25000,
+  "maxAmount": 999999999,
+  "iconUrl": null
+ },
+ {
+  "code": "permata_va",
+  "name": "Transfer Permata",
+  "type": "virtual_account",
+  "feeFlat": 4000,
+  "feePercent": 0,
+  "minAmount": 25000,
+  "maxAmount": 999999999,
+  "iconUrl": null
+ },
+ {
+  "code": "gopay",
+  "name": "GoPay",
+  "type": "ewallet",
+  "feeFlat": 0,
+  "feePercent": 0,
+  "minAmount": 1000,
+  "maxAmount": 10000000,
+  "iconUrl": null
+ },
+ {
+  "code": "shopeepay",
+  "name": "ShopeePay",
+  "type": "ewallet",
+  "feeFlat": 0,
+  "feePercent": 0,
+  "minAmount": 1000,
+  "maxAmount": 10000000,
+  "iconUrl": null
+ },
+ {
+  "code": "qris",
+  "name": "QRIS",
+  "type": "qris",
+  "feeFlat": 0,
+  "feePercent": 0.7,
+  "minAmount": 3000,
+  "maxAmount": 10000000,
+  "iconUrl": null
+ }
+]

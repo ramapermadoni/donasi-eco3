@@ -1,0 +1,123 @@
+{
+ "doctype": "DocType",
+ "name": "Metode Pembayaran",
+ "module": "Donasi Online",
+ "custom": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "code",
+  "method_name",
+  "method_type",
+  "fee_flat",
+  "fee_percent",
+  "min_amount",
+  "max_amount",
+  "icon_url",
+  "enabled",
+  "sort_order",
+  "instructions"
+ ],
+ "fields": [
+  {
+   "fieldname": "code",
+   "label": "Kode",
+   "fieldtype": "Data",
+   "reqd": 1,
+   "unique": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "method_name",
+   "label": "Nama",
+   "fieldtype": "Data",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "method_type",
+   "label": "Tipe",
+   "fieldtype": "Select",
+   "options": "qris\nvirtual_account\newallet\nretail\nmanual_transfer\ncredit_card",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "fee_flat",
+   "label": "Biaya tetap",
+   "fieldtype": "Currency"
+  },
+  {
+   "fieldname": "fee_percent",
+   "label": "Biaya persen",
+   "fieldtype": "Percent"
+  },
+  {
+   "fieldname": "min_amount",
+   "label": "Minimum",
+   "fieldtype": "Currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "max_amount",
+   "label": "Maksimum",
+   "fieldtype": "Currency"
+  },
+  {
+   "fieldname": "icon_url",
+   "label": "Ikon (URL)",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "enabled",
+   "label": "Aktif",
+   "fieldtype": "Check"
+  },
+  {
+   "fieldname": "sort_order",
+   "label": "Urutan",
+   "fieldtype": "Int"
+  },
+  {
+   "fieldname": "instructions",
+   "label": "Cara bayar",
+   "fieldtype": "Table",
+   "options": "Instruksi Pembayaran"
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "links": [],
+ "modified": "2026-11-22 12:00:00.000000",
+ "creation": "2026-11-22 12:00:00.000000",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Petugas Donasi",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Akuntan Donasi",
+   "read": 1,
+   "report": 1,
+   "export": 1
+  }
+ ],
+ "autoname": "field:code",
+ "title_field": "method_name"
+}

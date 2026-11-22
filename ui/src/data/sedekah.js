@@ -1,0 +1,879 @@
+export default {
+ "banners": [
+  {
+   "href": "https://sedekah.id/campaigns/sedekah",
+   "src": "https://sedekah.id/api/media/media/2026/06/01ce7f88-8870-4181-b363-f1ed0281a568.webp",
+   "alt": "Banner 1"
+  },
+  {
+   "href": "https://sedekah.id/campaigns/mengalirkan-kebaikan-sedekah-atas-nama-orang-tua",
+   "src": "https://sedekah.id/api/media/media/2026/06/1fe5df22-5f2d-4ed7-828c-2c362c00b337.webp",
+   "alt": "Banner 2"
+  },
+  {
+   "href": "https://sedekah.id/campaigns/pahala-berlipatt-dengan-sedekah-jumat",
+   "src": "https://sedekah.id/api/media/media/2026/06/5d4cb264-247d-428e-8ad0-21d483985125.webp",
+   "alt": "Banner 3"
+  },
+  {
+   "href": "https://sedekah.id/campaigns/sedekah",
+   "src": "https://sedekah.id/api/media/media/2026/06/cd9f3e8e-1623-4288-9248-a9e44781281d.webp",
+   "alt": "Banner 4"
+  },
+  {
+   "href": "https://sedekah.id/campaigns/sedekah",
+   "src": "https://sedekah.id/api/media/media/2026/06/1b99f924-6d96-4207-b780-3c3f6ec2d22c.webp",
+   "alt": "Banner 5"
+  }
+ ],
+ "campaigns": [
+  {
+   "slug": "bantu-pakpandi-bertahan",
+   "image": "https://sedekah.id/api/media/media/2026/11/364f9ebb-79cb-47f4-8bfa-39c943861c91.webp",
+   "title": "Bertahan dengan Alat Bantu Pernapasan, Pak Pandi Masih Membutuhkan Uluran Tangan",
+   "raised": "Rp 1.7 jt",
+   "percent": 3
+  },
+  {
+   "slug": "petani-ubi-cilembu",
+   "image": "https://sedekah.id/api/media/media/2026/11/51b5b216-bc76-42e8-a9ee-6eb43265469a.webp",
+   "title": "Tumbuhkan Kemandirian, Sejahterakan Petani Ubi Cilembu",
+   "raised": "Rp 535 rb",
+   "percent": 1
+  },
+  {
+   "slug": "tpq-al-ihsan-bogor",
+   "image": "https://sedekah.id/api/media/media/2026/11/e5dadaf5-7717-48e2-b401-f68f7bcb5759.webp",
+   "title": "Jangan Biarkan 60 Anak Terus Belajar Berdesakan, Bantu Bangun TPQ Al Ihsan Kiarapandak Bogor",
+   "raised": "Rp 2.6 jt",
+   "percent": 3
+  },
+  {
+   "slug": "tebar-10000-mushaf",
+   "image": "https://sedekah.id/api/media/media/2026/11/4cbb3fe3-7b0e-485e-9d64-9f3f371aadd0.webp",
+   "title": "10.000 Al-Qur’an untuk Negeri, Hadirkan Cahaya hingga Pelosok Indonesia",
+   "raised": "Rp 2.2 jt",
+   "percent": 4
+  },
+  {
+   "slug": "dukung-mimpi-yaziz",
+   "image": "https://sedekah.id/api/media/media/2026/11/1891dcc9-f8ac-45f8-ba43-42c12cb2785f.webp",
+   "title": "Keterbatasan Biaya, Bantu Anak Petani Kopi Ini Wujudkan Mimpi Menuntut Ilmu di Al-Azhar",
+   "raised": "Rp 369 rb",
+   "percent": 1
+  },
+  {
+   "slug": "rtq-lubuk-linggau",
+   "image": "https://sedekah.id/api/media/media/2026/11/bdc2c1b2-d8aa-4f12-923b-da192b4605ba.webp",
+   "title": "Bantu Kebutuhan Santri Penghafal Qur’an di Lubuklinggau",
+   "raised": "Rp 4.2 jt",
+   "percent": 21
+  },
+  {
+   "slug": "bantu-khalisa-sembuh",
+   "image": "https://sedekah.id/api/media/media/2026/11/c5e1eb50-8d00-4eb4-825d-7318fdee1fe5.webp",
+   "title": "Tiga Kali Operasi Jantung di Usia 4 Tahun, Temani Perjuangan Khalisa untuk Sembuh",
+   "raised": "Rp 580 rb",
+   "percent": 1
+  },
+  {
+   "slug": "bantu-gilang-sembuh",
+   "image": "https://sedekah.id/api/media/media/2026/11/c34326ed-8fb3-48f2-8569-d279c16ae430.webp",
+   "title": "Sejak Kecil Diuji dengan Berbagai Penyakit, Kini Gilang Berjuang Melawan Kanker",
+   "raised": "Rp 603 rb",
+   "percent": 1
+  },
+  {
+   "slug": "7-kilometer-untuk-air-bersih-hadirkan-sumur-bor-untuk-warga-desa-kedungbanteng",
+   "image": "https://sedekah.id/api/media/media/2026/11/4669d1b6-afff-45e2-ace6-74c2b1ebb45c.webp",
+   "title": "7 Kilometer untuk Air Bersih, Hadirkan Sumur Bor untuk Warga Desa Kedungbanteng",
+   "raised": "Rp 3.5 jt",
+   "percent": 4
+  },
+  {
+   "slug": "bangun-pesantren-almubarok",
+   "image": "https://sedekah.id/api/media/media/2026/10/a535aa63-c5e0-4b46-aedc-f54aecb20535.webp",
+   "title": "Belajar Tanpa Ruang Kelas, Anak – Anak di Sukabumi Menanti Hadirnya Pesantren Al-Mubarok",
+   "raised": "Rp 510 rb",
+   "percent": 0
+  },
+  {
+   "slug": "dukung-petani-mustahik",
+   "image": "https://sedekah.id/api/media/media/2026/10/2e30f38a-8cb3-499a-b7b7-9ddbb6ad071c.webp",
+   "title": "Tumbuhkan Harapan, Wujudkan Kemandirian Petani Mustahik melalui Budidaya Ubi",
+   "raised": "Rp 20 rb",
+   "percent": 0
+  },
+  {
+   "slug": "peduli-air-bersih",
+   "image": "https://sedekah.id/api/media/media/2026/10/4bb79b29-ad9d-41ed-aefc-0f5cd0b69435.webp",
+   "title": "Kemarau Berkepanjangan, Hadirkan Air Bersih untuk Warga Terdampak Kekeringan",
+   "raised": "Rp 1.4 jt",
+   "percent": 2
+  },
+  {
+   "slug": "pelatihan-sistem-pendinginan",
+   "image": "https://sedekah.id/api/media/media/2026/10/5ddf0975-3fcb-4005-ae74-b8c22e610d46.webp",
+   "title": "Bantu Mustahik Terampil, Mandiri, dan Berdaya Melalui Pelatihan Teknisi Sistem Pendingin",
+   "raised": "Rp 165 rb",
+   "percent": 0
+  },
+  {
+   "slug": "mck-mushala-saadah",
+   "image": "https://sedekah.id/api/media/media/2026/10/f2bc9b8f-7c99-4382-a400-a36748cd3033.webp",
+   "title": "Fasilitas Wudhu & MCK Terbatas, Hadirkan Sarana yang Layak di Pelosok Majalengka",
+   "raised": "Rp 5.2 jt",
+   "percent": 10
+  },
+  {
+   "slug": "peduli-sahabat-mualaf",
+   "image": "https://sedekah.id/api/media/media/2026/10/7c1dde6b-030c-4a22-8578-72b216ccb922.webp",
+   "title": "Syahadat adalah Awal Perjalanan, Temani Perjalanan Para Mualaf",
+   "raised": "Rp 153 rb",
+   "percent": 0
+  },
+  {
+   "slug": "bantu-meylani-sembuh",
+   "image": "https://sedekah.id/api/media/media/2026/10/b5d903b8-b68e-4337-a65a-555f17000d4c.webp",
+   "title": "Kista Ovarium Akut Menunda Mimpinya, Jadi Bagian Ikhtiar Kesembuhan Meylani",
+   "raised": "Rp 128 rb",
+   "percent": 0
+  },
+  {
+   "slug": "air-bersih-lombok",
+   "image": "https://sedekah.id/api/media/media/2026/10/cee01821-1477-40bf-8a75-c79cd7d55e6a.webp",
+   "title": "Wujudkan 100 Sumur Bor Pelosok Timur Indonesia",
+   "raised": "Rp 3.9 jt",
+   "percent": 8
+  },
+  {
+   "slug": "masjid-baiturrahim-serang",
+   "image": "https://sedekah.id/api/media/media/2026/10/83da1b01-9863-4296-9c02-3a04434f5b9c.webp",
+   "title": "Jaga Rumah yang Menjadi Saksi Banyak Sujud, Bantu Renovasi Masjid Baiturrahim di Serang",
+   "raised": "Rp 1.0 jt",
+   "percent": 1
+  },
+  {
+   "slug": "aku-cinta-masjid",
+   "image": "https://sedekah.id/api/media/media/2026/10/9c430ecd-e6e7-4062-8d00-a3f21bbaa372.webp",
+   "title": "Tempat Doa-Doa Dilangitkan, Jangan Biarkan Rumah Allah Terabaikan",
+   "raised": "Rp 4.5 jt",
+   "percent": 45
+  },
+  {
+   "slug": "dapurpalestina",
+   "image": "https://sedekah.id/api/media/media/2026/09/7062651f-e2a6-4cfd-8957-61243cf6c3f9.webp",
+   "title": "Bangun Dapur Indonesia di Gaza Palestina",
+   "raised": "Rp 105.0 jt",
+   "percent": 0
+  },
+  {
+   "slug": "peduli-kebakaran-sulsel",
+   "image": "https://sedekah.id/api/media/media/2026/09/a3d74bc1-7247-4ab3-b66f-dc182d74bb53.webp",
+   "title": "Kebakaran Melanda Sulawesi Selatan, Bantu Saudara Kita Kembali Bangkit",
+   "raised": "Rp 254 rb",
+   "percent": 1
+  },
+  {
+   "slug": "bbm-untuk-ojol",
+   "image": "https://sedekah.id/api/media/media/2026/09/1a4c1624-270a-4be8-9ad7-98f900bc6460.webp",
+   "title": "Jangan Biarkan Roda Nafkah Mereka Berhenti, Sedekah BBM untuk Pengemudi Ojek Online di Makassar",
+   "raised": "Rp 50 rb",
+   "percent": 0
+  },
+  {
+   "slug": "darurat-warga-gaza-kehausan-tanpa-air-yang-mencukupi",
+   "image": "https://sedekah.id/api/media/media/2026/09/3a36149e-7644-42aa-bc96-123004627e88.webp",
+   "title": "Darurat! Warga Gaza Kehausan Tanpa Air Yang Mencukupi",
+   "raised": "Rp 19.9 jt",
+   "percent": 0
+  },
+  {
+   "slug": "rtq-sumbar",
+   "image": "https://sedekah.id/api/media/media/2026/09/b9cdc289-8271-40d3-b41f-594eed333bea.webp",
+   "title": "Menjaga Cahaya Al-Qur’an, Menumbuhkan Generasi Qur’ani di Ranah Minang",
+   "raised": "Rp 5.1 jt",
+   "percent": 10
+  },
+  {
+   "slug": "tanam-kebaikan",
+   "image": "https://sedekah.id/api/media/media/2026/10/50648956-e324-4369-acbe-c3fc5b866971.webp",
+   "title": "Dari Lahan yang Terabaikan, Tumbuhkan Harapan Warga Sumatera Barat",
+   "raised": "Rp 85 rb",
+   "percent": 0
+  },
+  {
+   "slug": "banturashidshakeel",
+   "image": "https://sedekah.id/api/media/media/2026/09/d15bd617-628c-43d0-86df-62bc3bef62db.webp",
+   "title": "Bantu Rashid dan Shakeel Berjuang untuk Sembuh di Tengah Keterbatasan",
+   "raised": "Rp 710 rb",
+   "percent": 1
+  },
+  {
+   "slug": "bantukakekzulhartil",
+   "image": "https://sedekah.id/api/media/media/2026/08/0c32c57c-5969-4b1c-908c-c22faf8cda5e.webp",
+   "title": "Di Usia 74 Tahun, Kakek Zulhatril Berjuang Melawan Ancaman Kebutaan",
+   "raised": "Rp 175 rb",
+   "percent": 0
+  },
+  {
+   "slug": "bantusalwasembuh",
+   "image": "https://sedekah.id/api/media/media/2026/08/6dd783e6-62e5-41ca-890e-d8a164edbfa0.webp",
+   "title": "7 Tahun Berjuang Melawan Epilepsi dan Komplikasi, Bantu Salwa Bertahan",
+   "raised": "Rp 1.2 jt",
+   "percent": 2
+  },
+  {
+   "slug": "peduli-terdampak-karhutla",
+   "image": "https://sedekah.id/api/media/media/2026/08/17dafcc7-33f0-4963-98ef-146c17d356ae.webp",
+   "title": "Peduli Terdampak Kebakaran Hutan dan Lahan",
+   "raised": "Rp 18.1 jt",
+   "percent": 26
+  },
+  {
+   "slug": "peduli-terdampak-gempa-ntt",
+   "image": "https://sedekah.id/api/media/media/2026/08/4c394647-e384-47dc-a655-7b5a1135e753.webp",
+   "title": "Peduli Terdampak Gempa NTT",
+   "raised": "Rp 19.6 jt",
+   "percent": 33
+  },
+  {
+   "slug": "asramatahfidzpreneur",
+   "image": "https://sedekah.id/api/media/media/2026/08/34aca048-9684-4829-bf7b-06376392e0e1.webp",
+   "title": "Bangun Rumahnya, Hidupkan Hafalannya, Panen Pahalanya",
+   "raised": "Rp 2.6 jt",
+   "percent": 3
+  },
+  {
+   "slug": "bantufathursembuh",
+   "image": "https://sedekah.id/api/media/media/2026/08/1501ccbf-2762-45d9-af61-55c51642bbb3.webp",
+   "title": "Tumor Menggerogoti Sang Anak, Diabetes Merenggut Kaki Sang Ayah",
+   "raised": "Rp 435 rb",
+   "percent": 1
+  },
+  {
+   "slug": "bantuammarsembuh",
+   "image": "https://sedekah.id/api/media/media/2026/08/9ba1d703-43c7-4c6d-a5d3-d6db79a37a39.webp",
+   "title": "Luka Ammar Semakin Memburuk, Bantu Ia Kembali Berdiri dan Mengabdi",
+   "raised": "Rp 1.2 jt",
+   "percent": 3
+  },
+  {
+   "slug": "bantuafzalsembuh",
+   "image": "https://sedekah.id/api/media/media/2026/07/5fbaffcf-5b6f-4cc5-90fe-536314854b94.webp",
+   "title": "Tumor Wilms Merenggut Masa Kecil Afzal, Temani Perjuangannya untuk Sembuh",
+   "raised": "Rp 815 rb",
+   "percent": 2
+  },
+  {
+   "slug": "sumur-bor-cianjur",
+   "image": "https://sedekah.id/api/media/media/2026/07/68772654-dfe7-4184-8b98-3c525db86d48.webp",
+   "title": "Krisis Air Bersih, Wujudkan Sumur Bor untuk Kampung Gelarkubang",
+   "raised": "Rp 7.3 jt",
+   "percent": 10
+  },
+  {
+   "slug": "pesantren-ahlul-bait",
+   "image": "https://sedekah.id/api/media/media/2026/07/a429d474-9c5b-4d78-aefd-f54794250dfd.webp",
+   "title": "Saat Mereka Datang untuk Mengaji, Keterbatasan Menjadi Teman Setiap Hari",
+   "raised": "Rp 2.6 jt",
+   "percent": 7
+  },
+  {
+   "slug": "ruangbelajarlayak",
+   "image": "https://sedekah.id/api/media/media/2026/07/7cf6770e-649f-4889-b215-6c11794c06e9.webp",
+   "title": "Sekolahnya Kian Rapuh, Hadirkan Ruang Belajar yang Layak untuk Anak-Anak di Banten",
+   "raised": "Rp 1.9 jt",
+   "percent": 4
+  },
+  {
+   "slug": "mcksantricianjur",
+   "image": "https://sedekah.id/api/media/media/2026/07/908cb397-0de0-4841-8f13-f2ad2f8ce136.webp",
+   "title": "Saat Berwudhu Menjadi Perjuangan, Fasilitas yang Layak Menjadi Impian",
+   "raised": "Rp 3.5 jt",
+   "percent": 7
+  },
+  {
+   "slug": "dari-kamar-kos-menjadi-pusat-kebaikan-umat",
+   "image": "https://sedekah.id/api/media/media/2026/08/c39b9ac4-5530-4962-85f5-53d6e00dab5b.webp",
+   "title": "Dari Kamar Kos, Menjadi Pusat Kebaikan Umat",
+   "raised": "Rp 4.0 jt",
+   "percent": 4
+  },
+  {
+   "slug": "gajian-makin-berkah-dengan-sedekah",
+   "image": "https://sedekah.id/api/media/media/2026/06/bbd86b53-8a05-481c-ba21-b6237026883a.webp",
+   "title": "Gajian Makin Berkah dengan Sedekah",
+   "raised": "Rp 2.2 jt",
+   "percent": 0
+  },
+  {
+   "slug": "beasiswa-peduli-negeri-setiap-anak-berhak-belajar-setiap-mimpi-harus-dikejar",
+   "image": "https://sedekah.id/api/media/media/2026/09/9718b7bf-ddbf-4e35-8dba-438e4abe48f2.webp",
+   "title": "Beasiswa Peduli Negeri: Setiap Anak Berhak Belajar, Setiap Mimpi Harus Dikejar",
+   "raised": "Rp 2.9 jt",
+   "percent": 4
+  },
+  {
+   "slug": "muharram-peduli-difabel",
+   "image": "https://sedekah.id/api/media/media/2026/09/2e5abb5d-19eb-4ea4-a42e-3c2bc7253850.webp",
+   "title": "Muharram Peduli Difabel",
+   "raised": "Rp 470 rb",
+   "percent": 1
+  },
+  {
+   "slug": "peduli-yatim-palestina",
+   "image": "https://sedekah.id/api/media/media/2026/09/fd167f67-e2d4-4498-a459-df4e7551914b.webp",
+   "title": "Peduli Yatim Palestina",
+   "raised": "Rp 17.5 jt",
+   "percent": 35
+  },
+  {
+   "slug": "mengalirkan-kebaikan-sedekah-atas-nama-orang-tua",
+   "image": "https://sedekah.id/api/media/media/2026/06/081ef968-9080-4faf-9582-93c70937abee.webp",
+   "title": "Mengalirkan Kebaikan  Sedekah Atas Nama Orang Tua",
+   "raised": "Rp 86.3 jt",
+   "percent": 86
+  },
+  {
+   "slug": "pahala-berlipatt-dengan-sedekah-jumat",
+   "image": "https://sedekah.id/api/media/media/2026/06/0ab3a7cf-1348-4650-b03a-9629dd86ec15.webp",
+   "title": "Pahala Berlipat dengan Sedekah Jum'at",
+   "raised": "Rp 10.3 jt",
+   "percent": 21
+  },
+  {
+   "slug": "wakaf-masjid-5in1-rahmatan-lilalamin",
+   "image": "https://sedekah.id/api/media/media/2026/06/16696b68-adfb-4871-b580-346d7ce5f6ad.webp",
+   "title": "Tuntaskan Masjidnya, Nikmati Pahala di Surga",
+   "raised": "Rp 7.8 jt",
+   "percent": 8
+  },
+  {
+   "slug": "wakaf-bisa-satu-niat-banyak-manfaat",
+   "image": "https://sedekah.id/api/media/media/2026/06/fd687978-d517-4a7a-9d60-94e580755f2e.webp",
+   "title": "Satu Kebaikan Hari ini",
+   "raised": "Rp 1.8 jt",
+   "percent": 18
+  },
+  {
+   "slug": "peduli-terdampak-bencana",
+   "image": "https://sedekah.id/api/media/media/2026/09/2803a79b-626e-4be0-b333-e213718991e1.webp",
+   "title": "Peduli Terdampak Bencana",
+   "raised": "Rp 4.7 jt",
+   "percent": 47
+  },
+  {
+   "slug": "berbagi-bahagia-bersama-yatim",
+   "image": "https://sedekah.id/api/media/media/2026/06/569200b8-c23b-4ac0-ac23-a03725db904e.webp",
+   "title": "Berbagi Bahagia bersama Yatim",
+   "raised": "Rp 102.6 jt",
+   "percent": 51
+  },
+  {
+   "slug": "kirim-bantuan-kemanusiaan-untuk-rakyat-gaza",
+   "image": "https://sedekah.id/api/media/media/2026/06/b363eaf9-d3b1-4697-a14f-b6cac07d42a7.webp",
+   "title": "Kirim Bantuan Kemanusiaan untuk Rakyat Gaza",
+   "raised": "Rp 109.9 jt",
+   "percent": 100
+  },
+  {
+   "slug": "sedekah-mushaf-al-quran",
+   "image": "https://sedekah.id/api/media/media/2026/06/98d3e1c4-d4ca-450a-9461-75cd581e80c6.webp",
+   "title": "Sedekah Mushaf Al-Qur'an",
+   "raised": "Rp 7.2 jt",
+   "percent": 14
+  },
+  {
+   "slug": "sedekah-daging-lintas-negeri",
+   "image": "https://sedekah.id/api/media/media/2026/05/baf8c52f-8e74-47e2-a0e0-4790b1bdf3c6.webp",
+   "title": "Sedekah Daging Lintas Negeri",
+   "raised": "Rp 11.7 jt",
+   "percent": 17
+  },
+  {
+   "slug": "sedekah-daging-ke-pelosok-negeri",
+   "image": "https://sedekah.id/api/media/media/2026/05/27684d4a-d416-4c19-93ed-c546fc5ca229.webp",
+   "title": "Sedekah Daging Ke Pelosok Negeri",
+   "raised": "Rp 2.2 jt",
+   "percent": 1
+  },
+  {
+   "slug": "sedekah-daging-palestina",
+   "image": "https://sedekah.id/api/media/media/2026/05/3574dc3a-c4e6-4688-8f69-e016e4026e86.webp",
+   "title": "Sedekah Daging Palestina",
+   "raised": "Rp 84.3 jt",
+   "percent": 34
+  },
+  {
+   "slug": "sedekah",
+   "image": "https://sedekah.id/api/media/media/2026/05/47ccd9b3-96e6-4ee0-9018-a1b33a45c09b.webp",
+   "title": "Jemput Keberkahan Dengan Sedekah",
+   "raised": "Rp 445.8 jt",
+   "percent": 45
+  },
+  {
+   "slug": "peduli-banjir-aceh",
+   "image": "https://sedekah.id/api/media/media/2026/11/7e8bc936-4b83-48a0-90c6-fc4b312d0013.webp",
+   "title": "Banjir Melanda Aceh, Ribuan Warga Membutuhkan Kepedulian Kita",
+   "raised": "Rp 0",
+   "percent": 0
+  }
+ ],
+ "details": {
+  "peduli-banjir-aceh": {
+   "target": 85000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p><strong><em>Saat rumah tak lagi menjadi tempat berlindung</em></strong><em>, saudara-saudara kita di Aceh harus menghadapi hari-hari penuh ketidakpastian.</em> </p><p></p><img src=\"https://dtpeduli.id/uploads/ef14a3a3-4fc3-4f46-9abe-653c6f103c63.jpg\" loading=\"lazy\"><p>Hujan deras yang mengguyur sejumlah wilayah di Aceh mengakibatkan banjir. Rumah-rumah terendam, aktivitas masyarakat terganggu, bahkan sebagian keluarga terpaksa mengungsi demi keselamatan.</p><p>Berdasarkan laporan BNPB per 15 November 2026, sebanyak <strong>18.158 jiwa</strong> di Kabupaten Aceh Tamiang terdampak banjir, dengan <strong>5.088 jiwa</strong> di antaranya harus mengungsi.</p><p>Di balik angka tersebut, ada keluarga yang kehilangan kenyamanan rumahnya, anak-anak yang tak bisa beraktivitas seperti biasa, dan orang tua yang harus memikirkan bagaimana memenuhi kebutuhan keluarga di tengah kondisi sulit.</p><p></p><img src=\"https://dtpeduli.id/uploads/0f4f25f8-0963-4a93-a1be-b56a551c3994.jpg\" loading=\"lazy\"><p>Bahkan saat air mulai surut, kesulitan belum berakhir. Rumah masih dipenuhi lumpur, barang-barang rusak, dan kehidupan belum bisa kembali berjalan seperti sediakala. Mereka membutuhkan bantuan untuk memulai kembali semuanya.</p><p></p><img src=\"https://dtpeduli.id/uploads/2b8cf9be-53da-4870-b6ae-19cbac271a6a.jpg\" loading=\"lazy\"><p>Melalui donasi kemanusiaan, DT Peduli mengajak Sahabat untuk turut membantu saudara-saudara kita di Aceh. Bantuan akan disalurkan untuk memenuhi kebutuhan dasar hingga mendukung pemulihan pascabanjir, sesuai hasil asesmen di lapangan.</p><p>Sahabat, kita mungkin tak bisa hadir langsung di lokasi bencana. Namun, kepedulian yang kita berikan bisa menjadi penguat bagi mereka yang sedang melewati masa sulit.</p><p></p><img src=\"https://dtpeduli.id/uploads/311d22fa-a55a-4b43-8304-6447b582ac12.jpg\" loading=\"lazy\"><p><strong>Mari ulurkan tangan untuk Aceh. </strong>Salurkan donasi terbaik Sahabat melalui DT Peduli. Semoga setiap bantuan menjadi jalan hadirnya pertolongan dan harapan baru bagi saudara-saudara kita.</p><p><em>*Dana bencana akan digunakan untuk penanganan bencana secara nasional, tidak terbatas pada satu wilayah atau jenis bencana tertentu.</em></p>"
+  },
+  "bantu-pakpandi-bertahan": {
+   "target": 50000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p><strong>Di usia 66 tahun,</strong> Pak Pandi harus menjalani hari-hari dengan kondisi kesehatan yang tidak mudah. Pada akhir 2025, beliau <strong>menjalani operasi yang mengubah jalur pernapasannya. </strong>Sejak saat itu, Pak Pandi tidak lagi bisa berbicara seperti sebelumnya karena alat bantu pernapasan terpasang di bagian lehernya.</p><p></p><p></p><img src=\"https://dtpeduli.id/uploads/0a3ed58f-2352-4227-956c-73744405ba42.jpg\" loading=\"lazy\"><p></p><p>Saat <strong>kabut asap melanda, </strong>Pak Pandi juga sempat mengalami pusing dan mual. Hingga kini, beliau membutuhkan pemantauan medis secara rutin, termasuk penggantian alat yang terpasang di lehernya. Tindakan tersebut hanya bisa dilakukan di rumah sakit.</p><p></p><p>Setiap bulan, Pak Pandi harus kontrol ke puskesmas dan menjalani pemeriksaan rumah sakit secara berkala. Namun, perjuangannya semakin berat sejak <strong>anak pertama</strong> yang biasa mendampinginya berobat <strong>meninggal dunia</strong> sekitar 100 hari lalu, tepat ketika Pak Pandi sedang menjalani perawatan.</p><p></p><p></p><img src=\"https://dtpeduli.id/uploads/72aa0451-41cb-4258-9bbe-6b86b8b48d51.jpg\" loading=\"lazy\"><p></p><p>Di tengah kondisi tersebut, <strong>ekonomi keluarga </strong>juga<strong> terbatas.</strong> Sang istri yang sebelumnya berjualan kue basah terpaksa berhenti karena modal dan jumlah pembeli yang semakin berkurang. Kini, <strong>kebutuhan obat dan pengobatan </strong>Pak Pandi menjadi beban yang harus terus diupayakan keluarga.</p><p></p><p></p><img src=\"https://dtpeduli.id/uploads/cf922185-1801-45ea-80a7-85c5189fd215.jpg\" loading=\"lazy\"><p></p><p>Meski begitu, sang istri tetap berusaha mendampingi suaminya dan berharap Pak Pandi bisa mendapatkan pengobatan terbaik.</p><p></p><p>“<strong>Terima kasih banyak kepada para donatur</strong> dan DT Peduli yang sudah membantu keluarga kami. Semoga segala hajatnya dikabulkan Allah, dilancarkan setiap urusannya, dan dibalas dengan pahala yang berlipat ganda,” ucap istri Pak Pandi penuh syukur.</p><p></p><p>Sahabat Peduli, mari ringankan perjuangan Pak Pandi. Uluran tangan kita dapat membantu memenuhi kebutuhan obat, perawatan, dan tindakan medis yang masih harus beliau jalani. Semoga Allah memberikan kesembuhan dan menguatkan keluarga Pak Pandi.</p><p></p><p><em>*) Dana yang terkumpul akan digunakan untuk penanganan kesehatan secara nasional, tidak terbatas pada satu wilayah.</em></p>"
+  },
+  "petani-ubi-cilembu": {
+   "target": 50000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p><em>Di balik setiap panen, ada harapan keluarga yang ingin hidup lebih sejahtera.</em></p><p></p><img src=\"https://dtpeduli.id/uploads/fda1adc4-0932-43fa-acf4-221997f2d314.jpg\" loading=\"lazy\"><p></p><p>Bagi 15 petani di Kampung Legong, Desa Gununghalu, Kabupaten Bandung Barat, pertanian ubi Cilembu <strong>menyimpan harapan untuk menjadi sumber penghidupan yang lebih baik</strong>. </p><p></p><p>Namun, potensi tersebut membutuhkan dukungan modal, pendampingan, dan sarana budidaya agar dapat berkembang secara optimal.</p><p></p><img src=\"https://dtpeduli.id/uploads/f61d5a9d-e140-4db0-a54f-fc9a4db7fe14.jpg\" loading=\"lazy\"><p>Melihat peluang ini, KOPMU-DT bersama DT Peduli dan Komunitas SAC menghadirkan <strong>Program Petani Sejahtera Budidaya Ubi Cilembu. </strong>Program ini menjadi ikhtiar untuk membantu petani mengembangkan usaha pertanian, meningkatkan produktivitas, dan memperkuat perekonomian keluarga.</p><p></p><p>Sebab, <strong>kesejahteraan petani tidak berhenti pada hasil satu kali panen</strong>. Dibutuhkan dukungan berkelanjutan agar usaha mereka terus berkembang dan mampu menjadi sumber penghidupan yang lebih kuat bagi keluarga.</p><p></p><img src=\"https://dtpeduli.id/uploads/d544ce51-ba22-493d-83b0-ac178cbe227a.jpg\" loading=\"lazy\"><p></p><p><em>Sahabat Peduli, </em><strong><em>mari tumbuhkan harapan dan kuatkan langkah para petani menuju kehidupan yang lebih sejahtera.</em></strong></p><p></p><p>Melalui sedekah terbaik, kita dapat turut mendukung pemberdayaan mereka agar mampu mengembangkan usaha dan membangun kemandirian ekonomi.</p><p></p><img src=\"https://dtpeduli.id/uploads/4a3b8bc2-bff2-4989-b11d-d44eb46d75c6.jpg\" loading=\"lazy\"><p></p><p>Semoga setiap rupiah yang dititipkan menjadi jalan terbukanya pintu rezeki, menguatkan langkah para petani, serta menjadi amal jariyah yang terus mengalirkan manfaat.</p>"
+  },
+  "tpq-al-ihsan-bogor": {
+   "target": 100000000,
+   "organizer": {
+    "name": "donasi",
+    "avatar": null
+   },
+   "description": "<p>Jauh dari hiruk-pikuk kota, sekitar 42,5 kilometer dari Kantor DT Peduli Bogor, ada<b> 60 anak yang terus menjaga semangat belajar Al-Qur’an </b>di tengah keterbatasan.  </p><img src=\"https://amil.dtpeduli.id/api/public/crowdfunding/foto/cmwab3ofi02simc01zlof9xyn\" loading=\"lazy\"><p>Setiap sore, mereka berkumpul di ruang tamu sempit milik Ustadzah Ayu Susanti di Desa Kiarapandak, Kecamatan Sukajaya. Ruangan yang panas dan sesak membuat mereka harus belajar berdesakan. Tak jarang, <b>sebagian anak kesulitan mendengar bacaan guru.</b></p><p><b>Mayoritas anak berasal dari keluarga prasejahtera</b>. Orang tua mereka bekerja sebagai buruh tani, kuli bangunan, hingga gurandil atau penambang emas tradisional. Di tengah keterbatasan itu, Ustadzah Ayu tetap mengajar dengan ikhlas tanpa memungut biaya yang memberatkan.  </p><p>“Kasihan anak-anak kalau harus terus berdesakan. Kadang yang di belakang tidak terdengar karena saking penuhnya ruangan. <b>Kami ingin sekali mereka punya tempat belajar yang nyaman,</b>” ungkap Ustadzah Ayu.  </p><img src=\"https://amil.dtpeduli.id/api/public/crowdfunding/foto/cmwab3vzu02snmc01suviegvo\" loading=\"lazy\">lahan wakaf untuk pembangunan TPQ Al Ihsan Kiarapandak<p>Keluarga Ustadzah Ayu telah <b>mewakafkan tanah seluas 6 × 6 meter untuk pembangunan gedung mandiri TPQ Al Ihsan Kiarapandak.</b> Namun, hingga kini, lahan tersebut masih kosong karena keterbatasan biaya.  </p><p>Sahabat, pembangunan TPQ ini menjadi kebutuhan mendesak agar anak-anak dapat belajar dengan lebih nyaman dan leluasa. Mari bersama DT Peduli Bogor, wujudkan tempat belajar yang layak bagi mereka untuk terus mengenal dan mencintai Al-Qur’an.  </p><img src=\"https://amil.dtpeduli.id/api/public/crowdfunding/foto/cmwab3dj802sbmc01qpofo5y7\" loading=\"lazy\"><p><i>Semoga setiap ayat yang kelak mereka lantunkan menjadi pahala jariyah bagi Sahabat yang turut membangunnya.  </i></p><p>Sisihkan sebagian rezeki untuk pembangunan TPQ Al Ihsan Kiarapandak. <b>Bantu hadirkan ruang belajar yang layak bagi generasi pencinta Al-Qur’an.  </b></p>"
+  },
+  "tebar-10000-mushaf": {
+   "target": 50000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p><em>Sambut Ramadhan, </em><strong><em>hadirkan Cahaya Al-Qur’an hingga pelosok negeri.</em></strong></p><p> </p><img src=\"https://sedekah.id/api/media/media/2026/11/fa283ada-97f7-4c30-b802-09d870dea665.webp\" loading=\"lazy\"><p></p><p>Bagi kita, membaca Al-Qur’an mungkin begitu mudah. Namun, di pelosok negeri, masih ada saudara kita yang harus berjuang untuk memiliki mushaf dan belajar membaca ayat-ayat Allah.</p><p> </p><p>Riset IIQ yang pernah dikutip Kementerian Agama menyebutkan, <strong>72,25% masyarakat Indonesia belum mampu membaca Al-Qur’an.</strong></p><p></p><p></p><img src=\"https://sedekah.id/api/media/media/2026/11/57d10d8f-4036-4267-81ef-5dd43fb9784a.webp\" loading=\"lazy\"><p> </p><p>Di Pinogu, Gorontalo, relawan menempuh perjalanan panjang dan terjal demi mengantarkan 300 mushaf. Sebab, setiap mushaf yang sampai adalah kesempatan bagi seseorang untuk semakin dekat dengan Kalamullah.</p><p> </p><p>Kini, DT Peduli mengajak Sahabat melanjutkan ikhtiar itu melalui gerakan <strong>10.000 Orang Bisa Membaca Al-Qur’an di 38 Provinsi Indonesia.</strong></p><p> </p><p>Melalui Sedekah Al-Qur’an, kita hadirkan mushaf dan dukungan pembelajaran bagi mereka yang membutuhkan.</p><p></p><p></p><img src=\"https://sedekah.id/api/media/media/2026/11/12027587-2856-4872-9773-75aa6d7bfc63.webp\" loading=\"lazy\"><p></p><p></p><p><strong><em>Bayangkan, dari sedekah Sahabat, ada seseorang yang akhirnya mampu membaca ayat pertama Al-Qur’an.</em></strong></p><p> </p><p>Satu huruf yang dipelajari, satu ayat yang dibaca, semoga menjadi amal jariyah yang terus mengalir. Yuk, hadirkan cahaya Al-Qur’an hingga pelosok negeri bersama DT Peduli.</p><p> </p><p><em>Dari Sahabat Peduli, untuk Indonesia yang lebih dekat dengan Al-Qur’an.</em></p><p></p><p>*)<em> dana yang terkumpul akan digunakan secara nasional, tidak terbatas pada satu wilayah tertentu.</em></p>"
+  },
+  "dukung-mimpi-yaziz": {
+   "target": 50000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p><em>Di usia mudanya, Muhammad Yaziz berjuang melawan ancaman gugurnya cita-cita menuju Universitas Al-Azhar Kairo, Mesir.</em></p><p>Yaziz telah dinyatakan lulus dan diterima di program Strata-1 (S-1) Jurusan Ushuluddin, Universitas Al-Azhar Kairo<strong>.</strong> Sebuah <strong>kesempatan besar yang selama ini ia perjuangkan.</strong> Namun, untuk benar-benar sampai ke sana, Yaziz masih harus menghadapi keterbatasan biaya.</p><p>Ia membutuhkan biaya administrasi, pemberkasan, transportasi, hingga akomodasi keberangkatan dari Jambi menuju Kairo.</p><p></p><img src=\"https://dtpeduli.id/uploads/f85eaf59-db90-4fe2-90c5-990c8e99c51d.jpg\" loading=\"lazy\"><p><strong>Yaziz adalah putra seorang buruh tani kopi dengan penghasilan tak menentu.</strong> Sementara sang ibu adalah ibu rumah tangga, dan kondisi keluarga yang terbatas juga harus membiayai pendidikan sang adik di pondok pesantren.</p><p><em>Bagi keluarga Yaziz, kesempatan menuju Al-Azhar bukan sekadar tentang keberanian untuk bermimpi, tetapi juga perjuangan untuk mampu melangkah.</em></p><p></p><img src=\"https://dtpeduli.id/uploads/61370348-d1b3-455a-bb7e-9b4b4b2daa23.jpg\" loading=\"lazy\"><p>Yaziz bukan sekadar mengejar gelar. Berbekal pendidikan pesantren, prestasi, serta keaktifannya mengisi kajian di masjid-masjid, ia menyimpan harapan untuk kembali membawa ilmu dan berdakwah di tengah masyarakat.</p><p></p><img src=\"https://dtpeduli.id/uploads/3ce7b037-2e8a-4fec-b722-ae6d4d01c561.jpg\" loading=\"lazy\"><p><strong>Mari bantu Yaziz menjaga mimpinya agar tak berhenti di tengah jalan.</strong> Setiap donasi dapat menjadi jalan baginya untuk melangkah menuju Al-Azhar dan kelak menebarkan ilmu yang bermanfaat. </p><p>Ulurkan tangan hari ini, agar cita-cita seorang anak petani kopi untuk menuntut ilmu hingga ke Al-Azhar tidak gugur hanya karena keterbatasan biaya.</p>"
+  },
+  "rtq-lubuk-linggau": {
+   "target": 20000000,
+   "organizer": {
+    "name": "donasi",
+    "avatar": null
+   },
+   "description": "<p>Menjaga Hafalan, Menjaga Cahaya Al-Qur’an</p><p>Menghafal 30 juz Al-Qur’an dalam satu tahun bukanlah perjalanan yang mudah. Ada ayat-ayat yang harus terus diulang, waktu yang dicurahkan untuk belajar, dan kesungguhan yang dijaga setiap hari.</p><p>Di Rumah Tahfidz Al-Qur’an Daarut Tauhiid Lubuklinggau, ada 20 santri ikhwan dan akhwat yang sedang menapaki perjalanan mulia itu. Mereka bukan hanya menghafal Kalamullah, tetapi juga mempersiapkan diri agar kelak tumbuh menjadi generasi Qurani yang berakhlak mulia dan bermanfaat bagi umat.</p><p>Namun, di balik setiap ayat yang mereka hafalkan, ada kebutuhan sehari-hari yang harus terus terpenuhi. Mulai dari makanan, biaya listrik, air bersih, kebutuhan belajar, hingga kesehatan. Semua itu menjadi bagian penting agar para santri dapat belajar dan menghafal dengan baik.</p><p>Setiap bulannya, dibutuhkan Rp20 juta untuk menunjang operasional rumah tahfidz. Kebutuhan yang mungkin terlihat sederhana, tetapi begitu berarti untuk menjaga langkah mereka tetap berlanjut.</p><p>Sahabat Peduli, mungkin kita belum mampu mendampingi mereka menghafal setiap ayat. Namun, kita bisa mengambil bagian dengan membantu memenuhi kebutuhan mereka agar terus belajar dan menjaga hafalan Al-Qur’an.</p><p>Sebab, setiap dukungan yang kita berikan turut menumbuhkan harapan lahirnya generasi Qurani yang membawa kebaikan bagi umat.</p><p>Salurkan sedekah terbaik Sahabat Peduli untuk mendukung operasional Rumah Tahfidz Al-Qur’an Daarut Tauhiid Lubuklinggau. Semoga Allah menerima setiap ikhtiar kita dan menjadikannya amal jariyah yang terus mengalir. Aamiin.</p>"
+  },
+  "bantu-khalisa-sembuh": {
+   "target": 65280002,
+   "organizer": {
+    "name": "donasi",
+    "avatar": null
+   },
+   "description": "<p><strong>Di usia 4 tahun</strong>, seharusnya anak-anak sibuk bermain, tapi <strong>Khalisa sudah akrab dengan ruang perawatan </strong>dan perjuangan untuk bertahan.</p><p>Khalisa Salsabila Zahra, balita asal Kp. Cisisitu, Garut, <strong>terlahir dengan kelainan jantung bawaan</strong>.</p><p></p><img src=\"https://dtpeduli.id/uploads/6010d316-421d-41fe-9739-d5e9056f334c.jpg\" loading=\"lazy\"><p>Hingga kini, Khalisa telah menjalani <strong>tiga kali operasi jantung</strong> dan masih membutuhkan operasi lanjutan agar dapat tumbuh sehat seperti anak lainnya.</p><p></p><img src=\"https://dtpeduli.id/uploads/d61def6f-5158-443a-a9f4-980840dc4c58.jpg\" loading=\"lazy\"><p>Demi mendampingi Khalisa berobat ke Rumah Sakit Jantung Jakarta, sang ayah, Ridwan, <strong>harus meninggalkan pekerjaannya sebagai kuli panggul </strong>di gudang sembako. Penghasilan keluarga pun terhenti, sementara kebutuhan sehari-hari dan biaya pengobatan terus berjalan.</p><p>Sang ibu pun setia menemani dan merawat Khalisa di setiap prosesnya, keduanya terus berusaha memberikan yang terbaik untuk putri kecil mereka.</p><p></p><img src=\"https://dtpeduli.id/uploads/581ec285-ea37-486b-a7ea-532318af8d48.jpg\" loading=\"lazy\"><p>Sahabat Peduli, <strong>masih ada masa kecil yang ingin Khalisa jalani</strong>. Mari bantu penuhi kebutuhan pengobatan dan operasi lanjutannya agar ia punya kesempatan untuk tumbuh sehat dan menikmati hari-hari seperti anak-anak lainnya.</p><p>Semoga setiap bantuan yang diberikan menjadi jalan kesembuhan bagi Khalisa dan dibalas Allah dengan keberkahan. Aamiin.</p>"
+  },
+  "bantu-gilang-sembuh": {
+   "target": 65279999,
+   "organizer": {
+    "name": "donasi",
+    "avatar": null
+   },
+   "description": "<p><strong>Sejak usia 7 tahun</strong>, Gilang harus <strong>menjalani transfusi darah rutin akibat talasemia.</strong> Masa kecilnya diwarnai perjuangan melawan penyakit yang tak kunjung usai.</p><p><strong>Di usia 18 tahun, Gilang kembali didiagnosis epilepsi</strong>. Belum selesai dengan dua penyakit tersebut, Gilang kembali menghadapi masalah kesehatan lainnya. <strong>Ia mengalami asam urat tinggi</strong> yang menyebabkan kakinya membengkak hingga membuatnya kesulitan beraktivitas dan lebih banyak terbaring.</p><p>Dalam kondisi tersebut, keluarga kembali mendapat kabar yang semakin berat. Setelah mengeluhkan adanya tonjolan di langit-langit mulut, Gilang diperiksa oleh dokter dan <strong>dinyatakan mengalami kanker</strong> pada bagian langit-langit mulut dan menimbulkan luka juga aroma yang kurang nyaman.</p><img src=\"https://dtpeduli.id/uploads/9717ea50-b908-40c7-8416-7572581ac57d.jpg\" loading=\"lazy\"><p>Di tengah kondisi Gilang yang semakin berat,<strong> ibunya terpaksa berhenti berjualan gorengan demi merawatnya. </strong>Sementara sang ayah berjualan cilok dengan penghasilan tak menentu, keluarga ini juga harus menghadapi tunggakan kontrakan selama kurang lebih satu tahun.</p><p>Ketika tubuh harus berjuang melawan penyakit, keluarga Gilang pun dihadapkan pada perjuangan untuk memenuhi kebutuhan hidup dan mempertahankan tempat tinggal.</p><p></p><img src=\"https://dtpeduli.id/uploads/b3d39ee7-fe13-4ef9-bcfa-b552332561ff.jpg\" loading=\"lazy\"><p>Sahabat Peduli, Gilang dan keluarganya membutuhkan uluran tangan kita. Bantuan yang diberikan dapat meringankan beban pengobatan dan kebutuhan hidup mereka di tengah keterbatasan.</p><p>Mari <strong>hadirkan harapan untuk Gilang melalui bantuan terbaik kita.</strong> Semoga Allah membalas setiap kebaikan Sahabat dengan keberkahan dan menjadikannya amal jariyah yang terus mengalir. Aamiin.</p>"
+  },
+  "7-kilometer-untuk-air-bersih-hadirkan-sumur-bor-untuk-warga-desa-kedungbanteng": {
+   "target": 80220205,
+   "organizer": {
+    "name": "donasi",
+    "avatar": null
+   },
+   "description": "<p>Air bersih merupakan kebutuhan dasar yang tidak dapat dipisahkan dari kehidupan sehari-hari. Namun, bagi masyarakat Desa Kedungbanteng, Kecamatan Sumbermanjing Wetan, Kabupaten Malang, mendapatkan air bersih masih menjadi tantangan.</p><p>Sekitar 300 KK di desa ini harus menempuh jarak hingga 7 kilometer untuk mendapatkan air. Kondisi tersebut menjadi beban tersendiri, terutama bagi lansia dan keluarga dengan keterbatasan ekonomi.</p><p>Kesulitan semakin terasa saat musim kemarau. Ketersediaan air yang terbatas membuat warga harus mengantre panjang atau membeli air seharga Rp60.000 per 1.000 liter. Bagi masyarakat yang mayoritas bekerja sebagai buruh, biaya tersebut cukup memberatkan. Penghasilan yang terbatas harus dibagi untuk memenuhi kebutuhan pangan, pendidikan, kesehatan, dan keperluan keluarga lainnya.</p><p>Keterbatasan akses air bersih bukan sekadar persoalan jarak, tetapi juga menyita waktu, tenaga, dan biaya yang seharusnya dapat digunakan untuk memenuhi kebutuhan lain.</p><p>Melihat kondisi tersebut, DT Peduli Malang menginisiasi Program Bantuan Sumur Bor untuk menghadirkan sumber air yang lebih dekat dan mudah dijangkau oleh masyarakat. Pembangunan ini diharapkan dapat meringankan beban warga sekaligus meningkatkan kualitas kehidupan mereka.</p><p>Namun, ikhtiar ini membutuhkan dukungan kita bersama agar sumur bor dapat segera diwujudkan.</p><p>Mari, alirkan air bersih untuk 300 keluarga di Kedungbanteng. Semoga setiap donasi menjadi jalan hadirnya air kehidupan dan mengalirkan manfaat yang tak pernah putus bagi masyarakat.</p>"
+  },
+  "dapurpalestina": {
+   "target": 0,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p>IPC memproyeksikan lebih dari 1,4 juta warga Gaza, sekitar 67% penduduknya, akan menghadapi krisis pangan akut pada Juli–Desember 2026. Di antaranya, hampir 101.000 anak usia 6–59 bulan terancam malnutrisi akut. Namun angka itu bukan sekadar angka. Di baliknya ada ibu yang mengurangi porsinya agar anak-anaknya bisa makan, dan keluarga yang belum tahu apakah esok masih ada yang bisa dibagikan.</p><img src=\"https://sedekah.id/api/media/media/2026/09/0716506e-2fe2-4e1c-85a8-e13b6f932d84.webp\" loading=\"lazy\"><p>Alhamdulillah, kebaikan Sahabat Peduli telah berulang kali menjadi makanan bagi warga Palestina. Namun kebutuhan pangan di Gaza tidak berhenti setelah satu kali penyaluran. Makanan dibutuhkan hari ini, esok, dan selama mereka masih harus bertahan dalam keterbatasan.</p><p></p><p>Karena itu, melalui amanah Sahabat, diikhtiarkan pembangunan Dapur Indonesia di Gaza: dapur komunitas darurat semi permanen yang menjadi pusat produksi dan distribusi makanan hangat bagi masyarakat terdampak. Namanya membawa pesan bahwa masyarakat Indonesia tidak hanya menyaksikan dari kejauhan, tetapi ikut hadir mengenyangkan saudaranya.</p><p></p><p>Sedekah Sahabat akan digunakan untuk menyiapkan tempat produksi, peralatan memasak, instalasi air, gas, dan listrik, bahan pangan, kemasan, tenaga operasional, distribusi, serta monitoring dan pelaporan. Insya Allah, pada fase awal dapur ini ditargetkan memproduksi 3.000 paket makanan hangat per hari, atau 90.000 paket dalam 30 hari, menyesuaikan kondisi keamanan dan akses kemanusiaan di lapangan.</p><p></p><p>Kita mungkin belum mampu menghentikan seluruh penderitaan di Gaza. Namun melalui kebaikan yang dihimpun bersama, lebih banyak keluarga bisa makan dan lebih banyak anak mendapat tenaga untuk bertahan. Pastikan Sahabat menjadi bagian yang menyalakan dapurnya, melalui DT Peduli sebagai jalan amanah.</p><p></p><p><em>Catatan Amanah: Sedekah diprioritaskan untuk Dapur Indonesia dan bantuan pangan Palestina. Berdasarkan kedaruratan, keamanan, dan akses kemanusiaan, DT Peduli dapat menyalurkannya ke program prioritas lain di kawasan Bumi Syam (Palestina, Yordania, Suriah, Lebanon) agar manfaatnya dirasakan sebanyak-banyaknya.</em></p>"
+  },
+  "peduli-terdampak-karhutla": {
+   "target": 70000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p><strong>Kebakaran hutan dan lahan melanda sejumlah wilayah di Kalimantan.</strong></p><img src=\"https://sedekah.id/api/media/media/2026/08/d82af8f9-2753-4b38-a818-7ad141a3180c.webp\" loading=\"lazy\"><p><strong>Titik-titik panas meningkat, sementara kabut asap mulai menyelimuti berbagai daerah.</strong></p><p></p><p>Bukan hanya hutan dan lahan yang terdampak. Di balik asap yang terus membumbung, ada masyarakat yang harus menghadapi udara yang semakin sulit dihirup, jarak pandang yang terbatas, hingga aktivitas sehari-hari yang ikut terganggu.</p><p></p><img src=\"https://sedekah.id/api/media/media/2026/08/15c0e3e7-a94a-433a-bb60-263806f3d622.webp\" loading=\"lazy\"><p></p><p>Di beberapa wilayah, kondisi asap bahkan mulai mengkhawatirkan. Anak-anak, lansia, dan masyarakat dengan kondisi rentan menjadi mereka yang harus lebih dulu dilindungi dari dampak buruk kabut asap.</p><p></p><img src=\"https://sedekah.id/api/media/media/2026/08/d93eb830-4a5c-4bcc-b4f3-f84fb76c91d5.webp\" loading=\"lazy\"><p></p><p>Hingga kini, upaya pemadaman terus dilakukan oleh berbagai pihak. Namun perjuangan belum usai. Api harus dipadamkan, sementara warga terdampak juga membutuhkan perhatian dan bantuan untuk menghadapi hari-hari di tengah ancaman asap.</p><p></p><p>Saatnya kita hadir membantu kebutuhan mereka, mulai dari makanan, air bersih, perlengkapan darurat, hingga kebutuhan lainnya.</p><p></p><p>Bantu ringankan beban mereka hari ini. Mari ulurkan kepedulian untuk saudara-saudara kita yang terdampak kebakaran di Kalimantan.</p><p></p><p><em>*) Dana bencana akan digunakan untuk penanganan bencana secara nasional, tidak terbatas pada satu wilayah atau jenis bencana tertentu.</em></p><p></p><img src=\"https://sedekah.id/api/media/media/2026/10/9a7f989b-a60b-438b-92d3-6c5b6aacaf47.webp\" loading=\"lazy\"><p></p>"
+  },
+  "peduli-terdampak-gempa-ntt": {
+   "target": 60000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p><strong>GEMPA M7,7 GUNCANG NTT</strong></p><p></p><p>Mereka Kehilangan Banyak Hal. Jangan Biarkan Mereka Kehilangan Harapan.</p><p></p><p><em>Innalillahi wa inna ilaihi raji’un.</em></p><p></p><img src=\"https://sedekah.id/api/media/media/2026/08/d33cbfca-1c94-467e-b7b1-cef627a4bf6b.webp\" loading=\"lazy\"><p></p><p>Sabtu, 15 Agustus 2026, gempa bumi berkekuatan M7,7 mengguncang Nusa Tenggara Timur. Guncangan kuat berdampak di sejumlah wilayah Flores dan menyebabkan kerusakan serta korban jiwa.</p><p></p><p>Di Desa Liang Deruk, Kecamatan Lambaleda Timur, Manggarai Timur, duka begitu dalam. Seorang ibu dan anaknya ditemukan menjadi korban setelah tertimpa reruntuhan rumah. Dalam sebuah dokumentasi, keduanya terlihat dalam dekapan satu sama lain—sebuah gambaran pilu tentang kasih ibu yang tetap memeluk buah hati di tengah bencana.</p><p></p><img src=\"https://sedekah.id/api/media/media/2026/08/4ff6070e-d032-4697-acd8-e613444f2875.webp\" loading=\"lazy\"><p></p><p>Hingga pukul 15.00 WIB, BNPB melaporkan, <strong><em>38 orang meninggal dunia, 2 orang luka berat, dan 11 orang luka ringan.</em> </strong>Sekitar<strong> <em>2.000 jiwa</em> juga mengungsi atau melakukan evakuasi mandiri. </strong>Korban tersebar di sejumlah wilayah, termasuk Manggarai Timur, Manggarai, Sikka, Ende, dan Manggarai Barat. Data masih terus diperbarui seiring proses evakuasi dan pendataan di lapangan.</p><p></p><p>BNPB juga melaporkan sejumlah rumah dan fasilitas umum mengalami kerusakan, sementara beberapa ruas jalan terdampak longsor. Di tengah situasi ini, para penyintas membutuhkan bantuan untuk memenuhi kebutuhan darurat dan melewati hari-hari setelah bencana.</p><p></p><img src=\"https://sedekah.id/api/media/media/2026/08/7d5fbdf2-dcc1-443d-ba23-0a65fd420377.webp\" loading=\"lazy\"><p></p><p><strong>Mereka kehilangan rumah, harta benda, bahkan kehilangan orang-orang tercinta</strong>. Namun, jangan sampai mereka kehilangan harapan.</p><p></p><p>Mari kita hadir untuk saudara-saudara kita di NTT. Insya Allah, sedikit kepedulian kita,  menjadi pertolongan yang berarti bagi mereka yang sedang berjuang untuk bangkit.</p><p></p><p><em>*) Dana bencana akan digunakan untuk penanganan bencana secara nasional, tidak terbatas pada satu wilayah atau jenis bencana tertentu.</em></p><p></p><img src=\"https://sedekah.id/api/media/media/2026/10/54989108-2e65-4465-b08e-490ae243986c.webp\" loading=\"lazy\"><p></p>"
+  },
+  "dari-kamar-kos-menjadi-pusat-kebaikan-umat": {
+   "target": 100000000,
+   "organizer": {
+    "name": "Wakaf Daarut Tauhiid",
+    "avatar": null
+   },
+   "description": "<p>Pernah terbayang, satu masjid menjadi saksi dari begitu banyak kebaikan?</p><img src=\"https://cdn.wakafdt.id/uploads/1785373846132-dknrjn.webp\" loading=\"lazy\"><p>Melihat kebutuhan jamaah yang kian bertambah, insyaAllah sebuah ikhtiar besar akan segera dimulai: Wakaf Perluasan Masjid DT Gegerkalong.</p><img src=\"https://cdn.wakafdt.id/uploads/1785417059229-j98dlu.webp\" loading=\"lazy\"><p>Namun sebelum bangunan 5 lantai yang ramah lansia, inklusif, dan berkonsep eco-green ini berdiri, ada langkah awal yang sangat krusial yang harus kita perjuangkan bersama: Pembebasan Lahan Kawasan Perluasan.</p><p>Mengapa Wakaf Perluasan Masjid ini Sangat Berarti? Karena, setiap jengkal yang Anda wakafkan adalah benih pahala abadi. Mungkin wakaf kita hari ini terlihat kecil. Tapi dari sanalah, insya Allah, lahir kebaikan yang terus mengalir.</p><img src=\"https://cdn.wakafdt.id/uploads/1785374338615-up51bp.webp\" loading=\"lazy\"><p>Ambil bagian dalam Wakaf Perluasan Masjid DT Gegerkalong. Satu Wakaf, Memperluas Ruang Kebaikan!</p>"
+  },
+  "gajian-makin-berkah-dengan-sedekah": {
+   "target": 0,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p>Setiap bulan, Allah titipkan rezeki melalui gaji yang kita terima. Ada rasa lega saat kebutuhan bisa terpenuhi, ada syukur saat lelah bekerja akhirnya berbuah hasil. Namun di balik rezeki itu, selalu ada ruang untuk bertanya pada diri: sudahkah sebagian dari titipan ini kembali menjadi jalan kebaikan?<br></p><img src=\"https://dtpeduli.org/storage/2706/tmp_bb7af38e-d908-4e4d-a640-34f65ae1e442.jpg\" loading=\"lazy\"><p>Karena gaji bukan hanya tentang angka yang masuk ke rekening. Ia juga bisa menjadi sebab hadirnya senyum di wajah mereka yang sedang berjuang, menjadi makanan untuk yang kelaparan, menjadi bantuan bagi keluarga di pelosok negeri, hingga menjadi harapan bagi saudara-saudara kita di Gaza, Palestina.<br></p><img src=\"https://dtpeduli.org/storage/3419/Ramadhan-untuk-Palestina-2026.jpg\" loading=\"lazy\"><p>Di berbagai pelosok negeri, masih ada saudara kita yang hidup dengan keterbatasan. Ada anak-anak yang membutuhkan dukungan pendidikan, keluarga dhuafa yang menanti uluran tangan, hingga masyarakat terdampak bencana yang sedang berusaha bangkit kembali. Sementara di Gaza, luka dan duka masih belum selesai. Mereka membutuhkan kepedulian kita untuk tetap bertahan.<br></p><p>Sedekah dari gaji yang kita sisihkan mungkin terlihat sederhana. Namun jika diniatkan karena Allah, ia bisa menjadi keberkahan yang meluas: membantu yang jauh, menguatkan yang lemah, sekaligus membersihkan dan menenangkan hati kita sendiri.<br></p><img src=\"https://dtpeduli.org/storage/wPsWD0qhDqVMLxZIVEzHaFe3mXWCTs0TkDwsvVvJ.jpg\" loading=\"lazy\"><p>Mari jadikan gajian bulan ini bukan hanya tentang mencukupi kebutuhan, tapi juga tentang menjemput keberkahan. Sisihkan sedekah terbaik, semoga Allah menjadikannya jalan kebaikan bagi saudara-saudara kita di pelosok negeri hingga Gaza, Palestina, dan menjadi amal yang terus mengalir pahalanya.</p>"
+  },
+  "mengalirkan-kebaikan-sedekah-atas-nama-orang-tua": {
+   "target": 100000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p>Orang tua adalah pintu surga yang Allah hadirkan dalam hidup kita. Setiap doa mereka mengiringi langkah, setiap pengorbanan mereka membentuk siapa kita hari ini. Maka tak ada cara yang lebih indah untuk membalas kasih sayang itu selain dengan mengalirkan kebaikan atas nama mereka. Sedekah atas nama orang tua adalah wujud bakti yang melampaui ucapan, sebuah cinta yang dihadirkan dalam perbuatan nyata, baik mereka masih bersama kita maupun telah lebih dulu menghadap-Nya.</p><p></p><p>Dalam hadits yang diriwayatkan Imam Bukhari dan Muslim, seorang sahabat bertanya kepada Rasulullah ﷺ bahwa ibunya wafat secara tiba-tiba dan ia menduga ibunya ingin bersedekah; ia pun bertanya apakah ada pahala baginya bila ia bersedekah atas nama sang ibu. Rasulullah ﷺ menjawab, \"Ya.\" Dari sinilah para ulama menjelaskan bahwa sedekah yang diniatkan atas nama orang tua, insya Allah pahalanya akan sampai kepada mereka. Bayangkan, Sahabat, dengan sedikit dari rezeki yang Sahabat sisihkan, Sahabat sedang menghadiahkan amal kebaikan yang mengalir untuk Ayah dan Ibu tercinta.</p><p></p><p>Setiap suapan untuk anak yatim, setiap bantuan untuk keluarga dhuafa, setiap kebutuhan dasar yang terpenuhi bagi mereka yang membutuhkan, semuanya menjadi tabungan kebaikan yang Sahabat persembahkan atas nama orang tua. Inilah jembatan kebaikan yang menghubungkan bakti Sahabat dengan keberkahan bagi sesama, sebuah cinta yang tak pernah putus meski waktu terus berjalan.</p><p></p><p>Melalui DT Peduli, Sahabat dapat menyalurkan sedekah atas nama orang tua sebagai wasilah untuk meraih ridha dan keberkahan-Nya. Pastikan Sahabat mengalirkan kebaikan terbaik atas nama orang tua, dan biarkan setiap kebaikan itu menjadi doa yang mengiringi mereka. Semoga Allah menerima amal ini dan menjadikannya saksi cinta seorang anak kepada orang tuanya kelak. Aamiin Ya Rabbal 'Alamin.</p>"
+  },
+  "pahala-berlipatt-dengan-sedekah-jumat": {
+   "target": 50000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p>Jumat adalah hari yang istimewa, penuh berkah dan ampunan. Di hari yang mulia ini, setiap kebaikan yang kita tanam akan berbuah pahala yang berlipat ganda. Mari jadikan setiap Jumat sebagai momentum untuk berbagi kebahagiaan dan meringankan beban sesama. Sedekah yang tulus di hari Jumat bukan hanya membersihkan harta, tetapi juga menenangkan jiwa dan membuka pintu rezeki yang tak terduga dari Allah SWT. Sungguh, tak ada yang lebih membahagiakan selain melihat senyum mereka yang terbantu oleh uluran tangan kita.</p><img src=\"https://static.promediateknologi.id/crop/0x0:0x0/1200x0/webp/photo/p1/04/2026/03/06/RPN-2026-3538118683.jpg\" loading=\"lazy\"><p>Setiap rupiah yang Anda sisihkan untuk sedekah Jumat adalah investasi terbaik untuk akhirat. Bayangkan, dengan sedikit dari rezeki Anda, kita bisa bersama-sama mewujudkan harapan anak yatim, membantu keluarga dhuafa, atau menyediakan kebutuhan dasar bagi mereka yang membutuhkan. Ini bukan sekadar memberi, melainkan membangun jembatan kebaikan yang menghubungkan hati kita dengan mereka yang kurang beruntung. Mari raih keberkahan Jumat dengan menebar kebaikan, karena setiap tetes kebaikan akan kembali kepada kita dalam bentuk yang lebih indah.</p><img src=\"https://dtpeduli.org/storage/puAY6b5JS61h0N1I8pQIL75dCGLemUzyLQqYTCUf.jpg\" loading=\"lazy\"><p>Jangan lewatkan kesempatan emas ini untuk meraih pahala berlimpah di hari Jumat. Mari bergabung dalam gerakan kebaikan ini dan rasakan kedamaian hati yang tak ternilai. Salurkan sedekah terbaik Anda sekarang juga, dan saksikan bagaimana Allah SWT membalas setiap kebaikan Anda dengan balasan yang jauh lebih baik. Semoga setiap langkah kita dalam berderma menjadi saksi di hari perhitungan kelak, dan membawa kita menuju Jannah-Nya. Aamiin Ya Rabbal Alamin</p>"
+  },
+  "wakaf-masjid-5in1-rahmatan-lilalamin": {
+   "target": 100000000,
+   "organizer": {
+    "name": "Wakaf Daarut Tauhiid",
+    "avatar": null
+   },
+   "description": "<p>Kita sering mencari amal yang besar, padahal bisa jadi amal terbesar itu sedang menunggu kita di tempat yang tak pernah kita duga. Bisa jadi, amal itu adalah bangunan masjid yang sudah lama menantikan sentuhan terakhir dari kita, agar menjadi tempat ibadah yang sepenuhnya layak dan hidup. </p><img src=\"https://cdn.wakafdt.id/uploads/1764128769150-xubzfr.webp\" loading=\"lazy\"><p>Masjid bukan hanya tempat berdiri, tapi tempat di mana jejak-jejak kebaikan mengalir tanpa henti. Di sana, setiap hamba bersujud, anak-anak belajar mengenal dan mencintai Allah, dan jiwa-jiwa yang haus ilmu. Ada juga musafir mencari tempat berteduh dan hati-hati yang rindu ketenangan. </p><img src=\"https://cdn.wakafdt.id/uploads/1764138790772-as3rth.webp\" loading=\"lazy\"><p><strong>Lima Masjid yang Sudah Mulai Hidup </strong> </p><p>Saat ini ada lima masjid yang menunggu untuk diselesaikan pembangunannya, yaitu: </p><img src=\"https://cdn.wakafdt.id/uploads/1764138349588-6wnuwk.webp\" loading=\"lazy\"><ul><li><p><strong>Masjid Rahmatan Lil ‘Alamin – Eco Pesantren 2, Bandung<br>Barat</strong> </p></li><li><p><strong>Masjid Rahmatan Lil ‘Alamin – Eco Pesantren 3, Kuningan</strong> </p></li><li><p><strong>Masjid Rahmatan Lil ‘Alamin – Jambi</strong> </p></li><li><p><strong>Masjid Rahmatan Lil ‘Alamin – Lubuklinggau</strong> </p></li><li><p><strong>Masjid Rahmatan Lil ‘Alamin – Batam</strong> </p></li></ul><p>Meskipun progres pembangunannya sempat terhenti, fungsi utamanya sudah hidup dan dirasakan oleh santri serta masyarakat. Ini bukti bahwa wakaf tak menunggu bangunan selesai untuk memberi manfaat. </p><img src=\"https://cdn.wakafdt.id/uploads/1764130310315-fciim7.webp\" loading=\"lazy\"><p>Di Jambi, masjid setengah jadi itu sudah menjadi pusat kegiatan masyarakat: tempat pembinaan anak-anak, pemberdayaan, pembinaan mental, hingga ruang berkumpulnya komunitas mahasiswa yang aktif dan peduli. Begitu pula masjid di Kuningan dan Batam, yang mulai menjadi pusat pergerakan dakwah dan aktivitas keagamaan. </p><img src=\"https://cdn.wakafdt.id/uploads/1764130348858-is9mxs.webp\" loading=\"lazy\"><p>Di Lubuklinggau, meski belum sempurna, masjid ini sudah dipakai shalat, belajar, dan menghafal Al-Qur’an. Adapun di Eco Pesantren 2,masjid ini telah digunakan untuk shalat lima waktu dan kajian santri—tinggal sarana dan prasarananya yang belum memadai.  </p><p>Sahabat Wakaf, Allah mengirimkan kesempatan pahala abadi lewat masjid-masjid yang hampir selesai ini. Inilah cara Allah memudahkan langkah kita menuju rumah di surga—melalui satu keputusan kecil hari ini.  </p><p>Sempurnakan rumah Allah, sempurnakan juga jalanmu menuju rumah di surga! </p><p></p>"
+  },
+  "wakaf-bisa-satu-niat-banyak-manfaat": {
+   "target": 10000000,
+   "organizer": {
+    "name": "Wakaf Daarut Tauhiid",
+    "avatar": null
+   },
+   "description": "<p>Bersama wakaf, setiap kebaikan yang Anda titipkan berubah menjadi amal jariyah tanpa henti. Melalui Wakaf Umum, Anda turut menghidupkan berbagai program penting seperti pembangunan masjid dan pesantren, penyediaan air bersih, pengadaan mushaf Al-Qur’an, dukungan pendidikan, hingga pengembangan wakaf produktif yang hasilnya kembali untuk umat.</p><img src=\"https://cdn.wakafdt.id/uploads/1780538339951-lzv46k.webp\" loading=\"lazy\"><p>Satu wakaf Anda memberikan pahala yang terus mengalir—menguatkan tempat ibadah, mencerdaskan generasi, menghidupkan pesantren, menyediakan air bagi yang membutuhkan, serta menumbuhkan ekonomi umat melalui aset produktif.</p><img src=\"https://cdn.wakafdt.id/uploads/1764321012343-32a53q.webp\" loading=\"lazy\"><p>Mari wujudkan keberkahan yang meluas.</p><p>Bersama Wakaf Umum—Satu niat, manfaatnya tak pernah berhenti.</p>"
+  },
+  "peduli-terdampak-bencana": {
+   "target": 10000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p>Di suatu tempat di negeri ini, ada saudara kita yang baru saja kehilangan segalanya.</p><p>Rumah yang dibangun bertahun-tahun — rata dengan tanah dalam hitungan menit. Ladang tempat menghidupi keluarga — tenggelam tak bersisa. Anak-anak yang tertidur dalam kehangatan — terbangun dalam kepanikan dan dingin yang menggigit.</p><p>Bencana tidak memberi kabar. Ia datang, dan meninggalkan luka yang dalam.</p><p>Tapi di tengah derita itu, Allah SWT tidak membiarkan mereka sendiri.</p><p>Karena ada kita — umat yang diikat oleh iman, oleh ukhuwah, oleh perintah-Nya untuk saling menanggung beban satu sama lain.</p><blockquote><p><em>\"Perumpamaan orang-orang beriman dalam hal saling mencintai, saling mengasihi, dan saling menyayangi bagaikan satu tubuh. Apabila satu anggota tubuh sakit, maka seluruh tubuh turut merasakan sakit.\"</em> <em>(HR. Bukhari &amp; Muslim)</em></p></blockquote><p><strong>DT Peduli hadir bergerak cepat</strong> — turun langsung ke lokasi bencana dengan rangkaian respons menyeluruh:</p><ul><li><p>🚨 <strong>Bantuan darurat</strong> — logistik, makanan, pakaian, dan kebutuhan mendesak</p></li><li><p>🏥 <strong>Pemulihan awal</strong> — layanan kesehatan, trauma healing, dan perlengkapan hunian</p></li><li><p>🤝 <strong>Pendampingan berkelanjutan</strong> — mendampingi para penyintas bangkit kembali, perlahan tapi pasti</p></li></ul><p>Dana yang terhimpun akan digunakan untuk penanganan bencana secara nasional — tidak terbatas pada satu wilayah atau satu jenis bencana. Karena musibah bisa datang di mana saja, dan kepedulian kita tidak mengenal batas.</p>"
+  },
+  "bangun-pesantren-almubarok": {
+   "target": 0,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p><em>Bayangkan harus mengejar cita-cita, sementara </em><strong><em>tempat untuk belajar saja masih menjadi sesuatu yang diperjuangkan.</em></strong></p><p></p><img src=\"https://dtpeduli.id/uploads/9515fd70-ec5b-426e-b197-2a5da0707f8f.jpg\" loading=\"lazy\"><p>Di Kp. Lembur Tegal, Desa Cijengkol, Sukabumi, beberapa anak telah mulai belajar dan mengenal ilmu agama. Namun, hingga kini mereka belum memiliki ruang kelas yang layak, kegiatan belajar masih dilakukan di luar ruangan dengan segala keterbatasannya.</p><p></p><img src=\"https://dtpeduli.id/uploads/84e59e3d-c47b-4cc6-9975-4b9db1bca6e2.jpg\" loading=\"lazy\"><p></p><p>Di tengah kondisi itu, ada cita-cita besar yang sedang diperjuangkan yaitu menghadirkan <strong>Pondok Pesantren Al-Mubarok</strong>, sebuah tempat pendidikan Islam agar anak-anak dapat belajar, tumbuh dekat dengan Al-Qur’an, membangun karakter, dan menata masa depan.</p><p></p><p>Cita-cita ini melanjutkan amanah tanah wakaf almarhum H. Dahlan Mubarok dan almarhumah Hj. Zubaedah yang di atasnya telah berdiri Masjid Al-Ikhlas dan MDTA Tarbiyatul Aulad.</p><p></p><img src=\"https://dtpeduli.id/uploads/394b9b6a-fcab-43d2-bbd6-f85dc7a93ab4.jpg\" loading=\"lazy\"><p></p><p>Kini, langkah awalnya adalah membangun <strong>KB &amp;TK Al-Mubarok</strong> agar anak-anak yang sudah mulai belajar memiliki ruang yang lebih layak untuk tumbuh dan menuntut ilmu. </p><p></p><p>Membangunnya tentu membutuhkan biaya yang tidak sedikit. Namun, <strong>mungkin yang kita bantu hari ini hanya sebuah ruang kelas, tetapi di sanalah kelak tumbuh mimpi dan masa depan seorang anak.</strong></p><p></p><p>Mari hadirkan ruang belajar bagi generasi Qurani. Semoga setiap ilmu yang tumbuh di dalamnya menjadi <strong>amal jariyah yang terus mengalir hingga ke surga-Nya.</strong> </p>"
+  },
+  "dukung-petani-mustahik": {
+   "target": 65000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p><em>Di balik setiap panen, tersimpan harapan sebuah keluarga untuk hidup lebih sejahtera.</em> </p><p></p><img src=\"https://dtpeduli.id/uploads/a0804de8-c642-46b1-9ee6-2043cc3d9a55.jpg\" loading=\"lazy\"><p></p><p>Bagi 10 petani mustahik di Desa Leuwisadeng, Kabupaten Bogor, lahan seluas 1,5 hektare bukan sekadar tempat bercocok tanam, melainkan peluang untuk meningkatkan penghasilan dan membangun kehidupan yang lebih mandiri.</p><p></p><img src=\"https://dtpeduli.id/uploads/299a9d82-8255-4008-acf3-0224c03defd8.jpg\" loading=\"lazy\"><p></p><p>Melalui <strong>Program Budidaya Ubi</strong>, DT Peduli bersama Kampoeng Ecopreneur dan IPB University mendampingi para petani dalam proses budidaya, penguatan usaha, hingga membuka peluang akses pasar yang lebih luas, termasuk ke Malaysia dan Singapura.</p><p></p><p>Namun, mengembangkan usaha pertanian membutuhkan dukungan modal, sarana produksi, pengetahuan, dan pendampingan agar usaha mereka dapat terus berkembang.</p><p></p><img src=\"https://dtpeduli.id/uploads/e7051aa2-36a4-42c9-9e72-5818b59058f4.jpg\" loading=\"lazy\"><p></p><p><strong>Dukungan kita hari ini dapat menjadi langkah awal menuju kemandirian mereka.</strong> Bukan hanya membantu proses tanam, tetapi juga membuka peluang bagi para petani untuk mengembangkan usaha dan meningkatkan kesejahteraan keluarga.</p><p></p><p><em>Dari benih yang ditanam hari ini, semoga tumbuh harapan dan kemandirian untuk hari esok.</em></p><p></p><p>Mari dukung 10 petani mustahik dalam mengembangkan budidaya ubi agar tumbuh menjadi sumber penghidupan yang lebih baik.</p><p></p><p><em>*) Dana yang terkumpul akan digunakan secara nasional, tidak terbatas pada satu wilayah tertentu.</em></p>"
+  },
+  "peduli-air-bersih": {
+   "target": 80000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p><em>Bayangkan, untuk mendapatkan air bersih yang kita gunakan, ada saudara kita yang harus menunggu bantuan dan</em><strong><em> terpaksa membeli air di tengah keterbatasan ekonomi.</em></strong></p><p></p><img src=\"https://dtpeduli.id/uploads/44f23f5b-1cc7-457c-acb2-a3be1a7813c6.jpg\" loading=\"lazy\"><p> </p><p>Musim kemarau berkepanjangan membuat sumber air mengering <strong>di berbagai wilayah Jawa, Sumatra, hingga Kalimantan Selatan. </strong>Kebutuhan dasar seperti minum, memasak, dan mandi pun menjadi tantangan.</p><p></p><img src=\"https://dtpeduli.id/uploads/ccf8bfa5-02ab-4304-8607-9ace1f3f302e.jpg\" loading=\"lazy\"><p> </p><p>“<strong>Sudah dua bulan kami merasakan kekeringan.</strong> Selama ini untuk kebutuhan sehari-hari harus ambil air dari masjid. Terima kasih banyak kepada DT Peduli atas bantuan airnya, ini sangat berarti untuk kami,” ungkap Ina penuh rasa syukur. </p><p></p><img src=\"https://dtpeduli.id/uploads/36114619-92c8-4089-b9cc-aa1b7f8cb136.jpg\" loading=\"lazy\"><p></p><p>Alhamdulillah, DT Peduli telah menyalurkan <strong>lebih dari 182.000 liter air bersih kepada 27.733 penerima manfaat</strong> di berbagai daerah. Namun, kebutuhan air bersih masih berlanjut selama sumber air belum kembali normal.</p><p> </p><p>Sahabat Peduli<strong>, mari hadirkan air bersih bagi saudara kita yang terdampak kekeringan</strong>. Salurkan sedekah terbaikmu, semoga setiap tetesnya menjadi amal jariyah dan mendatangkan keberkahan serta kelapangan rezeki. Aamiin.</p><p></p><p><em>*) Dana yang terkumpul akan digunakan secara nasional, tidak terbatas pada satu wilayah tertentu.</em></p>"
+  },
+  "pelatihan-sistem-pendinginan": {
+   "target": 75000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p><em>Sedekah yang Anda tunaikan bisa menjadi jalan bagi seseorang untuk memiliki keterampilan, memperoleh penghasilan, dan mengubah masa depan keluarganya.</em></p><p></p><img src=\"https://dtpeduli.org/storage/zqIwlmAZdfzHb0LCeAmZ5UHe1yFNGazP7rEzpUcq.jpg\" loading=\"lazy\"><p>Bagi saudara kita dari keluarga dhuafa, keterbatasan biaya sering kali menjadi penghalang untuk belajar dan mendapatkan pekerjaan yang layak. Padahal, <strong>satu keterampilan bisa membuka jalan menuju kehidupan yang lebih baik.</strong></p><p></p><img src=\"https://dtpeduli.org/storage/6mQpaGUMFmuej8C2kQ9cedq5xNoYumbKchkL6RTy.jpg\" loading=\"lazy\"><p>Melalui<strong> Program Pelatihan Teknisi Sistem Pendingin DT Peduli Jawa Tengah</strong>, sedekah disalurkan menjadi bekal kemandirian. Para mustahik dilatih memperbaiki AC, mesin cuci, dan lemari es, dibekali ilmu usaha, serta didampingi untuk mengembangkan potensi menjadi sumber penghasilan.</p><p></p><img src=\"https://dtpeduli.org/storage/zm96O9gP23kydwsEQ1iEGTxr1OVPzdiTKBFJzdd1.jpg\" loading=\"lazy\"><p>Tak sekadar memberi bantuan, program ini menghadirkan kesempatan agar mereka mampu berdiri di atas kaki sendiri dan meningkatkan kesejahteraan keluarga.</p><p><em>Mari jadikan sedekah Anda jalan bagi para mustahik untuk berdaya dan mandiri.</em></p><p></p><img src=\"https://dtpeduli.org/storage/LLevnbZWiTHzYuDaB9jk5ITJXDYG1gWKZIoGiqD9.jpg\" loading=\"lazy\"><p><strong>﻿Salurkan sedekah terbaik Anda</strong> melalui DT Peduli Jawa Tengah. Semoga menjadi amal jariyah yang menghadirkan manfaat berkelanjutan dan kehidupan yang lebih sejahtera.</p>"
+  },
+  "mck-mushala-saadah": {
+   "target": 55000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p><em>Di pelosok Majalengka, ada tempat sederhana yang menjadi saksi banyak doa dan ibadah.</em></p><p></p><p>Mushala Sa’adah di Blok Sidamukti, Desa Sadawangi, Kecamatan Lemahsugih, menjadi tempat masyarakat menunaikan shalat berjamaah, mengaji, dan mendekatkan diri kepada Allah SWT.﻿</p><p></p><img src=\"https://dtpeduli.org/storage/cUOqeyiMd20ltxOS0oG0VyFn2YS3tqJ1QPQompRH.jpg\" loading=\"lazy\"><p>﻿Namun, untuk bersuci sebelum menghadap-Nya, mereka masih menghadapi keterbatasan. Tempat wudhu dan MCK yang layak belum tersedia.</p><p> </p><p>Bagi jamaah, kondisi ini membuat aktivitas bersuci tidak selalu mudah. Bagi masyarakat sekitar, kebutuhan MCK yang layak juga masih menjadi persoalan dalam keseharian.﻿</p><p></p><img src=\"https://dtpeduli.org/storage/zYiaHW6adXyVBdVhW5VFvRBPzbwdsiKlW8AUqj3v.jpg\" loading=\"lazy\"><p>﻿Kini, ada kesempatan untuk menghadirkan kemudahan itu yang manfaatnya tidak hanya dirasakan hari ini, tetapi insya Allah terus mengalir menjadi amal jariyah.</p><p></p><p>Sahabat Peduli, mari bantu bangun tempat wudhu dan MCK Mushala Sa’adah agar jamaah dapat bersuci dengan lebih nyaman dan masyarakat sekitar turut merasakan manfaatnya.﻿</p><p></p><img src=\"https://dtpeduli.org/storage/u7RT8z7wQJi5OaTb9zeby1PM212bM7hNqC7AJueG.jpg\" loading=\"lazy\"><p>﻿<em>Setiap tetes air yang digunakan untuk berwudhu, insya Allah menjadi saksi atas kebaikan yang kita titipkan.</em></p><p> </p><p>Yuk, ambil bagian dalam menghadirkan fasilitas yang sederhana, tetapi manfaatnya begitu berarti. Semoga Allah menjadikannya amal jariyah yang terus mengalir untuk kita semua. Aamiin.</p>"
+  },
+  "peduli-sahabat-mualaf": {
+   "target": 75000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p><strong><em>Mereka sudah memilih Islam, tapi siapa yang akan menemani setelahnya?</em></strong></p><p></p><p>Hari ini seseorang mungkin mengucapkan dua kalimat syahadat dengan hati penuh bahagia. Ia merasa menemukan jalan yang selama ini dicari.</p><p></p><img src=\"https://dtpeduli.org/storage/XfarAz4YdLrbmfKQOhLZgPMDu985ys515SiHHFue.jpg\" loading=\"lazy\"><p></p><p><em>Namun setelahnya,</em><strong><em> perjalanan baru saja dimulai.</em></strong></p><p></p><p>Belajar wudhu, shalat, membaca Al-Qur’an, memahami ajaran Islam, hingga menghadapi perubahan dalam kehidupan dan mungkin penolakan dari orang-orang terdekat. <strong>Tidak semua mualaf punya keluarga atau lingkungan yang bisa menjadi tempat bertanya dan belajar.</strong></p><p></p><img src=\"https://dtpeduli.org/storage/feFXZgcj0hS8mmqoKoHb9ycGdsoWPQGF7rPkrxNI.jpg\" loading=\"lazy\"><p></p><p>Syahadat adalah awal perjalanan, bukan akhir perjuangan.</p><p></p><p>Melalui <strong>Program Peduli Mualaf DT Peduli</strong>, kami hadir untuk menemani mereka melewati proses tersebut, membantu belajar, memahami Islam, dan bertumbuh menjalani kehidupan sebagai seorang Muslim dengan lebih baik dan mandiri.</p><p></p><img src=\"https://dtpeduli.org/storage/CnxBha2MIOipEj67XEISULSSgFwIpbgSHaaR57ju.jpg\" loading=\"lazy\"><p></p><p>Sebab <strong>dari satu pendampingan hari ini, bisa lahir kebaikan yang panjang. </strong>Mereka mungkin kelak mampu mengajarkan Al-Qur’an kepada keluarganya, mengenalkan Islam kepada orang lain, atau mendampingi mualaf lain yang baru menemukan jalan yang sama.</p><p></p><p><em>Jangan biarkan mereka berjalan sendirian setelah menemukan jalan pulang.</em></p><p></p><img src=\"https://dtpeduli.org/storage/NR4oamjQBoSAKE1xAGd6q5Ldu2EXCiy6idRs7gnG.jpg\" loading=\"lazy\"><p></p><p>Sahabat Peduli, mari salurkan sedekah terbaik untuk Pendampingan Mualaf dan <strong>jadilah bagian dari perjalanan mereka.</strong></p><p></p><p>Semoga setiap ilmu yang mereka pelajari dan setiap kebaikan yang tumbuh darinya menjadi pahala yang terus mengalir untuk kita semua.</p>"
+  },
+  "bantu-meylani-sembuh": {
+   "target": 30000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p>Banyak mimpi ingin ia kejar, namun kini harus terjeda demi pengobatan.</p><p>Namanya Meylani, 19 tahun, tinggal di Desa Sukarapih, Kecamatan Cibeureum, Kabupaten Kuningan. Di usianya yang masih muda, <strong>ada banyak mimpi yang ingin dikejar dan masa depan yang ingin ditata.</strong></p><p>﻿</p><img src=\"https://dtpeduli.org/storage/hzVkNjcX5jvTXEJGjZCEghpH0KBGvai9MBo7wDOu.png\" loading=\"lazy\"><p>﻿Namun, <strong>keadaan keluarga membuat perjalanannya tidak mudah.</strong> Ayahnya sedang mengalami gangguan kesehatan dan membutuhkan pendampingan, sementara ibunya sudah tidak lagi tinggal bersamanya. Kini, Meylani diasuh dan didampingi oleh paman serta keluarga yang berusaha memenuhi kebutuhannya.</p><p></p><p>Sekitar dua bulan terakhir, ujian kembali datang. <strong>Meylani didiagnosis kista ovarium akut</strong> hingga harus menjalani operasi.</p><p></p><p>Di tengah keterbatasan keluarga, biaya pengobatan menjadi beban yang tidak ringan. Terlebih, <strong>pengobatan yang dijalani tidak menggunakan BPJS</strong>. Hingga kini, masih ada biaya medis yang harus diselesaikan dengan kebutuhan bantuan sekitar Rp20.000.000.﻿</p><img src=\"https://dtpeduli.org/storage/wMd2mK8L2ijhCpPh5OeGcgP4VOnOZQ6INPjwYMct.jpg\" loading=\"lazy\"><p>﻿Sahabat Peduli, mari ringankan pengobatan Meylani. Bantuan akan digunakan untuk biaya pengobatan, kebutuhan pascaoperasi, dan kebutuhan medis lainnya.</p><p></p><p>Semoga Allah segera mengangkat sakitnya, meringankan beban keluarganya, dan mengizinkan Meylani kembali melangkah mengejar mimpi yang sempat tertunda. Semoga setiap kebaikan Sahabat menjadi amal yang Allah berkahi, dilipatgandakan pahalanya, dan dibalas dengan kebaikan yang tak terhingga.</p>"
+  },
+  "air-bersih-lombok": {
+   "target": 50000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p><em>Bayangkan jika harus menunggu hujan turun hanya untuk mengisi tampungan air di rumah.</em></p><p></p><p>Itulah yang dirasakan warga Desa Lendang Nangka Utara, Masbagik, Lombok Timur, NTB. Selama puluhan tahun, mereka hidup dalam keterbatasan air bersih. Saat hujan tak kunjung datang, membeli air menjadi satu-satunya pilihan, meski kondisi ekonomi mereka terbatas.</p><p></p><img src=\"https://dtpeduli.org/storage/4Vq7Ber8eeEwZWjNxqeEzlO4DdUlEtJq7cFeAVv2.jpg\" loading=\"lazy\"><p><strong>﻿Untuk mendapatkan sumber mata air, warga harus menempuh perjalanan sekitar 30 menit melalui jalan rusak dan medan yang sulit.</strong> Kini, ratusan warga bergantung pada mobil tangki dan tampungan air hujan. Bahkan, <strong>mobil tangki harus bolak-balik hingga 8 kali sehari</strong>, namun kebutuhan air masih belum mencukupi.</p><p></p><p><strong><em>Membeli air setiap hari bukanlah pilihan mudah bagi mereka. </em></strong><em>Namun tanpa air, kebutuhan paling dasar pun sulit terpenuhi.</em></p><p></p><img src=\"https://dtpeduli.org/storage/EF8oVOcZPUz9mVluOnQsCLREchJKbwv2SAwFNQou.jpg\" loading=\"lazy\"><p></p><p>Melalui program<strong> Wujudkan 100 Sumur Bor Pelosok Timur Indonesia, </strong>mari hadirkan sumber air bersih yang dapat digunakan warga dalam jangka panjang.</p><p></p><img src=\"https://dtpeduli.org/storage/NEMHrpNntzqTHq28AwtH7dzjGjSlfhzXl5C7qvZ0.jpg\" loading=\"lazy\"><p></p><p>Mari bantu wujudkan sumur bor untuk warga Lendang Nangka Utara dan pelosok timur lainnya. Semoga setiap kebaikan yang Sahabat titipkan menjadi jalan keberkahan dan pahala yang terus mengalir.</p><p></p><p><em>*) Dana yang terkumpul akan digunakan secara nasional, tidak terbatas pada satu wilayah tertentu.</em></p>"
+  },
+  "masjid-baiturrahim-serang": {
+   "target": 75000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p><em>Masjid yang menjadi saksi banyak kebaikan, kini menanti uluran tangan.</em></p><p></p><img src=\"https://dtpeduli.org/storage/IRAY9sOmYKJiiAz8pFjKVygwQK13EGMZN1nT6oZ5.jpg\" loading=\"lazy\"><p>Di Taman Puri Indah Blok D10, Desa Serang, Banten, berdiri Masjid Baiturrahim, tempat masyarakat berkumpul, menunaikan shalat berjamaah, belajar Al-Qur’an, dan menghidupkan berbagai kegiatan keagamaan.</p><p></p><p><strong>Di Masjid Baiturrahim, banyak kebaikan telah tumbuh</strong>. Namun, tempat yang selama ini menjadi rumah bagi banyak kebaikan itu kini mulai membutuhkan perhatian.</p><p></p><img src=\"https://dtpeduli.org/storage/JwVrBytADJUqxZMC24LHSAEPORjYeDFaUUGdScPB.jpg\" loading=\"lazy\"><p>Sebagian bangunannya sudah tidak lagi dalam kondisi yang optimal. <strong>Beberapa bagiannya sudah tidak lagi layak digunakan dan membutuhkan renovasi </strong>agar jamaah dapat kembali beribadah dengan aman dan nyaman.</p><p></p><p>Masyarakat telah berusaha menjaga dan merawat rumah Allah ini. Namun,<strong> keterbatasan biaya membuat proses renovasi belum dapat dilakukan </strong>sebagaimana yang diharapkan.</p><p></p><img src=\"https://dtpeduli.org/storage/mDIekTEZaT2y4Z9Sd8v22mJZRU4V8CX3GKTMmHHZ.jpg\" loading=\"lazy\"><p><strong>﻿Rasulullah ﷺ bersabda:</strong><em>“</em></p><p><em>Barang siapa membangun masjid karena Allah, maka Allah akan membangunkan baginya rumah di surga.”</em> (HR. Bukhari dan Muslim)</p><p></p><p>Sahabat Peduli, <strong>mari jadi bagian menjaga rumah Allah</strong> ini agar menjadi tempat tumbuhnya kebaikan. Semoga setiap sedekah yang Sahabat titipkan menjadi amal jariyah yang terus mengalir dari setiap sujud dan doa di dalamnya.</p>"
+  },
+  "aku-cinta-masjid": {
+   "target": 10000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p><em>Mungkin yang mengganggu khusyuk bukan hanya pikiran yang ke mana-mana. Bisa jadi, tempat sujud kita memang belum senyaman yang seharusnya.</em></p><p></p><img src=\"https://dtpeduli.org/storage/Ejagvan6DFdfMKP4ytfgbaP4u8u27PznskOIj3cZ.jpg\" loading=\"lazy\"><p>Di beberapa masjid, lantai masih berdebu, sajadah mulai kusam, sementara keterbatasan alat membuat kebersihan belum terjaga dengan baik. Padahal, di sanalah banyak hati datang mencari tenang dan doa-doa dilangitkan.</p><p></p><p>Masjid adalah rumah Allah. Sudah semestinya siapa pun yang datang merasa nyaman untuk beribadah.</p><p></p><img src=\"https://dtpeduli.org/storage/QUE4J137SO6Cob7OsHdUHLzFfh8ofo86e8WhrTuH.jpg\" loading=\"lazy\"><p>Melalui program ACM (Aku Cinta Masjid), ikhtiar menghadirkan masjid yang lebih bersih dan nyamalah berjalan di lebih dari 20 titik, menjangkau wilayah Metro, Lampung Timur, Lampung Tengah, Lampung Selatan, dan Pesawaran.</p><p></p><p>Salah satunya Mushala Al Mukarom. Ridho, Ketua Takmir, menyampaikan apresiasi dan terima kasih kepada DT Peduli atas kegiatan bersih-bersih serta bantuan perlengkapan kebersihan yang diberikan.</p><p></p><p>“Alhamdulillah, bantuan ini sangat berarti bagi kami. Semoga Mushala Al Mukarom semakin nyaman untuk beribadah dan setiap kebaikan yang diberikan menjadi amal jariyah.”</p><p></p><img src=\"https://dtpeduli.org/storage/lcgfGdMoBryEGyjZd4hbbOYICPBc5SPdWUiANegG.jpg\" loading=\"lazy\"><p>Namun, masih banyak masjid lain yang membutuhkan perhatian. Kebutuhannya sederhana, tetapi berarti: sapu, alat pel, sikat lantai, sandal masjid, keset, gayung, serta perlengkapan kebersihan lainnya.Mungkin bagi kita, semua itu hanyalah benda sederhana. </p><p></p><p>Namun, di rumah Allah, kebaikan kecil itu bisa menjadi bagian dari kenyamanan seseorang saat bersujud.</p><p></p><img src=\"https://dtpeduli.org/storage/jHNi6loY5jxlqj38bXexNjXlAhkyNsItuEsvGIkp.jpg\" loading=\"lazy\"><p>Mari rawat rumah Allah, semoga setiap sujud yang nyaman menjadi amal jariyah yang terus mengalir untuk kita.</p>"
+  },
+  "peduli-kebakaran-sulsel": {
+   "target": 50000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p><strong><em>Ketika rumah lenyap dalam semalam, ke mana mereka harus pulang?</em></strong><br></p><p>Jumat dini hari, 31 Juli 2026 pukul 01.30 WITA, api melalap permukiman padat di Mangara Bombang, Kelurahan Tallo, Kota Makassar.</p><p></p><img src=\"https://dtpeduli.org/storage/PNE5R1WuHY9EUSHItmh9n3ebM8Kb4AvVNtGO8l6x.jpg\" loading=\"lazy\"><p>Dalam sekejap, rumah-rumah yang menjadi tempat berlindung dan menyimpan kehidupan bertahun-tahun berubah menjadi puing. Warga berlarian menyelamatkan diri. Orang tua menggandeng anak-anaknya keluar rumah. Sebagian bahkan tak sempat membawa apa pun.<br></p><p><em>“</em><strong><em>Saya tidak sempat menyelamatkan apa-apa. </em></strong><em>Hanya pakaian yang melekat di badan,”</em> ucap Ibu Sri Handayani, penyintas kebakaran.</p><p></p><img src=\"https://dtpeduli.org/storage/lMpu2hkPxJ6Mtl7LufefwJ8KXuNL8qROWfbDbdxP.jpg\" loading=\"lazy\"><p><strong><em>56 rumah hangus. 81 keluarga terdampak. 310 jiwa kehilangan tempat tinggal.</em></strong>Kini, mereka harus menjalani hari di pengungsian dengan kebutuhan yang serba terbatas. Kebakaran juga melanda Jl. Tinumbu, Jl. Toddopuli, Jl. Antang, dan Jl. Kandea, membuat semakin banyak keluarga harus menghadapi duka yang sama.<br></p><p>Bagi mereka, bencana ini bukan sekadar kehilangan tempat tinggal. <strong>Ada keluarga yang kini harus menata kembali hidup dari sesuatu yang nyaris tak tersisa.</strong></p><p></p><img src=\"https://dtpeduli.org/storage/3fAP2dtaiPSH2GGd9wEl7E0BJXfL47cWFul1NkwD.jpg\" loading=\"lazy\"><p>Saat kita masih bisa membuka pintu dan menemukan rumah sebagai tempat pulang, mereka kini hanya memiliki kenangan tentang rumah yang pernah ada.Mari bantu penuhi kebutuhan sehari-hari, perlengkapan keluarga dan sekolah anak, serta dukung mereka untuk perlahan membangun kembali kehidupan yang sempat hilang.<br></p><p><strong><em>Mereka telah kehilangan tempat untuk pulang. Jangan biarkan mereka kehilangan harapan untuk bangkit.</em></strong><br></p><p>*) Dana bencana akan digunakan untuk penanganan bencana secara nasional, tidak terbatas pada satu wilayah atau jenis bencana tertentu.</p>"
+  },
+  "bbm-untuk-ojol": {
+   "target": 50000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p><strong><em>Ada yang rela menghabiskan berjam-jam di tengah terik, hanya agar malam nanti bisa membawa sesuatu untuk keluarganya.</em></strong>﻿</p><img src=\"https://dtpeduli.org/storage/z0JRzAEuTvv8FR35o0GnhSD1q6koXiRA1E1zzJul.png\" loading=\"lazy\"><p></p><p>﻿<strong>Di tengah terik Makassar, antrean motor mengular hingga ratusan meter</strong>. Rahayu, pengemudi ojol dari Sudiang, menghabiskan empat jam untuk mengantre BBM. Hari itu, belum satu rupiah pun ia dapatkan. Sementara di rumah, anaknya menunggu untuk makan.</p><p></p><p>Bukan hanya Rahayu. Banyak pengemudi ojol lainnya menghadapi hal serupa. <strong>Waktu yang seharusnya digunakan mencari order, habis untuk mengantre BBM.</strong> Penghasilan berkurang, sementara kebutuhan keluarga tetap berjalan.﻿</p><img src=\"https://dtpeduli.org/storage/8DEg4SH54xlq9DsZcYet4nKzKGibS6OfZdxxRLE0.jpg\" loading=\"lazy\"><p></p><p>﻿<strong><em>Bagi mereka, satu liter BBM bukan sekadar bahan bakar kendaraan.</em></strong><em>Namun, kesempatan untuk kembali mencari nafkah dan membawa pulang rezeki untuk keluarga.</em></p><p></p><p>Melihat kondisi ini, DT Peduli menyalurkan bantuan pertama pada Ahad, 13 September 2026, berupa BBM dan makanan untuk 40 pengemudi ojol di Makassar.﻿</p><img src=\"https://dtpeduli.org/storage/C79hMAQgha8DZ2NE8bQx884dw8EilPyT4SKxLgxS.jpg\" loading=\"lazy\"><p></p><p>﻿<em>“</em><strong><em>Mungkin terlihat sederhana, tapi bagi kami sangat berarti.</em></strong><em>BBM membantu kami terus melaju dan makanan membantu mengisi tenaga. Terima kasih DT Peduli,” ucap ketua komunitas ojol Sudiang.</em></p><p></p><p>Namun, <strong>masih banyak pejuang jalanan yang membutuhkan bantuan, </strong>masih ada ratusan, bahkan ribuan pengemudi yang harus terus melaju di tengah sulitnya mendapatkan BBM.﻿</p><img src=\"https://dtpeduli.org/storage/PHxbvfxkinQ03w7JBHFQs7XJwkG3ROI6i6wx3IP6.jpg\" loading=\"lazy\"><p></p><p>﻿<strong>Mari hadirkan energi kebaikan melalui Sedekah BBM untuk Pengemudi Ojek Online.</strong>Karena dari tangan kita, roda-roda kebaikan itu akan terus berputar.</p><p></p><p><em>Satu liter kebaikan, menjaga roda penghidupan mereka.</em></p><p><em>*) Dana yang terhimpun akan digunakan secara nasional, tidak terbatas pada satu wilayah tertentu.</em></p>"
+  },
+  "darurat-warga-gaza-kehausan-tanpa-air-yang-mencukupi": {
+   "target": 0,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p></p><img src=\"https://dtpeduli.org/storage/EBtGbSeTbKe0S74kxklTeaZ08u0Rya6dQRrqK8g6.jpg\" loading=\"lazy\"><p></p><p>Selama lebih dari empat ratus hari genosida, rakyat Gaza terus terlunta-lunta. Mereka hidup dalam keadaan yang memprihatinkan, tanpa akses makanan dan air yang mencukupi.</p><p>Kekerasan yang tak berkesudahan membuat penderitaan mereka semakin bertambah. Di tengah genosida yang belum reda, krisis air bersih semakin memperparah bencana kemanusiaan di Gaza.</p><p> </p><p></p><img src=\"https://dtpeduli.org/storage/rcKTQ0Rsad0I91fS5JHA1RZBBdrPqDSfyV5ZKODZ.jpg\" loading=\"lazy\"><p></p><p>Dari data terbaru, hampir 97% air yang tersedia di Jalur Gaza terkontaminasi limbah. Ini berarti kurang lebih 2 juta penduduk Gaza terpaksa hidup dengan air kotor. Mereka harus menempuh perjalanan jauh, menanggung beban berat wadah air, hanya untuk mendapatkan sedikit air bersih.</p><p> </p><p></p><img src=\"https://dtpeduli.org/storage/nuqbedgPbPNV3UauxffEGYzA3T46UxMzobC6VWPb.jpg\" loading=\"lazy\"><p></p><p>Sementara itu, anak-anak mengalami penyakit parah akibat limbah yang mencemari perairan. Situasi ini disebabkan oleh berbagai faktor, seperti kurangnya curah hujan, ketidakseimbangan antara kebutuhan konsumsi warga dengan ketersediaan air, dan tingginya kadar nitrat dan klorida dalam air.</p><p>Badan Pengungsi Palestina PBB (UNRWA) baru-baru ini memperingatkan tentang bahaya kekurangan air bersih di Jalur Gaza. Mereka menegaskan bahwa \"air adalah kehidupan, sedangkan Gaza hidup tanpa air\".</p><p>Mari kita tunjukkan kepedulian kita. Mari kita bangun kembali harapan-harapan rakyat Gaza melalui tetesan-tetesan semangat dari Indonesia.</p><p>Mohon doa dan dukungan Anda semua. Semoga Allah Swt. memberikan kita kelancaran dan kemudahan dalam usaha ini. Jangan pernah berhenti, Bangun Kembali Palestina!</p>"
+  },
+  "rtq-sumbar": {
+   "target": 50000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": ""
+  },
+  "tanam-kebaikan": {
+   "target": 50000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p><strong><em>Dari Lahan Potensial, Tumbuh Harapan untuk Sumatera Barat</em></strong></p><p></p><p><strong>Di tengah suburnya tanah Sumatera Barat</strong>, tersimpan begitu<strong> banyak potensi yang dapat menjadi sumber kehidupan bagi masyarakat</strong>. Lahan-lahan yang memiliki potensi untuk dikembangkan, para petani yang memiliki semangat untuk bertani, serta generasi muda yang dapat menjadi bagian dari masa depan pertanian Indonesia.</p><p></p><img src=\"https://dtpeduli.id/uploads/cc39c125-56be-4a62-93a1-c414e885b7a7.jpg\" loading=\"lazy\"><p>Namun, <strong>tidak semua potensi tersebut dapat tumbuh dengan optimal.</strong> Keterbatasan akses terhadap bibit, sarana pertanian, modal, pengetahuan, dan pendampingan masih menjadi tantangan bagi sebagian masyarakat dalam mengembangkan lahannya secara produktif dan berkelanjutan.</p><p> </p><img src=\"https://dtpeduli.id/uploads/b9ba10b3-02a7-457c-85ae-0e0d5ba115cc.jpg\" loading=\"lazy\"><p>Melalui program “<strong>Tanam Kebaikan untuk Indonesia</strong>”, kami ingin hadir bukan sekadar memberikan bantuan, tetapi membangun ekosistem pertanian yang dapat tumbuh bersama masyarakat.</p><p> </p><p>Masyarakat akan mendapatkan pendampingan dalam mengembangkan lahan melalui penyediaan bibit produktif, sarana pertanian, pengetahuan, serta penerapan sistem tumpangsari yang memungkinkan lahan menghasilkan lebih dari satu manfaat.</p><p></p><img src=\"https://dtpeduli.id/uploads/1313c1d4-3730-4f81-a671-f3c88d28e446.jpg\" loading=\"lazy\"><p>Karena bagi kami,<strong> sebuah lahan bukan hanya tempat untuk menanam.</strong></p><p> </p><p>Di dalamnya ada harapan seorang keluarga.</p><p>Ada penghidupan seorang petani.</p><p>Ada kesempatan bagi generasi muda.</p><p>Dan ada masa depan sebuah masyarakat.</p><p> </p><p>Satu benih mungkin terlihat kecil. Namun ketika ditanam bersama, dirawat dengan ilmu, dan dikembangkan secara berkelanjutan, ia dapat<strong> tumbuh menjadi sumber kehidupan bagi banyak orang.</strong></p><p></p><img src=\"https://dtpeduli.id/uploads/c2270f9f-aea3-4ca9-8a9c-49417f02770b.jpg\" loading=\"lazy\"><p>Mari bersama-sama mengubah potensi menjadi produktivitas, lahan menjadi sumber kehidupan, dan kebaikan menjadi keberlanjutan.</p><p> </p><p><strong>Tanam Kebaikan untuk Indonesia.</strong></p><p> </p><p>Hari ini kita menanam.</p><p>Esok kita tumbuhkan kehidupan.</p><p>Untuk Indonesia yang lebih berdaya.</p><p></p><p><em>*) Dana yang terkumpul akan digunakan secara nasional, tidak terbatas pada satu wilayah tertentu.</em></p>"
+  },
+  "banturashidshakeel": {
+   "target": 49999999,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p><strong><em>Bagi seorang ibu, tidak ada yang lebih menyakitkan daripada melihat kedua buah hatinya berjuang melawan sakit.</em></strong></p><p>Rashid dan Shakeel, dua bersaudara asal Kampar, Riau, kini sama-sama harus berjuang melawan sakit.﻿</p><img src=\"https://dtpeduli.org/storage/U89YCpA1QYmIYJxVaGPziSBh51c4FBkTTvjroroL.jpg\" loading=\"lazy\"><p></p><p>﻿<strong>Sejak dalam kandungan, Rashid sudah mengalami komplikasi.</strong>Kini, tubuh kecilnya harus menghadapi kejang, infeksi saluran pencernaan, TBC, hingga menjalani perawatan pascaoperasi hernia.<strong>Di saat yang sama, sang adik, Shakeel, juga berjuang melawan tumor. </strong></p><p></p><p>Dua anak yang sakit, sementara seorang ibu harus berusaha kuat untuk keduanya.﻿</p><img src=\"https://dtpeduli.org/storage/jDf9ebALcEi7fL5TTU1k2ojeOp19hQ7PjVTpEJVK.jpg\" loading=\"lazy\"><p></p><p>﻿<strong>Di tengah perjuangan tersebut, keluarga mereka menghadapi keterbatasan ekonomi.</strong>Sang ayah hanya bekerja sebagai buruh harian lepas dengan penghasilan tak menentu, sementara biaya transportasi ke rumah sakit mencapai Rp. 500.000 sekali perjalanan. </p><p></p><p>Belum lagi kebutuhan susu khusus, popok medis, obat-obatan, dan kontrol yang harus terus dilakukan.</p><p><strong>Bukan mereka tak ingin berobat, terkadang keterbatasan biaya membuat pengobatan mereka terhambat.</strong>﻿</p><img src=\"https://dtpeduli.org/storage/HDXYDrEa0qQIoKhFV0MTlpKlUO2ArpW9AeRwlsqy.jpg\" loading=\"lazy\"><p></p><p>﻿Mari hadir dan ringankan perjuangan Rashid dan Shakeel. Sedikit bantuan dari kita dapat menjadi jalan bagi mereka untuk mendapatkan pengobatan yang dibutuhkan. Semoga Allah membalas setiap kebaikan dengan kesembuhan dan keberkahan. Aamiin.</p><p></p>"
+  },
+  "bantukakekzulhartil": {
+   "target": 50000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p><em>Ada cahaya yang bagi kita begitu biasa, tetapi bagi seseorang di usia senja, mempertahankannya adalah sebuah perjuangan.</em></p><p></p><p></p><img src=\"https://dtpeduli.org/storage/898WpFhFR8xPZGT1EVfONADF8TFXLfIRvo1qPqOE.jpg\" loading=\"lazy\"><p><strong>Di usia 74 tahun, Kakek Zulhatril harus menghadapi kenyataan bahwa penglihatannya perlahan semakin memudar</strong>. Sejak didiagnosis <em>Primary Open-Angle Glaucoma</em> (Glaukoma Sudut Terbuka Primer) pada 2024, pandangan beliau terus mengalami gangguan hingga aktivitas sehari-hari pun semakin terbatas.Kakek Zulhatril merupakan warga Jl. Emprit Raya, Kecamatan Jelutung, Kota Jambi. <strong>Kini, beliau tidak lagi mampu bekerja</strong> untuk memenuhi kebutuhan hidup.<strong> Bersama sang istri dan cucunya, beliau tinggal menumpang di rumah kerabat.</strong></p><p></p><p></p><img src=\"https://dtpeduli.org/storage/f0I3Z0LwqFTmBg26TA59bctikMiuyDV2HXhlezUn.jpg\" loading=\"lazy\"><p>Berdasarkan hasil pemeriksaan dokter, Kakek Zulhatril mendapat rujukan untuk menjalani penanganan dan tindakan operasi di Bandung Eye Center, Kota Bandung. Sayangnya, perjalanan dari Jambi menuju Bandung bukanlah perkara mudah bagi keluarga. Biaya perjalanan, akomodasi, konsumsi, pendamping, obat-obatan, hingga kebutuhan penunjang medis yang tidak seluruhnya ditanggung BPJS menjadi beban yang sulit dipenuhi.</p><p></p><p></p><img src=\"https://dtpeduli.org/storage/gZg6NlJwDqxA2NpP35rxANLVTu75W1TBwdoYcviy.jpg\" loading=\"lazy\"><p>Di masa senjanya, Kakek Zulhatril tidak meminta kehidupan yang mewah. Beliau hanya ingin tetap bisa melihat wajah orang-orang yang dicintainya. Sebuah keinginan sederhana yang mungkin terasa biasa bagi kita, tetapi begitu berharga bagi beliau. Mari ulurkan bantuan untuk Kakek Zulhatril agar dapat menjalani pengobatan dan mempertahankan penglihatannya. Semoga setiap kebaikan yang diberikan menjadi jalan kesembuhan bagi Kakek Zulhatril serta menjadi amal jariyah bagi para donatur.</p>"
+  },
+  "bantusalwasembuh": {
+   "target": 50000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p><em>Di usia yang seharusnya penuh tawa, Salwa justru harus belajar kuat menghadapi sakit yang tak kunjung reda.</em></p><p>﻿</p><img src=\"https://dtpeduli.org/storage/6iARsOAEQ47KmhtNXHPcthNdKumuwHhzjWqpnsEP.jpg\" loading=\"lazy\"><p></p><p>﻿<strong>Salwa Arabella, 7 tahun, sudah mengalami kejang dan kelumpuhan sejak usia 1 tahun 4 bulan</strong>. Kejang yang berulang membuat tubuh kecilnya semakin lemah. Ia bahkan pernah koma selama satu bulan dan mengalami henti jantung.</p><p></p><p>Hasil pemeriksaan menunjukkan <strong>adanya pembengkakan pada otak bagian kanan yang berdampak hingga ke paru-paru dan jantung.</strong> Kini Salwa harus menggunakan selang NGT untuk makan dan minum, serta membutuhkan obat kejang, terapi, dan nutrisi khusus untuk menjaga kondisinya.</p><p>﻿</p><img src=\"https://dtpeduli.org/storage/aax0JitPAkccUIOz9V7uD4UAaEI3iFOyrDPr9Wuu.jpg\" loading=\"lazy\"><p></p><p>﻿Di balik perjuangan Salwa,<strong>sang ibu, Melati, juga harus berjuang dengan kondisi tubuhnya yang sering mengalami GERD.</strong>Meski begitu, ia tetap bekerja sebagai buruh harian untuk memenuhi kebutuhan anak-anaknya. Ketika biaya pengobatan tak lagi mampu ditanggung, ia terpaksa meminjam uang hingga menggadaikan HP.</p><p></p><p><em>Kebutuhan Salwa pun terus berjalan. Selang NGT yang harus diganti setiap minggu, obat, terapi, dan nutrisi khusus. </em></p><p>﻿</p><img src=\"https://dtpeduli.org/storage/AB9MMyg9WPdrq8DG96MnDLsEEYNlsWh4CmKzaL61.jpg\" loading=\"lazy\"><p></p><p>﻿Sementara rumah sederhana yang mereka tempati di Jambi juga kerap kebanjiran saat hujan deras, membuat kondisi keluarga ini semakin sulit. </p><p></p><p>Di tengah begitu banyak ujian, sang ibu hanya ingin satu hal, Salwa tetap bertahan. Mari bantu ringankan perjuangan mereka dan jaga harapan Salwa untuk terus mendapatkan perawatan yang dibutuhkan.</p><p>Semoga setiap kebaikan yang diberikan untuk Salwa menjadi jalan kesembuhan baginya dan Allah balas dengan keberkahan berlipat, aamiin.</p>"
+  },
+  "asramatahfidzpreneur": {
+   "target": 75000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p><em>Menghafal Al-Qur’an bukan perjalanan sehari dua hari.</em></p><p>Di balik setiap ayat yang dihafalkan, ada perjuangan untuk belajar, mengulang, dan menjaganya. Karena itu, para penghafal Al-Qur’an membutuhkan rumah yang nyaman dan lingkungan yang mendukung untuk tumbuh bersama Al-Qur’an.</p><p></p><p></p><img src=\"https://dtpeduli.org/storage/m6rT0Hmbv3TFxCcvq4Nb56LX5kFQqyQ9BxqX0jpD.jpg\" loading=\"lazy\"><p><em>Di Leuwisadeng, Bogor, sebuah ikhtiar sedang dimulai.</em></p><p><strong>DT Peduli bersama Yayasan Pesantren Ecopreneur Indonesia menghadirkan Asrama Tahfidzpreneur</strong>, bagian dari pengembangan Kampoong Ecopreneur yang dirancang menjadi tempat bagi santri untuk tinggal, belajar, menghafal, dan mengamalkan Al-Qur’an.</p><p></p><p></p><img src=\"https://dtpeduli.org/storage/WMWwzH33Bq4vbQQTimFoXXObmbElZX5Vw7F4Ze7s.jpg\" loading=\"lazy\"><p><strong>Pembangunan mencakup 4 unit asrama untuk 48 santri.</strong> Namun untuk tahap awal, kami ingin terlebih dahulu menghadirkan 2 unit asrama yang akan menjadi rumah bagi 24 santri penghafal Al-Qur’an.<em>Kelak dari tempat sederhana ini, insyaAllah akan lahir generasi yang membawa Al-Qur’an dalam kehidupannya dan menghadirkan manfaat bagi banyak orang.</em> </p><p></p><p></p><img src=\"https://dtpeduli.org/storage/d5dhCI1firDe242XGAYjnNMwTwyYOYHfQ4R553Yh.jpg\" loading=\"lazy\"><p><strong>Mari hadirkan rumah bagi santri penghafal Al-Qur’an.</strong> Jadikan sebagian rezeki kita sebagai jalan bagi mereka untuk tumbuh b<em>ersama</em> Al-Qur’an, sekaligus menjadi amal jariyah yang insyaAllah terus mengalir, bahkan setelah kita tiada.Mari bangun rumahnya hari ini, agar kelak dari sana tumbuh generasi Qur’ani yang membawa kebaikan untuk umat.</p><p></p><p><em>*Dana yang terhimpun melalui kampanye ini akan digunakan untuk mendukung </em><strong><em>Program Rumah Tahfidz Qur’an secara nasional</em></strong><em> dan dapat dialokasikan ke berbagai wilayah sesuai dengan kebutuhan, prioritas, serta ketentuan program yang berlaku.</em></p>"
+  },
+  "bantufathursembuh": {
+   "target": 50000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p><strong><em>Di pundak seorang ibu, tersandar harapan suami dan anak yang sama-sama sedang berjuang melawan penyakit.</em> </strong></p><p></p><p><em>Di saat orang lain sibuk mengejar mimpi, Fathurrohman justru harus berjuang melawan Neurofibromatosis Tipe 2,</em> kelainan genetik yang menyebabkan tumor terus tumbuh di jaringan saraf dan menyebar hampir ke seluruh tubuhnya.</p><p></p><img src=\"https://dtpeduli.org/storage/xSSYGhrYx9263FajRYKAcLI93wnLMhO4rBfFHSUf.jpg\" loading=\"lazy\"><p></p><p>Penyakit langka yang dideritanya membuatnya tak lagi mampu bekerja seperti dulu. <strong>Puluhan operasi telah dijalani,</strong> tetapi harapan untuk sembuh masih terasa begitu jauh.</p><p></p><p>Belum selesai ujian itu, <strong>sang ayah juga harus kehilangan kakinya akibat diabetes dan tidak bisa lagi mencari nafkah.</strong></p><p></p><img src=\"https://dtpeduli.org/storage/0TVhwlZrec6GJXCsgg2D7rjAz0UJwHqNWbVr89it.jpg\" loading=\"lazy\"><p></p><p><strong>Kini, semua harapan bertumpu pada Shofiyah, sang ibu. </strong>Setiap hari ia bekerja sebagai buruh cuci harian demi menghidupi keluarga dan membiayai pengobatan suami serta anaknya.<em>\"</em><strong><em>Selama saya masih kuat, biar saya yang urus semuanya</em></strong><em>,\"</em> ucap Shofiyah dengan penuh ketegaran.</p><p></p><img src=\"https://dtpeduli.org/storage/x8pqohNbwZDqcy6Lc1OTg9RI5tGQ7IQ7mzDAn6fw.png\" loading=\"lazy\"><p></p><p>Di balik tangan yang kasar karena bekerja, ada hati yang tak pernah lelah menguatkan. Ia terus mengajak suami dan anaknya untuk beribadah, berdoa, dan berharap kepada Allah.<em>\"Kalau memang waktunya kontrol atau operasi, meski tidak membawa uang sepeser pun, yang penting berangkat dulu. </em><strong><em>Soal rezeki, saya yakin Allah akan memberi jalan,</em></strong><em>\"</em> tambahnya dengan penuh tawakal.</p><p></p><img src=\"https://dtpeduli.org/storage/YHZjaCZnIWV5iPvL4joaXYejZjTxZIYMXyx9EcIz.jpg\" loading=\"lazy\"><p></p><p>Sahabat Peduli, tak ada yang mampu menghapus semua luka mereka, tetapi kita bisa membantu meringankan bebannya. Semoga Allah SWT menjadikan setiap bantuan yang Sahabat berikan sebagai pemberat amal kebaikan di dunia dan akhirat.</p>"
+  },
+  "bantuammarsembuh": {
+   "target": 45000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p><em>Di saat banyak pemuda seusianya bebas mengejar impian, Ammar masih berjuang melawan luka yang semakin hari semakin memburuk.</em></p><p></p><img src=\"https://dtpeduli.org/storage/Fg5C48vqIriaBsC7QcRq8BK6WnCaiUZU4AC1Zk1w.jpg\" loading=\"lazy\"><p>Hampir dua tahun berlalu sejak kecelakaan yang dialami Ammar sepulang dari kegiatan buka puasa bersama. Sejak saat itu, pemuda 21 tahun yang menjadi anak pertama ini lebih banyak menghabiskan waktu di rumah, menahan sakit akibat <strong>tulang kaki kanannya yang patah hingga remuk. </strong></p><p></p><p>Meski telah menjalani operasi dan dipasang alat penyangga, kondisinya belum kunjung membaik. <strong>Luka di kakinya justru semakin mengkhawatirkan.</strong></p><p></p><img src=\"https://dtpeduli.org/storage/HKi6pW2tJL9p39gmQDANbNw9jQE4hjtEcudIUrZf.jpg\" loading=\"lazy\"><p>Dokter menyarankan Ammar menjalani pemeriksaan lanjutan pada tahun kedua pascaoperasi, tetapi jarak rumah yang jauh dan keterbatasan ekonomi keluarga menjadi penghalang untuk melanjutkan ikhtiar pengobatan.</p><p></p><img src=\"https://dtpeduli.org/storage/SlCiBMhARpm1k4AppfXFPRgWlvxKnfjHe9yLAoiJ.jpg\" loading=\"lazy\"><p>Di tengah ujian yang belum usai, Ammar tetap menyimpan harapan sederhana.<strong> \"<em>Kalau sudah sembuh, saya ingin khidmat membantu kegiatan di lingkungan pesantren dan masjid</em>,\"</strong> tuturnya. Alhamdulillah, saat ini Ammar telah menghafal 5 juz Al-Qur'an. Sahabat Peduli, mari bantu Ammar melanjutkan ikhtiar kesembuhannya.</p><p></p><p>Semoga setiap bantuan yang dititipkan menjadi jalan agar ia dapat kembali melangkah, mengabdi di jalan Allah, dan menjadi amal jariyah yang terus mengalir.</p>"
+  },
+  "bantuafzalsembuh": {
+   "target": 50000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p><em>Di usia empat tahun, saat anak-anak seusianya asyik bermain, Afzal justru harus berjuang melawan penyakit yang mengancam hidupnya.</em></p><p></p><img src=\"https://sedekah.id/api/media/media/2026/08/a8f6f92f-463f-41e5-a404-e3d63747b921.webp\" loading=\"lazy\"><p></p><p>Di sebuah rumah sederhana di Kampung Nagrak, Kabupaten Garut, Afzal menjalani hari-harinya dengan rasa sakit dan perjuangan yang tak seharusnya dipikul oleh anak seusianya. <strong>Sejak usia tiga tahun, ia didiagnosis menderita <em>Tumor Wilms</em> (kanker ginjal).</strong></p><p></p><p>Demi menyelamatkan nyawanya,<strong> ginjal kanan Afzal harus diangkat.</strong> Tumor yang telah menyebar ke area usus membuatnya harus menggunakan alat bantu untuk buang air besar. <strong>Hingga kini, Afzal masih rutin menjalani kemoterapi di Bandung.</strong></p><p></p><img src=\"https://sedekah.id/api/media/media/2026/08/1c89dbf9-82fa-465f-affa-0c9eeb23c406.webp\" loading=\"lazy\"><p></p><p>Di samping Afzal, sang ibu selalu setia mendampingi setiap proses pengobatan. Sementara ayahnya berjuang mencari nafkah sebagai kuli bangunan serabutan. Penghasilan yang tidak menentu membuat keluarga ini harus berutang agar pengobatan Afzal tetap bisa berjalan.</p><p></p><p>Meski dihimpit keterbatasan, harapan mereka tak pernah padam. Dengan penuh haru, sang ibu berkata,<strong> \"Saya hanya ingin Afzal sehat dan bisa bermain seperti anak-anak lainnya,\"</strong> kalimat sederhana itu menjadi doa yang terus mereka panjatkan setiap hari.</p><p></p><p>Sahabat Peduli, hari ini kita dapat menjadi bagian dari ikhtiar kesembuhan Afzal. Setiap doa dan kepedulian yang diberikan bukan hanya membantu meringankan biaya pengobatan, tetapi juga menguatkan langkah keluarga kecil ini untuk terus berjuang.</p>"
+  },
+  "sumur-bor-cianjur": {
+   "target": 75000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p><em>Ada doa yang tak pernah putus dipanjatkan, hanya agar esok air kembali mengalir.</em></p><p></p><img src=\"https://dtpeduli.org/storage/B2qpyC8YN79yMgbFnkCUPfuljnS8eYDeAQ3FvhrT.jpg\" loading=\"lazy\"><p>Bagi sebagian dari kita, membuka keran lalu mendapatkan air bersih adalah hal yang biasa. Namun, bagi warga Kampung Gelarkubang, Desa Cinerang, Kecamatan Naringgul, Kabupaten Cianjur, <strong>air bersih adalah harapan yang terus mereka nantikan</strong>. </p><p></p><p>Saat musim kemarau datang, sumber air yang selama ini menjadi andalan perlahan mengering. <strong>Warga terpaksa mengandalkan air hujan yang ditampung seadanya.</strong> Air yang keruh itu tetap mereka gunakan untuk memasak, mandi, mencuci, bahkan berwudhu, karena tidak ada pilihan lain.</p><p></p><p>Keterbatasan air bersih membuat aktivitas sederhana menjadi perjuangan. Anak-anak harus menunggu air terkumpul sebelum mandi. Para ibu harus menghemat setiap tetes untuk kebutuhan keluarga. Sanitasi menjadi kurang terjaga, kesehatan pun ikut terancam. </p><p></p><img src=\"https://dtpeduli.org/storage/2m7eAyNEdJk8iYJrF6hQMRQWRxwBfVij4gbiULkj.jpg\" loading=\"lazy\"><p>Padahal, air bukan sekadar kebutuhan namun sumber kehidupan. Dengannya, keluarga dapat hidup lebih sehat, anak-anak tumbuh lebih baik, dan ibadah dapat dijalankan dengan lebih khusyuk.</p><p></p><p><strong><em>Saat ini, warga Kampung Gelarkubang hanya memiliki satu harapan sederhana, memiliki sumber air bersih yang tidak lagi bergantung pada hujan.</em></strong></p><p></p><p>Karena itu, pembangunan sumur bor menjadi ikhtiar yang sangat mereka nantikan. Sumur ini bukan hanya menghadirkan air, tetapi juga harapan baru bagi seluruh warga.</p><p></p><p>Sahabat Peduli, mari ambil bagian dalam menghadirkan sumber kehidupan untuk mereka. Setiap rupiah yang Sahabat titipkan akan menjadi ikhtiar menghadirkan air bersih yang terus mengalir dan menjadi amal jariyah yang pahalanya takkan terputus.</p>"
+  },
+  "pesantren-ahlul-bait": {
+   "target": 40000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p><em>Bagaimana jika anak-anak yang semangat mengaji harus belajar dalam ruang yang sempit dan fasilitas yang terbatas?</em></p><p></p><img src=\"https://dtpeduli.org/storage/oQpLtbatRi3huTcDfUOm6RIf8fwF49RvsTyBJKKt.jpg\" loading=\"lazy\"><p></p><p><strong>Inilah kondisi yang dirasakan sekitar 50 santri di Pesantren Ahlul Bait</strong>, Kampung Sukasari, Desa Sukamulya, Kecamatan Cikadu, Kabupaten Cianjur.</p><p><strong>Di kampung ini, fasilitas mengaji masih sangat terbatas.</strong> Karena letak masjid dan mushala cukup jauh, seorang ustadz bersama istrinya menjadikan rumah mereka sebagai tempat belajar Al-Qur'an bagi anak-anak sekitar. </p><p>\"Daripada anak-anak terus bermain, lebih baik mereka mengaji,\" tutur sang ustadz. </p><p></p><img src=\"https://dtpeduli.org/storage/e5IQzRPyZ2RS9HRi6pcGlRPyIKrV4XSSpem3w9Fl.jpg\" loading=\"lazy\"><p></p><p></p><img src=\"https://dtpeduli.org/storage/q6afmtdtGo017VbPEtdkbD7SHJxk8YcAP8kILxfn.png\" loading=\"lazy\"><p></p><p>Meski penuh semangat,<strong> para santri harus belajar dengan fasilitas seadanya. </strong>Al-Qur'an yang terbatas hingga terpaksa diletakkan di lantai, meja belajar yang minim, karpet yang sudah bolong bahkan di beberapa bagian tidak ada, rak buku yang kurang layak, belum adanya papan tulis serta penerangan yang seadanya menjadi bagian dari keseharian mereka.</p><p>Bagi <strong>santri </strong>yang<strong> mukim</strong>, kondisi tak kalah memprihatinkan.<strong> Mereka tidur hanya beralaskan karpet dan berselimut sarung karena belum tersedia kasur lantai, tempat tidur, maupun bantal dan selimut yang memadai. </strong></p><p></p><img src=\"https://dtpeduli.org/storage/C5dR8xpJSd3ZBfFEgV1KQRIhC7qcMCrtJYy2D8CM.png\" loading=\"lazy\"><p></p><p>Namun, keterbatasan itu tak pernah memadamkan semangat mereka untuk belajar Al-Qur'an dan menuntut ilmu agama.Sahabat Peduli, mari hadirkan tempat belajar yang lebih layak bagi para santri.</p><p>Insya Allah, setiap fasilitas yang kita bantu hadirkan akan menjadi amal jariyah yang terus mengalir selama ayat-ayat Al-Qur'an dibaca dan diamalkan oleh mereka.</p>"
+  },
+  "ruangbelajarlayak": {
+   "target": 50000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p><em>Bayangkan, jika anak-anak kita belajar di sekolah yang atapnya bocor dan hampir roboh.</em></p><p></p><img src=\"https://dtpeduli.org/storage/CayP8LFQhPpezS9CXxz31u7DiC6Esxu2K8wH4Nn1.jpg\" loading=\"lazy\"><p>Inilah kenyataan yang dihadapi 35 siswa MI Babunajah di Kampung Lasem, Desa Sobang, Kabupaten Pandeglang, Banten. Di tengah keterbatasan, mereka tetap datang ke sekolah dengan membawa semangat dan mimpi besar. </p><p></p><img src=\"https://dtpeduli.org/storage/m1xKkk2kBb5owEk0zqgTSscGc6E1czNAWkd88RJ5.jpg\" loading=\"lazy\"><p>Namun, <strong>sekolah yang menjadi tempat mereka menuntut ilmu kini berada dalam kondisi yang sangat memprihatinkan.</strong></p><p>Bangunan yang didirikan secara swadaya oleh masyarakat sejak tahun 2002 itu telah rapuh dimakan usia. Atap bocor saat hujan turun, dinding mulai lapuk, dan beberapa bagian bangunan sudah tidak lagi kokoh. <strong>Kondisi ini semakin parah setelah gempa tahun 2018 yang kembali merusak ruang-ruang kelas mereka.</strong></p><p></p><img src=\"https://dtpeduli.org/storage/c99S6rIZqZ45d0kVC2Rn01lIvgSnqnh7NYoJw5By.jpg\" loading=\"lazy\"><p></p><img src=\"https://dtpeduli.org/storage/k2Ej04PoDiXf1XhbMxJMpRyKtRivTZyhzUQwccXm.jpg\" loading=\"lazy\"><p><em>Meski demikian, semangat belajar anak-anak ini tidak pernah runtuh.</em></p><p>Mereka tetap datang setiap hari, duduk di ruang kelas yang jauh dari kata nyaman, demi meraih masa depan yang lebih baik. Bahkan <strong>jika harus berpindah ke sekolah lain, mereka harus berjalan kaki sekitar 30 menit melewati jalan yang tidak mudah dilalui.</strong></p><p>Sahabat, pendidikan adalah hak setiap anak. Namun bagi anak-anak di pelosok Banten, hak itu masih harus diperjuangkan di tengah keterbatasan fasilitas yang ada. </p><p><strong>Rasulullah ﷺ bersabda:</strong></p><p><em>\"Apabila manusia meninggal dunia, maka terputuslah amalnya kecuali tiga perkara: sedekah jariyah, ilmu yang bermanfaat, dan anak saleh yang mendoakannya.\"</em> (HR. Muslim) </p><p></p><img src=\"https://dtpeduli.org/storage/NJRmpsVyDiHmg9ED7TbQ8bLUX5SDFb6DjEXRDJ0V.jpg\" loading=\"lazy\"><p><strong>Mari bersama membangun kembali MI Babunajah agar anak-anak dapat belajar di ruang kelas yang layak.</strong> Bantuan yang Sahabat berikan bukan sekadar membangun sekolah, tetapi juga menjaga mimpi dan masa depan anak-anak pelosok.</p><p>Semoga setiap kebaikan yang dititipkan menjadi amal jariyah yang terus mengalir dan membawa keberkahan dunia serta akhirat. Aamiin</p>"
+  },
+  "mcksantricianjur": {
+   "target": 50000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p><em>Bagaimana jika untuk berwudhu saja, anak-anak kita harus pulang ke rumah?</em></p><p></p><p></p><img src=\"https://dtpeduli.org/storage/JjtF9EpTitK7MHC0X38VFXkDL9PUxXD32F9chaX9.jpg\" loading=\"lazy\"><p></p><p></p><img src=\"https://dtpeduli.org/storage/OumEogQ4JcUZD8MmYZjGz6IEVAYH21qmX8MfQhNT.jpg\" loading=\"lazy\"><p></p><p>Kondisi itulah yang masih dirasakan para santri Madrasah Nurul Ta’lim di Kp. Citawa Lebak, Desa Pusaka Jaya, Kec. Pasirkuda, Kab. Cianjur, Jawa Barat. <strong>Saat ini terdapat sekitar 40 santri aktif yang rutin belajar setiap harinya. </strong>Dengan semangat yang tak pernah surut, mereka terus menuntut ilmu Al-Qur'an meski fasilitas yang tersedia masih sangat terbatas.</p><p></p><p></p><img src=\"https://dtpeduli.org/storage/poAw7HCBIUiUYgPe8uU5OmUGDq2N23njIheIl4EW.jpg\" loading=\"lazy\"><p>Namun, di balik lantunan ayat suci yang mereka baca, ada kebutuhan mendasar yang belum terpenuhi. <strong>Tempat belajar ini belum memiliki MCK dan tempat wudhu yang layak.</strong> Akibatnya, saat membutuhkan air untuk berwudhu atau ke kamar mandi, sebagian santri harus kembali ke rumah mereka terlebih dahulu.Bagi santri yang rumahnya cukup jauh, kondisi ini tentu tidak mudah. Waktu belajar berkurang, tenaga mereka terkuras, dan kenyamanan dalam beribadah pun menjadi terbatas. Meski demikian, mereka tetap datang setiap hari demi meraih ilmu dan mendekatkan diri kepada Allah SWT.</p><p></p><p></p><img src=\"https://dtpeduli.org/storage/XvnFOscZ0iYzUEcASDQmdx6VJXwLTo3ts2yxTpT7.jpg\" loading=\"lazy\"><p>Melalui pembangunan MCK dan tempat wudhu yang layak, insya Allah para santri dapat belajar, berwudhu, dan beribadah dengan lebih nyaman. <strong>Fasilitas sederhana yang mungkin terlihat biasa bagi kita, akan menjadi nikmat yang sangat berarti bagi mereka.</strong></p><p></p><p>Sahabat peduli, mari sisihkan sebagian rezeki terbaik yang Allah titipkan untuk membantu pembangunan MCK dan tempat wudhu bagi para santri. <strong>Semoga setiap tetes air wudhu, setiap sujud, dan setiap ayat Al-Qur'an yang mereka lantunkan menjadi amal jariyah yang terus mengalir untuk kita.</strong> Aamiin Allahumma aamiin.</p>"
+  },
+  "beasiswa-peduli-negeri-setiap-anak-berhak-belajar-setiap-mimpi-harus-dikejar": {
+   "target": 75000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p>Banyak anak yatim dan dhuafa memiliki semangat besar untuk belajar, namun terbatas oleh kondisi ekonomi. Padahal pendidikan adalah kunci untuk mengubah masa depan dan memutus rantai kemiskinan.<br></p><p>Program Beasiswa Peduli Negeri hadir sebagai jembatan kebaikan bagi anak-anak Indonesia dari tingkat SMP hingga perguruan tinggi. Melalui konsep orang tua asuh, para donatur dapat mendampingi perjalanan pendidikan mereka agar tetap bisa belajar, tumbuh, dan meraih cita-cita.<br></p><p>Satu bantuan yang Anda berikan hari ini dapat menjadi langkah awal lahirnya generasi unggul yang membawa manfaat bagi bangsa dan umat.<br></p><p>Mari menjadi bagian dari perjalanan mereka menuju masa depan yang lebih baik.</p>"
+  },
+  "muharram-peduli-difabel": {
+   "target": 75000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": ""
+  },
+  "peduli-yatim-palestina": {
+   "target": 50000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p><a href=\"https://dtpeduli.org/storage/puAY6b5JS61h0N1I8pQIL75dCGLemUzyLQqYTCUf.jpg\" target=\"_blank\" rel=\"noopener noreferrer\"><u><br></u></a></p><img src=\"https://dtpeduli.org/storage/puAY6b5JS61h0N1I8pQIL75dCGLemUzyLQqYTCUf.jpg\" loading=\"lazy\"><p><strong>Anak mana yang ingin tumbuh di tengah tragedi kemanusiaan tiada akhir? </strong>Anak-anak Palestina tak pernah memintanya, tapi mereka harus menjalaninya tanpa orang tua, harta, dan kepastian. </p><p><strong>Luka mereka terlalu dalam, sedangkan dunia masih saja bungkam.</strong> Anak-anak kecil di ambang kematian bukan karena senjata saja, tapi juga karena terlalu lama menahan lapar. </p><p></p><img src=\"https://dtpeduli.org/storage/n1J6tP8oTgRbTOu38t5jABER0Tb4WV9MkTWGBN26.jpg\" loading=\"lazy\"><p>Muharram tahun ini, kami ingin kita bersama memberikan kebahagiaan untuk anak-anak yatim dan dhuafa di Palestina. Kita bisa bantu mereka dengan menghilangkan rasa lapar atau menyembuhkan lukanya.Kita bantu mereka dengan menyediakan pangan dan obat-obatan. Insya Allah, setiap rupiah yang kita donasikan tak hanya menjadi harapan untuk mereka, tapi juga bukti rasa kemanusiaan kita masih ada.</p><p></p><p><strong><em>Sahabat Peduli, mari jadi bagian kebaikan untuk saudara Palestina kita!</em></strong></p>"
+  },
+  "berbagi-bahagia-bersama-yatim": {
+   "target": 200000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p>Anak-anak yatim dan dhuafa adalah pintu kebaikan yang Allah buka untuk kita. Mereka membutuhkan perhatian, cinta, dan dukungan kita untuk merajut masa depan.</p><img src=\"https://sedekah.id/api/media/media/2026/06/78c954e0-ff57-47e0-b081-8f52e987e1f3.webp\" loading=\"lazy\"><p>Melalui program Berbagi Bahagia Bersama Yatim, kita berikan anak-anak yatim dan dhuafa kebahagiaan dengan kegiatan edukatif seperti eduwisata, pendidikan, dan berbagai pengalaman berharga lainnya.</p><img src=\"https://sedekah.id/api/media/media/2026/06/2a219e77-f55d-4fbe-a1b0-7b22a69bf56e.webp\" loading=\"lazy\"><p><br>Saat kita membahagiakan mereka, sesungguhnya Allah SWT tengah menambah keberkahan hidup kita.</p><p></p>"
+  },
+  "kirim-bantuan-kemanusiaan-untuk-rakyat-gaza": {
+   "target": 100000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p>10 Truk Kontainer paket bantuan siap kami salurkan, Insyaa Allah!<br><br>Kepedulianmu, tumbuhkan harapan yang tak pernah padam. Pada 11–14 April 2026, bantuan kemanusiaan kembali diberangkatkan untuk Gaza, Palestina.<br><br>Bantuan berupa kebutuhan pangan, perlengkapan kebersihan, hingga selimut hangat ini ditujukan untuk menjangkau puluhan ribu jiwa.<br><br>Mohon doa terbaiknya ya, agar perjalanan bantuan ini diberi kemudahan, keselamatan, dan sampai kepada mereka yang sangat membutuhkan.<br><br>Kalau kamu mau ikut, yuk segera kirimkan bantuan terbaikmu bersama DT Peduli di sini!</p><p> <br></p><img src=\"https://sedekah.id/api/media/media/2026/05/786d3db3-3100-4f13-855e-369bab48ec48.webp\" loading=\"lazy\"><p></p><img src=\"https://sedekah.id/api/media/media/2026/06/67db53ff-8c3d-4320-b86e-16d25f8506fc.webp\" loading=\"lazy\"><p></p>"
+  },
+  "sedekah-mushaf-al-quran": {
+   "target": 50000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": ""
+  },
+  "sedekah-daging-lintas-negeri": {
+   "target": 70000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p>Setiap Idul Adha, daging qurban banyak dibagikan di sekitar kita.</p><p>Namun di saat yang sama, masih ada saudara-saudara kita di pelosok negeri hingga berbagai belahan dunia yang belum merasakannya.</p><p></p><img src=\"https://sedekah.id/api/media/media/2026/05/ad9b7582-be3c-4ea1-b8ef-4db195807239.webp\" loading=\"lazy\"><p></p><p>Bukan karena mereka tidak ingin, tetapi karena akses yang belum sampai kepada mereka.</p><p></p><p>Di daerah terpencil, wilayah terdampak bencana hingga kawasan konflik, daging adalah sesuatu yang sangat jarang dinikmati—bahkan bisa jadi hanya harapan yang datang setiap tahun.</p><p></p><img src=\"https://sedekah.id/api/media/media/2026/05/bc05480c-3db6-4e44-adfe-c1d241902bb0.webp\" loading=\"lazy\"><p></p><p>Melalui Sedekah Daging Lintas Negeri, qurbanmu tidak hanya berhenti di satu tempat.</p><p></p><p>Kebaikanmu akan menjangkau lebih luas, hingga pelosok Indonesia dan lebih dari 30 negara di dunia.</p><p></p><img src=\"https://sedekah.id/api/media/media/2026/05/311296a8-aada-4634-a4ad-778cac84ec14.webp\" loading=\"lazy\"><p></p><p>Karena qurban bukan hanya tentang ibadah, tetapi juga tentang menghadirkan kebahagiaan dan menyampaikan amanah hingga ke tempat yang tepat.</p>"
+  },
+  "sedekah-daging-ke-pelosok-negeri": {
+   "target": 250000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p><strong><em>Ada anak-anak yang tumbuh tanpa pernah benar-benar tahu seperti apa rasanya menikmati daging di hari raya.</em></strong></p><img src=\"https://sedekah.id/api/media/media/2026/06/d03384bd-1520-4350-bd45-ce2a3e6c11f7.webp\" loading=\"lazy\"><p><br>Bagi mereka, Idul Adha bukan tentang hidangan istimewa, tapi tentang hari yang berlalu seperti biasa—tanpa sesuatu yang berbeda di meja makan.<br><strong>Ada pula keluarga yang tetap tersenyum di tengah keterbatasan.</strong><br>Mereka merayakan dengan apa yang ada—lauk sederhana, nasi hangat, dan doa yang tak pernah putus. Bukan karena mereka tak ingin merasakan lebih, tapi karena memang keadaan belum memberi ruang untuk itu.<br>Sementara itu, kita masih diberi kesempatan untuk memilih, merencanakan, bahkan menentukan ke mana qurban akan disalurkan.</p><img src=\"https://sedekah.id/api/media/media/2026/06/c0f7382a-df36-487b-98e2-a70fc18e2ad6.webp\" loading=\"lazy\"><p><br><strong>Di saat yang sama, di tempat yang jauh dari jangkauan, ada mereka yang hanya bisa menunggu, </strong>berharap ada bagian kecil yang sampai, cukup untuk menghadirkan kebahagiaan sederhana di hari yang mulia.<br>Kadang, bukan soal besar atau kecilnya pemberian. Tapi tentang bagaimana kehadiran kita—meski lewat perantara—bisa berarti besar bagi mereka yang menerima.</p><img src=\"https://sedekah.id/api/media/media/2026/06/91ee79f6-17e4-4918-badc-38b641a3727c.webp\" loading=\"lazy\"><p><br>Jika tahun ini belum Allah mudahkan untuk berqurban, bukan berarti kita kehilangan kesempatan berbagi. Masih ada jalan kebaikan yang terbuka luas—melalui <strong>Sedekah Daging Pelosok Negeri</strong>.<br>Sebuah cara sederhana untuk tetap menjadi bagian dari kebahagiaan Idul Adha, menghadirkan daging qurban ke pelosok negeri, ke daerah terpencil, hingga ke meja makan keluarga yang selama ini hanya bisa berharap.<br>Bayangkan, dari sedekah yang kamu titipkan, ada senyum anak-anak yang akhirnya bisa merasakan nikmatnya daging. Ada rasa haru dari orang tua yang bisa menyajikan hidangan lebih layak untuk keluarganya. <strong>Ada doa-doa tulus yang mungkin tak terdengar, tapi sampai ke langit.</strong></p><img src=\"https://sedekah.id/api/media/media/2026/06/1c29225b-e64c-4712-987b-e879899dfe05.webp\" loading=\"lazy\"><p><br>Karena sejatinya, berbagi bukan hanya tentang memberi. Tapi tentang menguatkan, menghidupkan harapan, dan menghadirkan kebahagiaan di hati orang lain.<br>Yuk, jangan biarkan mereka hanya menunggu.<br><strong>Jadikan sedekahmu sebagai jalan keberkahan yang benar-benar sampai.</strong></p>"
+  },
+  "sedekah-daging-palestina": {
+   "target": 250000000,
+   "organizer": {
+    "name": "DT Peduli",
+    "avatar": "https://sedekah.id/api/media/media/2026/05/6400ecaf-82ac-416a-817a-4662c290e5bd.webp"
+   },
+   "description": "<p></p><img src=\"https://dtpeduli.id/wp-content/uploads/2026/05/Image-35.jpeg\" loading=\"lazy\"><p>Di tengah luka yang belum juga reda di Palestina, masih ada harapan kecil yang terus dijaga meski dalam gelap yang panjang.</p><p>Mereka hidup di antara keterbatasan, di antara rasa takut, lapar, dan dingin yang menusuk.Bagi mereka, makan bukan lagi tentang pilihan, melainkan tentang bertahan hari demi hari.</p><p></p><img src=\"https://dtpeduli.id/wp-content/uploads/2026/05/Image-42.jpeg\" loading=\"lazy\"><p>Bayangkan sejenak, di saat kita bisa menikmati hidangan dengan tenang, di Palestina ada anak-anak yang terbangun di malam hari, bukan karena mimpi, tapi karena suara dentuman yang tak kunjung berhenti.</p><p><strong>“Sedekah Daging untuk Palestina”</strong> bukan sekadar program berbagi, tapi tentang menghadirkan kepedulian di tengah duka, tentang mengirimkan kekuatan di saat mereka hampir lelah.</p><p></p><img src=\"https://dtpeduli.id/wp-content/uploads/2026/05/Image-38.jpeg\" loading=\"lazy\"><p>Sahabat peduli ini bukan hanya tentang memberi, tapi tentang menghadirkan rasa bahwa mereka tidak sendiri, masih ada yang peduli, bahkan dari jauh.</p><p></p><img src=\"https://dtpeduli.id/wp-content/uploads/2026/05/Image-40.jpeg\" loading=\"lazy\"><p><strong>Mari jadi bagian dari kepedulian yang menguatkan mereka untuk bertahan.</strong> Sedekahkan yang terbaik yang kita miliki, untuk saudara di Palestina. Semoga setiap tetes kebaikan sahabat menjadi saksi amal yang mengantarkan pada ridha-Nya.</p>"
+  },
+  "sedekah": {
+   "target": 1000000000,
+   "organizer": {
+    "name": "donasi",
+    "avatar": null
+   },
+   "description": "<p>Sedekah menempati posisi yang sangat penting dalam Islam dan memiliki manfaat yang enggak main-main. Lalu, siapa saja yang mendapatkan kebaikan dari sedekah?</p><p></p><img src=\"https://aktual.com/wp-content/uploads/2026/03/Lembaga-Amil-Zakat-DT-Peduli-menyiapkan-penyaluran-bantuan-Ramadhan-bagi-penyintas-banjir-di-sejumlah-wilayah-Sumatera-melalui-program-Ramadhan-Peduli.jpeg\" loading=\"lazy\"><p>Dalam Islam, sedekah bukan hanya tindakan kebaikan kepada sesama manusia, tetapi juga mencakup kepedulian dan tanggung jawab kita terhadap seluruh ciptaan Allah. Jika tersenyum, menyingkirkan duri di jalanan, dan merawat lingkungan bernilai sedekah, apalagi membantu mengurangi kesulitan orang lain.</p><p></p><img src=\"https://dtpeduli.org/storage/WzftYE7o0PMeqUzUCLZaVMD5eXPypczF2lv4sCTG.jpg\" loading=\"lazy\"><p>Dengan memperluas makna sedekah untuk rahmatan lil ‘alamiin atau kebaikan untuk seluruh alam, kita dapat berkontribusi pada terciptanya dunia yang lebih seimbang, adil, dan harmonis bagi semua makhluk Allah.</p><p> </p><p>Dan penerima sedekah itu tak sebatas pada peningkatan kesejahteraan manusia. Ada lingkungan yang harus kita jaga kebersihannya, ada juga hewan-hewan yang membutuhkan uluran tangan kita untuk sekadar makan dan bernaung. Ada juga pohon-pohon yang harus dijaga kelestariannya, udara yang harus dijaga kebersihannya, tanah yang harus dijaga kesuburannya, dan alam yang harus dirawat dan dilindungi.</p><p> </p><p>Inilah makna sedekah sesungguhnya. Dan yakinlah, sedikit kepedulian yang kita berikan akan sangat berharga untuk semesta alam.</p><p></p><img src=\"https://dtpeduli.org/storage/1784/beasiswa-hafidz.jpg\" loading=\"lazy\"><p>Allah menjanjikan pahala yang berlipat ganda bagi mereka yang bersedekah. Setiap amal kebaikan tidak hanya mendatangkan keberkahan di dunia, tetapi juga menjadi tabungan pahala di akhirat. Sedekah menjadi jalan untuk mendapatkan ridha-Nya, membuka pintu rezeki, dan mendatangkan ketenangan jiwa.</p><p> </p><p>Bagi penerima sedekah, bantuan ini bisa menjadi cahaya harapan yang mengubah hidup. Seorang yang mengalami kesulitan bisa menemukan kelegaan dan semangat baru untuk melanjutkan hidup. Sedekah menciptakan dampak nyata, mengurangi penderitaan, membuka peluang baru, dan menggugah rasa syukur dalam hati mereka yang menerima.</p><p>Jika tersenyum, menyingkirkan duri di jalanan, dan merawat lingkungan bernilai sedekah, apalagi membantu mengurangi kesulitan orang lain?</p>"
+  }
+ },
+ "featured": {
+  "slug": "peduli-banjir-aceh",
+  "excerpt": "Saat rumah tak lagi menjadi tempat berlindung, saudara-saudara kita di Aceh harus menghadapi hari-hari penuh ketidakpast",
+  "goal": "Rp 85.0 jt"
+ },
+ "totalCampaigns": 56
+}

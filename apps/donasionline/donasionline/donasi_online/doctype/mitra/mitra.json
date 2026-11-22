@@ -1,0 +1,103 @@
+{
+ "doctype": "DocType",
+ "name": "Mitra",
+ "module": "Donasi Online",
+ "custom": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "slug",
+  "mitra_name",
+  "mitra_type",
+  "avatar_url",
+  "instagram",
+  "verified",
+  "campaign_count",
+  "total_raised"
+ ],
+ "fields": [
+  {
+   "fieldname": "slug",
+   "label": "Slug",
+   "fieldtype": "Data",
+   "reqd": 1,
+   "unique": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "mitra_name",
+   "label": "Nama Mitra",
+   "fieldtype": "Data",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "mitra_type",
+   "label": "Tipe",
+   "fieldtype": "Data",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "avatar_url",
+   "label": "Avatar (URL)",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "instagram",
+   "label": "Instagram",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "verified",
+   "label": "Terverifikasi",
+   "fieldtype": "Check"
+  },
+  {
+   "fieldname": "campaign_count",
+   "label": "Jumlah Kampanye",
+   "fieldtype": "Int",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_raised",
+   "label": "Total Terkumpul",
+   "fieldtype": "Currency",
+   "read_only": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "links": [],
+ "modified": "2026-11-22 12:00:00.000000",
+ "creation": "2026-11-22 12:00:00.000000",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Petugas Donasi",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Akuntan Donasi",
+   "read": 1,
+   "report": 1,
+   "export": 1
+  }
+ ],
+ "autoname": "field:slug",
+ "title_field": "mitra_name"
+}

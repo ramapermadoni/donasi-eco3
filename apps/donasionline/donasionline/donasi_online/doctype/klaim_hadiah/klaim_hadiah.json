@@ -1,0 +1,99 @@
+{
+ "doctype": "DocType",
+ "name": "Klaim Hadiah",
+ "module": "Donasi Online",
+ "custom": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "reward",
+  "donor",
+  "recipient_name",
+  "phone",
+  "address",
+  "points_spent",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "reward",
+   "label": "Hadiah",
+   "fieldtype": "Link",
+   "options": "Hadiah Gamifikasi",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "donor",
+   "label": "Donor",
+   "fieldtype": "Link",
+   "options": "Donor",
+   "reqd": 1
+  },
+  {
+   "fieldname": "recipient_name",
+   "label": "Penerima",
+   "fieldtype": "Data",
+   "reqd": 1
+  },
+  {
+   "fieldname": "phone",
+   "label": "Phone",
+   "fieldtype": "Data",
+   "reqd": 1
+  },
+  {
+   "fieldname": "address",
+   "label": "Alamat",
+   "fieldtype": "Small Text",
+   "reqd": 1
+  },
+  {
+   "fieldname": "points_spent",
+   "label": "Poin",
+   "fieldtype": "Int",
+   "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "label": "Status",
+   "fieldtype": "Select",
+   "options": "Diajukan\nDikirim\nSelesai\nDibatalkan",
+   "in_list_view": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "links": [],
+ "modified": "2026-11-22 12:00:00.000000",
+ "creation": "2026-11-22 12:00:00.000000",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Petugas Donasi",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Akuntan Donasi",
+   "read": 1,
+   "report": 1,
+   "export": 1
+  }
+ ],
+ "autoname": "format:KLM-{#####}"
+}

@@ -1,0 +1,97 @@
+{
+ "doctype": "DocType",
+ "name": "Video Donasi",
+ "module": "Donasi Online",
+ "custom": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "src",
+  "poster",
+  "likes",
+  "comments",
+  "kampanye",
+  "caption",
+  "is_latest",
+  "sort_order"
+ ],
+ "fields": [
+  {
+   "fieldname": "src",
+   "label": "Sumber (mp4)",
+   "fieldtype": "Data",
+   "reqd": 1
+  },
+  {
+   "fieldname": "poster",
+   "label": "Poster",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "likes",
+   "label": "Likes",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "comments",
+   "label": "Comments",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "kampanye",
+   "label": "Kampanye",
+   "fieldtype": "Link",
+   "options": "Kampanye Donasi"
+  },
+  {
+   "fieldname": "caption",
+   "label": "Caption",
+   "fieldtype": "Small Text"
+  },
+  {
+   "fieldname": "is_latest",
+   "label": "Terbaru",
+   "fieldtype": "Check"
+  },
+  {
+   "fieldname": "sort_order",
+   "label": "Sort Order",
+   "fieldtype": "Int"
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "links": [],
+ "modified": "2026-11-22 12:00:00.000000",
+ "creation": "2026-11-22 12:00:00.000000",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Petugas Donasi",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Akuntan Donasi",
+   "read": 1,
+   "report": 1,
+   "export": 1
+  }
+ ],
+ "autoname": "format:VID-{#####}",
+ "title_field": "caption"
+}

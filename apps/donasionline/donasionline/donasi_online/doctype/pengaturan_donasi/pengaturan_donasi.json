@@ -1,0 +1,99 @@
+{
+ "doctype": "DocType",
+ "name": "Pengaturan Donasi",
+ "module": "Donasi Online",
+ "custom": 0,
+ "engine": "InnoDB",
+ "editable_grid": 1,
+ "field_order": [
+  "company",
+  "peran_platform",
+  "posting_enabled",
+  "h_zakat",
+  "h_infak",
+  "cost_center_operasional"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Perusahaan",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "peran_platform",
+   "fieldtype": "Select",
+   "label": "Peran Platform (F1)",
+   "options": "A - Amil/PUB berizin\nB - Agen kanal\nC - Di bawah yayasan terpisah",
+   "default": "A - Amil/PUB berizin",
+   "description": "Hanya model A yang didukung jurnal otomatis saat ini."
+  },
+  {
+   "fieldname": "posting_enabled",
+   "fieldtype": "Check",
+   "label": "Aktifkan posting jurnal otomatis",
+   "description": "Gerbang H.1: aktifkan hanya setelah F1, F4, F7, F25 diputuskan akuntan/ahli syariah."
+  },
+  {
+   "fieldname": "h_zakat",
+   "fieldtype": "Percent",
+   "label": "Hak Amil dari Zakat (%)",
+   "default": "12.5",
+   "description": "PROVISIONAL (F6): batas atas dari Perbaznas 1/2016; konfirmasi dahulu."
+  },
+  {
+   "fieldname": "h_infak",
+   "fieldtype": "Percent",
+   "label": "Hak Amil dari Infak/Sedekah Tanpa Pembatasan (%)",
+   "default": "0",
+   "description": "Parameter kebijakan lembaga (tidak ada tarif regulasi terverifikasi)."
+  },
+  {
+   "fieldname": "cost_center_operasional",
+   "fieldtype": "Link",
+   "label": "Cost Center Operasional Amil",
+   "options": "Cost Center"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "Accounts Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "Accounts User",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "links": [],
+ "issingle": 1,
+ "modified": "2026-11-22 10:00:00.000000",
+ "creation": "2026-11-22 10:00:00.000000"
+}

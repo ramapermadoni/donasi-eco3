@@ -1,0 +1,394 @@
+[
+ {
+  "slug": "ciledug-stride-run",
+  "name": "Ciledug Stride Run",
+  "type": "KOMUNITAS",
+  "img": "https://sedekah.id/api/media/media/2026/08/315e4eb7-1418-4bcb-8a84-d39f6a6396fc.webp",
+  "count": 1,
+  "total": "Rp 8.644.846",
+  "ig": null,
+  "campaigns": []
+ },
+ {
+  "slug": "aula-family",
+  "name": "Aula Family",
+  "type": "KOMUNITAS",
+  "img": "https://sedekah.id/api/media/media/2026/09/5e9251fc-21d6-46b1-bc35-4513644dfee2.webp",
+  "count": 1,
+  "total": "Rp 8.500.000",
+  "ig": "https://instagram.com/aulafamily",
+  "campaigns": [
+   {
+    "slug": "pedulibencana-aula-family",
+    "img": "https://sedekah.id/api/media/media/2026/09/09c8391c-842e-4a11-8c91-311fe5d46584.webp",
+    "title": "Kolaborasi Peduli Terdampak Bencana Nasional bersama Aula Family",
+    "pct": 85,
+    "raised": "Rp 8.500.000"
+   }
+  ]
+ },
+ {
+  "slug": "dearRasul",
+  "name": "Dear Rasul",
+  "type": "KOMUNITAS",
+  "img": "https://sedekah.id/api/media/media/2026/07/31591f37-56dd-4065-b5ec-aaaf4d4ebeb0.webp",
+  "count": 1,
+  "total": "Rp 5.760.000",
+  "ig": "https://instagram.com/dear.rasul",
+  "campaigns": [
+   {
+    "slug": "kirim-truk-kemanusiaan-palestina-bersama-dear-Rasul",
+    "img": "https://sedekah.id/api/media/media/2026/07/13d3a9b1-8bee-4bc5-b0c0-80dcabf1b1ae.webp",
+    "title": "Kirim Truk Kemanusiaan Palestina Bersama: Dear Rasul",
+    "pct": 58,
+    "raised": "Rp 5.760.000"
+   }
+  ]
+ },
+ {
+  "slug": "muhammad-arya",
+  "name": "Muhammad Arya",
+  "type": "ATLET",
+  "img": "https://sedekah.id/api/media/media/2026/07/398ed752-ac08-42e4-82b9-a6e5144feecd.webp",
+  "count": 1,
+  "total": "Rp 3.159.644",
+  "ig": "https://instagram.com/m.arya_09",
+  "campaigns": [
+   {
+    "slug": "kayuhan-kebaikan-untuk-adik-yatim",
+    "img": "https://sedekah.id/api/media/media/2026/07/7944671b-ab72-4b4c-9636-5d9cc0e64e29.webp",
+    "title": "Kayuhan Kebaikan untuk Adik Yatim",
+    "pct": 32,
+    "raised": "Rp 3.159.644"
+   }
+  ]
+ },
+ {
+  "slug": "ustadzah-amazmi",
+  "name": "Ustadzah Amazmi",
+  "type": "CONTENT CREATOR",
+  "img": "https://sedekah.id/api/media/media/2026/09/c59253b9-cf31-4e7a-81e1-59ba84e44209.webp",
+  "count": 2,
+  "total": "Rp 3.019.000",
+  "ig": "https://instagram.com/amazmii",
+  "campaigns": [
+   {
+    "slug": "pedulikarhutla-ustadzah-amazmi",
+    "img": "https://sedekah.id/api/media/media/2026/10/fb695c09-89dd-4c90-8b0e-9de94c1122f6.webp",
+    "title": "Kolaborasi Peduli Terdampak Kebakaran Hutan dan Lahan bersama Ustadzah Amazmi",
+    "pct": 36,
+    "raised": "Rp 1.824.000"
+   },
+   {
+    "slug": "pedulibencana-ustadzah-amazmi",
+    "img": "https://sedekah.id/api/media/media/2026/09/cdb6c85b-3e71-44a0-bf79-55023e1aba3c.webp",
+    "title": "Kolaborasi Peduli Terdampak Bencana Nasional bersama Ustadzah Amazmi",
+    "pct": 24,
+    "raised": "Rp 1.195.000"
+   }
+  ]
+ },
+ {
+  "slug": "ustadzah-hana-eliana",
+  "name": "Ustadzah Hana Eliana",
+  "type": "PENDAKWAH",
+  "img": "https://sedekah.id/api/media/media/2026/08/2642fca2-8c06-4fc3-a1fb-f0568a52010b.webp",
+  "count": 1,
+  "total": "Rp 1.315.000",
+  "ig": "https://instagram.com/hana_eliana17",
+  "campaigns": [
+   {
+    "slug": "pedulintt-ustadzah-hana",
+    "img": "https://sedekah.id/api/media/media/2026/08/ce046156-2824-413e-83a8-540f5211120a.webp",
+    "title": "Kolaborasi Peduli Terdampak Gempa NTT bersama Ustadzah Hana Eliana",
+    "pct": 26,
+    "raised": "Rp 1.315.000"
+   }
+  ]
+ },
+ {
+  "slug": "raja-luth-hasan",
+  "name": "Raja Luth Hasan",
+  "type": "CONTENT CREATOR",
+  "img": "https://sedekah.id/api/media/media/2026/10/2ae721c9-77ad-4c78-b6d5-4939a336abbc.webp",
+  "count": 1,
+  "total": "Rp 345.000",
+  "ig": "https://instagram.com/rofifahhalim",
+  "campaigns": [
+   {
+    "slug": "pedulikarhutla-raja-luth-hasan",
+    "img": "https://sedekah.id/api/media/media/2026/10/b5b42c15-864a-4821-ac8d-9b8db7177177.webp",
+    "title": "Kolaborasi Peduli Terdampak Kebakaran Hutan dan Lahan bersama Raja Luth Hasan",
+    "pct": 7,
+    "raised": "Rp 345.000"
+   }
+  ]
+ },
+ {
+  "slug": "rofifah",
+  "name": "Rofifah",
+  "type": "CONTENT CREATOR",
+  "img": "https://sedekah.id/api/media/media/2026/10/f89f679c-e7cc-49d2-8522-4f0dfef80619.webp",
+  "count": 1,
+  "total": "Rp 275.000",
+  "ig": "https://instagram.com/rofifahhalim",
+  "campaigns": [
+   {
+    "slug": "pedulikarhutla-rofifah",
+    "img": "https://sedekah.id/api/media/media/2026/10/0afb934c-d8b7-4446-9261-631e577e5142.webp",
+    "title": "Kolaborasi Peduli Terdampak Kebakaran Hutan dan Lahan bersama Rofifah",
+    "pct": 6,
+    "raised": "Rp 275.000"
+   }
+  ]
+ },
+ {
+  "slug": "barqi",
+  "name": "Barqi",
+  "type": "CONTENT CREATOR",
+  "img": "https://sedekah.id/api/media/media/2026/10/9aae162a-254a-405d-a9d0-76ca59d95eea.webp",
+  "count": 1,
+  "total": "Rp 168.000",
+  "ig": "https://instagram.com/baaarqi_",
+  "campaigns": [
+   {
+    "slug": "pedulikarhutla-kak-barqi",
+    "img": "https://sedekah.id/api/media/media/2026/10/acb4d30f-5dd0-475d-94aa-3dc82cc72780.webp",
+    "title": "Kolaborasi Peduli Terdampak Kebakaran Hutan dan Lahan bersama Kak Barqi",
+    "pct": 3,
+    "raised": "Rp 168.000"
+   }
+  ]
+ },
+ {
+  "slug": "universitas-riyadlul-ulum",
+  "name": "Universitas Riyadlul Ulum",
+  "type": "INSTANSI",
+  "img": "https://sedekah.id/api/media/media/2026/09/5c1a22b2-8424-41a9-adce-d0b4c7b7035a.webp",
+  "count": 1,
+  "total": "Rp 158.000",
+  "ig": null,
+  "campaigns": [
+   {
+    "slug": "pedulibencana-universitas-riyadlul-ulum",
+    "img": "https://sedekah.id/api/media/media/2026/09/c33550fb-df30-4fef-9b67-068e76033dda.webp",
+    "title": "Kolaborasi Peduli Terdampak Bencana Nasional bersama Universitas Riyadlul Ulum ",
+    "pct": 3,
+    "raised": "Rp 158.000"
+   }
+  ]
+ },
+ {
+  "slug": "aulia-rahmi",
+  "name": "Aulia Rahmi",
+  "type": "PUBLIC FIGURE",
+  "img": "https://sedekah.id/api/media/media/2026/09/5da73ea9-923d-4223-a9e2-6db8fff0c12d.webp",
+  "count": 2,
+  "total": "Rp 100.000",
+  "ig": "https://instagram.com/auliarhmiiiii",
+  "campaigns": [
+   {
+    "slug": "pedulikarhutla-aulia-rahmi",
+    "img": "https://sedekah.id/api/media/media/2026/09/f674cc79-530c-4413-9df5-dc15931bc246.webp",
+    "title": "Kolaborasi Peduli Terdampak Kebakaran Hutan dan Lahan bersama Aulia Rahmi",
+    "pct": 2,
+    "raised": "Rp 50.000"
+   },
+   {
+    "slug": "pedulintt-aulia-rahmi",
+    "img": "https://sedekah.id/api/media/media/2026/09/852fb028-6d44-4ddf-ab2f-d16d46b0442f.webp",
+    "title": "Kolaborasi Peduli Terdampak Gempa NTT bersama Aulia Rahmi",
+    "pct": 2,
+    "raised": "Rp 50.000"
+   }
+  ]
+ },
+ {
+  "slug": "tristania-faisa",
+  "name": "Tristania Faisa",
+  "type": "CONTENT CREATOR",
+  "img": "https://sedekah.id/api/media/media/2026/09/878370e9-4592-4cc0-9bde-0224c85d3892.webp",
+  "count": 1,
+  "total": "Rp 100.000",
+  "ig": "https://instagram.com/tristaniafaisa",
+  "campaigns": [
+   {
+    "slug": "pedulibencana-tristania-faisa",
+    "img": "https://sedekah.id/api/media/media/2026/09/97761b27-e370-4d48-94ce-14f97eb6c0c6.webp",
+    "title": "Kolaborasi Peduli Terdampak Bencana Nasional bersama Tristania Faisa",
+    "pct": 2,
+    "raised": "Rp 100.000"
+   }
+  ]
+ },
+ {
+  "slug": "chairunnisa",
+  "name": "Chairunnisa",
+  "type": "CONTENT CREATOR",
+  "img": "https://sedekah.id/api/media/media/2026/08/8b3b635c-c6b1-4752-952a-f2992f3e11ea.webp",
+  "count": 1,
+  "total": "Rp 100.000",
+  "ig": "https://instagram.com/chairunnisa.hs",
+  "campaigns": [
+   {
+    "slug": "pedulintt-chairunnisa",
+    "img": "https://sedekah.id/api/media/media/2026/08/81fcc53f-a3a8-4a79-983e-435c01ea6c30.webp",
+    "title": "Kolaborasi Peduli Terdampak Gempa NTT bersama Chairunnisa",
+    "pct": 2,
+    "raised": "Rp 100.000"
+   }
+  ]
+ },
+ {
+  "slug": "clay-ducation",
+  "name": "Clay.ducation",
+  "type": "CONTENT CREATOR",
+  "img": "https://sedekah.id/api/media/media/2026/09/91b113b2-f788-4d8a-abb0-ac54cd43e5a6.webp",
+  "count": 1,
+  "total": "Rp 50.000",
+  "ig": "https://instagram.com/clay.ducation",
+  "campaigns": [
+   {
+    "slug": "pedulibencana-clay-ducation",
+    "img": "https://sedekah.id/api/media/media/2026/09/bc93a0e8-a211-489e-872a-f76519506a70.webp",
+    "title": "Kolaborasi Peduli Terdampak Bencana Nasional bersama Clay.ducation",
+    "pct": 1,
+    "raised": "Rp 50.000"
+   }
+  ]
+ },
+ {
+  "slug": "tintin-rohaeni",
+  "name": "Tintin Rohaeni",
+  "type": "CONTENT CREATOR",
+  "img": "https://sedekah.id/api/media/media/2026/09/3248590a-d3ba-49fb-bc61-65ee502d2394.webp",
+  "count": 2,
+  "total": "Rp 10.000",
+  "ig": "https://instagram.com/tintin_mom_of_savaza",
+  "campaigns": [
+   {
+    "slug": "pedulikarhutla-tintin-rohaeni",
+    "img": "https://sedekah.id/api/media/media/2026/09/7020d5e5-a16a-4055-9979-e6ad9d62c461.webp",
+    "title": "Kolaborasi Peduli Terdampak Kebakaran Hutan dan Lahan bersama Tintin Rohaeni",
+    "pct": 0,
+    "raised": "Rp 5.000"
+   },
+   {
+    "slug": "pedulintt-tintin-rohaeni",
+    "img": "https://sedekah.id/api/media/media/2026/09/4e18bf0c-c537-4533-8a31-d0283a6340c5.webp",
+    "title": "Kolaborasi Peduli Terdampak Gempa NTT bersama Tintin Rohaeni",
+    "pct": 0,
+    "raised": "Rp 5.000"
+   }
+  ]
+ },
+ {
+  "slug": "hasan-bin-ilhamd",
+  "name": "Hasan Bin Ilhamd",
+  "type": "CONTENT CREATOR",
+  "img": "https://sedekah.id/api/media/media/2026/10/14febfdb-0d33-4d92-b01d-718456ca40f3.webp",
+  "count": 1,
+  "total": "Rp 10.000",
+  "ig": "https://instagram.com/hasanbinilhamd",
+  "campaigns": [
+   {
+    "slug": "pedulikarhutla-hasan-binilhamd",
+    "img": "https://sedekah.id/api/media/media/2026/10/86b933e2-16c6-4062-8a51-a7fee547bb8d.webp",
+    "title": "Kolaborasi Peduli Terdampak Kebakaran Hutan dan Lahan bersama Hasan Bin Ilhamd",
+    "pct": 0,
+    "raised": "Rp 10.000"
+   }
+  ]
+ },
+ {
+  "slug": "wardah-gingsul",
+  "name": "Wardah Gingsul",
+  "type": "CONTENT CREATOR",
+  "img": "https://sedekah.id/api/media/media/2026/08/732b29ef-c280-426b-9b47-a80df216b829.webp",
+  "count": 2,
+  "total": "Rp 8.000",
+  "ig": "https://instagram.com/wardahgingsul",
+  "campaigns": [
+   {
+    "slug": "pedulikarhutla-wardah-gingsul",
+    "img": "https://sedekah.id/api/media/media/2026/09/84db712a-3e7d-4e25-8a00-2415208b2a92.webp",
+    "title": "Kolaborasi Peduli Terdampak Kebakaran Hutan dan Lahan bersama Wardah Gingsul",
+    "pct": 0,
+    "raised": "Rp 0"
+   },
+   {
+    "slug": "pedulintt-wardah-gingsul",
+    "img": "https://sedekah.id/api/media/media/2026/08/e994742a-ab60-4f94-9003-65b7cf279767.webp",
+    "title": "Kolaborasi Peduli Terdampak Gempa NTT bersama Wardah Gingsul",
+    "pct": 0,
+    "raised": "Rp 8.000"
+   }
+  ]
+ },
+ {
+  "slug": "gusti-ikromi-akbar",
+  "name": "Gusti Ikromi Akbar",
+  "type": "PEJABAT PUBLIK",
+  "img": "https://sedekah.id/api/media/media/2026/09/a03fe08e-96fc-4d2e-815b-be58111b1f7a.webp",
+  "count": 1,
+  "total": "Rp 5.000",
+  "ig": "https://instagram.com/gusti.ikromi",
+  "campaigns": [
+   {
+    "slug": "pedulintt-gusti-ikromi",
+    "img": "https://sedekah.id/api/media/media/2026/09/1545090f-b2a7-488d-8761-1f5240a5e883.webp",
+    "title": "Kolaborasi Peduli Terdampak Gempa NTT bersama Gusti Ikromi Akbar",
+    "pct": 0,
+    "raised": "Rp 5.000"
+   }
+  ]
+ },
+ {
+  "slug": "syifa-nabilla",
+  "name": "Syifa Nabilla",
+  "type": "CONTENT CREATOR",
+  "img": "https://sedekah.id/api/media/media/2026/09/9c4eeb4f-8aa7-4e9b-9786-d48a820438f5.webp",
+  "count": 1,
+  "total": "Rp 0",
+  "ig": "https://instagram.com/syifanblll",
+  "campaigns": [
+   {
+    "slug": "pedulibencana-syifa-nabilla",
+    "img": "https://sedekah.id/api/media/media/2026/09/98734826-ed04-4e0e-80f4-ba2cace562e9.webp",
+    "title": "Kolaborasi Peduli Terdampak Bencana Nasional bersama Syifa Nabilla",
+    "pct": 0,
+    "raised": "Rp 0"
+   }
+  ]
+ },
+ {
+  "slug": "mq-dakwah-digital",
+  "name": "MQ Dakwah Digital",
+  "type": "INSTITUSI",
+  "img": "https://sedekah.id/api/media/media/2026/07/dd8b5587-299e-460b-afb2-fb00a4293f5d.webp",
+  "count": 0,
+  "total": "Rp 0",
+  "ig": "https://instagram.com/mq.dakwahdigital",
+  "campaigns": []
+ },
+ {
+  "slug": "koh-dennis-lim",
+  "name": "Koh Dennis Lim",
+  "type": "PENDAKWAH",
+  "img": "https://sedekah.id/api/media/media/2026/07/c6257c74-8ac7-4d8b-be1f-975c75768dde.webp",
+  "count": 0,
+  "total": "Rp 0",
+  "ig": "https://instagram.com/kohdennislim",
+  "campaigns": []
+ },
+ {
+  "slug": "angga-nugroho",
+  "name": "Angga Nugroho",
+  "type": "INLINE SKATER",
+  "img": "https://sedekah.id/api/media/media/2026/08/2211e47c-b25d-4e96-9385-b7c9d68aa552.webp",
+  "count": 0,
+  "total": "Rp 0",
+  "ig": "https://instagram.com/https://www.instagram.com/angga_nugroho9/",
+  "campaigns": []
+ }
+]

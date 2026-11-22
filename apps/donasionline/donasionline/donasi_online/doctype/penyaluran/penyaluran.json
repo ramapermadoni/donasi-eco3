@@ -1,0 +1,112 @@
+{
+ "doctype": "DocType",
+ "name": "Penyaluran",
+ "module": "Donasi Online",
+ "custom": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "slug",
+  "title",
+  "subtitle",
+  "tanggal",
+  "category",
+  "image_url",
+  "location",
+  "program",
+  "description",
+  "kampanye"
+ ],
+ "fields": [
+  {
+   "fieldname": "slug",
+   "label": "Slug",
+   "fieldtype": "Data",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "title",
+   "label": "Judul",
+   "fieldtype": "Small Text",
+   "reqd": 1
+  },
+  {
+   "fieldname": "subtitle",
+   "label": "Subtitle",
+   "fieldtype": "Small Text"
+  },
+  {
+   "fieldname": "tanggal",
+   "label": "Tanggal",
+   "fieldtype": "Date",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "category",
+   "label": "Kategori",
+   "fieldtype": "Data",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "image_url",
+   "label": "Gambar (URL)",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "location",
+   "label": "Lokasi",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "program",
+   "label": "Program",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "description",
+   "label": "Deskripsi (HTML, disanitasi)",
+   "fieldtype": "Text Editor"
+  },
+  {
+   "fieldname": "kampanye",
+   "label": "Kampanye",
+   "fieldtype": "Link",
+   "options": "Kampanye Donasi"
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "links": [],
+ "modified": "2026-11-22 12:00:00.000000",
+ "creation": "2026-11-22 12:00:00.000000",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Petugas Donasi",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Akuntan Donasi",
+   "read": 1,
+   "report": 1,
+   "export": 1
+  }
+ ],
+ "autoname": "field:slug"
+}

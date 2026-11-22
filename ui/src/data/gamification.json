@@ -1,0 +1,73 @@
+{
+ "enabled": true,
+ "claimEnabled": true,
+ "points": 0,
+ "level": {
+  "currentName": "Orang Baik",
+  "currentBadge": "https://sedekah.id/api/media/media/2026/07/28d95c10-ee45-4449-ab93-ab0d7e1c5d70.webp",
+  "currentIndex": 0,
+  "nextName": "Sahabat Baik",
+  "nextBadge": "https://sedekah.id/api/media/media/2026/07/d48f4347-c31d-4142-b8f3-c79aa8f54bb3.webp",
+  "nextThreshold": 5000,
+  "progress": 0
+ },
+ "levels": [
+  {
+   "name": "Orang Baik",
+   "threshold": 0,
+   "badgeUrl": "https://sedekah.id/api/media/media/2026/07/28d95c10-ee45-4449-ab93-ab0d7e1c5d70.webp"
+  },
+  {
+   "name": "Sahabat Baik",
+   "threshold": 5000,
+   "badgeUrl": "https://sedekah.id/api/media/media/2026/07/d48f4347-c31d-4142-b8f3-c79aa8f54bb3.webp"
+  },
+  {
+   "name": "Pejuang Kebaikan",
+   "threshold": 25000,
+   "badgeUrl": "https://sedekah.id/api/media/media/2026/07/b802fe98-add9-4192-8246-e79f24fc4145.webp"
+  },
+  {
+   "name": "Dermawan",
+   "threshold": 50000,
+   "badgeUrl": "https://sedekah.id/api/media/media/2026/07/eed66305-18b3-4df8-85da-08f6af315a44.webp"
+  },
+  {
+   "name": "Dermawan Sejati",
+   "threshold": 100000,
+   "badgeUrl": "https://sedekah.id/api/media/media/2026/07/bc8abbb8-d3bf-498d-95ae-b83a2093c963.webp"
+  },
+  {
+   "name": "Teladan Kebaikan",
+   "threshold": 500000,
+   "badgeUrl": "https://sedekah.id/api/media/media/2026/07/7afb4fba-56dd-4b19-bdfe-0f4c3c24700d.webp"
+  },
+  {
+   "name": "Cahaya Kebaikan",
+   "threshold": 1000000,
+   "badgeUrl": "https://sedekah.id/api/media/media/2026/07/17a4ea45-2ec5-4759-b73c-c248bbea58ca.webp"
+  }
+ ],
+ "rewards": [
+  {
+   "id": "cmsfp4xje006zkmksgbcnqjon",
+   "name": "Tazakka Coffee | Program Pemberdayaan DT Peduli",
+   "description": "Dari alam yang Allah titipkan, menghadirkan secangkir kopi penuh makna. Semoga setiap tegukan menjadi pengingat untuk bersyukur, berkarya, dan menebar kebaikan.",
+   "imageUrl": "https://sedekah.id/api/media/media/2026/08/ab481123-652d-41ab-acfc-f7851db102dc.webp",
+   "category": null,
+   "pointCost": 8000,
+   "outOfStock": false,
+   "affordable": false
+  },
+  {
+   "id": "cmsg1y2jg00nbkmkcjw2ug5ov",
+   "name": "MQ Parfum Edisi Tahajud",
+   "description": null,
+   "imageUrl": "https://sedekah.id/api/media/media/2026/08/9e5307c1-34d7-487b-aafc-1b81343f68a0.webp",
+   "category": null,
+   "pointCost": 9400,
+   "outOfStock": false,
+   "affordable": false
+  }
+ ]
+}

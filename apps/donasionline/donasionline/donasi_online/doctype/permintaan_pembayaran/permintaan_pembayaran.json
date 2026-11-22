@@ -1,0 +1,147 @@
+{
+ "doctype": "DocType",
+ "name": "Permintaan Pembayaran",
+ "module": "Donasi Online",
+ "custom": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "donation",
+  "order_id",
+  "payment_method",
+  "payment_type",
+  "gateway",
+  "status",
+  "snap_token",
+  "redirect_url",
+  "qr_string",
+  "qr_code_url",
+  "va_bank",
+  "va_number",
+  "expires_at",
+  "simulated",
+  "raw_response"
+ ],
+ "fields": [
+  {
+   "fieldname": "donation",
+   "label": "Donasi",
+   "fieldtype": "Link",
+   "options": "Donation",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "order_id",
+   "label": "Order ID",
+   "fieldtype": "Data",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "payment_method",
+   "label": "Metode",
+   "fieldtype": "Link",
+   "options": "Metode Pembayaran",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "payment_type",
+   "label": "Payment Type",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "gateway",
+   "label": "Gateway",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "status",
+   "label": "Status",
+   "fieldtype": "Select",
+   "options": "pending\npaid\nfailed\nexpired",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "snap_token",
+   "label": "Snap Token",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "redirect_url",
+   "label": "Redirect Url",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "qr_string",
+   "label": "Qr String",
+   "fieldtype": "Small Text"
+  },
+  {
+   "fieldname": "qr_code_url",
+   "label": "Qr Code Url",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "va_bank",
+   "label": "Va Bank",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "va_number",
+   "label": "Va Number",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "expires_at",
+   "label": "Kedaluwarsa",
+   "fieldtype": "Datetime"
+  },
+  {
+   "fieldname": "simulated",
+   "label": "Simulasi (tanpa gateway)",
+   "fieldtype": "Check",
+   "read_only": 1
+  },
+  {
+   "fieldname": "raw_response",
+   "label": "Respons gateway",
+   "fieldtype": "Code",
+   "options": "JSON"
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "links": [],
+ "modified": "2026-11-22 12:00:00.000000",
+ "creation": "2026-11-22 12:00:00.000000",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Petugas Donasi",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Akuntan Donasi",
+   "read": 1,
+   "report": 1,
+   "export": 1
+  }
+ ],
+ "autoname": "format:PAY-{#####}"
+}

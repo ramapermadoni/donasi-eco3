@@ -1,0 +1,13 @@
+# Mode pengembangan: kode app dibaca langsung dari folder host (tanpa rebuild).
+# Hapus berkas ini (atau jalankan dengan -f compose.yaml) untuk memakai kode di dalam image.
+x-dev-mount: &dev
+  volumes:
+    - sites:/home/frappe/frappe-bench/sites
+    - logs:/home/frappe/frappe-bench/logs
+    - ./apps/donasionline:/home/frappe/frappe-bench/apps/donasionline
+services:
+  backend: *dev
+  scheduler: *dev
+  queue-short: *dev
+  queue-long: *dev
+  websocket: *dev

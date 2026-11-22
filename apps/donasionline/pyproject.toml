@@ -1,0 +1,12 @@
+[project]
+name = "donasionline"
+authors = [{ name = "Donasi Online", email = "noreply@example.com" }]
+description = "Akuntansi dana ZIS (pola PSAK 409/109 dan 401/101) di ERPNext"
+requires-python = ">=3.14"
+readme = "README.md"
+dynamic = ["version"]
+dependencies = []
+
+[build-system]
+requires = ["flit_core >=3.4,<4"]
+build-backend = "flit_core.buildapi"

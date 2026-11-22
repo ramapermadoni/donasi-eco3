@@ -1,0 +1,370 @@
+{
+ "doctype": "DocType",
+ "name": "Donation",
+ "module": "Donasi Online",
+ "custom": 0,
+ "engine": "InnoDB",
+ "editable_grid": 1,
+ "field_order": [
+  "gateway_order_id",
+  "status",
+  "donor_name",
+  "donor_type",
+  "cb1",
+  "fund_type",
+  "program",
+  "kampanye",
+  "sb1",
+  "amount",
+  "gateway",
+  "channel",
+  "paid_at",
+  "cb2",
+  "fee",
+  "fee_status",
+  "amil_amount",
+  "sb2",
+  "je_receipt",
+  "je_amil",
+  "je_fee",
+  "settlement_id",
+  "settled",
+  "campaign_title",
+  "currency",
+  "donor",
+  "donor_phone",
+  "is_anonymous",
+  "message",
+  "donation_type",
+  "idr_equivalent",
+  "payment_method",
+  "expired_at",
+  "mitra",
+  "ref",
+  "utm_source",
+  "utm_medium",
+  "utm_campaign",
+  "utm_content",
+  "utm_term",
+  "referrer_captured_at",
+  "event_slug",
+  "baik_session",
+  "recurring_schedule",
+  "amin_count"
+ ],
+ "fields": [
+  {
+   "fieldname": "gateway_order_id",
+   "fieldtype": "Data",
+   "label": "ID Order Gateway",
+   "reqd": 1,
+   "unique": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Pending\nPaid\nFailed\nExpired\nRefunded",
+   "default": "Pending",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "donor_name",
+   "fieldtype": "Data",
+   "label": "Nama Donatur"
+  },
+  {
+   "fieldname": "donor_type",
+   "fieldtype": "Select",
+   "label": "Jenis Donatur",
+   "options": "Pribadi\nPerusahaan",
+   "default": "Pribadi"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break",
+   "label": "Cb1"
+  },
+  {
+   "fieldname": "fund_type",
+   "fieldtype": "Select",
+   "label": "Jenis Dana",
+   "options": "zakat\ninfak_bebas\ninfak_terikat\nwakaf\nfidyah\nqurban",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "program",
+   "fieldtype": "Link",
+   "label": "Program (Cost Center)",
+   "options": "Cost Center",
+   "reqd": 1
+  },
+  {
+   "fieldname": "kampanye",
+   "fieldtype": "Link",
+   "label": "Kampanye",
+   "options": "Kampanye Donasi"
+  },
+  {
+   "fieldname": "sb1",
+   "fieldtype": "Section Break",
+   "label": "Pembayaran"
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Jumlah Pokok (G)",
+   "reqd": 1,
+   "in_list_view": 1,
+   "precision": "0"
+  },
+  {
+   "fieldname": "gateway",
+   "fieldtype": "Select",
+   "label": "Gateway",
+   "options": "Midtrans\nWinpay\nLainnya",
+   "default": "Midtrans"
+  },
+  {
+   "fieldname": "channel",
+   "fieldtype": "Data",
+   "label": "Kanal"
+  },
+  {
+   "fieldname": "paid_at",
+   "fieldtype": "Datetime",
+   "label": "Dibayar pada"
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break",
+   "label": "Cb2"
+  },
+  {
+   "fieldname": "fee",
+   "fieldtype": "Currency",
+   "label": "Fee Gateway (F)",
+   "precision": "0"
+  },
+  {
+   "fieldname": "fee_status",
+   "fieldtype": "Select",
+   "label": "Status Fee",
+   "options": "\nBelum ada\nDitahan\nDiposting",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "amil_amount",
+   "fieldtype": "Currency",
+   "label": "Bagian Amil (A)",
+   "read_only": 1,
+   "no_copy": 1,
+   "precision": "0"
+  },
+  {
+   "fieldname": "sb2",
+   "fieldtype": "Section Break",
+   "label": "Jurnal & Settlement"
+  },
+  {
+   "fieldname": "je_receipt",
+   "fieldtype": "Link",
+   "label": "Jurnal Penerimaan (E2)",
+   "options": "Journal Entry",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "je_amil",
+   "fieldtype": "Link",
+   "label": "Jurnal Hak Amil (E3)",
+   "options": "Journal Entry",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "je_fee",
+   "fieldtype": "Link",
+   "label": "Jurnal Fee (E4)",
+   "options": "Journal Entry",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "settlement_id",
+   "fieldtype": "Data",
+   "label": "ID Settlement",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "settled",
+   "fieldtype": "Check",
+   "label": "Settled",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "campaign_title",
+   "label": "Campaign Title",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "currency",
+   "label": "Mata uang",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "donor",
+   "label": "Donor",
+   "fieldtype": "Link",
+   "options": "Donor"
+  },
+  {
+   "fieldname": "donor_phone",
+   "label": "Telepon donor",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "is_anonymous",
+   "label": "Is Anonymous",
+   "fieldtype": "Check"
+  },
+  {
+   "fieldname": "message",
+   "label": "Doa",
+   "fieldtype": "Small Text"
+  },
+  {
+   "fieldname": "donation_type",
+   "label": "Jenis",
+   "fieldtype": "Select",
+   "options": "one_time\nrecurring"
+  },
+  {
+   "fieldname": "idr_equivalent",
+   "label": "Idr Equivalent",
+   "fieldtype": "Currency"
+  },
+  {
+   "fieldname": "payment_method",
+   "label": "Payment Method",
+   "fieldtype": "Link",
+   "options": "Metode Pembayaran"
+  },
+  {
+   "fieldname": "expired_at",
+   "label": "Expired At",
+   "fieldtype": "Datetime"
+  },
+  {
+   "fieldname": "mitra",
+   "label": "Mitra",
+   "fieldtype": "Link",
+   "options": "Mitra"
+  },
+  {
+   "fieldname": "ref",
+   "label": "Ref",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "utm_source",
+   "label": "Utm Source",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "utm_medium",
+   "label": "Utm Medium",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "utm_campaign",
+   "label": "Utm Campaign",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "utm_content",
+   "label": "Utm Content",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "utm_term",
+   "label": "Utm Term",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "referrer_captured_at",
+   "label": "Referrer Captured At",
+   "fieldtype": "Datetime"
+  },
+  {
+   "fieldname": "event_slug",
+   "label": "Event Slug",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "baik_session",
+   "label": "Baik Session",
+   "fieldtype": "Link",
+   "options": "Sesi Kebaikan"
+  },
+  {
+   "fieldname": "recurring_schedule",
+   "label": "Recurring Schedule",
+   "fieldtype": "Link",
+   "options": "Jadwal Rutin"
+  },
+  {
+   "fieldname": "amin_count",
+   "label": "Jumlah amin",
+   "fieldtype": "Int",
+   "read_only": 1
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "Accounts Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "Accounts User",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "links": [],
+ "autoname": "format:DON-{#####}",
+ "title_field": "gateway_order_id",
+ "modified": "2026-11-22 10:00:00.000000",
+ "creation": "2026-11-22 10:00:00.000000"
+}

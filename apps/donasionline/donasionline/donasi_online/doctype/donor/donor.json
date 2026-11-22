@@ -1,0 +1,140 @@
+{
+ "doctype": "DocType",
+ "name": "Donor",
+ "module": "Donasi Online",
+ "custom": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "user",
+  "full_name",
+  "phone",
+  "email",
+  "avatar_url",
+  "birthdate",
+  "city",
+  "job",
+  "goal",
+  "source",
+  "donor_since",
+  "total_amount",
+  "total_count",
+  "points_spent"
+ ],
+ "fields": [
+  {
+   "fieldname": "user",
+   "label": "Pengguna",
+   "fieldtype": "Link",
+   "options": "User"
+  },
+  {
+   "fieldname": "full_name",
+   "label": "Nama",
+   "fieldtype": "Data",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "phone",
+   "label": "Telepon (digit, 62…)",
+   "fieldtype": "Data",
+   "reqd": 1,
+   "unique": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "email",
+   "label": "Email",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "avatar_url",
+   "label": "Avatar (URL)",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "birthdate",
+   "label": "Birthdate",
+   "fieldtype": "Date"
+  },
+  {
+   "fieldname": "city",
+   "label": "City",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "job",
+   "label": "Job",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "goal",
+   "label": "Goal",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "source",
+   "label": "Source",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "donor_since",
+   "label": "Donor Since",
+   "fieldtype": "Date"
+  },
+  {
+   "fieldname": "total_amount",
+   "label": "Total donasi",
+   "fieldtype": "Currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_count",
+   "label": "Jumlah donasi",
+   "fieldtype": "Int",
+   "read_only": 1
+  },
+  {
+   "fieldname": "points_spent",
+   "label": "Poin dipakai",
+   "fieldtype": "Int",
+   "read_only": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "links": [],
+ "modified": "2026-11-22 12:00:00.000000",
+ "creation": "2026-11-22 12:00:00.000000",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Petugas Donasi",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Akuntan Donasi",
+   "read": 1,
+   "report": 1,
+   "export": 1
+  }
+ ],
+ "autoname": "format:DNR-{#####}",
+ "title_field": "full_name"
+}

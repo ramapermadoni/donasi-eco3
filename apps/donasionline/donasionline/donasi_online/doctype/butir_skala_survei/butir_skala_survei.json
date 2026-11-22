@@ -1,0 +1,33 @@
+{
+ "doctype": "DocType",
+ "name": "Butir Skala Survei",
+ "module": "Donasi Online",
+ "custom": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "emoji",
+  "label"
+ ],
+ "fields": [
+  {
+   "fieldname": "emoji",
+   "label": "Emoji",
+   "fieldtype": "Data",
+   "reqd": 1
+  },
+  {
+   "fieldname": "label",
+   "label": "Label",
+   "fieldtype": "Data",
+   "reqd": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "links": [],
+ "modified": "2026-11-22 12:00:00.000000",
+ "creation": "2026-11-22 12:00:00.000000",
+ "istable": 1,
+ "editable_grid": 1
+}

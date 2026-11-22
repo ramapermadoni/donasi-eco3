@@ -1,0 +1,33 @@
+{
+ "doctype": "DocType",
+ "name": "Instruksi Pembayaran",
+ "module": "Donasi Online",
+ "custom": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "group_title",
+  "steps"
+ ],
+ "fields": [
+  {
+   "fieldname": "group_title",
+   "label": "Judul grup",
+   "fieldtype": "Data",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "steps",
+   "label": "Langkah (satu per baris; token {va_number} {amount})",
+   "fieldtype": "Small Text"
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "links": [],
+ "modified": "2026-11-22 12:00:00.000000",
+ "creation": "2026-11-22 12:00:00.000000",
+ "istable": 1,
+ "editable_grid": 1
+}

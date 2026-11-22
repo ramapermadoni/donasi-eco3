@@ -1,0 +1,87 @@
+{
+ "doctype": "DocType",
+ "name": "Hadiah Gamifikasi",
+ "module": "Donasi Online",
+ "custom": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "reward_name",
+  "description",
+  "image_url",
+  "category",
+  "point_cost",
+  "out_of_stock"
+ ],
+ "fields": [
+  {
+   "fieldname": "reward_name",
+   "label": "Nama",
+   "fieldtype": "Data",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "description",
+   "label": "Description",
+   "fieldtype": "Small Text"
+  },
+  {
+   "fieldname": "image_url",
+   "label": "Image Url",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "category",
+   "label": "Category",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "point_cost",
+   "label": "Biaya poin",
+   "fieldtype": "Int",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "out_of_stock",
+   "label": "Stok habis",
+   "fieldtype": "Check"
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "links": [],
+ "modified": "2026-11-22 12:00:00.000000",
+ "creation": "2026-11-22 12:00:00.000000",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Petugas Donasi",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Akuntan Donasi",
+   "read": 1,
+   "report": 1,
+   "export": 1
+  }
+ ],
+ "autoname": "format:HDH-{#####}",
+ "title_field": "reward_name"
+}

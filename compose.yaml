@@ -1,4 +1,4 @@
-# Stack Frappe 16 + ERPNext untuk sedekah-erp (terpisah dari stack lain).
+# Stack Frappe 16 + ERPNext untuk donasi-eco3 (terpisah dari stack lain).
 x-app: &app
   image: ${ERPNEXT_IMAGE}
   restart: unless-stopped
@@ -71,7 +71,7 @@ services:
         bench new-site --mariadb-user-host-login-scope='%'
         --admin-password="${ADMIN_PASSWORD}"
         --db-root-username=root --db-root-password="${DB_ROOT_PASSWORD}"
-        --install-app erpnext --set-default ${SITE_NAME};
+        --install-app erpnext --install-app donasionline --set-default ${SITE_NAME};
         fi
     volumes:
       - sites:/home/frappe/frappe-bench/sites

@@ -1,0 +1,170 @@
+{
+ "doctype": "DocType",
+ "name": "Misi Kebaikan",
+ "module": "Donasi Online",
+ "custom": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "slug",
+  "mission_type",
+  "title",
+  "icon",
+  "instruction",
+  "meaning",
+  "dzikir_name",
+  "arabic_text",
+  "latin_text",
+  "target_count",
+  "target_duration_sec",
+  "share_text",
+  "share_url",
+  "voucher_amount",
+  "min_duration_sec",
+  "max_duration_sec",
+  "kampanye",
+  "sponsor_pool",
+  "enabled"
+ ],
+ "fields": [
+  {
+   "fieldname": "slug",
+   "label": "Slug",
+   "fieldtype": "Data",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "mission_type",
+   "label": "Tipe",
+   "fieldtype": "Select",
+   "options": "TAP_COUNTER\nTIMER\nCONFIRM\nSHARE",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "title",
+   "label": "Judul",
+   "fieldtype": "Data",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "icon",
+   "label": "Icon",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "instruction",
+   "label": "Instruction",
+   "fieldtype": "Small Text"
+  },
+  {
+   "fieldname": "meaning",
+   "label": "Meaning",
+   "fieldtype": "Small Text"
+  },
+  {
+   "fieldname": "dzikir_name",
+   "label": "Dzikir Name",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "arabic_text",
+   "label": "Arabic Text",
+   "fieldtype": "Small Text"
+  },
+  {
+   "fieldname": "latin_text",
+   "label": "Latin Text",
+   "fieldtype": "Small Text"
+  },
+  {
+   "fieldname": "target_count",
+   "label": "Target Count",
+   "fieldtype": "Int"
+  },
+  {
+   "fieldname": "target_duration_sec",
+   "label": "Target Duration Sec",
+   "fieldtype": "Int"
+  },
+  {
+   "fieldname": "share_text",
+   "label": "Share Text",
+   "fieldtype": "Small Text"
+  },
+  {
+   "fieldname": "share_url",
+   "label": "Share Url",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "voucher_amount",
+   "label": "Voucher Amount",
+   "fieldtype": "Currency"
+  },
+  {
+   "fieldname": "min_duration_sec",
+   "label": "Min Duration Sec",
+   "fieldtype": "Int"
+  },
+  {
+   "fieldname": "max_duration_sec",
+   "label": "Max Duration Sec",
+   "fieldtype": "Int"
+  },
+  {
+   "fieldname": "kampanye",
+   "label": "Kampanye",
+   "fieldtype": "Link",
+   "options": "Kampanye Donasi"
+  },
+  {
+   "fieldname": "sponsor_pool",
+   "label": "Pool",
+   "fieldtype": "Link",
+   "options": "Pool Sponsor Kebaikan"
+  },
+  {
+   "fieldname": "enabled",
+   "label": "Aktif",
+   "fieldtype": "Check"
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "links": [],
+ "modified": "2026-11-22 12:00:00.000000",
+ "creation": "2026-11-22 12:00:00.000000",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Petugas Donasi",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Akuntan Donasi",
+   "read": 1,
+   "report": 1,
+   "export": 1
+  }
+ ],
+ "autoname": "field:slug",
+ "title_field": "title"
+}
