@@ -75,6 +75,13 @@ class TestMesinJurnal(IntegrationTestCase):
 			d.mark_paid()
 			d.reload()
 			self.assertFalse(d.je_receipt, ft)
+		# tidak hilang: tercatat Paid dan muncul di laporan "Donasi Belum Dijurnal" dengan alasan
+		from donasionline.donasi_online.report.donasi_belum_dijurnal.donasi_belum_dijurnal import execute
+
+		_, data = execute({})
+		tipe = {r["fund_type"] for r in data}
+		self.assertTrue({"wakaf", "fidyah", "qurban"} <= tipe)
+		self.assertTrue(all(r["alasan"] for r in data))
 
 	def test_infak_terikat_wajib_kampanye(self):
 		d = mk(self.co, "infak_terikat", 1000)

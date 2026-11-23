@@ -1,0 +1,15 @@
+{
+ "doctype": "Report",
+ "name": "Donasi Belum Dijurnal",
+ "ref_doctype": "Donation",
+ "report_name": "Donasi Belum Dijurnal",
+ "report_type": "Script Report",
+ "is_standard": "Yes",
+ "module": "Donasi Online",
+ "add_total_row": 1,
+ "roles": [
+  {"role": "System Manager"},
+  {"role": "Akuntan Donasi"},
+  {"role": "Petugas Donasi"}
+ ]
+}

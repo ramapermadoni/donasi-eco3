@@ -15,6 +15,9 @@ Dicatat: 2026-11-22 (W0). Tanpa rahasia. Semua aturan akuntansi berstatus USULAN
 | F7 | (a) Clearing = Kas/Bank; bruto; fee per settlement | Provisional; akuntan dapat menggesernya ke piutang kanal. |
 | F25 | Fee non-ZIS ditahan (belum diputuskan) | Tidak otomatis dibebankan ke Dana Amil. |
 
+## Lingkup produk: ZISWAF (arahan pemilik 2026-11-23)
+Zakat, infak, sedekah, dan wakaf adalah lingkup inti. Fidyah dan qurban tetap dapat menerima donasi (tidak digerbang). Semua donasi Paid, termasuk wakaf/fidyah/qurban, WAJIB tercatat di Donation. Bila jurnalnya diblokir (aturan akuntansi belum diputuskan), donasi muncul di laporan Desk **Donasi Belum Dijurnal** beserta alasannya, untuk diposting susulan. Hanya wakaf yang punya gerbang (lihat F4 di bawah), karena menerima wakaf tanpa nazhir sah bermasalah secara hukum.
+
 ## F4 Wakaf: dua mode (arahan pemilik 2026-11-23)
 Pemilik ingin lembaga dapat menjadi nazhir DAN sekaligus menerima wakaf sebagai titipan yang diteruskan ke nazhir mitra. Sistem menyediakan sakelar **Mode wakaf** di Pengaturan Donasi:
 
