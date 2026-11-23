@@ -61,6 +61,7 @@ const R = [
   ['GET', /^\/api\/artikel$/, 'content.artikel_list'],
   ['GET', /^\/api\/wilayah$/, 'content.wilayah'],
   ['GET', /^\/api\/legal$/, 'content.legal'],
+  ['GET', /^\/api\/content\/bundle$/, 'content.bundle'],
 ]
 
 let csrf = ''

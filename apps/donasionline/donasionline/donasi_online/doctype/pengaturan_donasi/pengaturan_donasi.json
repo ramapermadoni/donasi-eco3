@@ -30,7 +30,8 @@
   "legal_approved",
   "sec_wakaf",
   "nazhir_terdaftar",
-  "nazhir_no_bwi"
+  "nazhir_no_bwi",
+  "konten_contoh_dibersihkan"
  ],
  "fields": [
   {
@@ -188,6 +189,13 @@
    "fieldtype": "Data",
    "label": "Nomor registrasi nazhir BWI",
    "mandatory_depends_on": "nazhir_terdaftar"
+  },
+  {
+   "fieldname": "konten_contoh_dibersihkan",
+   "fieldtype": "Check",
+   "label": "Konten contoh sudah dibersihkan (UI memakai konten dari server)",
+   "default": "0",
+   "description": "Diisi otomatis oleh perintah bersihkan. Bila dicentang: UI membaca kampanye/mitra/video/banner dari server dan impor snapshot tidak lagi membuat konten contoh."
   }
  ],
  "permissions": [

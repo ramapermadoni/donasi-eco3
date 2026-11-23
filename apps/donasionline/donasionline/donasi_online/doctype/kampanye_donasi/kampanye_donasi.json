@@ -29,7 +29,8 @@
   "status",
   "title_en",
   "description_en",
-  "event_slug"
+  "event_slug",
+  "is_sample"
  ],
  "fields": [
   {
@@ -172,6 +173,13 @@
    "default": "Titipan ke nazhir mitra",
    "depends_on": "eval:doc.fund_type=='wakaf'",
    "description": "Hanya untuk kampanye wakaf. Titipan = lembaga menjadi perantara; kampanye harus terikat ke Mitra yang punya nomor registrasi nazhir BWI, dan dana diteruskan ke nazhir itu. Dikelola lembaga = butuh status nazhir lembaga di Pengaturan Donasi (untuk nanti)."
+  },
+  {
+   "fieldname": "is_sample",
+   "fieldtype": "Check",
+   "label": "Konten contoh",
+   "default": "0",
+   "description": "Berasal dari snapshot contoh. Dapat dibersihkan dengan: bench execute donasionline.setup.konten_contoh.bersihkan (lihat docs/KONTEN-CONTOH.md)."
   }
  ],
  "permissions": [

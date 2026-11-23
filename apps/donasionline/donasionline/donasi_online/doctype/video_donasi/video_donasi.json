@@ -12,7 +12,8 @@
   "kampanye",
   "caption",
   "is_latest",
-  "sort_order"
+  "sort_order",
+  "is_sample"
  ],
  "fields": [
   {
@@ -56,6 +57,13 @@
    "fieldname": "sort_order",
    "label": "Sort Order",
    "fieldtype": "Int"
+  },
+  {
+   "fieldname": "is_sample",
+   "fieldtype": "Check",
+   "label": "Konten contoh",
+   "default": "0",
+   "description": "Berasal dari snapshot contoh. Dapat dibersihkan dengan: bench execute donasionline.setup.konten_contoh.bersihkan (lihat docs/KONTEN-CONTOH.md)."
   }
  ],
  "sort_field": "creation",

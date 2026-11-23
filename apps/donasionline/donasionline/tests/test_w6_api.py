@@ -204,6 +204,53 @@ class TestApi(IntegrationTestCase):
 		self.assertNotIn("RAHASIA-123", str(r))  # bukti/referensi transfer tidak bocor
 		self.assertNotIn("internal", str(r))
 
+	def test_konten_contoh_tandai_bersihkan_dan_bundle(self):
+		from donasionline.setup import konten_contoh
+
+		ps = frappe.get_single("Pengaturan Donasi")
+		ps.konten_contoh_dibersihkan = 0
+		ps.flags.ignore_mandatory = True
+		ps.save(ignore_permissions=True)
+		frappe.clear_cache(doctype="Pengaturan Donasi")
+		# impor snapshot menandai contoh; sistem & milik sendiri tidak
+		sistem_n = frappe.db.count("Kampanye Donasi", {"is_system": 1})
+		self.assertEqual(frappe.db.count("Kampanye Donasi", {"is_system": 1, "is_sample": 1}), 0)
+		konten_contoh.lindungi()
+		for slug in konten_contoh.RESERVED:  # kampanye inti tidak pernah contoh
+			if frappe.db.exists("Kampanye Donasi", slug):
+				self.assertEqual(frappe.db.get_value("Kampanye Donasi", slug, "is_sample"), 0, slug)
+		self.assertTrue(frappe.db.count("Kampanye Donasi", {"is_sample": 1}))
+		self.assertEqual(content.bundle(), {"replace": False})  # belum dibersihkan: UI tetap statis
+		milik = frappe.get_doc({"doctype": "Kampanye Donasi", "kode_kampanye": "MILIK-1", "nama_kampanye": "Kampanye Milik Sendiri", "slug": "milik-sendiri", "fund_type": "infak_bebas",
+			"program": frappe.db.get_value("Kampanye Donasi", {"is_system": 1}, "program"), "target_amount": 2000000, "status": "aktif", "is_active": 1, "is_sample": 0}).insert(ignore_permissions=True)
+		# satu kampanye contoh sudah menerima donasi -> tidak boleh dihapus
+		ber = frappe.db.get_value("Kampanye Donasi", {"is_sample": 1, "is_active": 1, "status": ["!=", "draft"]})
+		self.pay(donation.create(campaign_id=ber, amount=10000, donor_name="Tes")["donation_id"])
+		sim = konten_contoh.bersihkan(dry_run=1)  # simulasi: tidak mengubah apa pun
+		self.assertTrue(sim["dry_run"] and ber in sim["dinonaktifkan"])
+		self.assertTrue(frappe.db.exists("Kampanye Donasi", ber))
+		self.assertEqual(content.bundle(), {"replace": False})
+		konten_contoh.bersihkan(dry_run=0, commit=0)  # tes tidak boleh meng-commit
+		self.assertEqual(frappe.db.count("Kampanye Donasi", {"is_sample": 1, "is_active": 1}), 0)
+		self.assertTrue(frappe.db.exists("Kampanye Donasi", ber))  # catatan keuangan terjaga (nonaktif)
+		self.assertEqual(frappe.db.get_value("Kampanye Donasi", ber, "is_active"), 0)
+		self.assertTrue(frappe.db.exists("Kampanye Donasi", milik.name))  # milik sendiri utuh
+		self.assertEqual(frappe.db.get_value("Kampanye Donasi", "sedekah", "is_active"), 1)  # kampanye umum tetap aktif
+		self.assertEqual(frappe.db.count("Kampanye Donasi", {"is_system": 1}), sistem_n)
+		for dt in ("Penyaluran", "Artikel", "Video Donasi", "Banner"):
+			self.assertEqual(frappe.db.count(dt, {"is_sample": 1}), 0, dt)
+		frappe.clear_cache(doctype="Pengaturan Donasi")
+		b = content.bundle()
+		self.assertTrue(b["replace"])
+		self.assertEqual(sorted(c["slug"] for c in b["campaigns"]), ["milik-sendiri", "sedekah"])  # milik sendiri + kampanye umum yang dilindungi
+		self.assertEqual(b["totalCampaigns"], 2)
+		self.assertEqual(set(b["campaigns"][0]), {"slug", "image", "title", "raised", "percent"})
+		self.assertEqual(set(b["details"]["milik-sendiri"]), {"target", "organizer", "description"})
+		self.assertEqual((b["banners"], b["videos"]), ([], []))
+		# impor ulang tidak membuat contoh lagi (make() dilewati; JANGAN memanggil run(): ia commit dan akan meng-commit pembersihan ini)
+		self.assertFalse(import_snapshot.make("Kampanye Donasi", "contoh-baru-xyz", {"kode_kampanye": "contoh-baru-xyz", "nama_kampanye": "X", "slug": "contoh-baru-xyz", "fund_type": "infak_bebas", "program": milik.program}))
+		self.assertFalse(frappe.db.exists("Kampanye Donasi", "contoh-baru-xyz"))
+
 	def test_hapus_akun_anonimkan(self):
 		self.new_donor()
 		pid = self.make_donation()

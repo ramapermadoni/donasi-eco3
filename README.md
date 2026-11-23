@@ -48,3 +48,5 @@ Pengingat Rutin: `run_due` berjalan tiap jam, membuat donasi Pending saat jam ja
 
 ## Belum / perlu keputusan
 Midtrans nyata (gateway masih simulator), kanal OTP/pengingat, halaman Rutin masih localStorage, hapus-akun & avatar di UI, tinjauan halaman legal, jawaban F1-F29.
+
+- [Mengganti konten contoh](docs/KONTEN-CONTOH.md) — membersihkan konten bawaan dan memakai konten sendiri.

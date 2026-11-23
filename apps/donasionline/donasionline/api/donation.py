@@ -21,7 +21,7 @@ def by_public_id(pid):
 def _wakaf_dibuka(c):
 	"""Gerbang F4, per kampanye. Dikelola lembaga: lembaga terdaftar nazhir BWI (centang + nomor).
 	Titipan: kampanye terikat ke Mitra bernomor nazhir BWI. Kedua mode dapat berjalan bersamaan pada kampanye berbeda."""
-	if (c.wakaf_mode or "").startswith("Titipan"):
+	if not (c.wakaf_mode or "").startswith("Dikelola"):  # kosong/tak dikenal = Titipan (mode operasi saat ini)
 		return bool(c.mitra and (frappe.db.get_value("Mitra", c.mitra, "nazhir_no_bwi") or "").strip())
 	s = frappe.get_cached_doc("Pengaturan Donasi")
 	return bool(s.nazhir_terdaftar and (s.nazhir_no_bwi or "").strip())

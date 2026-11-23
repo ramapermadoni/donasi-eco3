@@ -37,7 +37,7 @@ def video_latest():
 
 @frappe.whitelist(allow_guest=True)
 def video_list():
-	return [{"id": r.name, "src": r.src, "poster": r.poster, "likes": r.likes, "comments": r.comments, "campaignSlug": frappe.db.get_value("Kampanye Donasi", r.kampanye, "slug") if r.kampanye else None, "caption": r.caption} for r in frappe.get_all("Video Donasi", ["*"], order_by="sort_order asc")]
+	return [{"id": r.name, "src": r.src, "poster": r.poster, "likes": r.likes, "comments": r.comments, "campaignSlug": frappe.db.get_value("Kampanye Donasi", r.kampanye, "slug") if r.kampanye else None, "campaignTitle": (frappe.db.get_value("Kampanye Donasi", r.kampanye, "title") if r.kampanye else None), "caption": r.caption} for r in frappe.get_all("Video Donasi", ["*"], order_by="sort_order asc")]
 
 
 @frappe.whitelist(allow_guest=True)
@@ -109,3 +109,42 @@ def mitra_detail(slug):
 		frappe.throw("Mitra tidak ditemukan", frappe.DoesNotExistError)
 	m = frappe.get_doc("Mitra", slug)
 	return {"slug": m.slug, "name": m.mitra_name, "type": m.mitra_type, "img": m.avatar_url, "ig": m.instagram, "verified": bool(m.verified)}
+
+
+def _kompak(v):
+	"""Format ringkas seperti di UI: 'Rp 1.7 jt', 'Rp 535 rb', 'Rp 900'."""
+	v = float(v or 0)
+	if v >= 1_000_000:
+		return f"Rp {v / 1_000_000:.1f} jt"
+	if v >= 1_000:
+		return f"Rp {round(v / 1_000)} rb"
+	return f"Rp {int(v)}"
+
+
+def _bundle():
+	"""Konten halaman depan dalam bentuk yang dibaca UI (sama dengan berkas statis ui/src/data): banner, kampanye, mitra, video."""
+	from donasionline.api._util import raised
+
+	flt = {"is_active": 1, "is_system": 0, "status": ["!=", "draft"]}
+	rows = frappe.get_all("Kampanye Donasi", flt, ["name", "slug", "title", "nama_kampanye", "image_url", "target_amount", "description", "organizer_name", "organizer_avatar", "is_featured", "featured_excerpt", "home_rank"], order_by="creation desc", limit=1000)
+	rows.sort(key=lambda r: (r.home_rank is None, r.home_rank or 0))
+	campaigns, details, featured = [], {}, {}
+	for r in rows:
+		got, target = raised(r.name), float(r.target_amount or 0)
+		campaigns.append({"slug": r.slug, "image": r.image_url, "title": r.title or r.nama_kampanye, "raised": _kompak(got), "percent": int(got * 100 // target) if target else 0})
+		details[r.slug] = {"target": int(target), "organizer": {"name": r.organizer_name, "avatar": r.organizer_avatar}, "description": clean(r.description) or ""}
+		if r.is_featured and not featured:
+			featured = {"slug": r.slug, "excerpt": r.featured_excerpt or "", "goal": _kompak(target)}
+	banners = [{"href": b.href, "src": b.src, "alt": b.alt} for b in frappe.get_all("Banner", {"enabled": 1}, ["href", "src", "alt"], order_by="sort_order asc")]
+	mitra = []
+	for m in frappe.get_all("Mitra", ["slug", "mitra_name", "mitra_type", "avatar_url", "instagram", "campaign_count", "total_raised"], order_by="mitra_name asc"):
+		mitra.append({"slug": m.slug, "name": m.mitra_name, "type": m.mitra_type, "img": m.avatar_url, "count": m.campaign_count or 0, "total": "Rp {:,.0f}".format(m.total_raised or 0).replace(",", "."), "ig": m.instagram, "campaigns": []})
+	return {"banners": banners, "campaigns": campaigns, "details": details, "featured": featured, "totalCampaigns": len(campaigns), "mitra": mitra, "videos": video_list()}
+
+
+@frappe.whitelist(allow_guest=True)
+def bundle():
+	"""replace=False selama konten contoh belum dibersihkan: UI tetap memakai berkas statis bawaan."""
+	if not frappe.db.get_single_value("Pengaturan Donasi", "konten_contoh_dibersihkan"):
+		return {"replace": False}
+	return {"replace": True, **_bundle()}

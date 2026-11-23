@@ -13,7 +13,8 @@
   "verified",
   "campaign_count",
   "total_raised",
-  "nazhir_no_bwi"
+  "nazhir_no_bwi",
+  "is_sample"
  ],
  "fields": [
   {
@@ -69,6 +70,13 @@
    "fieldtype": "Data",
    "label": "No. registrasi nazhir BWI",
    "description": "Isi hanya bila mitra ini nazhir terdaftar. Syarat kampanye wakaf mode Titipan."
+  },
+  {
+   "fieldname": "is_sample",
+   "fieldtype": "Check",
+   "label": "Konten contoh",
+   "default": "0",
+   "description": "Berasal dari snapshot contoh. Dapat dibersihkan dengan: bench execute donasionline.setup.konten_contoh.bersihkan (lihat docs/KONTEN-CONTOH.md)."
   }
  ],
  "sort_field": "creation",

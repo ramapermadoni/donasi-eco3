@@ -4,3 +4,4 @@
 donasionline.patches.aktifkan_serve_ui
 donasionline.patches.legal_placeholder
 donasionline.patches.wakaf_titipan
+donasionline.patches.tandai_konten_contoh

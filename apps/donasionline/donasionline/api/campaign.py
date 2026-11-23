@@ -74,7 +74,7 @@ def wakaf_status(slug):
 	c = frappe.get_doc("Kampanye Donasi", name)
 	if c.fund_type != "wakaf":
 		return {"wakaf": False}
-	titipan = (c.wakaf_mode or "").startswith("Titipan")
+	titipan = not (c.wakaf_mode or "").startswith("Dikelola")
 	ps = frappe.get_cached_doc("Pengaturan Donasi")
 	if titipan:
 		m = frappe.db.get_value("Mitra", c.mitra, ["mitra_name", "nazhir_no_bwi"], as_dict=True) if c.mitra else None

@@ -13,7 +13,8 @@
   "tanggal",
   "author",
   "body_html",
-  "related"
+  "related",
+  "is_sample"
  ],
  "fields": [
   {
@@ -64,6 +65,13 @@
    "fieldname": "related",
    "label": "Slug terkait (satu per baris)",
    "fieldtype": "Small Text"
+  },
+  {
+   "fieldname": "is_sample",
+   "fieldtype": "Check",
+   "label": "Konten contoh",
+   "default": "0",
+   "description": "Berasal dari snapshot contoh. Dapat dibersihkan dengan: bench execute donasionline.setup.konten_contoh.bersihkan (lihat docs/KONTEN-CONTOH.md)."
   }
  ],
  "sort_field": "creation",

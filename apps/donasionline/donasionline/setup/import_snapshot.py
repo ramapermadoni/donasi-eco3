@@ -38,10 +38,23 @@ def parse_date(s):
 	return None
 
 
+RESERVED_SLUGS = ("sedekah", "zakat-penghasilan", "zakat-maal", "zakat-emas", "zakat-investasi", "zakat-perniagaan", "wakaf-umum", "fidyah")  # sama dengan konten_contoh.RESERVED
+SAMPLE_DOCTYPES = ("Kampanye Donasi", "Mitra", "Banner", "Video Donasi", "Penyaluran", "Artikel")
+
+
+def cleaned():
+	"""True bila pemilik sudah membersihkan konten contoh (jangan dibuat ulang)."""
+	return bool(frappe.db.get_single_value("Pengaturan Donasi", "konten_contoh_dibersihkan"))
+
+
 def make(doctype, key, data):
-	"""Sisipkan bila belum ada. key = filter unik."""
+	"""Sisipkan bila belum ada. key = filter unik. Konten contoh diberi tanda is_sample dan dilewati setelah dibersihkan."""
 	if frappe.db.exists(doctype, key):
 		return False
+	if doctype in SAMPLE_DOCTYPES and not data.get("is_system") and key not in RESERVED_SLUGS:
+		if cleaned():
+			return False
+		data = {**data, "is_sample": 1}
 	frappe.get_doc({"doctype": doctype, **data}).insert(ignore_permissions=True, ignore_if_duplicate=True)
 	return True
 
@@ -67,7 +80,7 @@ def campaigns(program):
 		det = d["details"].get(s, {})
 		feat = d["featured"] if d["featured"]["slug"] == s else None
 		ok = make("Kampanye Donasi", s, {
-			"kode_kampanye": s, "nama_kampanye": c["title"], "slug": s, "title": c["title"], "image_url": c["image"], "fund_type": fund_type_of(s), "program": program,
+			"kode_kampanye": s, "nama_kampanye": c["title"], "slug": s, "title": c["title"], "image_url": c["image"], "fund_type": fund_type_of(s), "wakaf_mode": "Titipan ke nazhir mitra" if fund_type_of(s) == "wakaf" else None, "program": program,
 			"target_amount": det.get("target"), "description": brand(det.get("description")), "organizer_name": (det.get("organizer") or {}).get("name"),
 			"organizer_avatar": (det.get("organizer") or {}).get("avatar"), "is_featured": 1 if feat else 0, "featured_excerpt": feat["excerpt"] if feat else None,
 			"home_rank": pilihan.index(s) + 1 if s in pilihan else None, "status": "aktif", "is_active": 1, "title_en": (en.get(s) or {}).get("title"),
@@ -101,9 +114,9 @@ def run():
 			frappe.get_doc({"doctype": "Wilayah", "wilayah_name": w["name"], "province": w["province"]}).insert(ignore_permissions=True)
 			cnt["Wilayah"] += 1
 	cnt["Banner"] = 0
-	if not frappe.db.count("Banner"):
+	if not frappe.db.count("Banner") and not cleaned():
 		for i, b in enumerate(load("sedekah.json")["banners"]):
-			frappe.get_doc({"doctype": "Banner", "src": b["src"], "href": b["href"].replace("https://sedekah.id", ""), "alt": b["alt"], "sort_order": i, "enabled": 1}).insert(ignore_permissions=True)
+			frappe.get_doc({"doctype": "Banner", "is_sample": 1, "src": b["src"], "href": b["href"].replace("https://sedekah.id", ""), "alt": b["alt"], "sort_order": i, "enabled": 1}).insert(ignore_permissions=True)
 			cnt["Banner"] += 1
 	lv = load("gamification.json")
 	cnt["Level"] = sum(make("Level Gamifikasi", l["name"], {"level_name": l["name"], "threshold": l["threshold"], "badge_url": l["badgeUrl"]}) for l in lv["levels"])
@@ -125,10 +138,10 @@ def run():
 	for i, m in enumerate(ms["missions"]):
 		make("Misi Kebaikan", m["slug"], {"slug": m["slug"], "mission_type": m["type"], "title": m["title"], "icon": m.get("icon"), "instruction": m.get("instruction"), "meaning": m.get("meaning"), "dzikir_name": m.get("dzikirName"), "arabic_text": m.get("arabicText"), "latin_text": m.get("latinText"), "target_count": m.get("targetCount"), "target_duration_sec": m.get("targetDurationSec"), "voucher_amount": m.get("voucherAmount"), "min_duration_sec": m.get("minDurationSec"), "max_duration_sec": m.get("maxDurationSec") or 600, "sponsor_pool": pools[i] if i < len(pools) else None, "enabled": 1})
 	cnt["Video"] = 0
-	if not frappe.db.count("Video Donasi"):
+	if not frappe.db.count("Video Donasi") and not cleaned():
 		for i, v in enumerate(load("videos.json")):
 			slug = v.get("campaignSlug")
-			frappe.get_doc({"doctype": "Video Donasi", "src": v["src"], "poster": v.get("poster"), "likes": v.get("likes"), "comments": v.get("comments"), "kampanye": slug if slug and frappe.db.exists("Kampanye Donasi", slug) else None, "caption": brand(v.get("caption")), "is_latest": 1 if i == 0 else 0, "sort_order": i}).insert(ignore_permissions=True)
+			frappe.get_doc({"doctype": "Video Donasi", "is_sample": 1, "src": v["src"], "poster": v.get("poster"), "likes": v.get("likes"), "comments": v.get("comments"), "kampanye": slug if slug and frappe.db.exists("Kampanye Donasi", slug) else None, "caption": brand(v.get("caption")), "is_latest": 1 if i == 0 else 0, "sort_order": i}).insert(ignore_permissions=True)
 			cnt["Video"] += 1
 	pen = load("penyaluran.json")["items"]
 	cnt["Penyaluran"] = sum(make("Penyaluran", p["slug"], {"slug": p["slug"], "title": p["title"], "subtitle": p.get("subtitle"), "tanggal": parse_date(p.get("date")), "category": p.get("category"), "image_url": p.get("image"), "location": p.get("location"), "program": p.get("program"), "description": brand(p.get("description"))}) for p in pen)

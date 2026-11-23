@@ -14,7 +14,8 @@
   "location",
   "program",
   "description",
-  "kampanye"
+  "kampanye",
+  "is_sample"
  ],
  "fields": [
   {
@@ -72,6 +73,13 @@
    "label": "Kampanye",
    "fieldtype": "Link",
    "options": "Kampanye Donasi"
+  },
+  {
+   "fieldname": "is_sample",
+   "fieldtype": "Check",
+   "label": "Konten contoh",
+   "default": "0",
+   "description": "Berasal dari snapshot contoh. Dapat dibersihkan dengan: bench execute donasionline.setup.konten_contoh.bersihkan (lihat docs/KONTEN-CONTOH.md)."
   }
  ],
  "sort_field": "creation",
