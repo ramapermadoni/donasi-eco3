@@ -18,7 +18,7 @@ onMounted(() => {
   document.title = 'Tunaikan Zakat Online — Penghasilan, Maal, Emas, Perniagaan | sedekah.id | donasi'
   let m = document.querySelector('meta[name="description"]')
   if (!m) { m = document.createElement('meta'); m.name = 'description'; document.head.appendChild(m) }
-  m.content = 'Bayar zakat penghasilan, maal, emas & perak, investasi, dan perniagaan secara online. Dikelola dan disalurkan DT Peduli (LAZNAS resmi).'
+  m.content = 'Bayar zakat penghasilan, maal, emas & perak, investasi, dan perniagaan secara online.'
 })
 </script>
 
@@ -29,7 +29,7 @@ onMounted(() => {
         <a class="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500" aria-label="Kembali" :href="lp('/')" @click.prevent="$router.push(lp('/'))">←</a>
         <h1 class="text-xl font-extrabold text-gray-900">Tunaikan Zakat</h1>
       </div>
-      <p class="text-sm text-gray-500 ml-12 mb-5">Pilih jenis zakat, isi nominal, langsung tunaikan. Dikelola DT Peduli (LAZNAS).</p>
+      <p class="text-sm text-gray-500 ml-12 mb-5">Pilih jenis zakat, isi nominal, langsung tunaikan.</p>
       <div class="space-y-4">
         <div>
           <p class="text-xs font-semibold text-gray-700 mb-2">Pilih jenis zakat</p>
@@ -49,7 +49,7 @@ onMounted(() => {
         </ZakatAmount>
         <ZakatPayForm v-if="amount > 0" :key="camp.id" :campaign-id="camp.id" :campaign-title="camp.title" :amount="amount" cta-label="Zakat Sekarang" />
       </div>
-      <p class="mt-8 text-center text-[11px] text-gray-400 leading-relaxed">Zakat disalurkan sesuai asnaf oleh DT Peduli (LAZNAS resmi SK Kemenag).</p>
+      <p class="mt-8 text-center text-[11px] text-gray-400 leading-relaxed">Zakat disalurkan sesuai asnaf.</p>
     </div></div>
   </div>
 </template>

@@ -18,7 +18,7 @@ const year = new Date().getFullYear()
         <span class="text-gray-300">•</span>
         <router-link class="hover:text-[color:var(--lime-text)] hover:underline" :to="lp('/kebijakan-privasi')">{{ t('home.privacyLink') }}</router-link>
       </div>
-      <p class="mt-2 text-center text-[10px] text-gray-400">© {{ year }} sedekah.id — DT Peduli</p>
+      <p class="mt-2 text-center text-[10px] text-gray-400">© {{ year }} donasi</p>
     </div>
   </footer>
 </template>

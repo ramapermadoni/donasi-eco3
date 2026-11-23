@@ -84,7 +84,7 @@ async function submit() {
           <router-link class="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500" aria-label="Kembali" :to="lp('/zakat')">←</router-link>
           <h1 class="text-xl font-extrabold text-gray-900">Kalkulator Zakat</h1>
         </div>
-        <p class="text-sm text-gray-500 ml-12 mb-5">Hitung kewajiban zakatmu, lalu tunaikan langsung. Dikelola DT Peduli (LAZNAS).</p>
+        <p class="text-sm text-gray-500 ml-12 mb-5">Hitung kewajiban zakatmu, lalu tunaikan langsung.</p>
         <div class="space-y-4">
           <div class="bg-white rounded-2xl border border-gray-100 p-4">
             <p class="text-xs font-semibold text-gray-700 mb-1.5">Kalender haul</p>
@@ -167,7 +167,7 @@ async function submit() {
             <label class="flex items-center gap-2 text-sm text-gray-600"><input v-model="f.anon" class="accent-[var(--lime-dark)]" type="checkbox" /> Tampilkan sebagai anonim (Hamba Allah)</label>
             <div v-if="err" class="rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm px-4 py-2.5">{{ err }}</div>
             <button :disabled="!canPay" class="w-full py-3.5 rounded-xl bg-[var(--lime)] text-[#fff] font-bold text-sm disabled:opacity-50 flex items-center justify-center gap-2" @click="submit"><Icon v-if="busy" name="loader" class="w-4 h-4 animate-spin" /><template v-else>Tunaikan {{ rpn(amount) }}</template></button>
-            <p class="text-center text-[11px] text-gray-400">Zakat dikelola & disalurkan oleh DT Peduli (LAZNAS resmi).</p>
+            <p class="text-center text-[11px] text-gray-400">Rincian pengelolaan dana ada di Syarat & Ketentuan.</p>
           </div>
         </div>
         <p class="mt-8 text-center text-[11px] text-gray-400 leading-relaxed">Nishab emas mengikuti harga emas terkini (85 gram, Antam buyback). Skema nishab penghasilan juga tersedia mengikuti SK Ketua BAZNAS No. 15 Tahun 2026. Sudah tahu nominalnya? <router-link class="underline" :to="lp('/zakat')">Bayar langsung di /zakat</router-link>.</p>

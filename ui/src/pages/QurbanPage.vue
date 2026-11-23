@@ -84,7 +84,7 @@ const reset = () => { region.value = ''; animal.value = ''; sort.value = 'defaul
         <div class="qb-grid"><router-link to="/" class="qb-card"><div class="im"><span class="em">🥩</span></div><div class="bd"><p class="t">Sedekah Daging Qurban</p><p class="s">Donasi bebas nominal</p><span class="btn">Donasi</span></div></router-link></div>
       </template>
 
-      <div class="qb-about"><b>Tentang Qurban di donasi</b><p>Hewan qurban disalurkan langsung ke daerah yang membutuhkan oleh tim DT Peduli. Laporan pelaksanaan dikirim ke donatur via WhatsApp setelah 10 Dzulhijjah.</p></div>
+      <div class="qb-about"><b>Tentang Qurban di donasi</b><p>Hewan qurban disalurkan langsung ke daerah yang membutuhkan oleh tim kami. Laporan pelaksanaan dikirim ke donatur via WhatsApp setelah 10 Dzulhijjah.</p></div>
     </main>
   </div>
   <BottomNav />

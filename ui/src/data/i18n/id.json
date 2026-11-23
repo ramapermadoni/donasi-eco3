@@ -91,7 +91,7 @@
   "title": "Syarat & Ketentuan",
   "subtitle": "Berlaku untuk semua pengguna platform sedekah.id.",
   "metaTitle": "Syarat & Ketentuan — donasi",
-  "metaDescription": "Syarat dan ketentuan layanan sedekah.id — platform donasi online yang dikelola oleh DT Peduli."
+  "metaDescription": "Syarat dan ketentuan layanan sedekah.id — platform donasi online."
  },
  "paymentModal": {
   "title": "Pilih Metode Pembayaran",
@@ -184,10 +184,10 @@
   "howToPay": "Cara Pembayaran",
   "checkingStatus": "Memeriksa status pembayaran secara otomatis...",
   "totalPaid": "Total Bayar",
-  "veteranLine1": "Alhamdulillah..kontribusi sahabat <nameb>{name}</nameb> bersama DT Peduli sejak <yearb>{year}</yearb> — {duration} telah memberikan dampak yang luar biasa.",
+  "veteranLine1": "Alhamdulillah..kontribusi sahabat <nameb>{name}</nameb> bersama kami sejak <yearb>{year}</yearb> — {duration} telah memberikan dampak yang luar biasa.",
   "veteranLine2": "Bersama sedekah.id mari terus lanjutkan kebaikan ini, dan semoga Allah menjadikan ini sebagai pemberat catatan amal kebaikan di akhirat kelak.. Aamiin",
   "onBehalfOf": "Atas Nama Pekurban",
-  "qurbanNote": "Insya Allah daging qurban disalurkan setelah 10 Dzulhijjah oleh tim DT Peduli. Laporan pelaksanaan akan dikirim via WhatsApp."
+  "qurbanNote": "Insya Allah daging qurban disalurkan setelah 10 Dzulhijjah oleh tim kami. Laporan pelaksanaan akan dikirim via WhatsApp."
  },
  "campaignsList": {
   "emptyAll": "Belum ada campaign aktif saat ini.",
@@ -300,10 +300,10 @@
   "empty": "Belum ada donasi",
   "anonymousDonor": "Teman Sedekah",
   "showing": "Menampilkan {start}–{end} dari {total} donasi",
-  "platformTagline": "Platform Donasi Digital · Bagian dari DT Peduli",
+  "platformTagline": "Platform Donasi Digital",
   "aboutTitle": "Tentang sedekah.id",
-  "aboutText": "sedekah.id adalah platform donasi digital bagian dari <b>DT Peduli</b> untuk memudahkan sahabat bersedekah, berinfak, dan berzakat secara digital, aman, dan transparan.",
-  "disclaimer": "Dana yang didonasikan melalui sedekah.id (DT Peduli) bukan bersumber dari dana yang tidak halal dan bukan untuk tujuan pencucian uang (<em>money laundry</em>), termasuk terorisme maupun tindak kejahatan lainnya serta donasi yang sahabat titipkan sudah termasuk donasi operasional DT Peduli.",
+  "aboutText": "donasi adalah platform donasi digital untuk memudahkan sahabat bersedekah, berinfak, dan berzakat secara digital, aman, dan transparan.",
+  "disclaimer": "Dana yang didonasikan melalui donasi bukan bersumber dari dana yang tidak halal dan bukan untuk tujuan pencucian uang (<em>money laundry</em>), termasuk terorisme maupun tindak kejahatan lainnya serta donasi yang sahabat titipkan sudah termasuk donasi operasional lembaga penyelenggara.",
   "metaTitle": "Teman Sedekah — donasi"
  },
  "akun": {
@@ -406,7 +406,7 @@
   "deleteConfirmLabel": "Saya memahami konsekuensinya dan ingin menghapus akun saya",
   "deleteConfirmBtn": "Ya, Hapus Akun Saya",
   "deleteDeleting": "Menghapus…",
-  "errDelete": "Gagal menghapus akun. Coba lagi atau hubungi donasi@dtp.id."
+  "errDelete": "Gagal menghapus akun. Coba lagi atau hubungi kontak resmi kami."
  },
  "register": {
   "topTitle": "Daftar Akun Donatur",
@@ -430,9 +430,9 @@
   "goal0": "Mendapat kasih sayang dan pertolongan Allah SWT",
   "goal1": "Senyum dan doa tulus dari saudara kita yang membutuhkan",
   "goal2": "Pahala sedekah berlipat",
-  "step2Hero": "Bergabung dengan DT Peduli,<br></br>rasakan dampaknya!",
+  "step2Hero": "Bergabunglah bersama kami,<br></br>rasakan dampaknya!",
   "benefit1Title": "Donasi Mudah & Aman",
-  "benefit1Desc": "Berbagi menjadi mudah, cepat, dan terpercaya bersama DT Peduli.",
+  "benefit1Desc": "Berbagi menjadi mudah, cepat, dan terpercaya bersama kami.",
   "benefit2Title": "Pahala Terus Mengalir",
   "benefit2Desc": "Setiap donasi pahalanya mengalir terus untuk Anda. insyaAllah!",
   "benefit3Title": "Dampak Nyata",
@@ -442,7 +442,7 @@
   "source1": "Rekomendasi teman / keluarga",
   "source2": "Media sosial (Instagram, TikTok, Facebook)",
   "source3": "Iklan online (Google, Instagram, dll)",
-  "source4": "Acara / kegiatan DT Peduli",
+  "source4": "Acara / kegiatan kami",
   "fillData": "Lengkapi data diri Anda untuk membuat akun.",
   "requiredNote": "(*) Wajib Diisi",
   "fullName": "Nama Lengkap",
@@ -459,7 +459,7 @@
   "cityNotFound": "Kota tidak ditemukan",
   "job": "Pekerjaan",
   "jobPlaceholder": "Masukkan Pekerjaan Anda Saat Ini",
-  "terms": "Dengan mendaftar, Anda menyetujui <terms>Syarat & Ketentuan</terms> dan <privacy>Kebijakan Privasi</privacy> DT Peduli",
+  "terms": "Dengan mendaftar, Anda menyetujui <terms>Syarat & Ketentuan</terms> dan <privacy>Kebijakan Privasi</privacy> kami",
   "registerNow": "Daftar Sekarang",
   "enterOtp": "Masukkan Kode OTP",
   "otpSentTo": "Kode 6-digit sudah dikirim ke WhatsApp:<br></br><b>+{phone}</b>",
@@ -521,7 +521,7 @@
   "noProgramsForFilter": "Tidak ada program untuk filter ini.",
   "donate": "Donasi",
   "aboutTitle": "Tentang Qurban di donasi",
-  "aboutText": "Hewan qurban disalurkan langsung ke daerah yang membutuhkan oleh tim DT Peduli. Laporan pelaksanaan dikirim ke donatur via WhatsApp setelah 10 Dzulhijjah.",
+  "aboutText": "Hewan qurban disalurkan langsung ke daerah yang membutuhkan oleh tim kami. Laporan pelaksanaan dikirim ke donatur via WhatsApp setelah 10 Dzulhijjah.",
   "metaLanding": "Qurban Idul Adha — donasi",
   "noCampaignTitle": "Belum ada Campaign Qurban Aktif",
   "noCampaignSub": "Pantau halaman ini menjelang Idul Adha untuk info paket qurban tahun ini.",
@@ -546,8 +546,8 @@
   "chooseMethod": "Pilih Metode",
   "methodMin": "Minimum {amount} untuk {method}. Naikkan quantity atau pilih metode lain.",
   "distributionTerms": "Ketentuan Penyaluran",
-  "term1": "Distribusi hewan qurban sepenuhnya dikelola oleh <b>DT Peduli</b>.",
-  "term2": "Dalam kondisi darurat DT Peduli berhak untuk mengkonversi Hewan Qurban Kambing ke Sapi/Unta berjamaah dan sebaliknya dengan menyesuaikan berat hewan qurban di wilayah distribusi sesuai dengan harga beli.",
+  "term1": "Distribusi hewan qurban sepenuhnya dikelola oleh <b>lembaga penyelenggara</b>.",
+  "term2": "Dalam kondisi darurat lembaga penyelenggara berhak untuk mengkonversi Hewan Qurban Kambing ke Sapi/Unta berjamaah dan sebaliknya dengan menyesuaikan berat hewan qurban di wilayah distribusi sesuai dengan harga beli.",
   "term3": "Laporan pelaksanaan dapat diakses secara online maksimal <b>H+14</b> setelah pendistribusian selesai.",
   "pay": "Bayar {amount}",
   "halalConsent": "Dengan menekan tombol di atas, Anda menyatakan dana ini dari sumber halal.",
@@ -607,7 +607,7 @@
   "startLabel": "Mulai tanggal",
   "amountMinHint": "Minimal {min}",
   "targetHeading": "Tujuan Sedekah",
-  "targetPilihan": "Pilihan DT Peduli",
+  "targetPilihan": "Pilihan lembaga",
   "anonLabel": "Sembunyikan nama saya (Hamba Allah)",
   "remindHeading": "Pengingat",
   "remindBell": "Lonceng di aplikasi",
@@ -678,7 +678,7 @@
   "dueCta": "Sedekah sekarang",
   "dueDone": "Sedekah hari ini sudah dibayar. Alhamdulillah!",
   "missedHeading": "Hari terlewat (bisa digenapi)",
-  "targetValueNone": "Pilihan DT Peduli",
+  "targetValueNone": "Pilihan lembaga",
   "bayarTitle": "Bayar Sedekah Rutin",
   "bayarSummary": "Ringkasan",
   "bayarDate": "Jatuh tempo",

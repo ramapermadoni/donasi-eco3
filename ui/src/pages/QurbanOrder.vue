@@ -66,8 +66,8 @@ function pay() {
         <div class="qo-terms">
           <b>Ketentuan Penyaluran</b>
           <ol>
-            <li>Distribusi hewan qurban sepenuhnya dikelola oleh <b>DT Peduli</b>.</li>
-            <li>Dalam kondisi darurat DT Peduli berhak untuk mengkonversi Hewan Qurban Kambing ke Sapi/Unta berjamaah dan sebaliknya dengan menyesuaikan berat hewan qurban di wilayah distribusi sesuai dengan harga beli.</li>
+            <li>Distribusi hewan qurban sepenuhnya dikelola oleh <b>lembaga penyelenggara</b>.</li>
+            <li>Dalam kondisi darurat lembaga penyelenggara berhak untuk mengkonversi Hewan Qurban Kambing ke Sapi/Unta berjamaah dan sebaliknya dengan menyesuaikan berat hewan qurban di wilayah distribusi sesuai dengan harga beli.</li>
             <li>Laporan pelaksanaan dapat diakses secara online maksimal <b>H+14</b> setelah pendistribusian selesai.</li>
           </ol>
         </div>

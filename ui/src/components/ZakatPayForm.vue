@@ -11,7 +11,7 @@ import { postJson } from '../utils/net'
 import { minFor, groupMethods } from '../utils/payment'
 import { penandaDonasi } from '../donate'
 
-const props = defineProps({ campaignId: String, campaignTitle: String, amount: Number, ctaLabel: { type: String, default: 'Tunaikan' }, footerNote: { type: String, default: 'Zakat dikelola & disalurkan oleh DT Peduli (LAZNAS resmi).' } })
+const props = defineProps({ campaignId: String, campaignTitle: String, amount: Number, ctaLabel: { type: String, default: 'Tunaikan' }, footerNote: { type: String, default: 'Rincian pengelolaan dana ada di Syarat & Ketentuan.' } })
 const router = useRouter()
 const KEY = 'sedekah_donor_v1'
 const rp = rpSp
