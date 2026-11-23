@@ -73,7 +73,16 @@ def legal(slug, lang="id"):
 	if not n:
 		frappe.throw("Halaman tidak ditemukan", frappe.DoesNotExistError)
 	d = frappe.get_doc("Halaman Legal", n)
-	return {"title": d.title, "subtitle": d.subtitle, "updated": d.updated_label, "html": clean(d.body_html)}
+	from donasionline.setup import legal as L
+
+	s = frappe.get_single("Pengaturan Donasi")
+	out = {"title": d.title, "subtitle": d.subtitle, "updated": d.updated_label, "html": L.render(clean(d.body_html), s)}
+	if not s.legal_approved:
+		out["note"] = (
+			"<b>DRAF</b>: halaman ini belum ditinjau penasihat hukum/ahli syariah dan belum berlaku sebagai dokumen resmi."
+			if lang != "en" else "<b>DRAFT</b>: this page has not been reviewed by legal counsel / sharia advisers and is not an official document yet."
+		)
+	return out
 
 
 @frappe.whitelist(allow_guest=True)

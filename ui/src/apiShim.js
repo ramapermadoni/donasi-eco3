@@ -57,6 +57,7 @@ const R = [
   ['GET', /^\/api\/artikel\/([^/]+)$/, 'content.artikel_detail', (m) => ({ slug: m[1] })],
   ['GET', /^\/api\/artikel$/, 'content.artikel_list'],
   ['GET', /^\/api\/wilayah$/, 'content.wilayah'],
+  ['GET', /^\/api\/legal$/, 'content.legal'],
 ]
 
 let csrf = ''

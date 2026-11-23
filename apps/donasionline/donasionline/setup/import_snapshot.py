@@ -10,6 +10,8 @@ from datetime import datetime
 
 import frappe
 
+from donasionline.setup import legal
+
 SNAP = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "snapshot")
 BULAN = {"jan": 1, "feb": 2, "mar": 3, "apr": 4, "mei": 5, "jun": 6, "jul": 7, "agu": 8, "agt": 8, "sep": 9, "okt": 10, "nov": 11, "des": 12}
 BRAND = re.compile(r"(?<![/.\w-])[Ss]edekah\.id")
@@ -135,7 +137,7 @@ def run():
 	cnt["Legal"] = 0
 	for lang, f in (("id", "legal.json"), ("en", "legal.en.json")):
 		for slug, p in load(f).items():
-			cnt["Legal"] += make("Halaman Legal", f"{slug}-{lang}", {"slug": slug, "lang": lang, "title": brand(p["title"]), "subtitle": brand(p.get("subtitle")), "updated_label": p.get("updated"), "body_html": brand(p.get("html"))})
+			cnt["Legal"] += make("Halaman Legal", f"{slug}-{lang}", {"slug": slug, "lang": lang, "title": brand(p["title"]), "subtitle": brand(p.get("subtitle")), "updated_label": p.get("updated"), "body_html": legal.to_placeholders(brand(p.get("html")))})
 	cnt["Quran Jar"] = 0
 	if not frappe.db.count("Ayat Quran Jar"):
 		for mood, verses in load("quranjar.json")["verses"].items():

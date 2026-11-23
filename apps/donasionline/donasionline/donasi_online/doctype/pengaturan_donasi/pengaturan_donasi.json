@@ -20,7 +20,14 @@
   "wa_url",
   "wa_token",
   "wa_auth_header",
-  "wa_body"
+  "wa_body",
+  "sec_legal",
+  "org_name",
+  "org_email",
+  "col_legal",
+  "org_address",
+  "org_license",
+  "legal_approved"
  ],
  "fields": [
   {
@@ -119,6 +126,47 @@
    "options": "JSON",
    "default": "{\"target\": \"{phone}\", \"message\": \"{message}\"}",
    "description": "Tempat {phone} dan {message} diganti; sesuaikan dengan gateway Anda."
+  },
+  {
+   "fieldname": "sec_legal",
+   "fieldtype": "Section Break",
+   "label": "Identitas penyelenggara & halaman legal"
+  },
+  {
+   "fieldname": "org_name",
+   "fieldtype": "Data",
+   "label": "Nama lembaga penyelenggara",
+   "description": "Mengisi {{org_name}} di Syarat & Ketentuan, Kebijakan Privasi, Hapus Akun."
+  },
+  {
+   "fieldname": "org_email",
+   "fieldtype": "Data",
+   "label": "Email kontak/privasi",
+   "options": "Email",
+   "description": "Mengisi {{org_email}}."
+  },
+  {
+   "fieldname": "col_legal",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "org_address",
+   "fieldtype": "Small Text",
+   "label": "Alamat lembaga",
+   "description": "Mengisi {{org_address}}."
+  },
+  {
+   "fieldname": "org_license",
+   "fieldtype": "Data",
+   "label": "Nomor izin (mis. SK amil/LAZ)",
+   "description": "Mengisi {{org_license}}."
+  },
+  {
+   "fieldname": "legal_approved",
+   "fieldtype": "Check",
+   "label": "Halaman legal sudah ditinjau & disetujui",
+   "default": "0",
+   "description": "Selama belum dicentang, UI menampilkan banner DRAF di halaman legal. Centang hanya setelah ditinjau penasihat hukum/ahli syariah (lihat docs/LEGAL-TINJAUAN.md)."
   }
  ],
  "permissions": [

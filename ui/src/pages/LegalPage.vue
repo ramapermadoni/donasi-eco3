@@ -1,5 +1,5 @@
 <script setup>
-import { computed } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import AppHeader from '../components/AppHeader.vue'
 import BottomNav from '../components/BottomNav.vue'
@@ -10,7 +10,19 @@ import { isEn, lp } from '../i18n'
 // props.page = key in legal.json. Replace with CMS pages in Frappe (Web Page doctype).
 const props = defineProps({ page: { type: String, required: true } })
 const router = useRouter()
-const doc = computed(() => (isEn.value ? legalEn : legal)[props.page])
+const local = computed(() => (isEn.value ? legalEn : legal)[props.page])
+// Terhubung: isi dari server (placeholder lembaga terisi, banner DRAF bila belum disetujui); gagal/demo -> salinan lokal.
+const remote = ref(null)
+const REAL = import.meta.env.VITE_REAL_API !== '0'
+watch([() => props.page, isEn], async () => {
+  remote.value = null
+  if (!REAL) return
+  try {
+    const r = await fetch('/api/legal?slug=' + encodeURIComponent(props.page) + '&lang=' + (isEn.value ? 'en' : 'id'))
+    if (r.ok) remote.value = await r.json()
+  } catch { /* pakai lokal */ }
+}, { immediate: true })
+const doc = computed(() => remote.value || local.value)
 // internal links in the HTML ("/akun", "/kebijakan-privasi") -> SPA navigation
 function onClick(e) {
   const a = e.target.closest('a')

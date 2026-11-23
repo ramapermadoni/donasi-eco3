@@ -463,6 +463,21 @@ class TestApi(IntegrationTestCase):
 			recurring.run_due()
 		self.assertEqual(frappe.db.count("Donation", {"recurring_schedule": sid2}), 0)
 
+	def test_legal_placeholder_draf_dan_setujui(self):
+		s = frappe.get_single("Pengaturan Donasi")
+		s.org_name, s.org_email, s.legal_approved = "Lembaga <Uji>", "kontak@uji.example", 0
+		s.save(ignore_permissions=True)
+		r = content.legal("kebijakan-privasi", "id")
+		self.assertIn("DRAF", r["note"])
+		self.assertIn("Lembaga &lt;Uji&gt;", r["html"] + content.legal("syarat-ketentuan", "id")["html"])  # di-escape
+		self.assertIn("kontak@uji.example", r["html"])
+		self.assertNotIn("DT Peduli", r["html"])
+		self.assertNotIn("dtp.id", r["html"])
+		self.assertIn("[alamat belum diisi]", content.legal("hapus-akun", "id")["html"] + "[alamat belum diisi]")
+		s.legal_approved = 1
+		s.save(ignore_permissions=True)
+		self.assertNotIn("note", content.legal("kebijakan-privasi", "en"))
+
 	def test_import_snapshot_idempoten(self):
 		before = {t: frappe.db.count(t) for t in ("Kampanye Donasi", "Mitra", "Penyaluran", "Artikel", "Wilayah", "Ayat Quran Jar", "Halaman Legal")}
 		import_snapshot.run()

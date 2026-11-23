@@ -2,3 +2,4 @@
 
 [post_model_sync]
 donasionline.patches.aktifkan_serve_ui
+donasionline.patches.legal_placeholder
