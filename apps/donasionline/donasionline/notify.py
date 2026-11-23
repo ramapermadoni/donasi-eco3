@@ -63,5 +63,20 @@ def send_otp(phone, code):
 
 
 def send_reminder(donor, text, channel):
-	frappe.logger("donasionline").info("Pengingat %s untuk %s (belum diimplementasi)", channel, donor)
+	"""Pengingat Rutin. channel 'wa'|'email'. True bila terkirim, False bila dilewati (kanal belum diatur / donor tanpa kontak),
+	dan lempar galat bila gateway gagal (pemanggil mencatat 'Gagal'). Tidak bergantung pada Pengaturan.otp_channel."""
+	d = frappe.db.get_value("Donor", donor, ["phone", "email"], as_dict=True)
+	if not d:
+		return False
+	if channel == "wa":
+		s = _settings()
+		if not (s.wa_url or "").strip() or not d.phone:
+			return False
+		_wa(s, d.phone, text)
+		return True
+	if channel == "email":
+		if not d.email or d.email.endswith("@donor.invalid"):
+			return False
+		_email(d.phone, _("Pengingat shadaqa rutin"), text)
+		return True
 	return False

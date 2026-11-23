@@ -376,6 +376,53 @@ class TestApi(IntegrationTestCase):
 		with self.assertRaises(frappe.PermissionError):
 			recurring.execute(s["id"])
 
+	def _jadwal_jatuh_tempo(self, wa=1, email=0, hour=0):
+		self.new_donor()
+		s = recurring.create(freq="daily", hour=hour, amount=10000, remind_wa=wa, remind_email=email)
+		frappe.set_user("Administrator")
+		frappe.db.set_value("Jadwal Rutin", s["id"], "next_run", add_days(nowdate(), -1))
+		# isolasi: jadwal lain di site uji tidak ikut
+		frappe.db.set_value("Jadwal Rutin", {"name": ["!=", s["id"]]}, "status", "Dijeda")
+		frappe.db.set_single_value("Pengaturan Donasi", "wa_url", "https://wa.example.test/send")
+		return s["id"]
+
+	def test_pengingat_wa_terkirim_sekali_per_eksekusi(self):
+		from unittest import mock
+
+		sid = self._jadwal_jatuh_tempo()
+		with mock.patch("requests.post", return_value=mock.Mock(status_code=200)) as m:
+			recurring.run_due()
+			recurring.run_due()  # jam berikutnya: eksekusi sudah ada, tidak kirim lagi
+		self.assertEqual(m.call_count, 1)
+		self.assertIn("/donasi/", m.call_args.kwargs["data"].decode())
+		self.assertEqual(frappe.get_all("Log Pengingat Rutin", {"schedule": sid}, pluck="status"), ["Terkirim"])
+
+	def test_pengingat_gateway_gagal_dicatat_dan_tidak_menghentikan(self):
+		from unittest import mock
+
+		sid = self._jadwal_jatuh_tempo()
+		with mock.patch("requests.post", return_value=mock.Mock(status_code=500)):
+			recurring.run_due()
+		self.assertEqual(frappe.get_all("Log Pengingat Rutin", {"schedule": sid}, pluck="status"), ["Gagal"])
+		self.assertEqual(frappe.db.count("Donation", {"recurring_schedule": sid}), 1)  # donasi tetap dibuat
+
+	def test_pengingat_dilewati_bila_gateway_belum_diatur_atau_belum_jam(self):
+		from unittest import mock
+
+		sid = self._jadwal_jatuh_tempo()
+		frappe.db.set_single_value("Pengaturan Donasi", "wa_url", "")
+		with mock.patch("requests.post") as m:
+			recurring.run_due()
+		m.assert_not_called()
+		self.assertEqual(frappe.get_all("Log Pengingat Rutin", {"schedule": sid}, pluck="status"), ["Dilewati"])
+		# jadwal HARI INI dengan jam di masa depan: belum dieksekusi
+		sid2 = self._jadwal_jatuh_tempo(hour=23)
+		frappe.db.set_value("Jadwal Rutin", sid2, "next_run", nowdate())
+		from unittest import mock as _m
+		with _m.patch("frappe.utils.now_datetime", return_value=frappe.utils.get_datetime(nowdate() + " 08:00:00")):
+			recurring.run_due()
+		self.assertEqual(frappe.db.count("Donation", {"recurring_schedule": sid2}), 0)
+
 	def test_import_snapshot_idempoten(self):
 		before = {t: frappe.db.count(t) for t in ("Kampanye Donasi", "Mitra", "Penyaluran", "Artikel", "Wilayah", "Ayat Quran Jar", "Halaman Legal")}
 		import_snapshot.run()

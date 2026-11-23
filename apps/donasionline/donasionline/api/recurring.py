@@ -126,16 +126,46 @@ def on_donation_paid(doc, method=None):
 	s.save(ignore_permissions=True)
 
 
+def _reminder_text(s, donation):
+	donor = frappe.get_doc("Donor", s.donor)
+	oid = frappe.db.get_value("Donation", donation, "gateway_order_id")
+	url = f"{frappe.utils.get_url()}/donasi/{oid}"
+	nominal = f"Rp{int(s.amount):,}".replace(",", ".")
+	return f"Assalamu'alaikum {donor.full_name}, waktunya shadaqa rutin {nominal}. Selesaikan di: {url}"
+
+
 def run_due():
-	"""Scheduler harian: buat Donation Pending bagi jadwal jatuh tempo + catat pengingat (kanal belum dikonfigurasi)."""
+	"""Scheduler per jam: buat Donation Pending bagi jadwal jatuh tempo (jam jadwal sudah lewat) dan kirim pengingat SEKALI per eksekusi baru.
+	Kegagalan satu jadwal/kanal dicatat di Log Pengingat Rutin dan tidak menghentikan yang lain."""
+	from frappe.utils import now_datetime
+
 	from donasionline import notify
-	for name in frappe.get_all("Jadwal Rutin", {"status": "Aktif", "next_run": ["<=", nowdate()]}, pluck="name"):
+
+	now = now_datetime()
+	today = getdate(now)
+	for name in frappe.get_all("Jadwal Rutin", {"status": "Aktif", "next_run": ["<=", today]}, pluck="name"):
 		s = frappe.get_doc("Jadwal Rutin", name)
-		_spawn(s, s.next_run)
+		if getdate(s.next_run) == today and (s.hour or 0) > now.hour:
+			continue  # belum jam-nya
+		before = len(s.executions)
+		try:
+			don = _spawn(s, s.next_run)
+		except Exception:
+			frappe.log_error(title=f"Jadwal Rutin {name}: gagal membuat donasi")
+			continue
+		if len(s.executions) == before:
+			continue  # eksekusi sudah ada: pengingat sudah pernah dikirim
 		for ch, on in (("wa", s.remind_wa), ("email", s.remind_email)):
-			if on:
-				ok = notify.send_reminder(s.donor, "Waktunya shadaqa rutin", ch)
-				frappe.get_doc({"doctype": "Log Pengingat Rutin", "schedule": s.name, "channel": ch, "sent_at": frappe.utils.now_datetime(), "status": "Terkirim" if ok else "Dilewati"}).insert(ignore_permissions=True)
+			if not on:
+				continue
+			try:
+				ok = notify.send_reminder(s.donor, _reminder_text(s, don), ch)
+				status = "Terkirim" if ok else "Dilewati"
+			except Exception as e:
+				frappe.logger("donasionline").error("Pengingat %s jadwal %s gagal: %s", ch, name, type(e).__name__)
+				status = "Gagal"
+			frappe.get_doc({"doctype": "Log Pengingat Rutin", "schedule": s.name, "channel": ch, "sent_at": now, "status": status}).insert(ignore_permissions=True)
+		frappe.db.commit()
 
 
 def purge_logs():

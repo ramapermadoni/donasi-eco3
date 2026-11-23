@@ -26,7 +26,7 @@ Catatan: `down -v` MENGHAPUS data. Kalau backend 502 setelah restart, jalankan `
 
 ## Kanal OTP
 Pengaturan Donasi > "Kanal OTP & pengingat": `Log saja` (bawaan; kode tidak terkirim), `WhatsApp` (POST JSON ke gateway generik: URL https, token di header, badan dari template dengan `{phone}`/`{message}`), `Email` (butuh Email Account keluar; email palsu `@donor.invalid` dilewati), atau `WhatsApp lalu Email`. Gagal kirim = galat generik ke donatur, kode tidak pernah masuk log. Teruji dengan gateway tiruan (5 tes); BELUM dicoba ke gateway WA/SMTP nyata. Produksi: matikan `donasionline_otp_dev_echo`.
-Pengingat Rutin (`notify.send_reminder`) belum memakai kanal ini.
+Pengingat Rutin: `run_due` berjalan tiap jam, membuat donasi Pending saat jam jadwal tiba dan mengirim pengingat (WA lewat gateway yang sama, email) SEKALI per eksekusi, dengan tautan `/donasi/<id>`. Hasil dicatat di Log Pengingat Rutin (Terkirim/Gagal/Dilewati; Dilewati = gateway belum diatur atau donor tanpa kontak). Diuji dengan gateway tiruan. Catatan: UI halaman Rutin masih localStorage, jadi jadwal dari UI belum masuk ke server.
 
 ## Dua mode UI
 - **Gabung (bawaan):** `cd ui && npm run build:gabung` membangun UI ke `apps/donasionline/donasionline/public/ui` (hasil build ikut di-commit, jadi server tidak butuh Node). Setelah `install-app`, UI langsung tampil di `/` dan rute SPA lain; `/desk`, `/api`, `/login` tetap milik Frappe. Matikan lewat Pengaturan Donasi > "Layani UI donasi dari Frappe". Rute SPA baru harus ditambah ke `SPA_ROOTS` di `donasionline/ui.py`.

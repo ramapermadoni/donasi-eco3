@@ -15,8 +15,10 @@ doc_events = {
 }
 
 scheduler_events = {
-	"daily": [
+	"hourly": [
 		"donasionline.api.recurring.run_due",
+	],
+	"daily": [
 		"donasionline.api.recurring.purge_logs",
 	],
 }
