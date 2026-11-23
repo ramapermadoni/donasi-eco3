@@ -26,7 +26,8 @@ Catatan: `down -v` MENGHAPUS data. Kalau backend 502 setelah restart, jalankan `
 
 ## Dua mode UI
 - **Gabung (bawaan):** `cd ui && npm run build:gabung` membangun UI ke `apps/donasionline/donasionline/public/ui` (hasil build ikut di-commit, jadi server tidak butuh Node). Setelah `install-app`, UI langsung tampil di `/` dan rute SPA lain; `/desk`, `/api`, `/login` tetap milik Frappe. Matikan lewat Pengaturan Donasi > "Layani UI donasi dari Frappe". Rute SPA baru harus ditambah ke `SPA_ROOTS` di `donasionline/ui.py`.
-- **Terpisah:** `VITE_API_BASE=https://api.contoh.org npm run build`, layani `ui/dist` dari hosting lain. Cookie sesi lintas domain butuh subdomain yang sama atau reverse proxy `/api` ke Frappe (lalu `VITE_API_BASE` kosong); bila memakai domain berbeda, isi `allow_cors` di site config (BELUM diuji).
+- **Terpisah:** `VITE_API_BASE=https://api.contoh.org npm run build`, layani `ui/dist` dari hosting lain. Cookie sesi lintas domain butuh subdomain yang sama atau reverse proxy `/api` ke Frappe (lalu `VITE_API_BASE` kosong); bila memakai domain berbeda, isi `allow_cors` di site config (`bench --site X set-config allow_cors https://domain-ui`, lalu restart backend; tanpa tanda kutip ganda).
+  Diuji 2026-11-23: CORS + preflight + alur donasi/OTP/profil lewat skrip Node lintas-origin OK. BELUM diuji di browser: cookie sesi Frappe bertanda `SameSite=Lax` (tidak bisa diubah lewat config), jadi login lintas-SITE (domain berbeda) kemungkinan gagal; subdomain domain yang sama (app.x.org + api.x.org) atau reverse proxy `/api` aman.
 
 ## Belum / perlu keputusan
 Midtrans nyata (gateway masih simulator), kanal OTP/pengingat, halaman Rutin masih localStorage, hapus-akun & avatar di UI, tinjauan halaman legal, jawaban F1-F29.
