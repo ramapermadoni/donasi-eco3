@@ -24,6 +24,10 @@ Catatan: `down -v` MENGHAPUS data. Kalau backend 502 setelah restart, jalankan `
 - UI Vue: `ui/` (`cd ui && npm i && npm run dev`, http://127.0.0.1:5174, proxy ke Frappe). `VITE_REAL_API=1` memakai `ui/src/apiShim.js`; `0` = mode demo.
 - Dev: kode OTP tampil di layar karena `donasionline_otp_dev_echo` (matikan di produksi).
 
+## Kanal OTP
+Pengaturan Donasi > "Kanal OTP & pengingat": `Log saja` (bawaan; kode tidak terkirim), `WhatsApp` (POST JSON ke gateway generik: URL https, token di header, badan dari template dengan `{phone}`/`{message}`), `Email` (butuh Email Account keluar; email palsu `@donor.invalid` dilewati), atau `WhatsApp lalu Email`. Gagal kirim = galat generik ke donatur, kode tidak pernah masuk log. Teruji dengan gateway tiruan (5 tes); BELUM dicoba ke gateway WA/SMTP nyata. Produksi: matikan `donasionline_otp_dev_echo`.
+Pengingat Rutin (`notify.send_reminder`) belum memakai kanal ini.
+
 ## Dua mode UI
 - **Gabung (bawaan):** `cd ui && npm run build:gabung` membangun UI ke `apps/donasionline/donasionline/public/ui` (hasil build ikut di-commit, jadi server tidak butuh Node). Setelah `install-app`, UI langsung tampil di `/` dan rute SPA lain; `/desk`, `/api`, `/login` tetap milik Frappe. Matikan lewat Pengaturan Donasi > "Layani UI donasi dari Frappe". Rute SPA baru harus ditambah ke `SPA_ROOTS` di `donasionline/ui.py`.
 - **Terpisah:** `VITE_API_BASE=https://api.contoh.org npm run build`, layani `ui/dist` dari hosting lain. Cookie sesi lintas domain butuh subdomain yang sama atau reverse proxy `/api` ke Frappe (lalu `VITE_API_BASE` kosong); bila memakai domain berbeda, isi `allow_cors` di site config (`bench --site X set-config allow_cors https://domain-ui`, lalu restart backend; tanpa tanda kutip ganda).

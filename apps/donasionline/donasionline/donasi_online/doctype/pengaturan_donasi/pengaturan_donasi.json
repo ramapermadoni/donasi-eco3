@@ -12,7 +12,15 @@
   "h_zakat",
   "h_infak",
   "cost_center_operasional",
-  "serve_ui"
+  "serve_ui",
+  "sec_otp",
+  "otp_channel",
+  "otp_message",
+  "col_wa",
+  "wa_url",
+  "wa_token",
+  "wa_auth_header",
+  "wa_body"
  ],
  "fields": [
   {
@@ -62,6 +70,55 @@
    "label": "Layani UI donasi dari Frappe",
    "default": "1",
    "description": "Mode gabung: halaman donasi (UI Vue) dilayani dari domain ini. Matikan bila UI dipasang terpisah."
+  },
+  {
+   "fieldname": "sec_otp",
+   "fieldtype": "Section Break",
+   "label": "Kanal OTP & pengingat"
+  },
+  {
+   "fieldname": "otp_channel",
+   "fieldtype": "Select",
+   "label": "Kanal OTP",
+   "options": "Log saja\nWhatsApp\nEmail\nWhatsApp lalu Email",
+   "default": "Log saja",
+   "description": "'Log saja' tidak mengirim apa pun ke luar (kode tidak terkirim)."
+  },
+  {
+   "fieldname": "otp_message",
+   "fieldtype": "Small Text",
+   "label": "Teks OTP",
+   "default": "Kode donasi Anda: {code}. Berlaku 5 menit. Jangan bagikan kode ini kepada siapa pun."
+  },
+  {
+   "fieldname": "col_wa",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "wa_url",
+   "fieldtype": "Data",
+   "label": "WA Gateway URL (https)",
+   "depends_on": "eval:doc.otp_channel!='Email' && doc.otp_channel!='Log saja'"
+  },
+  {
+   "fieldname": "wa_token",
+   "fieldtype": "Password",
+   "label": "WA Gateway token"
+  },
+  {
+   "fieldname": "wa_auth_header",
+   "fieldtype": "Data",
+   "label": "Nama header otorisasi",
+   "default": "Authorization",
+   "description": "Nilai header = token apa adanya (isi 'Bearer xxx' di token bila perlu)."
+  },
+  {
+   "fieldname": "wa_body",
+   "fieldtype": "Code",
+   "label": "Badan JSON",
+   "options": "JSON",
+   "default": "{\"target\": \"{phone}\", \"message\": \"{message}\"}",
+   "description": "Tempat {phone} dan {message} diganti; sesuaikan dengan gateway Anda."
   }
  ],
  "permissions": [
