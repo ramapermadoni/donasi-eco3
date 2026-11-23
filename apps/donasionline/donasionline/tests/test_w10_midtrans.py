@@ -103,3 +103,8 @@ class TestMidtrans(IntegrationTestCase):
 			payment.webhook(order_id=oid, status_code="200", gross_amount="30000.00", signature_key="salah", transaction_status="settlement")
 		r = payment.webhook(order_id=oid, status_code="200", gross_amount="30000.00", signature_key=sig, transaction_status="settlement")
 		self.assertEqual(r["status"], "paid")
+
+	def test_webhook_order_tak_dikenal_dijawab_ok(self):
+		sig = gateway.signature("payment_notif_test_X", "200", "10000.00", "SB-Mid-server-TEST")
+		r = payment.webhook(order_id="payment_notif_test_X", status_code="200", gross_amount="10000.00", signature_key=sig, transaction_status="settlement")
+		self.assertEqual(r, {"ok": True, "ignored": True})

@@ -91,7 +91,8 @@ def webhook(order_id=None, status_code=None, gross_amount=None, signature_key=No
 		frappe.throw(_("Tanda tangan tidak valid"), frappe.PermissionError)
 	pr_name = frappe.db.get_value("Permintaan Pembayaran", {"order_id": order_id})
 	if not pr_name:
-		frappe.throw(_("Order tidak dikenal"), frappe.DoesNotExistError)
+		# tanda tangan sah tapi order tak dikenal (mis. "Test notification URL" Midtrans): jawab 200 agar tidak diulang terus
+		return {"ok": True, "ignored": True}
 	pr = frappe.get_doc("Permintaan Pembayaran", pr_name)
 	new = STATUS_MAP.get(transaction_status)
 	if not new:
