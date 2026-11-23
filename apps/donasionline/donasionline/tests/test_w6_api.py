@@ -273,6 +273,14 @@ class TestApi(IntegrationTestCase):
 			it = campaign.updates(slug)["items"][0]
 			self.assertTrue({"id", "title", "subtitle", "date_label", "image_url"} <= set(it))
 
+	def test_terkumpul_kampanye_live_dari_donasi_paid(self):
+		slug = "sedekah"
+		sebelum = campaign.detail(slug)["raised_amount"]
+		pid = self.make_donation(slug=slug, amount=25000)
+		self.assertEqual(campaign.detail(slug)["raised_amount"], sebelum)  # Pending belum dihitung
+		self.pay(pid)
+		self.assertEqual(campaign.detail(slug)["raised_amount"], sebelum + 25000)  # angka persis, bukan ringkasan teks
+
 	def test_hapus_akun_anonimkan(self):
 		self.new_donor()
 		pid = self.make_donation()

@@ -25,12 +25,11 @@ Instalasi baru membawa **konten contoh**: kampanye, mitra, banner, video, penyal
 5. Muat ulang situs dan periksa Beranda, Kampanye, Mitra, dan Video.
 
 ## Halaman yang membaca dari server setelah dibersihkan
-Beranda, Kampanye, Mitra, dan Video (lewat `/api/content/bundle`), serta **Detail Penyaluran** (`/api/penyaluran/:slug`), **Detail Artikel** (`/api/artikel/:slug`, termasuk artikel terkait), dan **Kabar terbaru** tiap kampanye (`/api/campaigns/:slug/updates`, yaitu Penyaluran yang diikat ke kampanye). Kabar kampanye muncul dengan mengisi field Kampanye pada dokumen Penyaluran.
+Beranda, Kampanye, Mitra, dan Video (lewat `/api/content/bundle`), serta **Detail Penyaluran** (`/api/penyaluran/:slug`), **Detail Artikel** (`/api/artikel/:slug`, termasuk artikel terkait), **nominal terkumpul dan persentase** di Detail Kampanye (angka persis dari donasi berstatus Paid, diambil setiap halaman dibuka lewat `/api/campaigns/:slug`), dan **Kabar terbaru** tiap kampanye (`/api/campaigns/:slug/updates`, yaitu Penyaluran yang diikat ke kampanye). Kabar kampanye muncul dengan mengisi field Kampanye pada dokumen Penyaluran.
 
 ## Yang BELUM ikut berpindah ke server
 Halaman berikut masih membaca berkas statis di dalam bundel UI. Isinya tetap konten contoh sampai disambungkan:
 - **Doa**, gamifikasi, misi Jalan Kebaikan, dan teks kampanye berbahasa Inggris.
-- Nominal "terkumpul" di Detail Kampanye masih tabel bawaan (`RAISED`).
 - Halaman Qurban (`data/qurban.js`).
 Setelah dibersihkan, halaman-halaman itu bisa menampilkan isi yang tidak cocok dengan data server. Sambungkan sebelum rilis, atau sembunyikan menunya.
 

@@ -29,7 +29,19 @@ const others = computed(() => {
 
 // Nominal terkumpul persis (raised_amount) disalin dari SSR sedekah.id; di Frappe pakai field campaign.raised_amount.
 const RAISED = {"peduli-banjir-aceh": 0, "bantu-pakpandi-bertahan": 1668000, "petani-ubi-cilembu": 535000, "tpq-al-ihsan-bogor": 2575000, "tebar-10000-mushaf": 2173000, "dukung-mimpi-yaziz": 369002, "rtq-lubuk-linggau": 4195000, "bantu-khalisa-sembuh": 580000, "bantu-gilang-sembuh": 603400, "7-kilometer-untuk-air-bersih-hadirkan-sumur-bor-untuk-warga-desa-kedungbanteng": 3520000, "dapurpalestina": 104989456, "peduli-terdampak-karhutla": 18106500, "peduli-terdampak-gempa-ntt": 19636080, "dari-kamar-kos-menjadi-pusat-kebaikan-umat": 4026000, "gajian-makin-berkah-dengan-sedekah": 2199000, "mengalirkan-kebaikan-sedekah-atas-nama-orang-tua": 86338365, "pahala-berlipatt-dengan-sedekah-jumat": 10309000, "wakaf-masjid-5in1-rahmatan-lilalamin": 7805000, "wakaf-bisa-satu-niat-banyak-manfaat": 1819000, "peduli-terdampak-bencana": 4670000, "bangun-pesantren-almubarok": 510000, "dukung-petani-mustahik": 20000, "peduli-air-bersih": 1411862, "pelatihan-sistem-pendinginan": 165000, "mck-mushala-saadah": 5238713, "peduli-sahabat-mualaf": 153000, "bantu-meylani-sembuh": 128000, "air-bersih-lombok": 3858480, "masjid-baiturrahim-serang": 1043000, "aku-cinta-masjid": 4506785, "peduli-kebakaran-sulsel": 254000, "bbm-untuk-ojol": 50000, "darurat-warga-gaza-kehausan-tanpa-air-yang-mencukupi": 19850695, "rtq-sumbar": 5127546, "tanam-kebaikan": 85000, "banturashidshakeel": 710000, "bantukakekzulhartil": 175000, "bantusalwasembuh": 1189000, "asramatahfidzpreneur": 2556546, "bantufathursembuh": 435000, "bantuammarsembuh": 1210000, "bantuafzalsembuh": 815000, "sumur-bor-cianjur": 7255000, "pesantren-ahlul-bait": 2628000, "ruangbelajarlayak": 1932676, "mcksantricianjur": 3534000, "beasiswa-peduli-negeri-setiap-anak-berhak-belajar-setiap-mimpi-harus-dikejar": 2870000, "muharram-peduli-difabel": 470000, "peduli-yatim-palestina": 17548000, "berbagi-bahagia-bersama-yatim": 102623003, "kirim-bantuan-kemanusiaan-untuk-rakyat-gaza": 110083378, "sedekah-mushaf-al-quran": 7158000, "sedekah-daging-lintas-negeri": 11744000, "sedekah-daging-ke-pelosok-negeri": 2195000, "sedekah-daging-palestina": 84326306, "sedekah": 445959415}
-const raisedFull = computed(() => RAISED[route.params.slug])
+// konten contoh sudah dibersihkan -> angka persis dari server (/api/campaigns/:slug), diambil tiap halaman dibuka; selain itu tabel bawaan RAISED
+const live = ref(null)
+async function loadLive() {
+  live.value = null
+  if (!dariServer.value) return
+  try { const r = await fetch(`/api/campaigns/${encodeURIComponent(route.params.slug)}`); if (r.ok) live.value = await r.json() } catch { /* pakai angka dari bundel */ }
+}
+watch(() => route.params.slug, loadLive, { immediate: true })
+const raisedFull = computed(() => (dariServer.value ? (live.value ? Number(live.value.raised_amount) : undefined) : RAISED[route.params.slug]))
+const pct = computed(() => {
+  const tg = live.value ? Number(live.value.target_amount) : 0
+  return live.value && tg > 0 ? Math.floor((Number(live.value.raised_amount) * 100) / tg) : campaign.value.percent
+})
 const rupiah = (n) => rpSp(n || 0)
 const target = computed(() => detail.value.target || 0)
 const body = computed(() => cbody(route.params.slug, detail.value.description))
@@ -129,10 +141,10 @@ async function submit(payload) {
 
         <!-- progress -->
         <div class="bg-gradient-to-br from-[color:color-mix(in_srgb,var(--lime)_5%,transparent)] to-[color:color-mix(in_srgb,var(--lime-dark)_5%,transparent)] p-4 rounded-2xl border border-[color:color-mix(in_srgb,var(--lime)_10%,transparent)]">
-          <div class="h-2.5 w-full bg-gray-200 rounded-full overflow-hidden mb-3"><div class="h-full rounded-full transition-all duration-700" :style="{ width: Math.min(campaign.percent, 100) + '%', background: 'linear-gradient(90deg, var(--lime-dark), var(--lime))' }"></div></div>
+          <div class="h-2.5 w-full bg-gray-200 rounded-full overflow-hidden mb-3"><div class="h-full rounded-full transition-all duration-700" :style="{ width: Math.min(pct, 100) + '%', background: 'linear-gradient(90deg, var(--lime-dark), var(--lime))' }"></div></div>
           <div class="flex items-baseline justify-between mb-3 gap-2">
             <span class="text-[color:var(--lime-text)] text-[18px] font-bold">{{ raisedFull != null ? rupiah(raisedFull) : campaign.raised }}</span>
-            <span class="text-[13px] text-gray-500 text-right">{{ t('campaignDetail.ofTarget', { pct: campaign.percent, target: rupiah(target) }) }}</span>
+            <span class="text-[13px] text-gray-500 text-right">{{ t('campaignDetail.ofTarget', { pct: pct, target: rupiah(target) }) }}</span>
           </div>
           <div class="flex items-center gap-2 pt-3 border-t border-gray-200">
             <template v-if="detail.organizer">
