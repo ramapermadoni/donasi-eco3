@@ -48,6 +48,7 @@ const R = [
   ['POST', /^\/api\/baik\/release$/, 'baik.release'],
   ['GET', /^\/api\/recurring\/schedules\/me$/, 'recurring.me'],
   ['GET', /^\/api\/recurring\/streak$/, 'recurring.streak'],
+  ['POST', /^\/api\/recurring\/schedules\/save$/, 'recurring.save_schedule', (m, q, b) => ({ id: b.id, data: JSON.stringify(b.schedule) })],
   ['POST', /^\/api\/recurring\/schedules$/, 'recurring.create'],
   ['POST', /^\/api\/recurring\/schedules\/([^/]+)\/execute\/makeup$/, 'recurring.execute_makeup', (m, q, b) => ({ id: m[1], targetDate: b.targetDate })],
   ['POST', /^\/api\/recurring\/schedules\/([^/]+)\/execute$/, 'recurring.execute', (m, q, b) => ({ id: m[1], ...b })],

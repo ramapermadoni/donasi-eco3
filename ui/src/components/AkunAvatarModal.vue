@@ -91,12 +91,12 @@ onBeforeUnmount(() => bmp.value?.close())
         <button :aria-label="t('akun.avatarClose')" @click="emit('close')"><Icon name="x" class="text-gray-400" style="width: 20px; height: 20px" /></button>
       </div>
       <div class="grid grid-cols-2 gap-2 mb-4">
-        <button v-for="k in ['preset', 'upload']" :key="k" class="py-2 rounded-xl text-[13px] font-bold border" :class="tab === k ? 'bg-[color:var(--lime)] border-[color:var(--lime)] text-[#1a1a1a]' : 'bg-white border-gray-200 text-gray-500'" @click="tab = k">{{ t(k === 'preset' ? 'akun.avatarTabPreset' : 'akun.avatarTabUpload') }}</button>
+        <button v-for="k in ['preset', 'upload']" :key="k" class="py-2 rounded-xl text-[13px] font-bold border" :class="tab === k ? 'bg-[color:var(--lime)] border-[color:var(--lime)] text-white' : 'bg-white border-gray-200 text-gray-500'" @click="tab = k">{{ t(k === 'preset' ? 'akun.avatarTabPreset' : 'akun.avatarTabUpload') }}</button>
       </div>
       <div v-if="tab === 'preset'" class="grid grid-cols-3 gap-3">
         <button v-for="u in presets" :key="u" :disabled="busy" class="relative" @click="pick(u)">
           <img :src="u" alt="" class="w-full aspect-square rounded-full object-cover border-4" :class="[cur === u ? 'border-[color:var(--lime)]' : 'border-transparent', busy && cur !== u ? 'opacity-50' : '']" />
-          <span v-if="cur === u" class="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-[color:var(--lime)] flex items-center justify-center"><Icon v-if="busy" name="loader" class="text-[#1a1a1a] animate-spin" style="width: 13px; height: 13px" /><Icon v-else name="check" class="text-[#1a1a1a]" style="width: 14px; height: 14px" /></span>
+          <span v-if="cur === u" class="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-[color:var(--lime)] flex items-center justify-center"><Icon v-if="busy" name="loader" class="text-white animate-spin" style="width: 13px; height: 13px" /><Icon v-else name="check" class="text-white" style="width: 14px; height: 14px" /></span>
         </button>
       </div>
       <div v-else>
@@ -123,7 +123,7 @@ onBeforeUnmount(() => bmp.value?.close())
       </div>
       <p v-if="err" class="text-xs text-red-600 mt-3">{{ err }}</p>
       <p v-if="tab === 'preset'" class="mt-4 text-center text-[11px] text-gray-400">{{ t('akun.avatarTapHint') }}</p>
-      <button v-else :disabled="busy || !file || (!bmp && !noPrev)" class="mt-4 w-full py-3 rounded-xl bg-[color:var(--lime)] text-[#1a1a1a] font-bold text-sm disabled:opacity-50 flex items-center justify-center gap-2" @click="upload"><Icon v-if="busy" name="loader" class="w-4 h-4 animate-spin" /><template v-else>{{ t('akun.avatarSave') }}</template></button>
+      <button v-else :disabled="busy || !file || (!bmp && !noPrev)" class="mt-4 w-full py-3 rounded-xl bg-[color:var(--lime)] text-white font-bold text-sm disabled:opacity-50 flex items-center justify-center gap-2" @click="upload"><Icon v-if="busy" name="loader" class="w-4 h-4 animate-spin" /><template v-else>{{ t('akun.avatarSave') }}</template></button>
     </div>
   </div>
 </template>

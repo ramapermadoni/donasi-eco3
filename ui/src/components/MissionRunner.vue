@@ -109,7 +109,7 @@ async function share() {
     <h2 class="text-xl font-bold text-gray-900">Alhamdulillah!</h2>
     <p class="mt-2 text-gray-600 leading-relaxed px-4">Kebaikanmu telah mengalirkan sedekah <span class="font-bold text-[color:var(--lime-text)]">{{ money((result || m).voucherAmount || 0) }}</span> ke <span class="font-semibold">{{ (result || m).campaignTitle }}</span>, berkat kedermawanan <span class="font-semibold">{{ (result || m).sponsorName }}</span>.</p>
     <p class="mt-3 text-sm text-gray-400">Semoga menjadi amal jariyah untukmu dan sang dermawan 🌙</p>
-    <router-link :to="lp('/jalankebaikan')" class="inline-block mt-6 px-6 py-3 rounded-xl bg-[color:var(--lime)] text-[#1a1a1a] font-bold text-sm">Kembali</router-link>
+    <router-link :to="lp('/jalankebaikan')" class="inline-block mt-6 px-6 py-3 rounded-xl bg-[color:var(--lime)] text-white font-bold text-sm">Kembali</router-link>
   </div>
 
   <!-- expired -->
@@ -118,7 +118,7 @@ async function share() {
     <h2 class="mt-3 text-lg font-bold text-gray-900">Waktu misi sudah habis</h2>
     <p class="mt-2 text-sm text-gray-500 px-5">Voucher sudah otomatis dikembalikan agar dapat digunakan orang lain. Kamu bisa mulai lagi jika stok masih tersedia.</p>
     <p v-if="err" class="mt-2 text-xs text-amber-700">{{ err }}</p>
-    <button class="mt-6 px-6 py-3 rounded-xl bg-[color:var(--lime)] text-[#1a1a1a] font-bold text-sm inline-flex items-center gap-2 disabled:opacity-50" :disabled="busy" @click="start"><Icon name="rotate" class="w-4 h-4" /> {{ busy ? 'Menyiapkan…' : 'Mulai Lagi' }}</button>
+    <button class="mt-6 px-6 py-3 rounded-xl bg-[color:var(--lime)] text-white font-bold text-sm inline-flex items-center gap-2 disabled:opacity-50" :disabled="busy" @click="start"><Icon name="rotate" class="w-4 h-4" /> {{ busy ? 'Menyiapkan…' : 'Mulai Lagi' }}</button>
   </div>
 
   <!-- already done today -->
@@ -193,7 +193,7 @@ async function share() {
 
     <template v-if="state === 'idle'">
       <div class="rounded-xl bg-[#f0f6fc] border border-[#c7dcf0] px-4 py-3 mb-5 mx-auto max-w-xs text-sm text-gray-600">Tuntaskan kebaikan ini → sedekah <b class="text-[color:var(--lime-text)]">{{ money(m.voucherAmount) }}</b> mengalir atas namamu ke <b>{{ m.campaignTitle }}</b>.</div>
-      <button class="px-8 py-4 rounded-2xl bg-[color:var(--lime)] text-[#1a1a1a] font-bold text-base disabled:opacity-50" :disabled="busy" @click="start">{{ busy ? 'Menyiapkan voucher…' : 'Ambil Voucher & Mulai' }}</button>
+      <button class="px-8 py-4 rounded-2xl bg-[color:var(--lime)] text-white font-bold text-base disabled:opacity-50" :disabled="busy" @click="start">{{ busy ? 'Menyiapkan voucher…' : 'Ambil Voucher & Mulai' }}</button>
       <p class="mt-3 text-[11px] text-gray-400">Voucher akan ditahan khusus untukmu selama waktu misi.</p>
     </template>
     <template v-else>
@@ -208,7 +208,7 @@ async function share() {
       </template>
       <template v-else-if="m.type === 'SHARE'">
         <div class="space-y-3">
-          <button v-if="!shared" class="px-8 py-4 rounded-2xl bg-[color:var(--lime)] text-[#1a1a1a] font-bold text-base inline-flex items-center gap-2" @click="share"><Icon name="share" class="w-5 h-5" /> Bagikan Kebaikan</button>
+          <button v-if="!shared" class="px-8 py-4 rounded-2xl bg-[color:var(--lime)] text-white font-bold text-base inline-flex items-center gap-2" @click="share"><Icon name="share" class="w-5 h-5" /> Bagikan Kebaikan</button>
           <button v-else class="px-8 py-4 rounded-2xl bg-[color:var(--lime-text)] text-white font-bold text-base disabled:opacity-50 inline-flex items-center gap-2" :disabled="busy || !minOk" @click="claim"><Icon name="badgeCheck" class="w-5 h-5" /> {{ busy ? 'Memproses…' : minOk ? 'Salurkan Sedekah' : 'Tunggu ' + mmss(minLeft) }}</button>
         </div>
       </template>

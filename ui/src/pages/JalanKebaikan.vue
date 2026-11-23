@@ -130,7 +130,7 @@ const lbl = 'block text-sm font-medium text-gray-700 mb-1.5'
                           <p class="mt-0.5 font-bold text-sm" style="color: var(--lime-text)">{{ rupiah(a.nominal) }}</p>
                         </div>
                       </div>
-                      <div v-if="a.voucher > 0" class="bg-[color:var(--lime)] text-[#1a1a1a] text-[10px] font-extrabold py-1.5 px-1 leading-[1.15]">{{ a.voucher }} Voucher Amal<br />Tersedia</div>
+                      <div v-if="a.voucher > 0" class="bg-[color:var(--lime)] text-white text-[10px] font-extrabold py-1.5 px-1 leading-[1.15]">{{ a.voucher }} Voucher Amal<br />Tersedia</div>
                     </div>
                   </router-link>
                 </div>
@@ -145,7 +145,7 @@ const lbl = 'block text-sm font-medium text-gray-700 mb-1.5'
                   <label :class="lbl">Kebaikan yang ingin kamu bantu</label>
                   <div class="grid grid-cols-3 gap-2.5">
                     <button v-for="s in sponsorMissions" :key="s.id" type="button" class="rounded-xl overflow-hidden flex flex-col text-center transition-all" :class="sel === s.id ? 'border-2 border-[color:var(--lime)] bg-[#f0f6fc]' : 'border border-gray-200 bg-white'" @click="sel = s.id; custom = ''">
-                      <div class="bg-[color:var(--lime)] text-[#1a1a1a] text-sm font-extrabold py-1.5 px-1 leading-tight">{{ rupiah(s.voucherAmount) }}</div>
+                      <div class="bg-[color:var(--lime)] text-white text-sm font-extrabold py-1.5 px-1 leading-tight">{{ rupiah(s.voucherAmount) }}</div>
                       <div class="p-3 flex-1 flex flex-col items-center justify-center">
                         <img v-if="isImg(s.icon)" :src="s.icon" alt="" class="w-10 h-10 object-contain" />
                         <span v-else class="text-3xl leading-none">{{ s.icon || TYPE_EMOJI[s.type] || '🌟' }}</span>
@@ -158,7 +158,7 @@ const lbl = 'block text-sm font-medium text-gray-700 mb-1.5'
                 <div>
                   <label :class="lbl">Berapa voucher yang ingin kamu beri?</label>
                   <div class="grid grid-cols-4 gap-2 mb-2">
-                    <button v-for="c in COUNTS" :key="c" type="button" class="py-2 rounded-lg text-sm font-semibold border" :class="!custom && cnt === c ? 'bg-[color:var(--lime)] border-[color:var(--lime)] text-[#1a1a1a]' : 'bg-white border-gray-200 text-gray-600'" @click="cnt = c; custom = ''">{{ c }}</button>
+                    <button v-for="c in COUNTS" :key="c" type="button" class="py-2 rounded-lg text-sm font-semibold border" :class="!custom && cnt === c ? 'bg-[color:var(--lime)] border-[color:var(--lime)] text-white' : 'bg-white border-gray-200 text-gray-600'" @click="cnt = c; custom = ''">{{ c }}</button>
                   </div>
                   <input v-model="custom" inputmode="numeric" placeholder="Jumlah voucher lain" :class="inp" />
                   <p class="mt-1.5 text-xs text-gray-500">{{ nVoucher }} voucher × {{ rupiah(sm?.voucherAmount || 0) }} = <b class="text-gray-800">{{ rupiah(total) }}</b>. Tiap voucher jadi 1 sedekah lewat kebaikan seseorang untuk <b>{{ sm?.campaignTitle }}</b>.</p>
@@ -200,7 +200,7 @@ const lbl = 'block text-sm font-medium text-gray-700 mb-1.5'
                   <input v-model="anon" type="checkbox" class="accent-[color:var(--lime)]" /> Tampilkan sebagai anonim
                 </label>
                 <div v-if="err" class="rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm px-4 py-2.5">{{ err }}</div>
-                <button class="w-full py-3.5 rounded-xl bg-[color:var(--lime)] text-[#1a1a1a] font-bold text-sm disabled:opacity-50 flex items-center justify-center gap-2" @click="submit">Beri {{ nVoucher }} Voucher · {{ rupiah(total) }}</button>
+                <button class="w-full py-3.5 rounded-xl bg-[color:var(--lime)] text-white font-bold text-sm disabled:opacity-50 flex items-center justify-center gap-2" @click="submit">Beri {{ nVoucher }} Voucher · {{ rupiah(total) }}</button>
                 <p class="text-center text-[11px] text-gray-400">Sedekahmu langsung mengalir ke program, lalu orang lain menyalurkannya lewat kebaikan. Pahalanya mengalir juga untukmu.</p>
               </div>
             </div>
@@ -250,7 +250,7 @@ const lbl = 'block text-sm font-medium text-gray-700 mb-1.5'
         <p class="mt-2 text-sm text-gray-600 leading-relaxed text-center">Sedekah ini akan <b class="text-gray-800">tercatat atas nama orang yang menyelesaikan misi kebaikan</b>. Kamu berperan membuka jalannya. Insya Allah pahala tetap mengalir untukmu sebagai yang memudahkan kebaikan. 🤍</p>
         <div class="mt-5 grid grid-cols-2 gap-2.5">
           <button type="button" class="py-3 rounded-xl border border-gray-200 text-gray-600 font-semibold text-sm" @click="confirm = false">Tidak</button>
-          <button type="button" class="py-3 rounded-xl bg-[color:var(--lime)] text-[#1a1a1a] font-bold text-sm" @click="go">Ya, Saya Setuju</button>
+          <button type="button" class="py-3 rounded-xl bg-[color:var(--lime)] text-white font-bold text-sm" @click="go">Ya, Saya Setuju</button>
         </div>
       </div>
     </div>

@@ -20,7 +20,11 @@
   "is_anonymous",
   "prayer_note",
   "kampanye",
-  "executions"
+  "executions",
+  "gen_from",
+  "paused_at",
+  "cancelled_at",
+  "pauses"
  ],
  "fields": [
   {
@@ -118,6 +122,27 @@
    "label": "Riwayat",
    "fieldtype": "Table",
    "options": "Eksekusi Rutin"
+  },
+  {
+   "fieldname": "gen_from",
+   "fieldtype": "Date",
+   "label": "Mulai bangkit kejadian"
+  },
+  {
+   "fieldname": "paused_at",
+   "fieldtype": "Date",
+   "label": "Dijeda sejak"
+  },
+  {
+   "fieldname": "cancelled_at",
+   "fieldtype": "Date",
+   "label": "Dibatalkan pada"
+  },
+  {
+   "fieldname": "pauses",
+   "fieldtype": "Small Text",
+   "label": "Riwayat jeda (JSON)",
+   "description": "[{\"from\":\"YYYY-MM-DD\",\"to\":\"YYYY-MM-DD\"}]; dipakai mesin kejadian UI."
   }
  ],
  "sort_field": "creation",

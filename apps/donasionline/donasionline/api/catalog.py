@@ -44,6 +44,7 @@ ENDPOINTS = [
 	("POST", "/api/baik/release", "baik.release", False, "test_baik_start_claim_release", ""),
 	("GET", "/api/recurring/schedules/me", "recurring.me", False, "test_rutin_jadwal_eksekusi_streak", ""),
 	("POST", "/api/recurring/schedules", "recurring.create", False, "test_rutin_jadwal_eksekusi_streak", "min Rp5.000"),
+	("POST", "/api/recurring/schedules/save", "recurring.save_schedule", False, "test_rutin_save_schedule_sinkron_ui", "bentuk mesin UI; server memvalidasi"),
 	("GET", "/api/recurring/streak", "recurring.streak", False, "test_rutin_jadwal_eksekusi_streak", ""),
 	("POST", "/api/recurring/schedules/:id/execute", "recurring.execute", False, "test_rutin_jadwal_eksekusi_streak", ""),
 	("POST", "/api/recurring/schedules/:id/execute/makeup", "recurring.execute_makeup", False, "test_rutin_jadwal_eksekusi_streak", ""),

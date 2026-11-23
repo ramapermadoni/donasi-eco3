@@ -124,7 +124,7 @@ async function submit() {
 
         <p class="text-sm font-bold text-[#1a1a1a] mb-2.5">{{ t('shadaqaRutin.amountHeading') }}</p>
         <div class="grid grid-cols-3 gap-2 mb-2.5">
-          <button v-for="p in QUICK" :key="p" type="button" class="py-2.5 rounded-xl border text-xs font-semibold transition-all" :class="chip === p ? 'bg-[#005399] text-[#1a1a1a] border-[#005399]' : 'bg-white text-gray-700 border-gray-200 hover:border-[#005399]'" @click="pickChip(p)">{{ t('shadaqaRutin.chipAmount', { n: p / 1000 }) }}</button>
+          <button v-for="p in QUICK" :key="p" type="button" class="py-2.5 rounded-xl border text-xs font-semibold transition-all" :class="chip === p ? 'bg-[#005399] text-white border-[#005399]' : 'bg-white text-gray-700 border-gray-200 hover:border-[#005399]'" @click="pickChip(p)">{{ t('shadaqaRutin.chipAmount', { n: p / 1000 }) }}</button>
         </div>
         <div class="flex items-center gap-2 px-4 py-3 rounded-xl border border-gray-200 mb-1 focus-within:border-[#005399] focus-within:ring-2 focus-within:ring-[#005399]/30">
           <span class="text-sm font-semibold text-gray-700">Rp</span>
@@ -141,20 +141,20 @@ async function submit() {
           <Icon name="chevronDown" class="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
         </div>
         <button type="button" data-t="anon" class="flex items-center gap-3 mb-5" @click="anon = !anon">
-          <div class="w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 transition-all" :class="anon ? 'bg-[#005399] border-[#005399]' : 'border-gray-300 bg-white'"><Icon v-if="anon" name="check" class="w-3 h-3 text-[#1a1a1a]" /></div>
+          <div class="w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 transition-all" :class="anon ? 'bg-[#005399] border-[#005399]' : 'border-gray-300 bg-white'"><Icon v-if="anon" name="check" class="w-3 h-3 text-white" /></div>
           <span class="text-sm text-gray-700">{{ t('shadaqaRutin.anonLabel') }}</span>
         </button>
 
         <p class="text-sm font-bold text-[#1a1a1a] mb-2.5">{{ t('shadaqaRutin.remindHeading') }}</p>
         <div data-t="remind-bell" aria-disabled="true" class="flex items-center gap-3 opacity-80">
-          <div class="w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 bg-[#005399] border-[#005399]"><Icon name="check" class="w-3 h-3 text-[#1a1a1a]" /></div>
+          <div class="w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 bg-[#005399] border-[#005399]"><Icon name="check" class="w-3 h-3 text-white" /></div>
           <div class="flex flex-col items-start">
             <span class="text-sm text-gray-700">{{ t('shadaqaRutin.remindBell') }}</span>
             <span class="text-[10px] text-gray-400">{{ t('shadaqaRutin.remindBellNote') }}</span>
           </div>
         </div>
         <button type="button" data-t="remind-wa" class="flex items-center gap-3 mt-3" @click="wa = !wa">
-          <div class="w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 transition-all" :class="wa ? 'bg-[#005399] border-[#005399]' : 'border-gray-300 bg-white'"><Icon v-if="wa" name="check" class="w-3 h-3 text-[#1a1a1a]" /></div>
+          <div class="w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 transition-all" :class="wa ? 'bg-[#005399] border-[#005399]' : 'border-gray-300 bg-white'"><Icon v-if="wa" name="check" class="w-3 h-3 text-white" /></div>
           <div class="flex flex-col items-start">
             <span class="text-sm text-gray-700">{{ t('shadaqaRutin.remindWa') }}</span>
             <span class="text-[10px] text-gray-400">{{ t('shadaqaRutin.remindWaNote') }}</span>
@@ -168,7 +168,7 @@ async function submit() {
           <p class="text-[11px] text-gray-400 mt-1.5">{{ t('shadaqaRutin.whatsappNote') }}</p>
         </div>
         <button type="button" data-t="remind-email" :disabled="!email" class="flex items-center gap-3 mt-3 disabled:opacity-50 disabled:cursor-not-allowed" @click="em = !em">
-          <div class="w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 transition-all" :class="em ? 'bg-[#005399] border-[#005399]' : 'border-gray-300 bg-white'"><Icon v-if="em" name="check" class="w-3 h-3 text-[#1a1a1a]" /></div>
+          <div class="w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 transition-all" :class="em ? 'bg-[#005399] border-[#005399]' : 'border-gray-300 bg-white'"><Icon v-if="em" name="check" class="w-3 h-3 text-white" /></div>
           <div class="flex flex-col items-start">
             <span class="text-sm text-gray-700">{{ t('shadaqaRutin.remindEmail') }}</span>
             <span class="text-[10px] text-gray-400">{{ email ? t('shadaqaRutin.remindEmailTo', { email }) : t('shadaqaRutin.remindEmailMissing') }}</span>
@@ -179,7 +179,7 @@ async function submit() {
       </div>
 
       <div class="fixed bottom-0 left-0 right-0 max-w-[480px] mx-auto px-4 pb-24 pt-3 bg-white border-t border-gray-100">
-        <button data-t="save" class="w-full py-4 rounded-2xl flex items-center justify-center gap-2 transition-all text-sm font-bold bg-[#005399] text-[#1a1a1a] hover:bg-[#003f75] shadow-lg shadow-[#005399]/40" :disabled="busy" @click="submit">
+        <button data-t="save" class="w-full py-4 rounded-2xl flex items-center justify-center gap-2 transition-all text-sm font-bold bg-[#005399] text-white hover:bg-[#003f75] shadow-lg shadow-[#005399]/40" :disabled="busy" @click="submit">
           <template v-if="busy"><Icon name="loader" class="w-4 h-4 animate-spin" /> {{ t('shadaqaRutin.processing') }}</template>
           <template v-else>{{ isEdit ? t('shadaqaRutin.saveChanges') : t('shadaqaRutin.createRecurring') }} <Icon name="bell" class="w-4 h-4" /></template>
         </button>

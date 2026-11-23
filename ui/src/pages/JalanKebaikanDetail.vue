@@ -26,7 +26,7 @@ const mission = computed(() => missions.find((x) => x.slug === route.params.id))
             <div v-if="!auth.user" class="text-center py-8">
               <div class="text-4xl mb-3">🔑</div>
               <p class="text-sm text-gray-600">Masuk dulu untuk mulai berbuat baik.</p>
-              <router-link :to="lp('/akun?next=' + encodeURIComponent('/jalankebaikan/' + mission.slug))" class="inline-block mt-4 px-6 py-3 rounded-xl bg-[color:var(--lime)] text-[#1a1a1a] font-bold text-sm">Masuk / Daftar</router-link>
+              <router-link :to="lp('/akun?next=' + encodeURIComponent('/jalankebaikan/' + mission.slug))" class="inline-block mt-4 px-6 py-3 rounded-xl bg-[color:var(--lime)] text-white font-bold text-sm">Masuk / Daftar</router-link>
             </div>
             <MissionRunner v-else :mission="mission" />
           </template>

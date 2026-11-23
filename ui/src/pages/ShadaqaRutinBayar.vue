@@ -11,6 +11,9 @@ import payment from '../data/payment.json'
 import { statusOf, canMakeup, markPaid, isISODate } from '../rutin'
 import { loadRutin, saveRutin, nowISO } from '../rutinStore'
 import { auth, loadMe } from '../auth'
+import { postJson } from '../utils/net'
+
+const REAL = import.meta.env.VITE_REAL_API !== '0'
 
 // Bayar SIMULASI (Demo): tidak ada request ke sedekah.id; "berhasil" hanya menandai kejadian lokal (donationId berawalan demo-).
 // Aturan: docs/reference/shadaqa-rutin-flow.md
@@ -43,7 +46,20 @@ const groups = computed(() => groupMethods(payment))
 const usable = (m) => !!occ.value && occ.value.amount >= minFor(m)
 const method0 = computed(() => payment.find((m) => m.code === method.value))
 function pick(m) { if (usable(m) && step.value === 'choose') method.value = m.code }
-function pay() { if (paying.value || !method0.value || !usable(method0.value)) return; paying.value = true; step.value = 'waiting' }
+const payErr = ref('')
+async function pay() {
+  if (paying.value || !method0.value || !usable(method0.value)) return
+  paying.value = true
+  if (!REAL) { step.value = 'waiting'; return }
+  // Terhubung: server membuat donasi untuk tanggal ini, lalu pembayaran sungguhan; lunas ditandai server (webhook).
+  try {
+    const a = await postJson('/api/recurring/schedules/' + sched.value.id + '/execute', { targetDate: occ.value.date })
+    if (!a.r.ok) throw new Error(a.j.error)
+    const b = await postJson('/api/payment/create', { donation_id: a.j.donation_id, payment_method: method.value })
+    if (!b.r.ok) throw new Error(b.j.error)
+    router.push(lp('/donasi/' + a.j.donation_id))
+  } catch (e) { payErr.value = e.message || 'Gagal'; paying.value = false }
+}
 const newDonationId = () => 'demo-' + (globalThis.crypto?.randomUUID?.() || Date.now().toString(36))
 function simulate() {
   if (done.value) return // klik ganda: hanya yang pertama berlaku (markPaid juga idempoten)
@@ -67,16 +83,16 @@ function simulate() {
       <div class="flex items-center gap-3 px-4 py-2 mb-2">
         <button class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors" :aria-label="t('shadaqaRutin.back')" @click="router.push(lp('/shadaqa-rutin'))"><Icon name="chevronLeft" class="w-5 h-5 text-gray-700" /></button>
         <span class="text-base font-bold text-[#1a1a1a]">{{ t('shadaqaRutin.bayarTitle') }}</span>
-        <span data-t="demo-badge" class="ml-auto px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-700 border border-amber-300">{{ t('shadaqaRutin.demoBadge') }}</span>
+        <span v-if="!REAL" data-t="demo-badge" class="ml-auto px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-700 border border-amber-300">{{ t('shadaqaRutin.demoBadge') }}</span>
       </div>
 
       <div v-if="!occ" data-t="not-payable" class="mx-3 rounded-2xl bg-white p-5 text-center" style="box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06)">
         <p class="text-sm text-gray-700 leading-snug">{{ t('shadaqaRutin.bayarNotPayable') }}</p>
-        <button class="mt-4 w-full py-3 rounded-2xl text-sm font-bold bg-[color:var(--lime)] text-[#1a1a1a]" @click="router.push(lp('/shadaqa-rutin'))">{{ t('shadaqaRutin.bayarBack') }}</button>
+        <button class="mt-4 w-full py-3 rounded-2xl text-sm font-bold bg-[color:var(--lime)] text-white" @click="router.push(lp('/shadaqa-rutin'))">{{ t('shadaqaRutin.bayarBack') }}</button>
       </div>
 
       <template v-else>
-        <p class="mx-3 mb-3 text-[11px] text-amber-800 bg-amber-50 border border-amber-200 rounded-xl px-3 py-2">{{ t('shadaqaRutin.demoNote') }}</p>
+        <p v-if="!REAL" class="mx-3 mb-3 text-[11px] text-amber-800 bg-amber-50 border border-amber-200 rounded-xl px-3 py-2">{{ t('shadaqaRutin.demoNote') }}</p>
 
         <div class="mx-3 rounded-2xl bg-white mb-3 overflow-hidden" style="box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06)">
           <div class="px-4 py-3 border-b border-gray-50 flex items-center justify-between">
@@ -108,7 +124,8 @@ function simulate() {
             </div>
           </div>
           <div class="mx-3">
-            <button data-t="pay" class="w-full py-4 rounded-2xl text-sm font-bold bg-[#005399] text-[#1a1a1a] shadow-lg shadow-[#005399]/40 disabled:opacity-50 disabled:cursor-not-allowed" :disabled="!method || paying" @click="pay">{{ t('shadaqaRutin.bayarPay') }}</button>
+            <p v-if="payErr" class="text-[12px] text-red-600 text-center mb-2" role="alert">{{ payErr }}</p>
+            <button data-t="pay" class="w-full py-4 rounded-2xl text-sm font-bold bg-[#005399] text-white shadow-lg shadow-[#005399]/40 disabled:opacity-50 disabled:cursor-not-allowed" :disabled="!method || paying" @click="pay">{{ t('shadaqaRutin.bayarPay') }}</button>
             <p class="text-center mt-2 text-[10px] text-gray-400 italic">{{ t('shadaqaRutin.basmalah') }}</p>
           </div>
         </template>
@@ -117,7 +134,7 @@ function simulate() {
           <div class="w-10 h-10 mx-auto rounded-full border-4 border-gray-200 animate-spin" style="border-top-color: var(--lime)"></div>
           <p class="mt-4 text-base font-bold text-gray-900">{{ t('shadaqaRutin.bayarWaitingTitle') }}</p>
           <p class="mt-1 text-sm text-gray-600 leading-snug">{{ t('shadaqaRutin.bayarWaitingDesc') }}</p>
-          <button data-t="simulate" class="mt-5 w-full py-4 rounded-2xl text-sm font-bold bg-[#005399] text-[#1a1a1a] disabled:opacity-50" :disabled="done" @click="simulate">{{ t('shadaqaRutin.bayarSimulate') }}</button>
+          <button data-t="simulate" class="mt-5 w-full py-4 rounded-2xl text-sm font-bold bg-[#005399] text-white disabled:opacity-50" :disabled="done" @click="simulate">{{ t('shadaqaRutin.bayarSimulate') }}</button>
           <button class="mt-2 w-full py-3 rounded-2xl text-sm font-semibold bg-gray-100 text-gray-700" @click="router.push(lp('/shadaqa-rutin'))">{{ t('shadaqaRutin.bayarBack') }}</button>
         </div>
       </template>

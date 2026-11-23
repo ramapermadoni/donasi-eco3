@@ -169,7 +169,7 @@ watch([heroEl, cvEl, levels, () => lv.value.currentIndex], ([t, a, e, r], _o, on
       <Icon name="trophy" class="w-12 h-12 text-[color:var(--lime)] mb-3" />
       <p class="font-bold text-lg text-gray-800">Jejak Kebaikan</p>
       <p class="text-sm text-gray-500 mt-1 mb-5">Masuk untuk melihat Jejak Kebaikan, level, dan bingkisanmu.</p>
-      <router-link :to="lp('/akun?next=/jejak-kebaikan')" class="px-5 py-3 rounded-xl bg-[color:var(--lime)] text-[#1a1a1a] font-bold text-sm">Masuk</router-link>
+      <router-link :to="lp('/akun?next=/jejak-kebaikan')" class="px-5 py-3 rounded-xl bg-[color:var(--lime)] text-white font-bold text-sm">Masuk</router-link>
     </div>
 
     <!-- program belum aktif -->
@@ -244,7 +244,7 @@ watch([heroEl, cvEl, levels, () => lv.value.currentIndex], ([t, a, e, r], _o, on
               <div class="p-2.5 flex flex-col flex-1">
                 <p class="text-[13px] font-semibold text-gray-800 leading-tight line-clamp-2 min-h-[34px]">{{ r.name }}</p>
                 <p class="text-xs font-bold text-[#005399] mt-1">{{ idn(r.pointCost) }} Jejak Kebaikan</p>
-                <button class="mt-2 w-full py-2 px-1 rounded-lg text-[11px] font-bold leading-tight transition-colors disabled:cursor-default" :style="btn(r).ok ? { background: '#005399', color: '#1a1a1a' } : { background: '#f4f4ee', color: '#9ca3af' }" :disabled="!btn(r).ok" @click="pick(r)">{{ btn(r).label }}</button>
+                <button class="mt-2 w-full py-2 px-1 rounded-lg text-[11px] font-bold leading-tight transition-colors disabled:cursor-default" :style="btn(r).ok ? { background: '#005399', color: '#fff' } : { background: '#f4f4ee', color: '#9ca3af' }" :disabled="!btn(r).ok" @click="pick(r)">{{ btn(r).label }}</button>
               </div>
             </div>
           </div>
@@ -263,7 +263,7 @@ watch([heroEl, cvEl, levels, () => lv.value.currentIndex], ([t, a, e, r], _o, on
         <div v-if="claimed" class="text-center py-6">
           <div class="w-14 h-14 rounded-full bg-[#f0f6fc] flex items-center justify-center mx-auto mb-3"><Icon name="sparkles" class="w-7 h-7 text-[#005399]" /></div>
           <p class="text-sm text-gray-700">Klaim <b>{{ sel.name }}</b> diterima. Bingkisan akan dikirim ke alamatmu — pantau statusnya di Klaim Saya.</p>
-          <button class="mt-5 w-full py-3 rounded-xl bg-[#005399] text-[#1a1a1a] font-bold text-sm" @click="done">Selesai</button>
+          <button class="mt-5 w-full py-3 rounded-xl bg-[#005399] text-white font-bold text-sm" @click="done">Selesai</button>
         </div>
         <template v-else>
           <p class="text-xs text-gray-500 mb-4">{{ sel.name }} · <b class="text-[#005399]">{{ idn(sel.pointCost) }} Jejak Kebaikan</b></p>
@@ -276,7 +276,7 @@ watch([heroEl, cvEl, levels, () => lv.value.currentIndex], ([t, a, e, r], _o, on
             </div>
           </div>
           <p v-if="claimErr" class="text-xs text-red-600 mt-2">{{ claimErr }}</p>
-          <button :disabled="claimBusy" class="mt-4 w-full py-3 rounded-xl bg-[#005399] text-[#1a1a1a] font-bold text-sm flex items-center justify-center gap-2 disabled:opacity-50" @click="claim">
+          <button :disabled="claimBusy" class="mt-4 w-full py-3 rounded-xl bg-[#005399] text-white font-bold text-sm flex items-center justify-center gap-2 disabled:opacity-50" @click="claim">
             <Icon v-if="claimBusy" name="loader" class="w-4 h-4 animate-spin" />
             <template v-else>Tukar sekarang <Icon name="chevronRight" style="width: 15px; height: 15px" /></template>
           </button>

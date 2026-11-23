@@ -1,11 +1,15 @@
 """/api/recurring/* (Shadaqa Rutin). Spec: docs di donasi-eco3/docs/superpowers/specs (engine UI: src/rutin.js). Minimum Rp5.000 (FAKTA UI)."""
+import json
+import re
+
 import frappe
 from frappe import _
 from frappe.utils import add_days, add_months, getdate, nowdate
 
-from donasionline.api._util import current_donor
+from donasionline.api._util import campaign_by_key, current_donor
 
-MIN_AMOUNT = 5000
+MIN_AMOUNT = 3000  # = MIN_AMOUNT mesin UI (rutin.js) = minimal donasi
+GRACE_DAYS = 7  # jendela genapi (rutin.js)
 
 
 def _next(d, freq):
@@ -22,7 +26,24 @@ def _mine(sid):
 
 
 def _json(s):
-	return {"id": s.name, "freq": s.freq, "hour": s.hour, "amount": s.amount, "method": s.payment_method, "remind_wa": bool(s.remind_wa), "remind_email": bool(s.remind_email), "start_date": s.start_date, "next_run": s.next_run, "paused": s.status != "Aktif", "status": s.status, "streak": s.streak or 0, "is_anonymous": bool(s.is_anonymous), "prayer_note": s.prayer_note}
+	return {"id": s.name, "freq": s.freq, "hour": s.hour, "amount": s.amount, "method": s.payment_method, "remind_wa": bool(s.remind_wa), "remind_email": bool(s.remind_email), "start_date": s.start_date, "next_run": s.next_run, "paused": s.status != "Aktif", "status": s.status, "streak": s.streak or 0, "is_anonymous": bool(s.is_anonymous), "prayer_note": s.prayer_note,
+		"target": _target(s), "gen_from": s.gen_from, "paused_at": s.paused_at, "cancelled_at": s.cancelled_at, "pauses": _pauses(s.pauses), "created_at": getdate(s.creation),
+		"executions": [{"date": e.target_date, "status": e.status, "is_makeup": bool(e.is_makeup), "donation": frappe.db.get_value("Donation", e.donation, "gateway_order_id") if e.donation else None} for e in s.executions]}
+
+
+def _target(s):
+	if not s.kampanye:
+		return {"type": "pilihan"}
+	slug, title = frappe.db.get_value("Kampanye Donasi", s.kampanye, ["slug", "title"])
+	return {"type": "pilihan"} if slug == "sedekah" else {"type": "campaign", "slug": slug, "title": title}
+
+
+def _pauses(raw):
+	try:
+		v = json.loads(raw or "[]")
+		return v if isinstance(v, list) else []
+	except ValueError:
+		return []
 
 
 @frappe.whitelist()
@@ -38,7 +59,7 @@ def create(freq, hour, amount, method=None, remind_wa=0, remind_email=0, start_d
 	if freq not in ("daily", "weekly", "monthly"):
 		frappe.throw(_("Frekuensi tidak valid"), frappe.ValidationError)
 	if int(amount) < MIN_AMOUNT:
-		frappe.throw(_("Minimal Rp5.000"), frappe.ValidationError)
+		frappe.throw(_("Minimal Rp3.000"), frappe.ValidationError)
 	if not 0 <= int(hour) <= 23:
 		frappe.throw(_("Jam 0-23"), frappe.ValidationError)
 	if remind_email and not d.email:
@@ -47,6 +68,64 @@ def create(freq, hour, amount, method=None, remind_wa=0, remind_email=0, start_d
 		frappe.throw(_("Metode tidak dikenal"), frappe.ValidationError)
 	start = getdate(start_date or nowdate())
 	s = frappe.get_doc({"doctype": "Jadwal Rutin", "donor": d.name, "freq": freq, "hour": int(hour), "amount": int(amount), "payment_method": method, "remind_wa": int(bool(int(remind_wa))), "remind_email": int(bool(int(remind_email))), "start_date": start, "next_run": start, "status": "Aktif", "is_anonymous": int(bool(int(is_anonymous))), "prayer_note": prayer_note, "kampanye": frappe.db.get_value("Kampanye Donasi", {"slug": "sedekah"})}).insert(ignore_permissions=True)
+	return _json(s)
+
+
+ISO = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+STATUS_IN = {"ACTIVE": "Aktif", "PAUSED": "Dijeda", "CANCELLED": "Dibatalkan"}
+
+
+def _iso(v, nullable=True):
+	if v in (None, ""):
+		if nullable:
+			return None
+		frappe.throw(_("Tanggal wajib"), frappe.ValidationError)
+	if not (isinstance(v, str) and ISO.match(v)):
+		frappe.throw(_("Format tanggal tidak valid"), frappe.ValidationError)
+	return str(getdate(v))
+
+
+@frappe.whitelist(methods=["POST"])
+def save_schedule(data, id=None):
+	"""Simpan jadwal bentuk mesin UI (rutin.js): frequency/startDate/hourLocal/amount/target/isAnonymous/reminders/status/pauses/genFrom.
+	Server memvalidasi semua; id kosong/tak dikenal = buat baru (satu jadwal aktif per donor, sesuai UI)."""
+	d = current_donor()
+	x = json.loads(data) if isinstance(data, str) else data
+	if not isinstance(x, dict):
+		frappe.throw(_("Data tidak valid"), frappe.ValidationError)
+	freq = {"DAILY": "daily", "WEEKLY": "weekly", "MONTHLY": "monthly"}.get(x.get("frequency"))
+	status = STATUS_IN.get(x.get("status") or "ACTIVE")
+	amount, hour = int(x.get("amount") or 0), int(x.get("hourLocal", 8))
+	if not freq or not status:
+		frappe.throw(_("Frekuensi/status tidak valid"), frappe.ValidationError)
+	if amount < MIN_AMOUNT:
+		frappe.throw(_("Minimal Rp3.000"), frappe.ValidationError)
+	if not 0 <= hour <= 23:
+		frappe.throw(_("Jam 0-23"), frappe.ValidationError)
+	rem = x.get("reminders") or {}
+	if rem.get("email") and not d.email:
+		frappe.throw(_("Pengingat email butuh alamat email"), frappe.ValidationError)
+	pauses = [{"from": _iso(p.get("from"), False), "to": _iso(p.get("to"), False)} for p in (x.get("pauses") or [])[:200]]
+	tgt = x.get("target") or {}
+	camp = (campaign_by_key(tgt.get("slug")) if tgt.get("type") == "campaign" else None) or frappe.db.get_value("Kampanye Donasi", {"slug": "sedekah"})
+	start = _iso(x.get("startDate"), False)
+	vals = {
+		"freq": freq, "hour": hour, "amount": amount, "start_date": start, "status": status, "paused": 1 if status == "Dijeda" else 0,
+		"remind_wa": int(bool(rem.get("wa"))), "remind_email": int(bool(rem.get("email"))), "is_anonymous": int(bool(x.get("isAnonymous"))),
+		"kampanye": camp, "gen_from": _iso(x.get("genFrom")), "paused_at": _iso(x.get("pausedAt")), "cancelled_at": _iso(x.get("cancelledAt")),
+		"pauses": json.dumps(pauses),
+	}
+	if id and frappe.db.exists("Jadwal Rutin", id):
+		s = _mine(id)
+		s.update(vals)
+		if s.status == "Aktif" and (not s.next_run or getdate(s.next_run) < getdate(start)):
+			s.next_run = start
+		s.save(ignore_permissions=True)
+	else:
+		active = frappe.db.exists("Jadwal Rutin", {"donor": d.name, "status": ["!=", "Dibatalkan"]})
+		if active and status != "Dibatalkan":
+			frappe.throw(_("Anda sudah punya jadwal rutin"), frappe.ValidationError)
+		s = frappe.get_doc({"doctype": "Jadwal Rutin", "donor": d.name, "next_run": start, **vals}).insert(ignore_permissions=True)
 	return _json(s)
 
 
@@ -75,11 +154,17 @@ def _spawn(s, target_date, makeup=False, note=None, anon=None):
 
 
 @frappe.whitelist(methods=["POST"])
-def execute(id, prayerNote=None, isAnonymousThisTime=None):
+def execute(id, prayerNote=None, isAnonymousThisTime=None, targetDate=None):
 	s = _mine(id)
 	if s.status != "Aktif":
 		frappe.throw(_("Jadwal tidak aktif"), frappe.ValidationError)
-	don = _spawn(s, s.next_run or nowdate(), False, prayerNote, isAnonymousThisTime)
+	makeup = False
+	if targetDate:
+		t, today = getdate(targetDate), getdate(nowdate())
+		if t > today or (today - t).days > GRACE_DAYS:
+			frappe.throw(_("Tanggal di luar jendela pembayaran"), frappe.ValidationError)
+		makeup = t < today
+	don = _spawn(s, targetDate or s.next_run or nowdate(), makeup, prayerNote, isAnonymousThisTime)
 	return {"donation_id": frappe.db.get_value("Donation", don, "gateway_order_id")}
 
 
@@ -88,6 +173,8 @@ def execute_makeup(id, targetDate):
 	s = _mine(id)
 	if getdate(targetDate) >= getdate(nowdate()):
 		frappe.throw(_("Susulan hanya untuk tanggal terlewat"), frappe.ValidationError)
+	if (getdate(nowdate()) - getdate(targetDate)).days > GRACE_DAYS:
+		frappe.throw(_("Tanggal di luar jendela pembayaran"), frappe.ValidationError)
 	don = _spawn(s, targetDate, True)
 	return {"donation_id": frappe.db.get_value("Donation", don, "gateway_order_id")}
 

@@ -109,7 +109,7 @@ const toggleAnon = () => mutate(async () => { await setRecurring({ ...s.value, i
           <div class="flex justify-between"><span class="text-gray-500">{{ t('shadaqaRutin.targetHeading') }}</span><b class="text-gray-900 text-right">{{ targetLabel }}</b></div>
         </div>
         <div v-if="err" class="mt-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm px-4 py-2.5 text-left">{{ err }}</div>
-        <button data-t="resume" class="mt-5 w-full py-4 rounded-2xl text-sm font-bold bg-[color:var(--lime)] text-[#1a1a1a] shadow-lg shadow-[color:color-mix(in_srgb,var(--lime)_40%,transparent)] disabled:opacity-60" :disabled="busy" @click="pause">{{ busy ? t('shadaqaRutin.activating') : t('shadaqaRutin.resumeBtn') }}</button>
+        <button data-t="resume" class="mt-5 w-full py-4 rounded-2xl text-sm font-bold bg-[color:var(--lime)] text-white shadow-lg shadow-[color:color-mix(in_srgb,var(--lime)_40%,transparent)] disabled:opacity-60" :disabled="busy" @click="pause">{{ busy ? t('shadaqaRutin.activating') : t('shadaqaRutin.resumeBtn') }}</button>
         <button class="mt-2 w-full py-3 rounded-2xl text-sm font-semibold bg-gray-100 text-gray-700" @click="router.push(lp('/shadaqa-rutin/setup'))">{{ t('shadaqaRutin.setupNew') }}</button>
       </div>
     </div>
@@ -126,7 +126,7 @@ const toggleAnon = () => mutate(async () => { await setRecurring({ ...s.value, i
       <div v-if="dueOcc" data-t="due-card" class="mx-3 rounded-2xl bg-white mb-3 p-4" style="box-shadow: 0 4px 20px rgba(0, 83, 153, 0.35); border: 2px solid #005399">
         <p class="text-base font-bold text-[#1a1a1a]">{{ t('shadaqaRutin.dueTitle', { amount: money(dueOcc.amount) }) }}</p>
         <p class="mt-1 text-xs text-gray-600 leading-snug">{{ t('shadaqaRutin.dueDesc', { date: dateLong(dueOcc.date) }) }}</p>
-        <button data-t="due-cta" class="mt-3 w-full py-3.5 rounded-2xl text-sm font-bold bg-[#005399] text-[#1a1a1a] hover:bg-[#003f75] shadow-lg shadow-[#005399]/40" @click="goPay(dueOcc.date)">{{ t('shadaqaRutin.dueCta') }}</button>
+        <button data-t="due-cta" class="mt-3 w-full py-3.5 rounded-2xl text-sm font-bold bg-[#005399] text-white hover:bg-[#003f75] shadow-lg shadow-[#005399]/40" @click="goPay(dueOcc.date)">{{ t('shadaqaRutin.dueCta') }}</button>
       </div>
       <div v-else-if="paidToday" data-t="paid-today" class="mx-3 rounded-2xl bg-[#f0f6fc] border border-[#c7dcf0] mb-3 px-4 py-3 text-sm font-semibold text-[#005399]">{{ t('shadaqaRutin.dueDone') }}</div>
 
@@ -208,7 +208,7 @@ const toggleAnon = () => mutate(async () => { await setRecurring({ ...s.value, i
         <div class="px-4 py-3 border-b border-gray-50"><span class="text-[13px] font-bold text-[#1a1a1a]">{{ t('shadaqaRutin.missedHeading') }}</span></div>
         <div v-for="o in missed" :key="o.date" class="flex items-center justify-between px-4 py-2.5 border-b border-gray-50 last:border-0">
           <span class="text-sm text-gray-800">💔 {{ dateShort(o.date) }} · {{ money(o.amount) }}</span>
-          <button :data-t="'makeup-' + o.date" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-[#005399] text-[#1a1a1a]" @click="goPay(o.date)">{{ t('shadaqaRutin.makeupConfirm') }}</button>
+          <button :data-t="'makeup-' + o.date" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-[#005399] text-white" @click="goPay(o.date)">{{ t('shadaqaRutin.makeupConfirm') }}</button>
         </div>
       </div>
 
@@ -252,7 +252,7 @@ const toggleAnon = () => mutate(async () => { await setRecurring({ ...s.value, i
         <p class="text-[11px] text-gray-400 italic mb-5">{{ t('shadaqaRutin.makeupHadith') }}</p>
         <div class="grid grid-cols-2 gap-2 w-full">
           <button class="py-3 rounded-xl bg-gray-100 text-gray-700 text-sm font-semibold hover:bg-gray-200" @click="makeup = null">{{ t('shadaqaRutin.later') }}</button>
-          <button class="py-3 rounded-xl text-[#1a1a1a] text-sm font-bold flex items-center justify-center gap-2" style="background: #005399" @click="goPay(makeup)"><Icon name="heart" class="w-4 h-4" style="fill: #ff6b9d; stroke: #ff6b9d" />{{ t('shadaqaRutin.makeupConfirm') }}</button>
+          <button class="py-3 rounded-xl text-white text-sm font-bold flex items-center justify-center gap-2" style="background: #005399" @click="goPay(makeup)"><Icon name="heart" class="w-4 h-4" style="fill: #ff6b9d; stroke: #ff6b9d" />{{ t('shadaqaRutin.makeupConfirm') }}</button>
         </div>
       </div>
     </div>

@@ -339,7 +339,7 @@ class TestApi(IntegrationTestCase):
 	def test_rutin_jadwal_eksekusi_streak(self):
 		self.new_donor()
 		with self.assertRaises(frappe.ValidationError):
-			recurring.create("daily", 7, 4000)
+			recurring.create("daily", 7, 2999)
 		with self.assertRaises(frappe.ValidationError):
 			recurring.create("hourly", 7, 6000)
 		s = recurring.create("daily", 7, 6000, method="qris", remind_wa=1)
@@ -375,6 +375,46 @@ class TestApi(IntegrationTestCase):
 		self.new_donor()
 		with self.assertRaises(frappe.PermissionError):
 			recurring.execute(s["id"])
+
+	def test_rutin_save_schedule_sinkron_ui(self):
+		import json
+
+		self.new_donor()
+		today = nowdate()
+		sch = {"frequency": "DAILY", "startDate": today, "hourLocal": 8, "amount": 3000, "target": {"type": "campaign", "slug": "zakatcamp-maal-000000001"},
+			"isAnonymous": True, "reminders": {"bell": True, "wa": True, "email": False}, "status": "ACTIVE", "pauses": [], "genFrom": today}
+		r = recurring.save_schedule(json.dumps(sch))
+		self.assertEqual((r["freq"], r["amount"], r["status"], r["target"]["type"]), ("daily", 3000, "Aktif", "campaign"))
+		self.assertEqual(r["target"]["slug"], "zakat-maal")
+		with self.assertRaises(frappe.ValidationError):
+			recurring.save_schedule(json.dumps(sch))  # jadwal kedua ditolak
+		# jeda lalu lanjut dengan riwayat; ubah nominal
+		p = recurring.save_schedule(json.dumps({**sch, "status": "PAUSED", "pausedAt": today}), id=r["id"])
+		self.assertEqual((p["status"], str(p["paused_at"])), ("Dijeda", today))
+		u = recurring.save_schedule(json.dumps({**sch, "amount": 7000, "pauses": [{"from": today, "to": today}]}), id=r["id"])
+		self.assertEqual((u["status"], u["amount"], len(u["pauses"])), ("Aktif", 7000, 1))
+		for bad in ({**sch, "amount": 2999}, {**sch, "frequency": "YEARLY"}, {**sch, "hourLocal": 24}, {**sch, "startDate": "bukan-tanggal"}, {**sch, "pauses": [{"from": "x", "to": today}]}):
+			with self.assertRaises(frappe.ValidationError):
+				recurring.save_schedule(json.dumps(bad), id=r["id"])
+		# donatur lain tidak boleh mengubah
+		self.new_donor()
+		with self.assertRaises(frappe.PermissionError):
+			recurring.save_schedule(json.dumps(sch), id=r["id"])
+		# bayar tanggal tertentu: hari ini bukan susulan, kemarin susulan, di luar jendela / masa depan ditolak
+		frappe.set_user("Administrator")
+		self.new_donor()
+		n = recurring.save_schedule(json.dumps({**sch, "startDate": add_days(today, -20), "genFrom": add_days(today, -20)}))
+		e1 = recurring.execute(n["id"], targetDate=today)
+		e2 = recurring.execute(n["id"], targetDate=add_days(today, -2))
+		self.assertNotEqual(e1["donation_id"], e2["donation_id"])
+		for bad_t in (add_days(today, 1), add_days(today, -8)):
+			with self.assertRaises(frappe.ValidationError):
+				recurring.execute(n["id"], targetDate=bad_t)
+		ex = {str(x["date"]): x["is_makeup"] for x in recurring.me()["schedules"][0]["executions"]}
+		self.assertEqual(ex, {today: False, add_days(today, -2): True})
+		self.pay(e2["donation_id"])
+		paid = [x for x in recurring.me()["schedules"][0]["executions"] if x["status"] == "Dibayar"]
+		self.assertEqual([(str(x["date"]), x["is_makeup"]) for x in paid], [(add_days(today, -2), True)])
 
 	def _jadwal_jatuh_tempo(self, wa=1, email=0, hour=0):
 		self.new_donor()
