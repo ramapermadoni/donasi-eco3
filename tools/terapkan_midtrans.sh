@@ -20,10 +20,10 @@ if [[ "$PROD" != "1" ]]; then
   [[ "$CK" == SB-Mid-client-* ]] || { echo "Client key bukan sandbox (harus diawali SB-Mid-client-). Dibatalkan."; exit 1; }
 fi
 
-# Uji kunci ke Midtrans (404 = kunci diterima, order tidak ada; 401 = kunci salah). Kunci lewat stdin, bukan argumen.
+# Uji kunci: Midtrans menjawab {"status_code":"404"} (HTTP 200) bila kunci diterima dan order tidak ada; {"error":"Unauthorized"} bila salah.
 URL="https://api.sandbox.midtrans.com"; [[ "$PROD" == "1" ]] && URL="https://api.midtrans.com"
-CODE=$(printf 'user = "%s:"\n' "$SK" | curl -s -o /dev/null -w '%{http_code}' -K - "$URL/v2/cek-kunci-donasi/status")
-[[ "$CODE" == "404" ]] || { echo "Midtrans menjawab HTTP $CODE (harapannya 404). Periksa kunci/jaringan. Tidak diterapkan."; exit 1; }
+RESP=$(printf 'user = "%s:"\n' "$SK" | curl -s -K - "$URL/v2/cek-kunci-donasi/status" || true)
+[[ "$RESP" == *'"status_code":"404"'* ]] || { echo "Midtrans menolak kunci / tidak terjangkau (${RESP:0:60}). Tidak diterapkan."; exit 1; }
 
 bench set-config midtrans_server_key "$SK" >/dev/null
 bench set-config midtrans_client_key "$CK" >/dev/null
