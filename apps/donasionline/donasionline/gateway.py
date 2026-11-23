@@ -21,6 +21,7 @@ def signature(order_id, status_code, gross_amount, key):
 SANDBOX = {"core": "https://api.sandbox.midtrans.com", "snap": "https://app.sandbox.midtrans.com"}
 PRODUCTION = {"core": "https://api.midtrans.com", "snap": "https://app.midtrans.com"}
 TIMEOUT = 15
+EXPIRY_MIN = 24 * 60  # = Donation.expired_at (24 jam)
 CORE_BANK = {"bni_va": "bni", "bri_va": "bri", "permata_va": "permata"}  # bank_transfer Core API
 SNAP_ONLY = {"gopay": ["gopay"], "shopeepay": ["shopeepay"], "bsi_va": None, "other_va": None}  # None = semua metode Snap
 STATUS_MAP = {"settlement": "paid", "capture": "paid", "expire": "expired", "cancel": "failed", "deny": "failed", "failure": "failed"}
@@ -76,19 +77,22 @@ def _charge_midtrans(order_id, method, amount, donor):
 	u = _urls()
 	tx = {"order_id": order_id, "gross_amount": amount}
 	base = {"transaction_details": tx, "customer_details": _customer(donor)}
+	# samakan kedaluwarsa Midtrans dengan Donation (24 jam); bawaan Midtrans untuk QRIS hanya 15 menit
+	core_exp = {"custom_expiry": {"expiry_duration": EXPIRY_MIN, "unit": "minute"}}
+	snap_exp = {"expiry": {"duration": EXPIRY_MIN, "unit": "minutes"}}
 	out = {"gateway": "midtrans", "simulated": 0, "payment_type": method.method_type}
 	try:
 		if method.code == "qris":
-			j = _call("POST", u["core"] + "/v2/charge", {**base, "payment_type": "qris", "qris": {"acquirer": "gopay"}})
+			j = _call("POST", u["core"] + "/v2/charge", {**base, **core_exp, "payment_type": "qris", "qris": {"acquirer": "gopay"}})
 			url = next((a.get("url") for a in j.get("actions", []) if a.get("name") == "generate-qr-code"), None)
 			out.update(qr_string=j.get("qr_string"), qr_code_url=url)
 		elif method.code in CORE_BANK:
 			bank = CORE_BANK[method.code]
-			j = _call("POST", u["core"] + "/v2/charge", {**base, "payment_type": "bank_transfer", "bank_transfer": {"bank": bank}})
+			j = _call("POST", u["core"] + "/v2/charge", {**base, **core_exp, "payment_type": "bank_transfer", "bank_transfer": {"bank": bank}})
 			va = (j.get("va_numbers") or [{}])[0].get("va_number") or j.get("permata_va_number")
 			out.update(va_bank=bank, va_number=va)
 		else:
-			snap = {**base}
+			snap = {**base, **snap_exp}
 			if SNAP_ONLY.get(method.code):
 				snap["enabled_payments"] = SNAP_ONLY[method.code]
 			j = _call("POST", u["snap"] + "/snap/v1/transactions", snap)

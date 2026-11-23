@@ -45,6 +45,7 @@ class TestMidtrans(IntegrationTestCase):
 		self.assertEqual(args, ("POST", "https://api.sandbox.midtrans.com/v2/charge"))
 		self.assertEqual(kw["auth"], ("SB-Mid-server-TEST", ""))
 		self.assertEqual(kw["json"]["payment_type"], "qris")
+		self.assertEqual(kw["json"]["custom_expiry"], {"expiry_duration": 1440, "unit": "minute"})
 		self.assertEqual(kw["json"]["transaction_details"]["order_id"], r["orderId"])
 		self.assertEqual(kw["json"]["transaction_details"]["gross_amount"], 30000)
 		self.assertEqual((r["qrString"], r["qrImageUrl"]), ("000201QR", "https://api.sandbox.midtrans.com/qr/1"))
