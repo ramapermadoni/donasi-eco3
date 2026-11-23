@@ -1,15 +1,26 @@
 <script setup>
 import { shareLink } from '../utils/share'
-import { computed, reactive } from 'vue'
+import { computed, reactive, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import Icon from '../components/Icon.vue'
 import data from '../data/penyaluran.json'
 import { t, lp } from '../i18n'
+import { dariServer } from '../contentLoader'
 
 // description is sanitized HTML (scrape step); sanitize server-side too in Frappe.
 const route = useRoute()
 const router = useRouter()
-const item = computed(() => data.items.find((i) => i.slug === route.params.slug))
+const remote = ref(null)
+const loading = ref(false)
+async function load() {
+  if (!dariServer.value) return
+  loading.value = true; remote.value = null
+  try { const r = await fetch(`/api/penyaluran/${encodeURIComponent(route.params.slug)}`); remote.value = r.ok ? await r.json() : null } catch { remote.value = null }
+  loading.value = false
+}
+watch(() => route.params.slug, load, { immediate: true })
+// konten contoh sudah dibersihkan -> dari server; selain itu berkas statis bawaan
+const item = computed(() => (dariServer.value ? remote.value : data.items.find((i) => i.slug === route.params.slug)))
 const toast = reactive({ msg: '' })
 function back() { window.history.length > 1 ? router.back() : router.push(lp('/penyaluran')) }
 const share = () => shareLink(item.value.title, location.href, () => { toast.msg = 'Link disalin'; setTimeout(() => (toast.msg = ''), 1800) })
@@ -17,7 +28,9 @@ const share = () => shareLink(item.value.title, location.href, () => { toast.msg
 
 <template>
   <div class="frame" style="background: #fff">
-    <div v-if="!item" class="wrap" style="padding: 80px 16px; text-align: center">
+    <div v-if="loading" class="wrap" style="padding: 80px 16px; text-align: center"><p style="color: #6b7280">{{ t('common.loading') }}</p></div>
+
+    <div v-else-if="!item" class="wrap" style="padding: 80px 16px; text-align: center">
       <p style="font-weight: 600; margin-bottom: 12px">Berita penyaluran tidak ditemukan</p>
       <router-link :to="lp('/penyaluran')" class="more" style="justify-content: center">Kembali ke Penyaluran</router-link>
     </div>

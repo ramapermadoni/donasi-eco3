@@ -3,6 +3,7 @@ import { shareLink } from '../utils/share'
 import { initial } from '../utils/text'
 import { rpSp } from '../utils/format'
 import { ref, computed, watch, onMounted, onUnmounted, nextTick } from 'vue'
+import { dariServer } from '../contentLoader'
 import { useRoute, useRouter } from 'vue-router'
 import data from '../data/sedekah'
 import kabarAll from '../data/kabar.json'
@@ -41,7 +42,15 @@ const toast = ref('')
 const clamp = ref(false)
 const descEl = ref(null)
 function measure() { nextTick(() => { if (descEl.value && descEl.value.scrollHeight > 488) clamp.value = true }) }
-const kabar = computed(() => kabarAll[route.params.slug] || [])
+// konten contoh sudah dibersihkan -> kabar dari server (/api/campaigns/:slug/updates); selain itu berkas statis bawaan
+const kabarRemote = ref([])
+async function loadKabar() {
+  if (!dariServer.value) return
+  kabarRemote.value = []
+  try { const r = await fetch(`/api/campaigns/${encodeURIComponent(route.params.slug)}/updates`); kabarRemote.value = r.ok ? (await r.json()).items || [] : [] } catch { kabarRemote.value = [] }
+}
+watch(() => route.params.slug, loadKabar, { immediate: true })
+const kabar = computed(() => (dariServer.value ? kabarRemote.value : kabarAll[route.params.slug] || []))
 
 /* ---- donatur (live: /api/campaigns/:slug/donors, scroll tak terbatas) ---- */
 const donors = ref([])

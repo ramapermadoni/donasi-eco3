@@ -108,6 +108,19 @@ def date_label(d):
 	return f"{d.day} {_BULAN[d.month - 1]} {d.year}"
 
 
+_BULAN_PANJANG = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"]
+
+
+def date_label_long(d):
+	"""'20 November 2026' (label panjang di detail artikel)."""
+	from frappe.utils import getdate
+
+	if not d:
+		return ""
+	d = getdate(d)
+	return f"{d.day} {_BULAN_PANJANG[d.month - 1]} {d.year}"
+
+
 def feed_item(r):
 	"""Bentuk item penyaluran untuk UI: id, slug, title, subtitle, date_label, image_url (+ field lain)."""
 	r = dict(r)

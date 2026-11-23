@@ -251,6 +251,28 @@ class TestApi(IntegrationTestCase):
 		self.assertFalse(import_snapshot.make("Kampanye Donasi", "contoh-baru-xyz", {"kode_kampanye": "contoh-baru-xyz", "nama_kampanye": "X", "slug": "contoh-baru-xyz", "fund_type": "infak_bebas", "program": milik.program}))
 		self.assertFalse(frappe.db.exists("Kampanye Donasi", "contoh-baru-xyz"))
 
+	def test_detail_konten_server(self):
+		pn = frappe.get_all("Penyaluran", ["slug", "title"], limit=1)[0]
+		d = content.penyaluran_detail(pn.slug)
+		self.assertEqual(d["slug"], pn.slug)
+		self.assertTrue({"title", "date", "image", "location", "program", "category", "description"} <= set(d))
+		with self.assertRaises(frappe.DoesNotExistError):
+			content.penyaluran_detail("tidak-ada-xyz")
+		ar = frappe.get_all("Artikel", ["slug"], limit=1)[0]
+		a = content.artikel_detail(ar.slug)
+		self.assertTrue({"title", "image", "dateLabel", "author", "body", "related", "relatedItems"} <= set(a))
+		self.assertRegex(a["dateLabel"], r"^\d{1,2} [A-Z][a-z]+ \d{4}$")
+		self.assertTrue(a["relatedItems"] and all({"slug", "title", "image"} <= set(r) for r in a["relatedItems"]))
+		self.assertNotIn(ar.slug, [r["slug"] for r in a["relatedItems"]])
+		with self.assertRaises(frappe.DoesNotExistError):
+			content.artikel_detail("tidak-ada-xyz")
+		# kabar kampanye: bentuk sama dengan data statis UI
+		pw = frappe.get_all("Penyaluran", {"kampanye": ["is", "set"]}, ["kampanye"], limit=1)
+		if pw:
+			slug = frappe.db.get_value("Kampanye Donasi", pw[0].kampanye, "slug")
+			it = campaign.updates(slug)["items"][0]
+			self.assertTrue({"id", "title", "subtitle", "date_label", "image_url"} <= set(it))
+
 	def test_hapus_akun_anonimkan(self):
 		self.new_donor()
 		pid = self.make_donation()

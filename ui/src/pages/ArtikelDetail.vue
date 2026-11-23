@@ -1,17 +1,29 @@
 <script setup>
 import { shareLink } from '../utils/share'
-import { computed, reactive } from 'vue'
+import { computed, reactive, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import Icon from '../components/Icon.vue'
 import data from '../data/artikel.json'
-import { lp } from '../i18n'
+import { lp, t } from '../i18n'
+import { dariServer } from '../contentLoader'
 
 // body is sanitized HTML (scrape step); sanitize server-side too in Frappe.
 const route = useRoute()
 const router = useRouter()
-const item = computed(() => data.items.find((i) => i.slug === route.params.slug))
+const remote = ref(null)
+const loading = ref(false)
+async function load() {
+  if (!dariServer.value) return
+  loading.value = true; remote.value = null
+  try { const r = await fetch(`/api/artikel/${encodeURIComponent(route.params.slug)}`); remote.value = r.ok ? await r.json() : null } catch { remote.value = null }
+  loading.value = false
+}
+watch(() => route.params.slug, load, { immediate: true })
+// konten contoh sudah dibersihkan -> dari server; selain itu berkas statis bawaan
+const item = computed(() => (dariServer.value ? remote.value : data.items.find((i) => i.slug === route.params.slug)))
 const related = computed(() => {
   if (!item.value) return []
+  if (dariServer.value) return item.value.relatedItems || []
   const bySlug = (s) => data.items.find((i) => i.slug === s)
   const picked = item.value.related.map(bySlug).filter(Boolean)
   return (picked.length ? picked : data.items.filter((i) => i.slug !== item.value.slug)).slice(0, 3)
@@ -23,7 +35,9 @@ const share = () => shareLink(item.value.title, location.href, () => { toast.msg
 
 <template>
   <div class="frame" style="background: white; min-height: 100vh">
-    <div v-if="!item" class="px-4 py-20 text-center">
+    <div v-if="loading" class="px-4 py-20 text-center"><p style="color: #6b7280">{{ t('common.loading') }}</p></div>
+
+    <div v-else-if="!item" class="px-4 py-20 text-center">
       <p class="font-semibold mb-3">Artikel tidak ditemukan</p>
       <router-link :to="lp('/berita')" class="text-[color:var(--lime-text)] font-semibold" style="font-size: 13px">Kembali ke Berita &amp; Inspirasi</router-link>
     </div>

@@ -1,9 +1,13 @@
 // Konten halaman depan dari server (kampanye, banner, mitra, video) bila pemilik sudah membersihkan konten contoh.
 // Selama belum (replace=false) atau server tak tersedia, UI memakai berkas statis bawaan di ui/src/data.
 // Objek statis diubah di tempat (in place) sebelum aplikasi dipasang, jadi halaman tidak perlu diubah.
+import { ref } from 'vue'
 import sedekah from './data/sedekah'
 import mitra from './data/mitra.json'
 import videos from './data/videos.json'
+
+// true bila konten contoh sudah dibersihkan: halaman detail membaca dari server, bukan dari berkas statis
+export const dariServer = ref(false)
 
 const swap = (arr, next) => { arr.splice(0, arr.length, ...next) }
 
@@ -21,6 +25,7 @@ export async function muatKontenServer() {
     sedekah.totalCampaigns = b.totalCampaigns || 0
     swap(mitra, b.mitra || [])
     swap(videos, b.videos || [])
+    dariServer.value = true
     return true
   } catch { return false } // tanpa server (mode demo): tetap statis
 }

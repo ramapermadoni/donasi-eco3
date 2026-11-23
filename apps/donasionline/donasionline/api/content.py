@@ -3,7 +3,7 @@ import json
 
 import frappe
 
-from donasionline.api._util import clean, feed_item
+from donasionline.api._util import clean, date_label, date_label_long, feed_item
 
 SORTS = {"terbaru": "tanggal desc", "terlama": "tanggal asc", "a-z": "title asc", "z-a": "title desc"}
 
@@ -55,10 +55,26 @@ def artikel_list(limit=12, offset=0):
 
 @frappe.whitelist(allow_guest=True)
 def artikel_detail(slug):
-	if not frappe.db.exists("Artikel", slug):
+	name = frappe.db.get_value("Artikel", {"slug": slug})
+	if not name:
 		frappe.throw("Artikel tidak ditemukan", frappe.DoesNotExistError)
-	a = frappe.get_doc("Artikel", slug)
-	return {"slug": a.slug, "title": a.title, "excerpt": a.excerpt, "image": a.image_url, "date": a.tanggal, "author": a.author, "body": clean(a.body_html), "related": [x for x in (a.related or "").split("\n") if x]}
+	a = frappe.get_doc("Artikel", name)
+	wanted = [x for x in (a.related or "").split("\n") if x]
+	cols = ["slug", "title", "image_url as image"]
+	rel = [r for r in (frappe.get_all("Artikel", {"slug": x}, cols, limit=1) for x in wanted) if r]
+	rel = [r[0] for r in rel][:3] or frappe.get_all("Artikel", {"slug": ["!=", a.slug]}, cols, order_by="tanggal desc", limit=3)
+	return {"slug": a.slug, "title": a.title, "excerpt": a.excerpt, "category": a.category, "image": a.image_url, "date": a.tanggal, "dateLabel": date_label_long(a.tanggal),
+		"author": a.author, "body": clean(a.body_html), "related": wanted, "relatedItems": rel}
+
+
+@frappe.whitelist(allow_guest=True)
+def penyaluran_detail(slug):
+	name = frappe.db.get_value("Penyaluran", {"slug": slug})
+	if not name:
+		frappe.throw("Penyaluran tidak ditemukan", frappe.DoesNotExistError)
+	p = frappe.get_doc("Penyaluran", name)
+	return {"slug": p.slug, "title": p.title, "subtitle": p.subtitle, "date": date_label(p.tanggal), "category": p.category, "image": p.image_url,
+		"location": p.location, "program": p.program, "description": clean(p.description)}
 
 
 @frappe.whitelist(allow_guest=True)

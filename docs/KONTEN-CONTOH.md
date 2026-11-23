@@ -24,13 +24,15 @@ Instalasi baru membawa **konten contoh**: kampanye, mitra, banner, video, penyal
    Hasilnya: konten contoh dihapus; kampanye contoh yang **sudah punya donasi atau jadwal rutin tidak dihapus** (catatan keuangan), hanya dinonaktifkan (tidak tampil, tidak bisa dibayar); mitra contoh yang masih dirujuk dipertahankan dan dilaporkan; sakelar "konten contoh sudah dibersihkan" menyala sehingga impor snapshot tidak membuatnya ulang.
 5. Muat ulang situs dan periksa Beranda, Kampanye, Mitra, dan Video.
 
+## Halaman yang membaca dari server setelah dibersihkan
+Beranda, Kampanye, Mitra, dan Video (lewat `/api/content/bundle`), serta **Detail Penyaluran** (`/api/penyaluran/:slug`), **Detail Artikel** (`/api/artikel/:slug`, termasuk artikel terkait), dan **Kabar terbaru** tiap kampanye (`/api/campaigns/:slug/updates`, yaitu Penyaluran yang diikat ke kampanye). Kabar kampanye muncul dengan mengisi field Kampanye pada dokumen Penyaluran.
+
 ## Yang BELUM ikut berpindah ke server
-Halaman berikut masih membaca berkas statis di dalam bundel UI dan belum membaca dari server. Isinya tetap konten contoh sampai disambungkan:
-- **Detail Penyaluran** dan **Detail Artikel** (daftarnya sudah dari server, detailnya belum).
-- **Kabar terbaru** di tiap kampanye (`data/kabar.json`).
+Halaman berikut masih membaca berkas statis di dalam bundel UI. Isinya tetap konten contoh sampai disambungkan:
 - **Doa**, gamifikasi, misi Jalan Kebaikan, dan teks kampanye berbahasa Inggris.
 - Nominal "terkumpul" di Detail Kampanye masih tabel bawaan (`RAISED`).
-Setelah dibersihkan, halaman-halaman ini bisa menampilkan cerita yang tidak cocok dengan data server. Sambungkan sebelum rilis, atau sembunyikan menunya.
+- Halaman Qurban (`data/qurban.js`).
+Setelah dibersihkan, halaman-halaman itu bisa menampilkan isi yang tidak cocok dengan data server. Sambungkan sebelum rilis, atau sembunyikan menunya.
 
 ## Bila perlu mengulang
 Hapus centang "Konten contoh sudah dibersihkan" di Pengaturan Donasi, lalu jalankan `bench execute donasionline.setup.import_snapshot.run`. Itu membuat ulang konten contoh yang hilang.

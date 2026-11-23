@@ -36,6 +36,7 @@ const R = [
   ['GET', /^\/api\/gold-price$/, 'zakat.gold_price'],
   ['GET', /^\/api\/penyaluran\/meta$/, 'content.penyaluran_meta'],
   ['GET', /^\/api\/penyaluran$/, 'content.penyaluran_list'],
+  ['GET', /^\/api\/penyaluran\/([^/]+)$/, 'content.penyaluran_detail', (m) => ({ slug: m[1] })],
   ['GET', /^\/api\/laporan$/, 'content.laporan_list'],
   ['GET', /^\/api\/doa\/untuk-diaminkan$/, 'doa.for_amin'],
   ['GET', /^\/api\/doa$/, 'doa.list_doa'],
