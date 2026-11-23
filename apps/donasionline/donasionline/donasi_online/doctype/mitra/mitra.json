@@ -12,7 +12,8 @@
   "instagram",
   "verified",
   "campaign_count",
-  "total_raised"
+  "total_raised",
+  "nazhir_no_bwi"
  ],
  "fields": [
   {
@@ -62,6 +63,12 @@
    "label": "Total Terkumpul",
    "fieldtype": "Currency",
    "read_only": 1
+  },
+  {
+   "fieldname": "nazhir_no_bwi",
+   "fieldtype": "Data",
+   "label": "No. registrasi nazhir BWI",
+   "description": "Isi hanya bila mitra ini nazhir terdaftar. Syarat kampanye wakaf mode Titipan."
   }
  ],
  "sort_field": "creation",

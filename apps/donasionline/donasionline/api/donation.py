@@ -18,6 +18,17 @@ def by_public_id(pid):
 	return frappe.get_doc("Donation", name)
 
 
+def _wakaf_dibuka(c):
+	"""Gerbang F4. Nazhir: lembaga terdaftar BWI (centang + nomor). Titipan: kampanye terikat ke Mitra bernomor nazhir BWI."""
+	s = frappe.get_cached_doc("Pengaturan Donasi")
+	mode = s.wakaf_mode or "Tutup"
+	if mode.startswith("Nazhir"):
+		return bool(s.nazhir_terdaftar and (s.nazhir_no_bwi or "").strip())
+	if mode.startswith("Titipan"):
+		return bool(c.mitra and (frappe.db.get_value("Mitra", c.mitra, "nazhir_no_bwi") or "").strip())
+	return False
+
+
 @frappe.whitelist(allow_guest=True, methods=["POST"])
 @rate_limit(limit=20, seconds=60)
 def create(campaign_id=None, amount=None, donor_name=None, donor_phone=None, is_anonymous=0, message=None, ref=None, currency="IDR",
@@ -33,6 +44,8 @@ def create(campaign_id=None, amount=None, donor_name=None, donor_phone=None, is_
 	c = frappe.get_doc("Kampanye Donasi", camp)
 	if not c.is_active or c.status == "draft":
 		frappe.throw(_("Kampanye tidak aktif"), frappe.ValidationError)
+	if c.fund_type == "wakaf" and not _wakaf_dibuka(c):
+		frappe.throw(_("Wakaf belum dibuka: belum ada nazhir terdaftar yang menerimanya."), frappe.ValidationError)
 	mitra = None
 	if ref and REF_RE.match(ref):
 		mitra = frappe.db.get_value("Mitra", {"slug": ref})  # abaikan bila tak dikenal (aturan handover 04 bag. 2)

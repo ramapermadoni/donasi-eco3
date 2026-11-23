@@ -15,10 +15,19 @@ Dicatat: 2026-11-22 (W0). Tanpa rahasia. Semua aturan akuntansi berstatus USULAN
 | F7 | (a) Clearing = Kas/Bank; bruto; fee per settlement | Provisional; akuntan dapat menggesernya ke piutang kanal. |
 | F25 | Fee non-ZIS ditahan (belum diputuskan) | Tidak otomatis dibebankan ke Dana Amil. |
 
-## Usulan menunggu persetujuan pemilik
-| Kode | Usulan |
+## F4 Wakaf: dua mode (arahan pemilik 2026-11-23)
+Pemilik ingin lembaga dapat menjadi nazhir DAN sekaligus menerima wakaf sebagai titipan yang diteruskan ke nazhir mitra. Sistem menyediakan sakelar **Mode wakaf** di Pengaturan Donasi:
+
+| Mode | Syarat agar wakaf dapat menerima donasi |
 |---|---|
-| F4 | Wakaf DIBUKA hanya sebagai penerusan ke nazhir mitra terdaftar BWI (opsi b): dana dicatat titipan (2-1330), bukan penghasilan lembaga, lalu diteruskan ke rekening nazhir/LKS-PWU. Gerbang di sistem: kampanye wakaf hanya dapat dibayar bila Mitra penerima bertanda "nazhir terverifikasi" (nomor registrasi BWI terisi). Sampai ada mitra yang memenuhi, wakaf tetap diblokir. Bila lembaga sendiri kelak terdaftar sebagai nazhir, beralih ke opsi (c)/(d). |
+| Tutup (bawaan) | tidak pernah; wakaf tidak menerima donasi |
+| Nazhir (dikelola lembaga sendiri) | centang "terdaftar sebagai nazhir" DAN nomor registrasi BWI terisi |
+| Titipan (diteruskan ke nazhir mitra) | kampanye wakaf terikat ke Mitra yang field "No. registrasi nazhir BWI"-nya terisi |
+
+- Gerbang berlaku di `donation.create` (sebelumnya wakaf bisa dibayar; yang terblokir hanya jurnal).
+- **Jurnal wakaf tetap diblokir** (`journals.BLOCKED_FUND_TYPES`). Donasi wakaf yang masuk hanya tercatat di Donation; jurnalnya perlu diposting susulan setelah akuntan/ahli syariah memutuskan.
+- Akuntansi tiap mode berbeda: Titipan = liabilitas 2-1330 (bukan penghasilan lembaga); Nazhir = dana wakaf terpisah, PSAK 412 meminta entitas pelaporan terpisah (opsi c: Company kedua). BELUM diputuskan.
+- Syarat hukum di luar sistem: nazhir badan hukum wajib terdaftar di BWI; wakaf uang lazimnya lewat LKS-PWU. Sistem hanya memeriksa kelengkapan nomor, bukan keabsahannya.
 
 ## Default (belum dikonfirmasi pengguna; PROVISIONAL)
 | Kode | Keputusan |
