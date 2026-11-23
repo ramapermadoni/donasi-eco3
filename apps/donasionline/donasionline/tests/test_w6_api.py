@@ -183,6 +183,27 @@ class TestApi(IntegrationTestCase):
 		with self.assertRaises(frappe.ValidationError):
 			baru(1000).insert(ignore_permissions=True)
 
+	def test_wakaf_status_publik(self):
+		wk = frappe.db.get_value("Kampanye Donasi", {"fund_type": "wakaf", "is_active": 1})
+		frappe.set_user("Guest")
+		self.assertEqual(campaign.wakaf_status("sedekah"), {"wakaf": False})
+		r = campaign.wakaf_status(wk)
+		self.assertEqual((r["wakaf"], r["mode"], r["open"], r["nazhir"]), (True, "titipan", False, None))  # belum ada nazhir: tertutup
+		frappe.set_user("Administrator")
+		mt = frappe.get_doc({"doctype": "Mitra", "slug": "mitra-nazhir-pub", "mitra_name": "Nazhir Publik", "mitra_type": "nazhir", "nazhir_no_bwi": "N.7/TES"}).insert(ignore_permissions=True)
+		frappe.db.set_value("Kampanye Donasi", wk, "mitra", mt.name)
+		self.pay(donation.create(campaign_id=wk, amount=50000, donor_name="Tes")["donation_id"])
+		pw = frappe.get_doc({"doctype": "Penerusan Wakaf", "kampanye": wk, "tanggal": nowdate(), "jumlah": 20000, "referensi_transfer": "RAHASIA-123", "catatan": "internal"}).insert(ignore_permissions=True)
+		pw.submit()
+		frappe.set_user("Guest")
+		r = campaign.wakaf_status(wk)
+		self.assertTrue(r["open"])
+		self.assertEqual(r["nazhir"], {"name": "Nazhir Publik", "noBwi": "N.7/TES"})
+		self.assertEqual(r["received"] - r["forwarded"], r["remaining"])
+		self.assertEqual(r["forwards"][0]["amount"], 20000)
+		self.assertNotIn("RAHASIA-123", str(r))  # bukti/referensi transfer tidak bocor
+		self.assertNotIn("internal", str(r))
+
 	def test_hapus_akun_anonimkan(self):
 		self.new_donor()
 		pid = self.make_donation()

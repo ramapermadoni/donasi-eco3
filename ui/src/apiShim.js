@@ -24,6 +24,7 @@ const R = [
   ['POST', /^\/api\/donor\/gamification\/claim$/, 'gamification.claim_reward'],
   ['GET', /^\/api\/campaigns\/feed$/, 'campaign.list_campaigns'],
   ['GET', /^\/api\/campaigns\/([^/]+)\/donors$/, 'campaign.donors', (m) => ({ slug: m[1] })],
+  ['GET', /^\/api\/campaigns\/([^/]+)\/wakaf$/, 'campaign.wakaf_status', (m) => ({ slug: m[1] })],
   ['GET', /^\/api\/campaigns\/([^/]+)\/updates$/, 'campaign.updates', (m) => ({ slug: m[1] })],
   ['GET', /^\/api\/campaigns\/([^/]+)$/, 'campaign.detail', (m) => ({ slug: m[1] })],
   ['POST', /^\/api\/donations$/, 'donation.create'],

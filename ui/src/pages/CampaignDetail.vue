@@ -8,6 +8,7 @@ import data from '../data/sedekah'
 import kabarAll from '../data/kabar.json'
 import Icon from '../components/Icon.vue'
 import DonateForm from '../components/DonateForm.vue'
+import WakafStatus from '../components/WakafStatus.vue'
 import BottomNav from '../components/BottomNav.vue'
 import { donate, submitting } from '../donate'
 import { t, lp, isEn } from '../i18n'
@@ -141,6 +142,7 @@ async function submit(payload) {
         </div>
 
         <div v-if="tab === 'about'" class="pb-4">
+          <WakafStatus v-if="/wakaf/.test(route.params.slug)" class="mb-4" :slug="route.params.slug" />
           <template v-if="body">
             <div ref="descEl" class="relative overflow-hidden transition-all" :style="{ maxHeight: expanded ? '99999px' : '480px' }">
               <!-- description HTML comes from your own backend (sanitized on scrape) -->

@@ -18,6 +18,7 @@ ENDPOINTS = [
 	("PATCH", "/api/donor/profile", "donor.update_profile", False, "test_profil_dan_donor", ""),
 	("GET", "/api/donor/gamification", "gamification.get", False, "test_gamifikasi_klaim", "rumus poin = ASUMSI"),
 	("POST", "/api/donor/gamification/claim", "gamification.claim_reward", False, "test_gamifikasi_klaim", "klaim mati bawaan"),
+	("GET", "/api/campaigns/:slug/wakaf", "campaign.wakaf_status", True, "test_wakaf_status_publik", "status publik wakaf & penerusan ke nazhir"),
 	("GET", "/api/campaigns/feed", "campaign.list_campaigns", True, "test_kampanye", ""),
 	("GET", "/api/campaigns/:slug", "campaign.detail", True, "test_kampanye", ""),
 	("POST", "/api/donations", "donation.create", True, "test_donasi_validasi_dan_atribusi", "min Rp3.000; id publik acak"),

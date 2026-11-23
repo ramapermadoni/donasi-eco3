@@ -670,7 +670,27 @@
   "feat3Title": "Pahala Berkelanjutan",
   "feat3Desc": "Amal jariyah yang terus mengalir secara rutin",
   "inviteCta": "✨ Atur Sedekah Rutin Sekarang",
-  "calMakeupAria": "Genapi sedekah hari {day}", "demoBadge": "Demo", "demoNote": "Demo: pembayaran disimulasikan, tidak ada uang dan tidak ada pembayaran maupun permintaan POST.", "dueTitle": "Waktunya sedekah {amount}", "dueDesc": "Jadwal hari ini, {date}. Bayar sekarang agar streakmu tetap menyala.", "dueCta": "Sedekah sekarang", "dueDone": "Sedekah hari ini sudah dibayar. Alhamdulillah!", "missedHeading": "Hari terlewat (bisa digenapi)", "targetValueNone": "Pilihan DT Peduli", "bayarTitle": "Bayar Sedekah Rutin", "bayarSummary": "Ringkasan", "bayarDate": "Jatuh tempo", "bayarMakeupTag": "Genapi sedekah yang terlewat", "bayarMethodHeading": "Pilih Metode Pembayaran", "bayarPay": "Bayar (Demo)", "bayarWaitingTitle": "Menunggu pembayaran (simulasi)", "bayarWaitingDesc": "Ini simulasi. Tekan tombol di bawah untuk menandai sedekah ini berhasil dibayar.", "bayarSimulate": "Simulasikan berhasil", "bayarBack": "Kembali ke Sedekah Rutin", "bayarNotPayable": "Sedekah untuk tanggal ini tidak bisa dibayar: sudah dibayar, belum waktunya, atau lewat batas genapi 7 hari.", "bayarMinNote": "Min. {amount}"
+  "calMakeupAria": "Genapi sedekah hari {day}",
+  "demoBadge": "Demo",
+  "demoNote": "Demo: pembayaran disimulasikan, tidak ada uang dan tidak ada pembayaran maupun permintaan POST.",
+  "dueTitle": "Waktunya sedekah {amount}",
+  "dueDesc": "Jadwal hari ini, {date}. Bayar sekarang agar streakmu tetap menyala.",
+  "dueCta": "Sedekah sekarang",
+  "dueDone": "Sedekah hari ini sudah dibayar. Alhamdulillah!",
+  "missedHeading": "Hari terlewat (bisa digenapi)",
+  "targetValueNone": "Pilihan DT Peduli",
+  "bayarTitle": "Bayar Sedekah Rutin",
+  "bayarSummary": "Ringkasan",
+  "bayarDate": "Jatuh tempo",
+  "bayarMakeupTag": "Genapi sedekah yang terlewat",
+  "bayarMethodHeading": "Pilih Metode Pembayaran",
+  "bayarPay": "Bayar (Demo)",
+  "bayarWaitingTitle": "Menunggu pembayaran (simulasi)",
+  "bayarWaitingDesc": "Ini simulasi. Tekan tombol di bawah untuk menandai sedekah ini berhasil dibayar.",
+  "bayarSimulate": "Simulasikan berhasil",
+  "bayarBack": "Kembali ke Sedekah Rutin",
+  "bayarNotPayable": "Sedekah untuk tanggal ini tidak bisa dibayar: sudah dibayar, belum waktunya, atau lewat batas genapi 7 hari.",
+  "bayarMinNote": "Min. {amount}"
  },
  "home": {
   "featuredCampaigns": "Campaign Pilihan",
@@ -753,5 +773,21 @@
    "nangis": "Nangis",
    "berkaca": "Berkaca-kaca"
   }
+ },
+ "wakafStatus": {
+  "title": "Status penerusan wakaf",
+  "open": "Dibuka",
+  "closed": "Belum dibuka",
+  "closedNote": "Wakaf belum dapat menerima donasi karena nazhir penerimanya belum terdaftar. Silakan kembali lagi nanti.",
+  "modeTitipan": "Wakaf Anda kami terima sebagai perantara, lalu diteruskan kepada nazhir terdaftar berikut.",
+  "modeDikelola": "Wakaf dikelola langsung oleh lembaga yang terdaftar sebagai nazhir berikut.",
+  "nazhir": "Nazhir penerima",
+  "bwi": "No. registrasi BWI",
+  "received": "Diterima",
+  "forwarded": "Sudah diteruskan",
+  "remaining": "Belum diteruskan",
+  "history": "Riwayat penerusan",
+  "none": "Belum ada penerusan dana.",
+  "note": "Jumlah dihitung sebelum biaya pembayaran. Nomor registrasi nazhir dapat Anda periksa sendiri di Badan Wakaf Indonesia."
  }
 }

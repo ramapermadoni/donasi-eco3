@@ -1,5 +1,6 @@
 """/api/campaigns/*"""
 import frappe
+from frappe import _
 
 from donasionline.api._util import campaign_by_key, clean, feed_item, mask_name, raised
 
@@ -60,3 +61,31 @@ def updates(slug):
 	name = campaign_by_key(slug)
 	rows = frappe.get_all("Penyaluran", {"kampanye": name}, ["slug", "title", "subtitle", "tanggal", "image_url"], order_by="tanggal desc", limit=50) if name else []
 	return {"items": [feed_item(r) for r in rows]}
+
+
+@frappe.whitelist(allow_guest=True)
+def wakaf_status(slug):
+	"""Status publik wakaf: dibuka/tidak, nazhir tujuan, dan penerusan dana. Tanpa referensi/bukti transfer (privat)."""
+	from donasionline.api.donation import _wakaf_dibuka
+
+	name = campaign_by_key(slug)
+	if not name:
+		frappe.throw(_("Kampanye tidak ditemukan"), frappe.DoesNotExistError)
+	c = frappe.get_doc("Kampanye Donasi", name)
+	if c.fund_type != "wakaf":
+		return {"wakaf": False}
+	titipan = (c.wakaf_mode or "").startswith("Titipan")
+	ps = frappe.get_cached_doc("Pengaturan Donasi")
+	if titipan:
+		m = frappe.db.get_value("Mitra", c.mitra, ["mitra_name", "nazhir_no_bwi"], as_dict=True) if c.mitra else None
+		nazhir = {"name": m.mitra_name, "noBwi": m.nazhir_no_bwi} if m and (m.nazhir_no_bwi or "").strip() else None
+	else:
+		nazhir = {"name": ps.org_name, "noBwi": ps.nazhir_no_bwi} if ps.nazhir_terdaftar and (ps.nazhir_no_bwi or "").strip() else None
+	diterima = float(frappe.db.sql("select coalesce(sum(amount),0) from `tabDonation` where kampanye=%s and status='Paid'", name)[0][0])
+	rows = frappe.get_all("Penerusan Wakaf", {"kampanye": name, "docstatus": 1}, ["tanggal", "jumlah"], order_by="tanggal desc, creation desc", limit=20)
+	diteruskan = float(frappe.db.sql("select coalesce(sum(jumlah),0) from `tabPenerusan Wakaf` where kampanye=%s and docstatus=1", name)[0][0])
+	return {
+		"wakaf": True, "open": bool(_wakaf_dibuka(c)), "mode": "titipan" if titipan else "dikelola", "nazhir": nazhir,
+		"received": diterima, "forwarded": diteruskan, "remaining": diterima - diteruskan,
+		"forwards": [{"date": r.tanggal, "amount": float(r.jumlah)} for r in rows],
+	}
