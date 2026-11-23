@@ -101,34 +101,43 @@ class TestApi(IntegrationTestCase):
 		r = auth.request_otp(phone())
 		self.assertNotIn("dev_code", r)
 
-	def test_wakaf_dua_mode_dan_gerbang(self):
+	def test_wakaf_dua_mode_berjalan_bersamaan(self):
 		wk = frappe.db.get_value("Kampanye Donasi", {"fund_type": "wakaf", "is_active": 1})
 		self.assertTrue(wk)
 		ps = frappe.get_single("Pengaturan Donasi")
 
-		def atur(**kw):
-			ps.update({"wakaf_mode": "Tutup", "nazhir_terdaftar": 0, "nazhir_no_bwi": "", **kw})
+		def lembaga(terdaftar, no=""):
+			ps.update({"nazhir_terdaftar": terdaftar, "nazhir_no_bwi": no})
 			ps.flags.ignore_mandatory = True
 			ps.save(ignore_permissions=True)
 			frappe.clear_cache(doctype="Pengaturan Donasi")
 
-		def coba():
-			return donation.create(campaign_id=wk, amount=10000, donor_name="Tes")["donation_id"]
+		def coba(slug):
+			return donation.create(campaign_id=slug, amount=10000, donor_name="Tes")["donation_id"]
 
-		atur()  # Tutup
+		# kampanye kedua (titipan), kampanye pertama tetap dikelola lembaga
+		tp = frappe.get_doc({"doctype": "Kampanye Donasi", "kode_kampanye": "WK-TITIPAN-UJI", "nama_kampanye": "Wakaf Titipan Uji", "slug": "wakaf-titipan-uji", "fund_type": "wakaf",
+			"wakaf_mode": "Titipan ke nazhir mitra", "program": frappe.db.get_value("Kampanye Donasi", wk, "program"), "is_active": 1, "status": "active"}).insert(ignore_permissions=True)
+		frappe.db.set_value("Kampanye Donasi", wk, "wakaf_mode", "Dikelola lembaga")
+
+		lembaga(0)  # lembaga belum nazhir, mitra belum ada: dua-duanya ditolak
+		for k in (wk, tp.name):
+			with self.assertRaises(frappe.ValidationError):
+				coba(k)
+		lembaga(1)  # centang tanpa nomor: tetap ditolak
 		with self.assertRaises(frappe.ValidationError):
-			coba()
-		atur(wakaf_mode="Nazhir (dikelola lembaga sendiri)", nazhir_terdaftar=1)  # tanpa nomor BWI
+			coba(wk)
+		lembaga(1, "W.1/TES")  # lembaga nazhir -> dikelola buka; titipan tetap tertutup (tanpa mitra)
+		self.assertTrue(coba(wk))
 		with self.assertRaises(frappe.ValidationError):
-			coba()
-		atur(wakaf_mode="Nazhir (dikelola lembaga sendiri)", nazhir_terdaftar=1, nazhir_no_bwi="W.1/TES")
-		self.assertTrue(coba())
-		atur(wakaf_mode="Titipan (diteruskan ke nazhir mitra)")  # kampanye belum terikat mitra bernazhir
-		with self.assertRaises(frappe.ValidationError):
-			coba()
+			coba(tp.name)
 		mt = frappe.get_doc({"doctype": "Mitra", "slug": "mitra-nazhir-uji", "mitra_name": "Mitra Nazhir Uji", "mitra_type": "nazhir", "nazhir_no_bwi": "N.9/TES"}).insert(ignore_permissions=True)
-		frappe.db.set_value("Kampanye Donasi", wk, "mitra", mt.name)
-		self.assertTrue(coba())
+		frappe.db.set_value("Kampanye Donasi", tp.name, "mitra", mt.name)
+		self.assertTrue(coba(tp.name))  # titipan buka lewat mitra
+		lembaga(0)  # lembaga dicabut: titipan tetap jalan, dikelola tertutup
+		self.assertTrue(coba(tp.name))
+		with self.assertRaises(frappe.ValidationError):
+			coba(wk)
 
 	def test_hapus_akun_anonimkan(self):
 		self.new_donor()

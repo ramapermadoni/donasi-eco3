@@ -18,19 +18,22 @@ Dicatat: 2026-11-22 (W0). Tanpa rahasia. Semua aturan akuntansi berstatus USULAN
 ## Lingkup produk: ZISWAF (arahan pemilik 2026-11-23)
 Zakat, infak, sedekah, dan wakaf adalah lingkup inti. Fidyah dan qurban tetap dapat menerima donasi (tidak digerbang). Semua donasi Paid, termasuk wakaf/fidyah/qurban, WAJIB tercatat di Donation. Bila jurnalnya diblokir (aturan akuntansi belum diputuskan), donasi muncul di laporan Desk **Donasi Belum Dijurnal** beserta alasannya, untuk diposting susulan. Hanya wakaf yang punya gerbang (lihat F4 di bawah), karena menerima wakaf tanpa nazhir sah bermasalah secara hukum.
 
-## F4 Wakaf: dua mode (arahan pemilik 2026-11-23)
-Pemilik ingin lembaga dapat menjadi nazhir DAN sekaligus menerima wakaf sebagai titipan yang diteruskan ke nazhir mitra. Sistem menyediakan sakelar **Mode wakaf** di Pengaturan Donasi:
+## F4 Wakaf: dua mode, per kampanye (arahan pemilik 2026-11-23)
+Lembaga ingin dapat menjadi nazhir DAN perantara, keduanya bersamaan. **Untuk saat ini: perantara dulu** (Titipan). Mode "Dikelola lembaga" disiapkan di kode tetapi baru dipakai nanti.
 
-| Mode | Syarat agar wakaf dapat menerima donasi |
+Mode ada di tiap kampanye wakaf (field "Mode wakaf", bawaan Titipan):
+
+| Mode kampanye | Syarat agar menerima donasi |
 |---|---|
-| Tutup (bawaan) | tidak pernah; wakaf tidak menerima donasi |
-| Nazhir (dikelola lembaga sendiri) | centang "terdaftar sebagai nazhir" DAN nomor registrasi BWI terisi |
-| Titipan (diteruskan ke nazhir mitra) | kampanye wakaf terikat ke Mitra yang field "No. registrasi nazhir BWI"-nya terisi |
+| Titipan ke nazhir mitra (bawaan) | kampanye terikat ke Mitra yang field "No. registrasi nazhir BWI"-nya terisi |
+| Dikelola lembaga | Pengaturan Donasi: "Lembaga terdaftar sebagai nazhir" dicentang DAN nomor BWI lembaga terisi |
 
-- Gerbang berlaku di `donation.create` (sebelumnya wakaf bisa dibayar; yang terblokir hanya jurnal).
-- **Jurnal wakaf tetap diblokir** (`journals.BLOCKED_FUND_TYPES`). Donasi wakaf yang masuk hanya tercatat di Donation; jurnalnya perlu diposting susulan setelah akuntan/ahli syariah memutuskan.
-- Akuntansi tiap mode berbeda: Titipan = liabilitas 2-1330 (bukan penghasilan lembaga); Nazhir = dana wakaf terpisah, PSAK 412 meminta entitas pelaporan terpisah (opsi c: Company kedua). BELUM diputuskan.
-- Syarat hukum di luar sistem: nazhir badan hukum wajib terdaftar di BWI; wakaf uang lazimnya lewat LKS-PWU. Sistem hanya memeriksa kelengkapan nomor, bukan keabsahannya.
+- Gerbang di `donation.create`. Sebelumnya wakaf bisa dibayar tanpa syarat; yang terblokir hanya jurnal.
+- Wakaf yang sudah ada otomatis diset Titipan (patch `wakaf_titipan`). Selama belum ada Mitra bernomor nazhir yang terikat, wakaf tidak menerima donasi.
+- **Jurnal wakaf tetap diblokir** (`journals.BLOCKED_FUND_TYPES`); donasinya tercatat di Donation dan laporan "Donasi Belum Dijurnal".
+- Titipan: liabilitas 2-1330 (bukan penghasilan lembaga). Dikelola lembaga: dana wakaf terpisah; PSAK 412 meminta entitas pelaporan terpisah (Company kedua). BELUM diputuskan.
+- BELUM ADA: pencatatan penerusan dana ke nazhir (tanggal, jumlah, bukti transfer). Perlu dibangun agar titipan dapat dipertanggungjawabkan.
+- Syarat hukum di luar sistem: nazhir badan hukum terdaftar di BWI; wakaf uang lazimnya lewat LKS-PWU. Sistem hanya memeriksa nomor terisi, bukan keabsahannya.
 
 ## Default (belum dikonfirmasi pengguna; PROVISIONAL)
 | Kode | Keputusan |

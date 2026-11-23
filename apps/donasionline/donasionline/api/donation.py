@@ -19,14 +19,12 @@ def by_public_id(pid):
 
 
 def _wakaf_dibuka(c):
-	"""Gerbang F4. Nazhir: lembaga terdaftar BWI (centang + nomor). Titipan: kampanye terikat ke Mitra bernomor nazhir BWI."""
-	s = frappe.get_cached_doc("Pengaturan Donasi")
-	mode = s.wakaf_mode or "Tutup"
-	if mode.startswith("Nazhir"):
-		return bool(s.nazhir_terdaftar and (s.nazhir_no_bwi or "").strip())
-	if mode.startswith("Titipan"):
+	"""Gerbang F4, per kampanye. Dikelola lembaga: lembaga terdaftar nazhir BWI (centang + nomor).
+	Titipan: kampanye terikat ke Mitra bernomor nazhir BWI. Kedua mode dapat berjalan bersamaan pada kampanye berbeda."""
+	if (c.wakaf_mode or "").startswith("Titipan"):
 		return bool(c.mitra and (frappe.db.get_value("Mitra", c.mitra, "nazhir_no_bwi") or "").strip())
-	return False
+	s = frappe.get_cached_doc("Pengaturan Donasi")
+	return bool(s.nazhir_terdaftar and (s.nazhir_no_bwi or "").strip())
 
 
 @frappe.whitelist(allow_guest=True, methods=["POST"])

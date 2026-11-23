@@ -10,6 +10,7 @@
   "nama_kampanye",
   "program",
   "fund_type",
+  "wakaf_mode",
   "is_active",
   "slug",
   "title",
@@ -162,6 +163,15 @@
    "fieldname": "event_slug",
    "label": "Event Slug",
    "fieldtype": "Data"
+  },
+  {
+   "fieldname": "wakaf_mode",
+   "fieldtype": "Select",
+   "label": "Mode wakaf",
+   "options": "Titipan ke nazhir mitra\nDikelola lembaga",
+   "default": "Titipan ke nazhir mitra",
+   "depends_on": "eval:doc.fund_type=='wakaf'",
+   "description": "Hanya untuk kampanye wakaf. Titipan = lembaga menjadi perantara; kampanye harus terikat ke Mitra yang punya nomor registrasi nazhir BWI, dan dana diteruskan ke nazhir itu. Dikelola lembaga = butuh status nazhir lembaga di Pengaturan Donasi (untuk nanti)."
   }
  ],
  "permissions": [

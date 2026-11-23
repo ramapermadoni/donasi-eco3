@@ -29,7 +29,6 @@
   "org_license",
   "legal_approved",
   "sec_wakaf",
-  "wakaf_mode",
   "nazhir_terdaftar",
   "nazhir_no_bwi"
  ],
@@ -175,30 +174,20 @@
   {
    "fieldname": "sec_wakaf",
    "fieldtype": "Section Break",
-   "label": "Wakaf (F4)"
+   "label": "Wakaf: status lembaga sebagai nazhir (F4)"
   },
   {
    "fieldname": "nazhir_terdaftar",
    "fieldtype": "Check",
-   "label": "Lembaga sudah terdaftar sebagai nazhir (BWI)",
+   "label": "Lembaga ini terdaftar sebagai nazhir (BWI)",
    "default": "0",
-   "description": "Centang hanya bila lembaga benar-benar terdaftar sebagai nazhir di Badan Wakaf Indonesia.",
-   "depends_on": "eval:doc.wakaf_mode && doc.wakaf_mode.startsWith('Nazhir')"
+   "description": "Syarat kampanye wakaf bermode 'Dikelola lembaga'. Centang hanya bila lembaga benar-benar terdaftar di Badan Wakaf Indonesia. Kampanye bermode 'Titipan' tidak memakai ini; syaratnya ada di Mitra."
   },
   {
    "fieldname": "nazhir_no_bwi",
    "fieldtype": "Data",
    "label": "Nomor registrasi nazhir BWI",
-   "depends_on": "eval:doc.wakaf_mode && doc.wakaf_mode.startsWith('Nazhir')",
-   "mandatory_depends_on": "eval:doc.nazhir_terdaftar && doc.wakaf_mode && doc.wakaf_mode.startsWith('Nazhir')"
-  },
-  {
-   "fieldname": "wakaf_mode",
-   "fieldtype": "Select",
-   "label": "Mode wakaf",
-   "options": "Tutup\nNazhir (dikelola lembaga sendiri)\nTitipan (diteruskan ke nazhir mitra)",
-   "default": "Tutup",
-   "description": "Tutup = wakaf tidak menerima donasi. Nazhir = butuh centang & nomor BWI di bawah. Titipan = kampanye wakaf harus terikat ke Mitra yang punya nomor registrasi nazhir BWI. Jurnal wakaf tetap diblokir sampai F4 diputuskan akuntan/ahli syariah."
+   "mandatory_depends_on": "nazhir_terdaftar"
   }
  ],
  "permissions": [
