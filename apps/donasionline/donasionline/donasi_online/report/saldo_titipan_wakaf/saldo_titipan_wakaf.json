@@ -1,0 +1,15 @@
+{
+ "doctype": "Report",
+ "name": "Saldo Titipan Wakaf",
+ "ref_doctype": "Penerusan Wakaf",
+ "report_name": "Saldo Titipan Wakaf",
+ "report_type": "Script Report",
+ "is_standard": "Yes",
+ "module": "Donasi Online",
+ "add_total_row": 1,
+ "roles": [
+  {"role": "System Manager"},
+  {"role": "Akuntan Donasi"},
+  {"role": "Petugas Donasi"}
+ ]
+}

@@ -139,6 +139,50 @@ class TestApi(IntegrationTestCase):
 		with self.assertRaises(frappe.ValidationError):
 			coba(wk)
 
+	def test_penerusan_wakaf_ke_nazhir(self):
+		from donasionline.donasi_online.doctype.penerusan_wakaf.penerusan_wakaf import saldo_titipan
+		from donasionline.donasi_online.report.saldo_titipan_wakaf.saldo_titipan_wakaf import execute as laporan
+
+		wk = frappe.db.get_value("Kampanye Donasi", {"fund_type": "wakaf", "is_active": 1})
+		# donasi wakaf Paid 100.000 (gerbang dibuka: mitra bernazhir terikat)
+		mt = frappe.get_doc({"doctype": "Mitra", "slug": "mitra-nazhir-pw", "mitra_name": "Nazhir PW", "mitra_type": "nazhir", "nazhir_no_bwi": "N.1/TES"}).insert(ignore_permissions=True)
+		frappe.db.set_value("Kampanye Donasi", wk, {"mitra": mt.name, "wakaf_mode": "Titipan ke nazhir mitra"})
+		base = saldo_titipan(wk)
+		pid = donation.create(campaign_id=wk, amount=100000, donor_name="Tes")["donation_id"]
+		self.pay(pid)
+		self.assertEqual(saldo_titipan(wk), base + 100000)
+
+		def baru(jumlah, ref="TRF-1", **kw):
+			return frappe.get_doc({"doctype": "Penerusan Wakaf", "kampanye": wk, "tanggal": nowdate(), "jumlah": jumlah, "referensi_transfer": ref, **kw})
+
+		with self.assertRaises(frappe.ValidationError):
+			baru(0).insert(ignore_permissions=True)
+		with self.assertRaises(frappe.ValidationError):  # melebihi saldo
+			baru(base + 100001).insert(ignore_permissions=True)
+		with self.assertRaises(frappe.ValidationError):  # bukan wakaf
+			frappe.get_doc({"doctype": "Penerusan Wakaf", "kampanye": "sedekah", "tanggal": nowdate(), "jumlah": 1000}).insert(ignore_permissions=True)
+		d1 = baru(60000, ref="").insert(ignore_permissions=True)
+		self.assertEqual((d1.mitra, d1.nazhir_no_bwi), (mt.name, "N.1/TES"))
+		with self.assertRaises(frappe.ValidationError):  # referensi wajib saat Submit
+			d1.submit()
+		d1.reload()
+		self.assertEqual(d1.docstatus, 0)
+		d1.referensi_transfer = "TRF-001"
+		d1.save(ignore_permissions=True)
+		d1.submit()
+		self.assertEqual(saldo_titipan(wk), base + 40000)
+		with self.assertRaises(frappe.ValidationError):  # sisa 40.000 + base; melebihi
+			baru(base + 40001).insert(ignore_permissions=True)
+		_, rows = laporan({})
+		r = next(x for x in rows if x["kampanye"] == wk)
+		self.assertEqual((r["diteruskan"] >= 60000, r["sisa"]), (True, base + 40000))
+		d1.cancel()  # pembatalan mengembalikan saldo
+		self.assertEqual(saldo_titipan(wk), base + 100000)
+		# mitra tanpa nomor BWI: ditolak
+		frappe.db.set_value("Mitra", mt.name, "nazhir_no_bwi", "")
+		with self.assertRaises(frappe.ValidationError):
+			baru(1000).insert(ignore_permissions=True)
+
 	def test_hapus_akun_anonimkan(self):
 		self.new_donor()
 		pid = self.make_donation()

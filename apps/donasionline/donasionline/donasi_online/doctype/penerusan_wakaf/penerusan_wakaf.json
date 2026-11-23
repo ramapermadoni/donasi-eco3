@@ -1,0 +1,148 @@
+{
+ "doctype": "DocType",
+ "name": "Penerusan Wakaf",
+ "module": "Donasi Online",
+ "custom": 0,
+ "engine": "InnoDB",
+ "is_submittable": 1,
+ "autoname": "format:PWK-{#####}",
+ "field_order": [
+  "kampanye",
+  "tanggal",
+  "jumlah",
+  "column_break_1",
+  "mitra",
+  "nazhir_no_bwi",
+  "saldo_sebelum",
+  "sec_bukti",
+  "referensi_transfer",
+  "bukti",
+  "catatan",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "kampanye",
+   "label": "Kampanye wakaf",
+   "fieldtype": "Link",
+   "options": "Kampanye Donasi",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "tanggal",
+   "label": "Tanggal kirim",
+   "fieldtype": "Date",
+   "reqd": 1,
+   "in_list_view": 1,
+   "default": "Today"
+  },
+  {
+   "fieldname": "jumlah",
+   "label": "Jumlah diteruskan (Rp)",
+   "fieldtype": "Currency",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "label": "",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mitra",
+   "label": "Nazhir tujuan (Mitra)",
+   "fieldtype": "Link",
+   "options": "Mitra",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "nazhir_no_bwi",
+   "label": "No. registrasi nazhir BWI",
+   "fieldtype": "Data",
+   "read_only": 1
+  },
+  {
+   "fieldname": "saldo_sebelum",
+   "label": "Saldo titipan sebelum (Rp)",
+   "fieldtype": "Currency",
+   "read_only": 1,
+   "description": "Diterima (Paid) dikurangi penerusan yang sudah di-submit, saat dokumen disimpan."
+  },
+  {
+   "fieldname": "sec_bukti",
+   "label": "Bukti",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "referensi_transfer",
+   "label": "Referensi transfer / no. bukti",
+   "fieldtype": "Data",
+   "description": "Wajib saat Submit."
+  },
+  {
+   "fieldname": "bukti",
+   "label": "Berkas bukti transfer",
+   "fieldtype": "Attach",
+   "description": "Disimpan privat."
+  },
+  {
+   "fieldname": "catatan",
+   "label": "Catatan",
+   "fieldtype": "Small Text"
+  },
+  {
+   "fieldname": "amended_from",
+   "label": "Amended From",
+   "fieldtype": "Link",
+   "options": "Penerusan Wakaf",
+   "read_only": 1,
+   "no_copy": 1,
+   "print_hide": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "links": [],
+ "track_changes": 1,
+ "modified": "2026-11-23 12:00:00.000000",
+ "creation": "2026-11-23 12:00:00.000000",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "print": 1
+  },
+  {
+   "role": "Akuntan Donasi",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "write": 1,
+   "create": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "print": 1
+  },
+  {
+   "role": "Petugas Donasi",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "write": 1,
+   "create": 1,
+   "print": 1
+  }
+ ]
+}

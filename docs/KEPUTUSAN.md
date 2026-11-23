@@ -32,7 +32,7 @@ Mode ada di tiap kampanye wakaf (field "Mode wakaf", bawaan Titipan):
 - Wakaf yang sudah ada otomatis diset Titipan (patch `wakaf_titipan`). Selama belum ada Mitra bernomor nazhir yang terikat, wakaf tidak menerima donasi.
 - **Jurnal wakaf tetap diblokir** (`journals.BLOCKED_FUND_TYPES`); donasinya tercatat di Donation dan laporan "Donasi Belum Dijurnal".
 - Titipan: liabilitas 2-1330 (bukan penghasilan lembaga). Dikelola lembaga: dana wakaf terpisah; PSAK 412 meminta entitas pelaporan terpisah (Company kedua). BELUM diputuskan.
-- BELUM ADA: pencatatan penerusan dana ke nazhir (tanggal, jumlah, bukti transfer). Perlu dibangun agar titipan dapat dipertanggungjawabkan.
+- **Penerusan ke nazhir (ADA):** DocType `Penerusan Wakaf` (submittable). Saldo titipan per kampanye = donasi wakaf Paid - penerusan yang sudah di-Submit; jumlah tidak boleh melebihi saldo. Tujuan = Mitra kampanye yang bernomor nazhir BWI. Submit wajib berisi referensi transfer; setelah Submit tidak dapat diubah (hanya Cancel lalu Amend). Petugas Donasi dapat membuat draf; hanya Akuntan Donasi/System Manager yang dapat Submit/Cancel. Laporan Desk **Saldo Titipan Wakaf** menampilkan diterima / diteruskan / sisa per kampanye. PROVISIONAL: nilai bruto (fee gateway menunggu F25); belum ada jurnal.
 - Syarat hukum di luar sistem: nazhir badan hukum terdaftar di BWI; wakaf uang lazimnya lewat LKS-PWU. Sistem hanya memeriksa nomor terisi, bukan keabsahannya.
 
 ## Default (belum dikonfirmasi pengguna; PROVISIONAL)
