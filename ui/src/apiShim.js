@@ -12,6 +12,8 @@ const R = [
   ['POST', /^\/api\/auth\/otp\/verify$/, 'auth.verify_otp'],
   ['POST', /^\/api\/auth\/register$/, 'auth.register_donor'],
   ['POST', /^\/api\/auth\/logout$/, 'auth.logout'],
+  ['POST', /^\/api\/auth\/delete-account$/, 'auth.delete_account'],
+  ['POST', /^\/api\/donor\/avatar$/, 'auth.set_avatar'],
   ['GET', /^\/api\/auth\/google\/status$/, 'auth.google_status'],
   ['GET', /^\/api\/donor\/stats$/, 'donor.stats'],
   ['GET', /^\/api\/donor\/donations$/, 'donor.donations'],
@@ -90,6 +92,11 @@ async function shimmed(input, init = {}) {
     const qs = new URLSearchParams(params).toString()
     if (qs) target += '?' + qs
     opts = { method: 'GET', headers, credentials: CRED }
+  } else if (init.body instanceof FormData) {
+    // unggah berkas: biarkan browser mengisi Content-Type (batas multipart)
+    delete headers['Content-Type']
+    if (csrf) headers['X-Frappe-CSRF-Token'] = csrf
+    opts = { method: 'POST', headers, body: init.body, credentials: CRED }
   } else {
     headers['Content-Type'] = 'application/json'
     if (csrf) headers['X-Frappe-CSRF-Token'] = csrf
@@ -106,6 +113,8 @@ async function shimmed(input, init = {}) {
     return new Response(JSON.stringify({ error: msg }), { status: res.status, headers: { 'Content-Type': 'application/json' } })
   }
   const data = j.message === undefined ? j : j.message
+  // berkas unggahan disimpan relatif (/files/...); pada UI terpisah awali dengan alamat server
+  if (BASE && data) { for (const o of [data, data.user]) if (o && typeof o.avatarUrl === 'string' && o.avatarUrl.startsWith('/files/')) o.avatarUrl = BASE + o.avatarUrl }
   if (data && data.csrf_token) csrf = data.csrf_token
   if (data && data.dev_code) devBanner(data.dev_code)
   return new Response(JSON.stringify(data === null ? {} : data), { status: 200, headers: { 'Content-Type': 'application/json' } })

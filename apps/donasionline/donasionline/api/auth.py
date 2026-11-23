@@ -1,4 +1,5 @@
 """Auth/OTP/donor. Mengganti /api/auth/*. FAKTA: bentuk dari auth.js; ASUMSI: aturan server (OTP 6 digit, 5 menit, 5 percobaan)."""
+import re
 import secrets
 
 import frappe
@@ -125,13 +126,75 @@ def delete_account(confirm=None):
 	d = current_donor()
 	if confirm != "HAPUS":
 		frappe.throw(_("Ketik HAPUS untuk konfirmasi"), frappe.ValidationError)
-	frappe.db.sql("update `tabDonation` set donor=NULL, donor_name='Hamba Allah', donor_phone=NULL where donor=%s", d.name)
+	# donasi: lepas dari donor, kosongkan nama/telepon dan ucapan doa (bisa memuat data pribadi)
+	own = frappe.get_all("Donation", {"donor": d.name}, pluck="name")
+	frappe.db.sql("update `tabDonation` set donor=NULL, donor_name='Hamba Allah', donor_phone=NULL, message=NULL where donor=%s", d.name)
+	# nama pengamin pada doa-doa itu, dan amin yang pernah diberikan akun ini
+	for dn in own:
+		frappe.db.set_value("Doa Amin", {"donation": dn}, "actor_name", None)
+	frappe.db.sql("update `tabDoa Amin` set actor_name=NULL where actor=%s", d.name)
+	# jadwal rutin: hentikan permanen (tidak ada pengingat/penagihan lagi)
+	for sch in frappe.get_all("Jadwal Rutin", {"donor": d.name, "status": ["!=", "Dibatalkan"]}, pluck="name"):
+		s = frappe.get_doc("Jadwal Rutin", sch)
+		s.status, s.paused, s.cancelled_at, s.prayer_note = "Dibatalkan", 0, frappe.utils.today(), None
+		s.save(ignore_permissions=True)
+	_hapus_file_avatar(d.avatar_url)
 	user = d.user
 	d.update({"full_name": "Akun dihapus", "phone": f"del-{d.name}", "email": None, "avatar_url": None, "birthdate": None, "city": None, "job": None, "goal": None, "source": None, "user": None})
 	d.save(ignore_permissions=True)
 	frappe.db.set_value("User", user, "enabled", 0)
 	frappe.set_user("Guest")
 	return {"ok": True}
+
+
+PRESET_RE = re.compile(r"^https://sedekah\.id/api/media/media/2026/08/[0-9a-f-]{36}\.webp$")
+AVATAR_MAX = 2 * 1024 * 1024
+AVATAR_TYPES = {b"\xff\xd8\xff": "jpg", b"\x89PNG": "png"}
+
+
+def _hapus_file_avatar(url):
+	"""Hapus berkas avatar unggahan lama (hanya yang kita simpan sendiri: /files/avatar-...)."""
+	if url and url.startswith("/files/avatar-"):
+		fn = frappe.db.get_value("File", {"file_url": url})
+		if fn:
+			frappe.delete_doc("File", fn, ignore_permissions=True, force=True)
+
+
+def _sniff(data):
+	"""Jenis gambar dari isi berkas (bukan dari nama/header kiriman)."""
+	for sig, ext in AVATAR_TYPES.items():
+		if data.startswith(sig):
+			return ext
+	if data[:4] == b"RIFF" and data[8:12] == b"WEBP":
+		return "webp"
+	return None
+
+
+@frappe.whitelist(methods=["POST"])
+def set_avatar(preset=None):
+	"""Ganti foto profil: `preset` (URL bawaan yang diizinkan) atau berkas unggahan `file` (JPG/PNG/WebP, maks 2 MB)."""
+	d = current_donor()
+	f = frappe.request.files.get("file") if getattr(frappe, "request", None) else None
+	if f:
+		data = f.stream.read(AVATAR_MAX + 1)
+		if len(data) > AVATAR_MAX:
+			frappe.throw(_("Ukuran foto maksimal 2 MB"), frappe.ValidationError)
+		ext = _sniff(data)
+		if not ext:
+			frappe.throw(_("Format foto harus JPG, PNG, atau WebP"), frappe.ValidationError)
+		name = f"avatar-{secrets.token_urlsafe(12)}.{ext}"
+		doc = frappe.get_doc({"doctype": "File", "file_name": name, "content": data, "is_private": 0}).insert(ignore_permissions=True)
+		url = doc.file_url
+	elif preset and PRESET_RE.match(preset):
+		url = preset
+	else:
+		frappe.throw(_("Foto tidak valid"), frappe.ValidationError)
+	old = d.avatar_url
+	d.avatar_url = url
+	d.save(ignore_permissions=True)
+	if old != url:
+		_hapus_file_avatar(old)
+	return {"ok": True, "avatarUrl": url}
 
 
 @frappe.whitelist(allow_guest=True)

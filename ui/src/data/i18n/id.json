@@ -402,7 +402,7 @@
   "deleteAccount": "Hapus Akun",
   "deleteTitle": "Hapus akun Anda?",
   "deleteWarn1": "Tindakan ini tidak dapat dibatalkan. Data profil Anda (nama, email, nomor WhatsApp, foto) akan dihapus dan jadwal Shadaqa Rutin dihentikan permanen.",
-  "deleteWarn2": "Rekam transaksi donasi tetap disimpan sesuai kewajiban pencatatan keuangan lembaga, namun tidak lagi terhubung dengan profil Anda.",
+  "deleteWarn2": "Rekam transaksi donasi tetap disimpan sesuai kewajiban pencatatan keuangan lembaga, namun tidak lagi terhubung dengan profil Anda. Ucapan doa pada donasi Anda dikosongkan.",
   "deleteConfirmLabel": "Saya memahami konsekuensinya dan ingin menghapus akun saya",
   "deleteConfirmBtn": "Ya, Hapus Akun Saya",
   "deleteDeleting": "Menghapus…",

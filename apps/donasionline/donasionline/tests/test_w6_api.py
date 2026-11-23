@@ -113,6 +113,60 @@ class TestApi(IntegrationTestCase):
 		self.assertIsNone(dn.donor)
 		self.assertEqual(dn.donor_name, "Hamba Allah")
 
+	def test_hapus_akun_kosongkan_doa_jadwal_dan_pengamin(self):
+		import json
+
+		self.new_donor()
+		pid = self.make_donation(message="Doa saya, hubungi 0812xxxx", amount=7000)
+		self.pay(pid)
+		dname = frappe.db.get_value("Donation", {"gateway_order_id": pid}, "name")
+		owner = frappe.session.user
+		frappe.set_user("Guest")
+		doa.amin(pid, 2)
+		frappe.set_user(owner)
+		today = nowdate()
+		sch = {"frequency": "DAILY", "startDate": today, "hourLocal": 8, "amount": 3000, "target": {"type": "campaign", "slug": "sedekah"},
+			"isAnonymous": False, "reminders": {"bell": True, "wa": True, "email": False}, "status": "ACTIVE", "pauses": [], "genFrom": today}
+		sid = recurring.save_schedule(json.dumps(sch))["id"]
+		auth.delete_account("HAPUS")
+		self.assertIsNone(frappe.db.get_value("Donation", dname, "message"))
+		self.assertEqual(frappe.db.get_value("Donation", dname, "amount"), 7000)  # catatan keuangan tetap
+		self.assertEqual(frappe.db.get_value("Jadwal Rutin", sid, "status"), "Dibatalkan")
+		self.assertTrue(frappe.db.get_value("Jadwal Rutin", sid, "cancelled_at"))
+		self.assertEqual(frappe.db.count("Doa Amin", {"donation": dname, "actor_name": ["is", "set"]}), 0)
+
+	def test_avatar(self):
+		import io
+		from types import SimpleNamespace
+
+		self.new_donor()
+		preset = "https://sedekah.id/api/media/media/2026/08/300b474a-aa73-4a20-8096-2586b8ec8b5e.webp"
+		self.assertEqual(auth.set_avatar(preset=preset)["avatarUrl"], preset)
+		for bad in ("https://evil.example/x.webp", "javascript:alert(1)", "", None):
+			with self.assertRaises(frappe.ValidationError):
+				auth.set_avatar(preset=bad)
+
+		def kirim(data):
+			frappe.local.request = SimpleNamespace(files={"file": SimpleNamespace(stream=io.BytesIO(data))}, host="uji.localhost", headers={})
+
+		try:
+			kirim(b"MZ\x90\x00 bukan gambar")
+			with self.assertRaises(frappe.ValidationError):
+				auth.set_avatar()
+			kirim(b"\x89PNG\r\n\x1a\n" + b"0" * (2 * 1024 * 1024))
+			with self.assertRaises(frappe.ValidationError):  # >2 MB
+				auth.set_avatar()
+			kirim(b"RIFF\x10\x00\x00\x00WEBPVP8 " + b"0" * 8)
+			url = auth.set_avatar()["avatarUrl"]
+			self.assertRegex(url, r"^/files/avatar-[\w-]+\.webp$")
+			self.assertEqual(frappe.db.get_value("Donor", {"user": frappe.session.user}, "avatar_url"), url)
+			self.assertTrue(frappe.db.exists("File", {"file_url": url}))
+			frappe.local.request.files = {}
+			auth.set_avatar(preset=preset)  # ganti: berkas lama ikut dihapus
+			self.assertFalse(frappe.db.exists("File", {"file_url": url}))
+		finally:
+			frappe.local.request = None
+
 	def test_profil_dan_donor(self):
 		frappe.set_user("Guest")
 		with self.assertRaises(frappe.AuthenticationError):

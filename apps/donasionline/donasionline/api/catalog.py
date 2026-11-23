@@ -14,6 +14,7 @@ ENDPOINTS = [
 	("GET", "/api/donor/stats", "donor.stats", False, "test_donasi_pembayaran_webhook_paid", ""),
 	("GET", "/api/donor/donations", "donor.donations", False, "test_donasi_pembayaran_webhook_paid", ""),
 	("GET", "/api/donor/doa", "donor.my_doa", False, "test_doa_amin_notifikasi", ""),
+	("POST", "/api/donor/avatar", "auth.set_avatar", False, "test_avatar", "preset atau unggah JPG/PNG/WebP ≤2 MB"),
 	("PATCH", "/api/donor/profile", "donor.update_profile", False, "test_profil_dan_donor", ""),
 	("GET", "/api/donor/gamification", "gamification.get", False, "test_gamifikasi_klaim", "rumus poin = ASUMSI"),
 	("POST", "/api/donor/gamification/claim", "gamification.claim_reward", False, "test_gamifikasi_klaim", "klaim mati bawaan"),

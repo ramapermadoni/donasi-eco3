@@ -165,7 +165,8 @@ export function logout() {
   api('/api/auth/logout', { method: 'POST' }).catch(() => {})
 }
 export async function removeAccount() {
-  // Deliberately NOT wired to the real /api/auth/delete-account: it would delete the real sedekah.id account.
-  if (REAL) throw new Error('Hapus akun dinonaktifkan di mode terhubung ke sedekah.id asli.')
-  return demo_removeAccount()
+  if (!REAL) return demo_removeAccount()
+  const r = await api('/api/auth/delete-account', { method: 'POST', body: { confirm: 'HAPUS' } })
+  if (!r || !r.ok) throw new Error((r && r.error) || t('akun.errSaveFailed'))
+  auth.user = null
 }
