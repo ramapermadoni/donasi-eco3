@@ -140,9 +140,9 @@ class TestApi(IntegrationTestCase):
 		from types import SimpleNamespace
 
 		self.new_donor()
-		preset = "https://sedekah.id/api/media/media/2026/08/300b474a-aa73-4a20-8096-2586b8ec8b5e.webp"
+		preset = "/avatars/a01.webp"
 		self.assertEqual(auth.set_avatar(preset=preset)["avatarUrl"], preset)
-		for bad in ("https://evil.example/x.webp", "javascript:alert(1)", "", None):
+		for bad in ("https://evil.example/x.webp", "/avatars/a18.webp", "/avatars/../x.webp", "javascript:alert(1)", "", None):
 			with self.assertRaises(frappe.ValidationError):
 				auth.set_avatar(preset=bad)
 

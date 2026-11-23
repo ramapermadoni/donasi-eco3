@@ -147,7 +147,7 @@ def delete_account(confirm=None):
 	return {"ok": True}
 
 
-PRESET_RE = re.compile(r"^https://sedekah\.id/api/media/media/2026/08/[0-9a-f-]{36}\.webp$")
+PRESET_RE = re.compile(r"^/avatars/a(0[1-9]|1[0-7])\.webp$")  # salinan lokal di ui/public/avatars
 AVATAR_MAX = 2 * 1024 * 1024
 AVATAR_TYPES = {b"\xff\xd8\xff": "jpg", b"\x89PNG": "png"}
 

@@ -57,7 +57,7 @@ function startEdit() { draft.name = auth.user.name; draft.email = auth.user.emai
 function cancelEdit() { editing.value = false; error.value = '' }
 const saveEdit = () => run(async () => { await saveProfile({ name: draft.name.trim(), email: draft.email.trim() }); editing.value = false })
 const since = computed(() => { try { return new Date(auth.user.donorSince).toLocaleDateString(bcp(), { day: 'numeric', month: 'long', year: 'numeric' }) } catch { return '' } })
-const PRESETS = ['300b474a-aa73-4a20-8096-2586b8ec8b5e','f12c871f-fb94-4305-8bff-fd43406653bd','62990a50-5ab8-4606-a604-5d7a52f42725','7a968e53-3c7b-4035-9973-d6097184131b','e4ceabe5-5159-43ee-ab57-253a49672a96','ba2db7c9-7e85-4ce2-ba2d-9b3fe54f9388','f6171463-a235-4716-934b-adaefaec91c7','ca95dd83-3ca6-46c9-af27-a7d670226394','190617e2-6846-4718-a772-720e686acc9f','46dc7a66-8f2e-45ac-aa0c-dd32d25bbf30','03fae261-8afa-4b9c-810c-4e85e643a8cc','ebf3fff5-7460-4850-a7ef-482821450a97','1cff1bbb-ce42-4b5c-8357-dae50e2c519c','8c2f0623-da9f-4941-8f1c-4e47bcb08c9a','634986b0-976d-4166-8bcc-e9c8d0c09615','719cc4c9-e832-484d-8e85-e03953cf2df9','dc37c4ca-dd4e-49f4-b724-250fb8c14aa0'].map((id) => `https://sedekah.id/api/media/media/2026/08/${id}.webp`)
+const PRESETS = Array.from({ length: 17 }, (_, i) => `/avatars/a${String(i + 1).padStart(2, '0')}.webp`) // salinan lokal di ui/public/avatars
 // avatar bawaan: hash dari telepon/email/nama (persis defaultAvatar di sedekah.id)
 function defaultAvatar(seed) { let a = 0; for (let i = 0; i < seed.length; i++) a = (31 * a + seed.charCodeAt(i)) | 0; return PRESETS[Math.abs(a) % PRESETS.length] }
 const avatar = computed(() => auth.user?.avatarUrl || defaultAvatar(String(auth.user?.phone || auth.user?.email || auth.user?.name || 'u')))
