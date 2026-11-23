@@ -444,6 +444,8 @@ class TestApi(IntegrationTestCase):
 		self.pay(pid)
 		owner_user = frappe.session.user
 		self.assertEqual(doa.list_doa(take=5)[0]["message"], "Semoga berkah")
+		self.assertNotIn("Tes Donor", str(doa.list_doa(take=5)))  # nama lengkap tidak keluar di API publik
+		self.assertIn("T**", doa.list_doa(take=5)[0]["donor_name"])
 		self.assertTrue(doa.for_amin(limit=30))
 		frappe.set_user("Guest")
 		doa.amin(pid, 3)

@@ -27,9 +27,12 @@ Instalasi baru membawa **konten contoh**: kampanye, mitra, banner, video, penyal
 ## Halaman yang membaca dari server setelah dibersihkan
 Beranda, Kampanye, Mitra, dan Video (lewat `/api/content/bundle`), serta **Detail Penyaluran** (`/api/penyaluran/:slug`), **Detail Artikel** (`/api/artikel/:slug`, termasuk artikel terkait), **nominal terkumpul dan persentase** di Detail Kampanye (angka persis dari donasi berstatus Paid, diambil setiap halaman dibuka lewat `/api/campaigns/:slug`), dan **Kabar terbaru** tiap kampanye (`/api/campaigns/:slug/updates`, yaitu Penyaluran yang diikat ke kampanye). Kabar kampanye muncul dengan mengisi field Kampanye pada dokumen Penyaluran.
 
+## Doa: selalu dari server
+Halaman Doa dan bagian Doa di Beranda **selalu** membaca dari server (donasi berstatus Paid yang berisi ucapan doa), tanpa menunggu konten contoh dibersihkan. Alasannya: `doa.json` berisi doa dan nama pengguna situs lain, bukan konten contoh biasa. Berkas itu hanya dipakai di mode demo (`VITE_REAL_API=0`). Tombol "Aminkan" tersimpan di server (maksimal 10 per orang per doa), dan nama donatur di API publik selalu disamarkan ("T*** D***"). Sebelum ada donasi berisi doa, halaman menampilkan "Belum ada doa."
+
 ## Yang BELUM ikut berpindah ke server
 Halaman berikut masih membaca berkas statis di dalam bundel UI. Isinya tetap konten contoh sampai disambungkan:
-- **Doa**, gamifikasi, misi Jalan Kebaikan, dan teks kampanye berbahasa Inggris.
+- Gamifikasi, misi Jalan Kebaikan, dan teks kampanye berbahasa Inggris.
 - Halaman Qurban (`data/qurban.js`).
 Setelah dibersihkan, halaman-halaman itu bisa menampilkan isi yang tidak cocok dengan data server. Sambungkan sebelum rilis, atau sembunyikan menunya.
 

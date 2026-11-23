@@ -14,6 +14,7 @@ const list = ref(props.items.map((d) => ({ id: d.name + d.doa, message: d.doa, n
 const loading = ref(!props.items.length)
 const amins = ref({})
 const cap = 10
+const REAL = import.meta.env.VITE_REAL_API !== '0'
 
 const mask = maskName
 // nama anonim, nominal, dan waktu diformat saat render supaya ikut berganti bahasa tanpa memuat ulang
@@ -23,6 +24,10 @@ function amin(d) {
   if ((amins.value[d.id] || 0) >= cap) return
   amins.value = { ...amins.value, [d.id]: (amins.value[d.id] || 0) + 1 }
   d.amin++
+  if (REAL && !String(d.id).startsWith('f')) { // simpan ke server; bila jatah habis di server, batalkan hitungan lokal
+    fetch(`/api/doa/${encodeURIComponent(d.id)}/amin`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ delta: 1 }) })
+      .then((r) => r.json()).then((j) => { if (j && j.capped) { d.amin--; amins.value = { ...amins.value, [d.id]: cap } } }).catch(() => {})
+  }
   lsSet('dtp_doa_amins', JSON.stringify(amins.value))
 }
 onMounted(async () => {
@@ -37,7 +42,8 @@ onMounted(async () => {
       usd: e.currency === 'USD' ? e.amount : null, amt: e.currency === 'USD' ? null : e.amount, iso: e.paid_at,
     }))
   } catch (e) {
-    list.value = fallback.slice(0, 5).map((e, n) => ({ id: 'f' + n, message: e.text, name: e.name, amount: e.amount, when: e.when, amin: Number(e.amin) || 0 }))
+    // doa.json = doa pengguna situs lain: hanya untuk mode demo, tidak pernah dipakai di mode terhubung
+    list.value = REAL ? [] : fallback.slice(0, 5).map((e, n) => ({ id: 'f' + n, message: e.text, name: e.name, amount: e.amount, when: e.when, amin: Number(e.amin) || 0 }))
   }
   loading.value = false
 })

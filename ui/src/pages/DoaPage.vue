@@ -1,20 +1,42 @@
 <script setup>
-import { ref, reactive, computed } from 'vue'
+import { ref, reactive, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { t, lp, isEn } from '../i18n'
 import AppHeader from '../components/AppHeader.vue'
 import Icon from '../components/Icon.vue'
 import BottomNav from '../components/BottomNav.vue'
 import doas from '../data/doa.json'
+import { timeAgo } from '../utils/time'
+import { maskName } from '../utils/text'
+import { rpTight } from '../utils/format'
 import data from '../data/sedekah'
 
 // Replace with Frappe: GET /api/doa?take=9&skip=N  and  POST /api/doa/<id>/amin (max 10 per donor/doa)
 const router = useRouter()
 const PAGE = 9
 const MAX_AMIN = 10
-const list = reactive(doas.map((d) => ({ ...d, mine: 0 })))
+// Mode terhubung (bawaan): doa SELALU dari server (donasi berstatus Paid yang berisi ucapan doa). Berkas doa.json hanya untuk mode demo
+// (VITE_REAL_API=0): isinya doa pengguna situs lain, jadi tidak boleh tampil di produk ini.
+const REAL = import.meta.env.VITE_REAL_API !== '0'
+const list = reactive(REAL ? [] : doas.map((d) => ({ ...d, mine: 0 })))
+const loaded = ref(!REAL)
+const more = ref(false)
+const toView = (e) => ({
+  id: e.id, text: e.message, name: e.is_anonymous ? 'Teman Sedekah' : maskName(e.donor_name) || 'Teman Sedekah', iso: e.paid_at,
+  amount: e.currency === 'USD' ? '$' + (e.amount / 100).toFixed(2) : rpTight(Number(e.amount)), amin: e.amin_count || 0, mine: 0,
+})
+async function fetchPage() {
+  try {
+    const r = await fetch(`/api/doa?take=${PAGE}&skip=${list.length}`)
+    const j = r.ok ? await r.json() : []
+    list.push(...(Array.isArray(j) ? j : []).map(toView))
+    more.value = Array.isArray(j) && j.length === PAGE
+  } catch { more.value = false }
+  loaded.value = true
+}
+onMounted(() => { if (REAL) fetchPage() })
 const shown = ref(PAGE)
-const visible = computed(() => list.slice(0, shown.value))
+const visible = computed(() => (REAL ? list : list.slice(0, shown.value)))
 const popup = ref(false)
 let aminCount = 0
 
@@ -32,6 +54,10 @@ function sparkle(el) {
 function amin(d, n, ev) {
   if (d.mine >= MAX_AMIN) return
   d.mine++; d.amin++
+  if (REAL && d.id) { // simpan ke server; bila jatah 10 amin sudah habis di sisi server, batalkan hitungan lokal
+    fetch(`/api/doa/${encodeURIComponent(d.id)}/amin`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ delta: 1 }) })
+      .then((r) => r.json()).then((j) => { if (j && j.capped) { d.amin--; d.mine = MAX_AMIN } }).catch(() => {})
+  }
   if (ev && ev.currentTarget) sparkle(ev.currentTarget)
   if (++aminCount === 1) setTimeout(() => (popup.value = true), 600) // invitation after first amin
 }
@@ -63,7 +89,7 @@ const programs = data.campaigns.slice(0, 9)
               <p style="font-size:11px;font-weight:700;color:#1a1a1a" class="truncate">{{ d.name === 'Teman Sedekah' ? t('doa.anonymousDonor') : d.name }}</p>
               <div class="flex items-center justify-between mt-0.5">
                 <span style="font-size:10px;font-weight:700;color:var(--lime-text)">{{ money(d.amount) }}</span>
-                <span style="font-size:9px;color:#9ca3af">{{ ago(d.when) }}</span>
+                <span style="font-size:9px;color:#9ca3af">{{ d.iso ? timeAgo(d.iso) : ago(d.when) }}</span>
               </div>
               <button type="button" :disabled="d.mine >= MAX_AMIN" :aria-label="d.mine >= MAX_AMIN ? t('doa.aminCappedAria') : t('doa.aminAria')" class="amin-btn mt-2 w-full flex items-center justify-center gap-1.5 rounded-lg py-1.5 px-2 transition-all relative overflow-visible"
                 :style="{ background: d.mine >= MAX_AMIN ? '#f3f4f6' : 'linear-gradient(135deg, var(--lime) 0%, var(--lime-dark) 100%)', border: d.mine >= MAX_AMIN ? '1px solid #e5e7eb' : '1px solid var(--lime-dark)', cursor: d.mine >= MAX_AMIN ? 'not-allowed' : 'pointer', opacity: d.mine >= MAX_AMIN ? 0.7 : 1 }" @click="amin(d, n, $event)">
@@ -74,7 +100,8 @@ const programs = data.campaigns.slice(0, 9)
           </div>
         </div>
 
-        <button v-if="shown < list.length" class="mt-5 w-full py-3 rounded-xl border-2 border-dashed transition-all flex items-center justify-center gap-2 disabled:opacity-50" style="border-color:var(--lime);background:color-mix(in srgb, var(--lime) 5%, transparent);font-size:13px;font-weight:700;color:var(--lime-text)" @click="shown += PAGE">{{ t('doa.more') }}</button>
+        <p v-if="loaded && !list.length" class="mt-6 text-center" style="font-size:12px;color:#9ca3af">{{ t('doa.empty') }}</p>
+        <button v-if="REAL ? more : shown < list.length" class="mt-5 w-full py-3 rounded-xl border-2 border-dashed transition-all flex items-center justify-center gap-2 disabled:opacity-50" style="border-color:var(--lime);background:color-mix(in srgb, var(--lime) 5%, transparent);font-size:13px;font-weight:700;color:var(--lime-text)" @click="REAL ? fetchPage() : (shown += PAGE)">{{ t('doa.more') }}</button>
         <p v-else-if="list.length > PAGE" class="mt-4 text-center" style="font-size:11px;color:#9ca3af">{{ t('doa.allShown') }}</p>
       </section>
 

@@ -11,7 +11,7 @@ MAX_AMIN = 10
 
 
 def _row(r):
-	name = "Hamba Allah" if r.is_anonymous else r.donor_name
+	name = "Hamba Allah" if r.is_anonymous else mask_name(r.donor_name)  # API publik: nama selalu disamarkan
 	return {"id": r.gateway_order_id, "message": r.message, "amin_count": r.amin_count or 0, "is_anonymous": bool(r.is_anonymous), "donor_name": name, "currency": r.currency or "IDR", "amount": r.amount, "paid_at": r.paid_at}
 
 
