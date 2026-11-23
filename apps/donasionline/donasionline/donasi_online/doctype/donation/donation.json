@@ -50,7 +50,12 @@
   "event_slug",
   "baik_session",
   "recurring_schedule",
-  "amin_count"
+  "amin_count",
+  "sec_moderasi",
+  "doa_disembunyikan",
+  "doa_disembunyikan_alasan",
+  "doa_disembunyikan_oleh",
+  "doa_disembunyikan_pada"
  ],
  "fields": [
   {
@@ -323,6 +328,39 @@
    "fieldname": "amin_count",
    "label": "Jumlah amin",
    "fieldtype": "Int",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sec_moderasi",
+   "label": "Moderasi doa",
+   "fieldtype": "Section Break",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "doa_disembunyikan",
+   "label": "Doa disembunyikan dari publik",
+   "fieldtype": "Check",
+   "default": "0",
+   "read_only": 1,
+   "description": "Diubah lewat laporan 'Moderasi Doa' (hanya Petugas Donasi/System Manager)."
+  },
+  {
+   "fieldname": "doa_disembunyikan_alasan",
+   "label": "Alasan disembunyikan",
+   "fieldtype": "Small Text",
+   "read_only": 1
+  },
+  {
+   "fieldname": "doa_disembunyikan_oleh",
+   "label": "Disembunyikan oleh",
+   "fieldtype": "Link",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "doa_disembunyikan_pada",
+   "label": "Disembunyikan pada",
+   "fieldtype": "Datetime",
    "read_only": 1
   }
  ],

@@ -30,6 +30,8 @@ Beranda, Kampanye, Mitra, dan Video (lewat `/api/content/bundle`), serta **Detai
 ## Doa: selalu dari server
 Halaman Doa dan bagian Doa di Beranda **selalu** membaca dari server (donasi berstatus Paid yang berisi ucapan doa), tanpa menunggu konten contoh dibersihkan. Alasannya: `doa.json` berisi doa dan nama pengguna situs lain, bukan konten contoh biasa. Berkas itu hanya dipakai di mode demo (`VITE_REAL_API=0`). Tombol "Aminkan" tersimpan di server (maksimal 10 per orang per doa), dan nama donatur di API publik selalu disamarkan ("T*** D***"). Sebelum ada donasi berisi doa, halaman menampilkan "Belum ada doa."
 
+**Moderasi:** Petugas Donasi dan System Manager membuka laporan Desk **Moderasi Doa**, lalu menekan **Sembunyikan** pada doa yang tidak pantas (alasan wajib, tercatat siapa dan kapan) atau **Tampilkan** untuk membatalkan. Doa tersembunyi hilang dari halaman Doa, Beranda, dan tidak bisa diaminkan; data donasinya tetap utuh. Doa tidak disaring otomatis, jadi tinjau laporan ini secara berkala.
+
 ## Yang BELUM ikut berpindah ke server
 Halaman berikut masih membaca berkas statis di dalam bundel UI. Isinya tetap konten contoh sampai disambungkan:
 - Gamifikasi, misi Jalan Kebaikan, dan teks kampanye berbahasa Inggris.

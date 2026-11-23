@@ -16,7 +16,7 @@ def _row(r):
 
 
 FIELDS = ["gateway_order_id", "message", "amin_count", "is_anonymous", "donor_name", "currency", "amount", "paid_at"]
-BASE = {"status": "Paid", "message": ["is", "set"]}
+BASE = {"status": "Paid", "message": ["is", "set"], "doa_disembunyikan": 0}  # yang disembunyikan petugas tidak tampil di publik
 
 
 @frappe.whitelist(allow_guest=True)
@@ -37,7 +37,7 @@ def for_amin(limit=12):
 @rate_limit(limit=60, seconds=60)
 def amin(doa, delta=1):
 	d = by_public_id(doa)
-	if d.status != "Paid" or not d.message:
+	if d.status != "Paid" or not d.message or d.doa_disembunyikan:
 		frappe.throw(_("Doa tidak ditemukan"), frappe.DoesNotExistError)
 	delta = max(1, min(int(delta), MAX_AMIN))
 	donor = current_donor(required=False)
@@ -48,4 +48,31 @@ def amin(doa, delta=1):
 		return {"ok": True, "capped": True}
 	frappe.get_doc({"doctype": "Doa Amin", "donation": d.name, "actor": actor, "actor_name": mask_name(donor.full_name) if donor else None, "delta": delta}).insert(ignore_permissions=True)
 	frappe.db.sql("update `tabDonation` set amin_count = coalesce(amin_count,0) + %s where name=%s", (delta, d.name))
+	return {"ok": True}
+
+
+def _petugas():
+	frappe.only_for(["System Manager", "Petugas Donasi"])
+
+
+@frappe.whitelist(methods=["POST"])
+def sembunyikan(donation_id, alasan=None):
+	"""Sembunyikan doa dari publik (daftar doa, Beranda, amin). Data donasi tetap utuh. Hanya Petugas Donasi/System Manager."""
+	_petugas()
+	alasan = (alasan or "").strip()
+	if len(alasan) < 3:
+		frappe.throw(_("Alasan wajib diisi (minimal 3 huruf)."), frappe.ValidationError)
+	d = by_public_id(donation_id)
+	if not d.message:
+		frappe.throw(_("Donasi ini tidak berisi doa."), frappe.ValidationError)
+	frappe.db.set_value("Donation", d.name, {"doa_disembunyikan": 1, "doa_disembunyikan_alasan": alasan[:500], "doa_disembunyikan_oleh": frappe.session.user, "doa_disembunyikan_pada": now_datetime()})
+	return {"ok": True}
+
+
+@frappe.whitelist(methods=["POST"])
+def tampilkan(donation_id):
+	"""Batalkan penyembunyian doa."""
+	_petugas()
+	d = by_public_id(donation_id)
+	frappe.db.set_value("Donation", d.name, {"doa_disembunyikan": 0, "doa_disembunyikan_alasan": None, "doa_disembunyikan_oleh": None, "doa_disembunyikan_pada": None})
 	return {"ok": True}

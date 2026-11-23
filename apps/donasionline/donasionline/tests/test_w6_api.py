@@ -281,6 +281,37 @@ class TestApi(IntegrationTestCase):
 		self.pay(pid)
 		self.assertEqual(campaign.detail(slug)["raised_amount"], sebelum + 25000)  # angka persis, bukan ringkasan teks
 
+	def test_moderasi_doa(self):
+		from donasionline.donasi_online.report.moderasi_doa.moderasi_doa import execute as laporan
+
+		self.new_donor()
+		pid = self.make_donation(message="Doa yang perlu dimoderasi", amount=9000)
+		self.pay(pid)
+		ids = lambda: [x["id"] for x in doa.list_doa(take=30)]
+		self.assertIn(pid, ids())
+		# bukan petugas: ditolak (donor biasa & tamu)
+		with self.assertRaises(frappe.PermissionError):
+			doa.sembunyikan(pid, "alasan")
+		frappe.set_user("Guest")
+		with self.assertRaises(frappe.PermissionError):
+			doa.sembunyikan(pid, "alasan")
+		frappe.set_user("Administrator")
+		with self.assertRaises(frappe.ValidationError):  # alasan wajib
+			doa.sembunyikan(pid, " ")
+		doa.sembunyikan(pid, "Mengandung nomor telepon")
+		self.assertNotIn(pid, ids())
+		self.assertNotIn(pid, [x["id"] for x in doa.for_amin(limit=30)])
+		frappe.set_user("Guest")
+		with self.assertRaises(frappe.DoesNotExistError):  # tidak bisa diaminkan lagi
+			doa.amin(pid, 1)
+		frappe.set_user("Administrator")
+		row = next(r for r in laporan({})[1] if r["id"] == pid)
+		self.assertEqual((row["status"], row["alasan"], row["oleh"]), ("Tersembunyi", "Mengandung nomor telepon", "Administrator"))
+		self.assertEqual(frappe.db.get_value("Donation", {"gateway_order_id": pid}, "amount"), 9000)  # data donasi utuh
+		doa.tampilkan(pid)
+		self.assertIn(pid, ids())
+		self.assertEqual(next(r for r in laporan({})[1] if r["id"] == pid)["status"], "Tampil")
+
 	def test_hapus_akun_anonimkan(self):
 		self.new_donor()
 		pid = self.make_donation()
