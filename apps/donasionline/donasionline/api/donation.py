@@ -55,12 +55,32 @@ def create(campaign_id=None, amount=None, donor_name=None, donor_phone=None, is_
 	return {"donation_id": doc.gateway_order_id}
 
 
+def _poll_midtrans(d, p):
+	"""Tanya Midtrans paling sering 1x/10 detik per donasi."""
+	key = f"mt_poll:{d.name}"
+	if frappe.cache.get_value(key):
+		return
+	frappe.cache.set_value(key, 1, expires_in_sec=10)
+	from donasionline import gateway
+	from donasionline.api.payment import _apply_status
+
+	res = gateway.fetch_status(p.order_id)
+	if res and res[0]:
+		_apply_status(frappe.get_doc("Permintaan Pembayaran", p.name), res[0], res[1])
+		frappe.db.commit()
+
+
 @frappe.whitelist(allow_guest=True)
 def status(id):
 	d = by_public_id(id)
 	pr = frappe.get_all("Permintaan Pembayaran", {"donation": d.name}, ["*"], order_by="creation desc", limit=1)
+	if d.status == "Pending" and pr and pr[0].gateway == "midtrans" and pr[0].status == "pending":
+		_poll_midtrans(d, pr[0])  # cadangan webhook (mis. dev lokal tanpa URL publik)
+		d.reload()
+		pr = frappe.get_all("Permintaan Pembayaran", {"donation": d.name}, ["*"], order_by="creation desc", limit=1)
 	if d.status == "Pending" and d.expired_at and d.expired_at < now_datetime():
 		frappe.db.set_value("Donation", d.name, "status", "Expired")
+		frappe.db.commit()  # GET tidak otomatis commit
 		d.status = "Expired"
 	meta = {}
 	if pr:

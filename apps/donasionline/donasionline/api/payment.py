@@ -52,8 +52,9 @@ def create(donation_id, payment_method, **_ignored):
 	if existing:  # idempoten: ulangi permintaan -> pembayaran sama
 		pr = frappe.get_doc("Permintaan Pembayaran", existing)
 	else:
-		data = gateway.charge(d.gateway_order_id, m, d.amount)
-		pr = frappe.get_doc({"doctype": "Permintaan Pembayaran", "donation": d.name, "order_id": d.gateway_order_id + "-" + frappe.generate_hash(length=4), "payment_method": m.name, "status": "pending", "expires_at": d.expired_at, **data}).insert(ignore_permissions=True)
+		oid = d.gateway_order_id + "-" + frappe.generate_hash(length=4)
+		data = gateway.charge(oid, m, d.amount, {"name": d.donor_name, "phone": d.donor_phone})
+		pr = frappe.get_doc({"doctype": "Permintaan Pembayaran", "donation": d.name, "order_id": oid, "payment_method": m.name, "status": "pending", "expires_at": d.expired_at, **data}).insert(ignore_permissions=True)
 		frappe.db.set_value("Donation", d.name, "payment_method", m.name)
 	return {"orderId": pr.order_id, "qrString": pr.qr_string, "qrImageUrl": pr.qr_code_url, "expiresAt": pr.expires_at, "vaNumber": pr.va_number, "redirectUrl": pr.redirect_url}
 
@@ -75,7 +76,7 @@ def qr_png(id):
 		frappe.throw(_("Pembuat QR tidak tersedia"))
 
 
-STATUS_MAP = {"settlement": "paid", "capture": "paid", "expire": "expired", "cancel": "failed", "deny": "failed", "failure": "failed"}
+STATUS_MAP = gateway.STATUS_MAP
 
 
 @frappe.whitelist(allow_guest=True, methods=["POST"])

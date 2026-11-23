@@ -24,6 +24,15 @@ Catatan: `down -v` MENGHAPUS data. Kalau backend 502 setelah restart, jalankan `
 - UI Vue: `ui/` (`cd ui && npm i && npm run dev`, http://127.0.0.1:5174, proxy ke Frappe). `VITE_REAL_API=1` memakai `ui/src/apiShim.js`; `0` = mode demo.
 - Dev: kode OTP tampil di layar karena `donasionline_otp_dev_echo` (matikan di produksi).
 
+## Midtrans sandbox
+1. Daftar/masuk https://dashboard.sandbox.midtrans.com, pilih environment **Sandbox**.
+2. Settings > Access Keys: salin **Merchant ID**, **Client Key** (`SB-Mid-client-...`), **Server Key** (`SB-Mid-server-...`) ke `.env` (`MIDTRANS_*`). Contoh nama ada di `.env.example`.
+3. `tools/terapkan_midtrans.sh` menguji kunci ke Midtrans lalu menulisnya ke site_config (tidak dicetak). `--matikan` kembali ke simulator.
+4. Pembayaran: QRIS dan VA BNI/BRI/Permata lewat Core API; GoPay, ShopeePay, BSI, VA lain lewat Snap. Status lunas diambil dua jalur: webhook (butuh URL publik) dan polling saat halaman donasi dibuka (cukup untuk lokal).
+5. Webhook (opsional di lokal): Settings > Payment > Notification URL = `https://<tunnel>/api/method/donasionline.api.payment.webhook` (mis. `cloudflared tunnel --url http://127.0.0.1:8082 --http-host-header donasi.localhost`).
+6. Uji bayar: simulator sandbox https://simulator.sandbox.midtrans.com (QRIS/VA/GoPay).
+Kode Midtrans diuji dengan respons tiruan (7 tes); BELUM dicoba ke sandbox nyata.
+
 ## Kanal OTP
 Pengaturan Donasi > "Kanal OTP & pengingat": `Log saja` (bawaan; kode tidak terkirim), `WhatsApp` (POST JSON ke gateway generik: URL https, token di header, badan dari template dengan `{phone}`/`{message}`), `Email` (butuh Email Account keluar; email palsu `@donor.invalid` dilewati), atau `WhatsApp lalu Email`. Gagal kirim = galat generik ke donatur, kode tidak pernah masuk log. Teruji dengan gateway tiruan (5 tes); BELUM dicoba ke gateway WA/SMTP nyata. Produksi: matikan `donasionline_otp_dev_echo`.
 Pengingat Rutin: `run_due` berjalan tiap jam, membuat donasi Pending saat jam jadwal tiba dan mengirim pengingat (WA lewat gateway yang sama, email) SEKALI per eksekusi, dengan tautan `/donasi/<id>`. Hasil dicatat di Log Pengingat Rutin (Terkirim/Gagal/Dilewati; Dilewati = gateway belum diatur atau donor tanpa kontak). Diuji dengan gateway tiruan. UI Rutin (mode terhubung): jadwal disimpan di server lewat `recurring.save_schedule` (divalidasi server), kejadian DIBAYAR dibaca dari server; UPCOMING/DUE/MISSED tetap dibangkitkan mesin `ui/src/rutin.js` di browser. Tombol Bayar membuat donasi per tanggal (`execute` dengan `targetDate`, jendela genapi 7 hari) lalu pembayaran. Mode demo (`VITE_REAL_API=0`) tetap localStorage. Batas: pembayaran masih lewat simulator, jadi 'lunas' dari UI baru terjadi setelah staf menjalankan `payment.simulate_paid`; streak server dan streak UI dihitung terpisah.
